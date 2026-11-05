@@ -342,6 +342,56 @@ details.paso[open]{box-shadow:none}
 .box mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}
 
 mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden}
+
+/* ===== Más espaciado y más visual (capa final) ===== */
+body{line-height:1.75;font-size:16.5px}
+main{gap:44px}
+.sec{padding:14px 40px 40px}
+.sec>p,.sec .inner>p,.box p{margin:0 0 14px}
+.sec>p{max-width:72ch}
+.sh{margin-bottom:22px;padding-bottom:16px;border-bottom:1px dashed color-mix(in srgb,var(--tc) 35%,var(--line))}
+.badge{transform:scale(1.08)}
+h3{font-size:23px;margin:56px 0 16px;padding:6px 0 6px 14px;border-left:5px solid var(--tc);background:linear-gradient(90deg,var(--tcs),transparent 70%);border-radius:0 10px 10px 0}
+h4{margin:6px 0 12px}
+ul,ol{padding-left:22px}
+li{margin:8px 0}
+li::marker{color:var(--tc)}
+.box,.zero{padding:22px 26px;margin:22px 0}
+.box.key{position:relative;padding-top:42px}
+.box.key::before{content:"★  Lo esencial";position:absolute;top:12px;left:24px;font:700 11.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.key>p+p{border-top:1px dashed color-mix(in srgb,var(--tc,var(--accent)) 30%,var(--line));padding-top:14px;margin-top:14px}
+.box.trap h4::before{content:"⚠  "}
+.zero .ft::before{content:"◎  "}
+.grid2{gap:22px}
+.grid2 .box{margin:0}
+mjx-container[display="true"]{margin:16px 0!important;padding:12px 10px;border-radius:12px;background:color-mix(in srgb,var(--tcs,var(--accent-soft)) 55%,transparent)}
+.box mjx-container[display="true"],.zero mjx-container[display="true"],.enun mjx-container[display="true"]{background:color-mix(in srgb,var(--surface) 55%,transparent)}
+figure.fig{margin:34px 0}
+details{margin:16px 0}
+details>summary{padding:16px 20px}
+details .inner{padding:6px 24px 20px}
+details .inner>p{margin:12px 0}
+th,td{padding:11px 14px}
+.tw tr:nth-child(even) td{background:color-mix(in srgb,var(--tcs,var(--accent-soft)) 40%,transparent)}
+.tw{border-radius:12px;overflow:auto;border:1px solid var(--line);margin:18px 0}
+ol.steps li{margin:12px 0;padding-left:4px}
+.prob{margin:34px 0 40px;padding-top:6px}
+.prob+.prob{border-top:1px dashed var(--line);padding-top:30px}
+.enun{padding:16px 20px;margin:12px 0 18px}
+details.paso{margin:10px 0}
+details.paso>summary{padding:12px 16px}
+details.paso .inner{padding:8px 20px 14px}
+.pasos-t{margin:18px 0 8px}
+@media (max-width:860px){
+  body{font-size:16px}
+  main{gap:28px}
+  .sec{padding:8px 18px 26px}
+  h3{font-size:20px;margin:40px 0 12px}
+  .box,.zero{padding:18px 18px}
+  .box.key{padding-top:38px}
+  .box.key::before{left:18px}
+  details .inner{padding:4px 16px 16px}
+}
 </style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
