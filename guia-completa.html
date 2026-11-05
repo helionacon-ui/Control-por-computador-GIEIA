@@ -340,6 +340,8 @@ details.paso .inner{padding:4px 16px 10px}
 details.paso[open]{box-shadow:none}
 .ojo{border-left:3px solid var(--warn,#b4232f);padding-left:10px}
 .box mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}
+
+mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden}
 </style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -872,7 +874,7 @@ details.paso[open]{box-shadow:none}
 <div class="box">
 <h4>División larga</h4>
 <p>Divide numerador entre denominador en potencias de $z^{-1}$: los coeficientes del cociente son $h[0],h[1],\dots$ Sirve para dar las primeras muestras o comprobar tu fórmula. Ejemplo (1.<sup>er</sup> parcial 2023-24, P3):</p>
-<p>$$\frac{1+z^{-1}}{1-z^{-1}+\frac12z^{-2}}$$ $$=1+2z^{-1}+1{,}5z^{-2}+0{,}5z^{-3}-0{,}25z^{-4}-\dots$$</p>
+<p>$$\frac{1+z^{-1}}{1-z^{-1}+\frac12z^{-2}}$$ $$=1+2z^{-1}+1{,}5z^{-2}+0{,}5z^{-3}-\dots$$</p>
 <p>Es decir, $h=\{1;\ 2;\ 1{,}5;\ 0{,}5;\ -0{,}25;\dots\}$, lo mismo que da $h[n]=\sqrt{10}\,(\tfrac1{\sqrt2})^n\cos(\tfrac\pi4n-\arctan3)$.</p>
 </div>
 <div class="box">

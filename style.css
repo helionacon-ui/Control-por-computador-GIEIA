@@ -328,6 +328,8 @@ details.paso[open]{box-shadow:none}
 .ojo{border-left:3px solid var(--warn,#b4232f);padding-left:10px}
 .box mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}
 
+mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden}
+
 .crumb{max-width:1180px;margin:0 auto;padding:12px 16px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--muted)}
 .crumb a{color:var(--accent);text-decoration:none;font-weight:600}
 .crumb .sep{opacity:.5}
