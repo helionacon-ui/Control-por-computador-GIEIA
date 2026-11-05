@@ -1,5 +1,7 @@
 # Control por Computador · Guía para aprobar
 
+**Proyecto iniciado el 4 de noviembre de 2026.**
+
 Guía de estudio interactiva de Control por Computador (UPCT, GIEyA, 3.º).
 
 Ábrela en: https://helionacon-ui.github.io/Control-por-computador-GIEIA/
