@@ -341,10 +341,10 @@ details.nom .inner{padding-top:14px}
 <header class="hero">
   <div class="hero-in">
     <div class="hero-txt">
-      <div class="eyebrow">UPCT · GIEyA · 3.º · Prof. J. I. Mulero</div>
+      <div class="eyebrow">UPCT · GIEyA · 3.º curso</div>
       <h1>Control por <span>Computador</span></h1>
       <p class="sub">Guía para aprobar</p>
-      <p class="lede">Hecha a partir de tu carpeta <code>Cxc</code>: la recopilación de exámenes 2012–2024, la teoría del 2.º parcial, el Tema 1, las hojas de problemas, las prácticas y unos ejercicios complementarios externos. Cada tema tiene lo esencial, la receta que usa el profesor, un problema de examen real resuelto y las trampas típicas. Los resultados numéricos están comprobados con código.</p>
+      <p class="lede">Hecha a partir de tu carpeta <code>Cxc</code>: la recopilación de exámenes 2012–2024, la teoría del 2.º parcial, el Tema 1, las hojas de problemas, las prácticas y unos ejercicios complementarios externos. Cada tema tiene lo esencial, la receta de resolución, un problema de examen real resuelto y las trampas típicas. Los resultados numéricos están comprobados con código.</p>
       <div class="stats">
         <div><b>7</b><span>temas del programa</span></div>
         <div><b>97</b><span>ejercicios complementarios externos</span></div>
@@ -377,7 +377,7 @@ details.nom .inner{padding-top:14px}
   <div class="grp">Empezar</div>
   <a href="#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a>
   <a href="#examen" style="--tc:var(--c0)">Cómo es el examen</a>
-  <a href="#clase" style="--tc:var(--c0)">Lo que se dio en clase</a>
+  <a href="#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
   <a href="#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
   <a href="#progreso" style="--tc:var(--c0)">Tu progreso</a>
   <div class="grp">Parcial 1</div>
@@ -444,7 +444,7 @@ details.nom .inner{padding-top:14px}
 <tr><td class="sym">$x(t)$</td><td>Señal <b>continua</b>: paréntesis y tiempo real $t$</td><td class="u">$t$ en segundos</td></tr>
 <tr><td class="sym">$x[n]$</td><td>Secuencia <b>discreta</b>: corchetes e índice entero $n$</td><td class="u">$n\in\mathbb Z$, «muestra número $n$»</td></tr>
 <tr><td class="sym">$T,\ f_s,\ \omega_s$</td><td>Periodo de muestreo, frecuencia de muestreo y pulsación de muestreo</td><td class="u">$f_s=\frac1T$ Hz, $\ \omega_s=\frac{2\pi}T$ rad/s</td></tr>
-<tr><td class="sym">$j$</td><td>Unidad imaginaria, $j^2=-1$ (en algunos apuntes del profesor aparece como $i$)</td><td class="u">$e^{j\theta}=\cos\theta+j\sin\theta$</td></tr>
+<tr><td class="sym">$j$</td><td>Unidad imaginaria, $j^2=-1$ (a veces aparece como $i$)</td><td class="u">$e^{j\theta}=\cos\theta+j\sin\theta$</td></tr>
 <tr><td class="sym">$\delta(t),\ \delta[n]$</td><td>Impulso: continuo (área 1) y discreto (vale 1 en $n=0$)</td><td class="u">$\delta[n]=1[n]-1[n-1]$</td></tr>
 <tr><td class="sym">$1(t),\ 1[n]$</td><td>Escalón unitario. El Oppenheim lo escribe $u(t)$, $u[n]$</td><td class="u">$1[n]=1$ si $n\ge0$</td></tr>
 <tr><td class="sym">$x*h$</td><td>Asterisco <b>entre</b> dos señales: <b>convolución</b></td><td class="u">$y=x*h$</td></tr>
@@ -488,63 +488,63 @@ details.nom .inner{padding-top:14px}
 <li><b>Prácticas, 30 %.</b> Un único <b>examen de laboratorio</b> por convocatoria: configurar, programar, simular y analizar un sistema de control. Sustituye a las memorias.</li>
 <li>Tu nota final es la mayor entre la de evaluación continua y la de la global. Las notas de continua y la del examen de prácticas solo valen durante el curso académico.</li>
 </ul>
-<p class="muted" style="margin:8px 0 0;font-size:14px">Profesor: Juan Ignacio Mulero Martínez · tutorías los martes de 11:00 a 13:00, Hospital de Marina, planta 1 · 4,5 ECTS, 3.º curso, 1.er cuatrimestre.</p>
+<p class="muted" style="margin:8px 0 0;font-size:14px">4,5 ECTS, 3.º curso, 1.er cuatrimestre.</p>
 </div>
-<p>En los finales de la recopilación indicas de qué parte te examinas (EP1 / EP2). El profesor resuelve siempre con los mismos métodos: fracciones parciales sobre $H(z)/z$, residuos para discretizar y las tres reglas de Ragazzini. Si usas sus métodos y su notación, puntúas.</p>
+<p>En los finales de la recopilación indicas de qué parte te examinas (EP1 / EP2). Los exámenes se resuelven siempre con los mismos métodos: fracciones parciales sobre $H(z)/z$, residuos para discretizar y las tres reglas de Ragazzini. Si usas sus métodos y su notación, puntúas.</p>
 <p class="muted" style="font-size:14px">Los temas de esta guía siguen la numeración del programa oficial (1 a 7). Los apartados del programa que no salían en los exámenes recopilados también están cubiertos; los verás marcados con <span class="tag">programa</span>.</p>
 </section>
 <section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
-<div class="sh"><span class="badge" aria-hidden="true">Clase</span><div class="shx"><p class="kick">Empezar</p><h2 id="clase">Lo que se dio en clase</h2></div></div>
+<div class="sh"><span class="badge" aria-hidden="true">!</span><div class="shx"><p class="kick">Empezar</p><h2 id="clase">Prioridades y ejercicios extra</h2></div></div>
 
-<p>He contrastado la guía con la transcripción en LaTeX de tus apuntes de clase (<code>Apuntes_cxc LATEX.pdf</code>, 76 págs., transcripción de <i>CxC fuen</i>). Esto es lo que se vio y lo que no, para que repartas el tiempo con cabeza.</p>
+<p>Qué apartados del programa pesan más en el examen, para que repartas el tiempo con cabeza.</p>
 <div class="tw"><table>
-<tr><th>Apartado del programa</th><th>¿En los apuntes de clase?</th><th>Prioridad para el examen</th></tr>
-<tr><td>1 · Muestreo, retención, cuantización</td><td>Sí</td><td><span class="tag">media</span></td></tr>
-<tr><td>2 · Secuencias, sistemas, convolución, estabilidad</td><td>Sí, con muchos ejercicios</td><td><span class="tag w">alta</span></td></tr>
-<tr><td>3 · Fourier, autofunciones, Shannon, aliasing</td><td>Sí</td><td><span class="tag w">alta</span> (fue el EP1)</td></tr>
-<tr><td>4 · Transformada Z, ROC, inversa, propiedades</td><td>Sí, 22 ejercicios</td><td><span class="tag w">alta</span></td></tr>
-<tr><td>5 · $X^*(s)$, Jury, ZOH, FT pulso, PID digital</td><td>Sí</td><td><span class="tag w">alta</span></td></tr>
-<tr><td>5.6 · Z modificada (respuesta entre muestras)</td><td>No</td><td><span class="tag">baja</span></td></tr>
-<tr><td>6 · Schur-Cohn, error estacionario</td><td>Sí</td><td><span class="tag w">alta</span></td></tr>
-<tr><td>6.3 · Bilineal + Routh, tabla de Jury</td><td>No (solo Schur-Cohn)</td><td><span class="tag">baja</span></td></tr>
-<tr><td>7.1–7.2 · Emulación, lugar de las raíces</td><td>No</td><td><span class="tag">baja</span></td></tr>
-<tr><td>7.3–7.4 · Ragazzini y deadbeat</td><td>Sí</td><td><span class="tag w">alta</span></td></tr>
+<tr><th>Apartado del programa</th><th>Prioridad para el examen</th></tr>
+<tr><td>1 · Muestreo, retención, cuantización</td><td><span class="tag">media</span></td></tr>
+<tr><td>2 · Secuencias, sistemas, convolución, estabilidad</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>3 · Fourier, autofunciones, Shannon, aliasing</td><td><span class="tag w">alta</span> (fue el EP1)</td></tr>
+<tr><td>4 · Transformada Z, ROC, inversa, propiedades</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>5 · $X^*(s)$, Jury, ZOH, FT pulso, PID digital</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>5.6 · Z modificada (respuesta entre muestras)</td><td><span class="tag">baja</span></td></tr>
+<tr><td>6 · Schur-Cohn, error estacionario</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>6.3 · Bilineal + Routh, tabla de Jury</td><td><span class="tag">baja</span></td></tr>
+<tr><td>7.1–7.2 · Emulación, lugar de las raíces</td><td><span class="tag">baja</span></td></tr>
+<tr><td>7.3–7.4 · Ragazzini y deadbeat</td><td><span class="tag w">alta</span></td></tr>
 </table></div>
-<p>En los temas los apartados que <b>no</b> salen en los apuntes de clase llevan la etiqueta <span class="tag w">no está en los apuntes de clase</span>. Léelos para entenderlos, pero dedica el tiempo fuerte a lo marcado como prioridad alta.</p>
-<h3>Ejercicios de clase que no estaban en la guía</h3>
-<details><summary>Clase T4-E13 / E15 · Periodicidad de la oscilación continua y de la secuencia <span class="src">Apuntes de clase, T4</span></summary><div class="inner">
+<p>En los temas, los apartados de prioridad baja llevan la etiqueta <span class="tag w">prioridad baja</span>. Léelos para entenderlos, pero dedica el tiempo fuerte a lo marcado como prioridad alta.</p>
+<h3>Ejercicios extra</h3>
+<details><summary>Extra T4-E13 / E15 · Periodicidad de la oscilación continua y de la secuencia <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
 
 <p><b>Enunciado.</b> (a) Probar que $x_a(t)=A\cos(\omega t+\theta)$ es periódica para toda frecuencia $f$. (b) Probar que $x[n]=A\cos(2\pi Fn+\theta)$ es periódica si y solo si $F\in\mathbb Q$, y dar el periodo fundamental.</p>
 <p>(a) Buscamos $T$ con $x_a(t+T)=x_a(t)$ para todo $t$: $\cos(2\pi ft+\theta+2\pi fT)=\cos(2\pi ft+\theta)$ exige $2\pi fT=2\pi k$, así que $T=\frac1f$ (con $k=1$) siempre existe ∎.</p>
 <p>(b) Ahora el desplazamiento tiene que ser un <b>entero</b> $N$: $2\pi FN=2\pi k$ ⇔ $F=\frac kN\in\mathbb Q$ ∎. Con $F=\frac{k'}{N'}$ irreducible, $N_0=N'$. Es la misma idea que en el EP1: en continuo siempre se puede elegir $T$ real; en discreto, $N$ tiene que ser entero.</p>
 </div></details>
-<details><summary>Clase T4-E14 · Muestrear $3\cos(100\pi t)$ <span class="src">Apuntes de clase, T4</span></summary><div class="inner">
+<details><summary>Extra T4-E14 · Muestrear $3\cos(100\pi t)$ <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
 
 <p><b>Enunciado.</b> (a) Velocidad mínima de muestreo para evitar el aliasing. (b) Secuencia obtenida con $f_s=200$ Hz.</p>
 <p>(a) $\omega=100\pi\Rightarrow f=50$ Hz $\Rightarrow f_s&gt;100$ Hz.</p>
 <p>(b) $x[n]=3\cos(2\pi\frac{50}{200}n)=\boxed{3\cos\frac{\pi n}{2}}$, periódica con $N_0=4$: cuatro muestras por periodo.</p>
 </div></details>
-<details><summary>Clase T4-E20 · Propiedades: diferencia y expansión en el tiempo <span class="src">Apuntes de clase, T4</span></summary><div class="inner">
+<details><summary>Extra T4-E20 · Propiedades: diferencia y expansión en el tiempo <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
 
 <p><b>Enunciado.</b> Si $\mathcal Z\{x[n]\}=X(z)$, calcula la transformada de (a) $\Delta x[n]=x[n]-x[n-1]$; (b) $x_1[n]=x[n/2]$ si $n$ es par y 0 si es impar.</p>
 <p>(a) Por linealidad y retardo: $\boxed{(1-z^{-1})X(z)}$. Es la «derivada discreta» y aparece en el PID y en el ZOH.</p>
 <p>(b) Solo sobreviven los índices pares $n=2k$: $\sum_kx[k]z^{-2k}=\boxed{X(z^2)}$. Intercalar ceros en el tiempo equivale a sustituir $z$ por $z^2$.</p>
 </div></details>
-<details><summary>Clase T4-E21 · Un sistema que usa $y[n+1]$ <span class="src">Apuntes de clase, T4</span></summary><div class="inner">
+<details><summary>Extra T4-E21 · Un sistema que usa $y[n+1]$ <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
 
 <p><b>Enunciado.</b> $x[n]=y[n-1]-\frac52y[n]+y[n+1]$. Posibles respuestas al escalón.</p>
 <p>$X=Y(z^{-1}-\frac52+z)$ ⇒ $H(z)=\dfrac{Y}{X}=\dfrac{z}{z^2-\frac52z+1}=\dfrac{z}{(z-2)(z-\frac12)}$.</p>
 <p>Con el escalón, $Y(z)=H(z)\frac{z}{z-1}$, con polos en $\frac12$, $1$ y $2$. Las ROC compatibles con el escalón ($|z|&gt;1$) son $1&lt;|z|&lt;2$ (bilateral) y $|z|&gt;2$ (causal). Fracciones parciales de $Y/z=\frac{z}{(z-2)(z-\frac12)(z-1)}$: coeficientes $\frac43$ (polo 2), $\frac23$ (polo $\frac12$) y $-2$ (polo 1).</p>
 <p>Causal ($|z|&gt;2$): $y[n]=\big[\tfrac43\,2^n+\tfrac23(\tfrac12)^n-2\big]1[n]$. Bilateral ($1&lt;|z|&lt;2$): $y[n]=\big[\tfrac23(\tfrac12)^n-2\big]1[n]-\tfrac43\,2^n1[-n-1]$. Interpretación: la ecuación usa $y[n+1]$, así que no obliga a que el sistema sea causal. Es la ROC la que decide qué sistema es.</p>
 </div></details>
-<details><summary>Clase T5 · $X^*(s)$ cerrando el contorno por la derecha: las réplicas del espectro <span class="src">Apuntes de clase, T5</span></summary><div class="inner">
+<details><summary>Extra T5 · $X^*(s)$ cerrando el contorno por la derecha: las réplicas del espectro <span class="src">Teoría · T5</span></summary><div class="inner">
 
 <p><b>Enunciado.</b> En la integral de contorno de Jury, cierra el contorno por la derecha en lugar de por la izquierda. ¿Qué expresión de $X^*(s)$ sale?</p>
 <p>Por la derecha se encierran los polos de $\frac{1}{1-e^{-(s-p)T}}$, que están en $p=s+jk\omega_s$, $k\in\mathbb Z$. Cada residuo vale, por L'Hôpital, $\frac{X(s+jk\omega_s)}{T}$. Sumando:</p>
 <p>$$\boxed{X^*(s)=\frac1T\sum_{k=-\infty}^{+\infty}X(s+jk\omega_s)}\qquad\big(+\tfrac12x(0^+)\text{ si }x\text{ salta en }t=0\big)$$</p>
 <p>Es la misma fórmula que la del muestreo del tema 3: con $s=j\omega$ queda $X^*(j\omega)=\frac1T\sum X(j(\omega+k\omega_s))$, el espectro repetido cada $\omega_s$. Las dos formas de cerrar el contorno son las dos caras del muestreo: <b>por la izquierda</b> dan una suma finita de residuos (útil para calcular $X(z)$) y <b>por la derecha</b>, las réplicas del espectro (útil para entender el aliasing).</p>
 </div></details>
-<details><summary>Clase T7 / examen jun. 2020 · Identificar una planta de grado 3 <span class="src">Apuntes de clase y recopilación, jun. 2020</span></summary><div class="inner">
+<details><summary>Extra T7 / examen jun. 2020 · Identificar una planta de grado 3 <span class="src">Recopilación, jun. 2020</span></summary><div class="inner">
 
 <p><b>Enunciado.</b> $G(z)=\frac{K_p}{D(z)}$, de tercer orden, con $D(0)=1$ y $G(1)=2$, en lazo cerrado con $G_c=K_c$ (sin ZOH). Los polos cruzan la circunferencia unidad con $K_c=6$ en el ángulo $\Omega=\frac\pi3$. Determina $G(z)$.</p>
 <p><b>Cómo pensarlo:</b> «cruzar la circunferencia en $e^{j\pi/3}$» significa que $z=e^{j\pi/3}$ es raíz de la ecuación característica. Una ecuación compleja son <b>dos</b> ecuaciones reales (parte real e imaginaria).</p>
@@ -556,7 +556,7 @@ details.nom .inner{padding-top:14px}
 </section>
 <section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
 <div class="sh"><span class="badge" aria-hidden="true">Bib</span><div class="shx"><p class="kick">Empezar</p><h2 id="oppenheim">Qué leer del Oppenheim</h2></div></div>
-<p>La bibliografía básica oficial es: <b>Oppenheim</b>, <i>Señales y sistemas</i> (temas 2 a 4); <b>Ogata</b>, <i>Sistemas de control en tiempo discreto</i>, y <b>Franklin, Powell y Workman</b>, <i>Digital Control of Dynamic Systems</i> (temas 5 a 7); <b>Reinoso</b>, <i>Control de sistemas discretos</i> (problemas resueltos en castellano), y <b>Proakis</b>, <i>Tratamiento digital de señales</i>, de donde sale el ejemplo de Schur-Cohn de los apuntes. Tienes en la carpeta el Oppenheim y el Ogata. Como refuerzo externo, los ejercicios complementarios <i>Control por Computador explicado desde cero</i> (208 págs., 97 ejercicios); sus ejercicios están resueltos en <a href="#academia">esta sección</a>.</p>
+<p>La bibliografía básica oficial es: <b>Oppenheim</b>, <i>Señales y sistemas</i> (temas 2 a 4); <b>Ogata</b>, <i>Sistemas de control en tiempo discreto</i>, y <b>Franklin, Powell y Workman</b>, <i>Digital Control of Dynamic Systems</i> (temas 5 a 7); <b>Reinoso</b>, <i>Control de sistemas discretos</i> (problemas resueltos en castellano), y <b>Proakis</b>, <i>Tratamiento digital de señales</i>, de donde sale el ejemplo clásico de Schur-Cohn. Como refuerzo, tienes 97 ejercicios complementarios resueltos en <a href="#academia">esta sección</a>.</p>
 <p>El primer parcial sigue el <i>Señales y sistemas</i> de Oppenheim y Willsky (2.ª ed., Prentice Hall), que tienes en la carpeta. Las páginas son las impresas en el libro; en tu PDF, súmales <b>29</b> (la p. 741 del libro es la 770 del PDF). Los problemas recomendados son los del final de cada capítulo que más se parecen a los de examen.</p>
 <div class="tw"><table>
 <tr><th>Tema</th><th>Secciones del libro</th><th>Problemas</th></tr>
@@ -571,8 +571,8 @@ details.nom .inner{padding-top:14px}
 <div class="box trap">
 <h4>Diferencias de notación</h4>
 <ul>
-<li>Oppenheim escribe el escalón como $u[n]$; Mulero, como $1[n]$.</li>
-<li>Oppenheim llama $\omega$ a la frecuencia discreta y escribe $X(e^{j\omega})$. En los apuntes de Mulero, $\Omega$ es la frecuencia continua en rad/s (Tema 1). Fíjate en cuál usa cada enunciado.</li>
+<li>Oppenheim escribe el escalón como $u[n]$; en la asignatura y en esta guía, como $1[n]$.</li>
+<li>Oppenheim llama $\omega$ a la frecuencia discreta y escribe $X(e^{j\omega})$. En el Tema 1 de la asignatura, $\Omega$ es la frecuencia continua en rad/s (Tema 1). Fíjate en cuál usa cada enunciado.</li>
 <li>Oppenheim usa transformada Z bilateral con ROC explícita. En examen, di siempre qué ROC eliges (causal → exterior).</li>
 </ul>
 </div>
@@ -743,7 +743,7 @@ details.nom .inner{padding-top:14px}
 <tr><td class="sym">$x_p(t)=x^*(t)$</td><td>Señal muestreada (el Oppenheim la llama $x_p$)</td><td class="u">tren de impulsos de pesos $x(kT)$</td></tr>
 <tr><td class="sym">$\mathrm{sinc}(x)$</td><td>Seno cardinal, el interpolador ideal</td><td class="u">$\frac{\sin\pi x}{\pi x}$</td></tr>
 <tr><td class="sym">$H(j\omega)$</td><td>Respuesta en frecuencia de un sistema</td><td class="u">salida $=H(j\omega_0)\,e^{j\omega_0t}$</td></tr>
-</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>La letra $\Omega$ no significa siempre lo mismo. En las transparencias del Tema 1 del profesor, $\Omega$ es la pulsación <b>continua</b> (rad/s: $\Omega_s$, $\Omega_H$). En el EP1 y en esta guía, $\Omega_0$ es la <b>discreta</b> (rad/muestra). El Oppenheim usa $\omega$ para las dos. La pista infalible son <b>las unidades</b>: si multiplica a $t$ es continua; si multiplica a $n$, discreta.</p></div>
+</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>La letra $\Omega$ no significa siempre lo mismo. En el Tema 1, $\Omega$ es la pulsación <b>continua</b> (rad/s: $\Omega_s$, $\Omega_H$). En el EP1 y en esta guía, $\Omega_0$ es la <b>discreta</b> (rad/muestra). El Oppenheim usa $\omega$ para las dos. La pista infalible son <b>las unidades</b>: si multiplica a $t$ es continua; si multiplica a $n$, discreta.</p></div>
 </div></details>
 <figure class="fig">
 <p class="ft">Simulador · construir una onda cuadrada sumando senos</p>
@@ -828,7 +828,7 @@ details.nom .inner{padding-top:14px}
 <p>$X(z)=\sum x[n]z^{-n}$. <b>Secuencia derecha (causal)</b> → ROC exterior a un círculo $|z|&gt;r$. <b>Causal y estable</b> ⇔ todos los polos dentro del disco unidad $D(0,1)$.</p>
 <p><b>Desplazamiento:</b> $x[n-k]\leftrightarrow z^{-k}X(z)$. <b>Valor final:</b> $x[\infty]=\lim_{z\to1}(1-z^{-1})X(z)$, solo si $(1-z^{-1})X(z)$ es estable. <b>Valor inicial:</b> $x[0]=\lim_{z\to\infty}X(z)$.</p>
 </div>
-<h3>Receta de la Z inversa (la del profesor)</h3>
+<h3>Receta de la Z inversa</h3>
 <ol class="steps">
 <li>Pasa a potencias positivas de $z$ (multiplica arriba y abajo por $z^{k}$).</li>
 <li>Expande <b>$H(z)/z$</b> (no $H(z)$) en fracciones parciales: $C_i=\lim_{z\to p_i}(z-p_i)\frac{H(z)}{z}$.</li>
@@ -921,7 +921,7 @@ details.nom .inner{padding-top:14px}
 <tr><td class="sym">$u[k],\ y[k]$</td><td>Valores en el instante $kT$ (en control se usa $k$ en lugar de $n$)</td><td class="u">$u[k]$ dura de $kT$ a $(k+1)T$</td></tr>
 <tr><td class="sym">$K_p,K_i,K_d$</td><td>Ganancias proporcional, integral y derivativa del PID</td><td class="u"></td></tr>
 <tr><td class="sym">$G(z,m)$</td><td>Transformada Z modificada: salida en $t=(k-1+m)T$</td><td class="u">$0\le m&lt;1$</td></tr>
-</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>Escribir $G(z)$ a secas para la planta con ZOH es una abreviatura de $\mathcal Z\{G_{ZOH}G_p\}$. Cuando en un diagrama hay varios bloques seguidos sin muestreador, el profesor escribe el producto entre paréntesis, $(G_{ZOH}G_p)(z)$ o $(G_{ZOH}G_p)^*$, para dejar claro que se discretizan juntos.</p></div>
+</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>Escribir $G(z)$ a secas para la planta con ZOH es una abreviatura de $\mathcal Z\{G_{ZOH}G_p\}$. Cuando en un diagrama hay varios bloques seguidos sin muestreador, se escribe el producto entre paréntesis, $(G_{ZOH}G_p)(z)$ o $(G_{ZOH}G_p)^*$, para dejar claro que se discretizan juntos.</p></div>
 </div></details>
 <figure class="fig">
 <p class="ft">Simulador · ZOH + planta: el modelo discreto acierta en cada muestra</p>
@@ -968,7 +968,7 @@ $$G(z)=\mathcal Z\{G_{ZOH}(s)G_p(s)\}=(1-z^{-1})\,\mathcal Z\!\left\{\frac{G_p(s
 <div class="box key">
 <p>Existe <b>solo si la entrada $R$ entra por un muestreador</b> (aparece como $R^*$ o $R(z)$ separable). Si $R$ pasa por un bloque continuo antes de muestrearse, aparece un término $(G R)(z)$, que <b>no se puede separar</b>: entonces das la salida $Y(z)$ explícitamente, no $Y/R$.</p>
 <p>Regla clave: $(G_1G_2)^*\neq G_1^*G_2^*$. Bloques continuos en serie <b>sin muestreador en medio</b> se discretizan juntos.</p>
-<p><b>Método Mulero:</b> parte de la salida y recorre hacia atrás; lo que quede entre dos muestreadores es una FT pulso. Plantea una ecuación por cada señal muestreada, despeja.</p>
+<p><b>Método práctico:</b> parte de la salida y recorre hacia atrás; lo que quede entre dos muestreadores es una FT pulso. Plantea una ecuación por cada señal muestreada, despeja.</p>
 <p>Lazo típico (controlador digital, ZOH, planta, realimentación unitaria):
 $$\frac{Y(z)}{R(z)}=\frac{G_c(z)G(z)}{1+G_c(z)G(z)},\qquad G(z)=(1-z^{-1})\mathcal Z\{G_p/s\}$$
 Con sensor $H(s)$ en la realimentación: el denominador pasa a $1+G_c(z)\,\overline{GH}(z)$, con $\overline{GH}(z)=\mathcal Z\{G_{ZOH}G_pH\}$.</p>
@@ -997,13 +997,13 @@ No es separable → <b>no existe</b> FT pulso desde $D$.</p>
 <p>Forma de velocidad (incremental), la que se programa en el microcontrolador: $\;u[k]=u[k-1]+q_0e[k]+q_1e[k-1]+q_2e[k-2]$, con $q_0=K_p+K_iT+\frac{K_d}T$, $\;q_1=-K_p-\frac{2K_d}T$, $\;q_2=\frac{K_d}T$.</p>
 <p>El polo en $z=1$ es la acción integral: sube el tipo del sistema y anula el error al escalón.</p>
 </div>
-<h3>Respuesta entre muestras: transformada Z modificada <span class="tag">programa 5.6</span><span class="tag w">no está en los apuntes de clase</span></h3>
+<h3>Respuesta entre muestras: transformada Z modificada <span class="tag">programa 5.6</span><span class="tag w">prioridad baja</span></h3>
 <div class="box">
 <p>$Y(z)$ solo da la salida en $t=kT$; entre muestras puede haber oscilaciones ocultas (el <i>ripple</i> típico del deadbeat). Para verlas se retrasa la salida una fracción, $t=(k-1+m)T$ con $0\le m&lt;1$:</p>
 <p>$$G(z,m)=z^{-1}\sum_{\text{polos}}\operatorname{Res}\left[\frac{G(s)\,e^{msT}}{1-z^{-1}e^{sT}}\right]\qquad\text{p. ej. }\ \frac1{s+a}\ \to\ \frac{e^{-amT}}{z-e^{-aT}}$$</p>
 <p>Barriendo $m$ entre 0 y 1 reconstruyes $y(t)$ completa. La alternativa, el «método de la transformada de Laplace», es calcular $y(t)$ en continuo a partir de la escalera $u(t)$ que sale del ZOH.</p>
 </div>
-<h3>Ejemplo: la respuesta entre muestras con la Z modificada <span class="tag">programa 5.6</span><span class="tag w">no está en los apuntes de clase</span></h3>
+<h3>Ejemplo: la respuesta entre muestras con la Z modificada <span class="tag">programa 5.6</span><span class="tag w">prioridad baja</span></h3>
 <details><summary>$G_p=\frac1{s+1}$ con ZOH y $T=1$: salida en $t=(k-1+m)T$ <span class="src">Comprobado numéricamente</span></summary><div class="inner">
 
 <p>$\mathcal Z_m\{\frac1s\}=\frac1{z-1}$ y $\mathcal Z_m\{\frac1{s+1}\}=\frac{e^{-m}}{z-e^{-1}}$. Como $\frac{G_p}{s}=\frac1s-\frac1{s+1}$:
@@ -1013,7 +1013,7 @@ Comprobación: con $m=0$ sale $\frac{1-e^{-1}}{z(z-e^{-1})}=z^{-1}G(z)$, la mism
 </div></details>
 
 <h3>Ejemplo: el PID de las prácticas en lazo cerrado</h3>
-<details><summary>$G_p=\frac1{s(s+1)}$, $T=1$, $K_p=1$, $K_i=K_d=0{,}2$ (apuntes de clase y práctica 3) <span class="src">Comprobado numéricamente</span></summary><div class="inner">
+<details><summary>$G_p=\frac1{s(s+1)}$, $T=1$, $K_p=1$, $K_i=K_d=0{,}2$ (práctica 3) <span class="src">Comprobado numéricamente</span></summary><div class="inner">
 
 <p>Con la integral por trapecio: $G_{PID}(z)=K_p+\frac{K_d}T(1-z^{-1})+K_i\frac T2\frac{1+z^{-1}}{1-z^{-1}}=\dfrac{1{,}3z^2-1{,}3z+0{,}2}{z(z-1)}$.</p>
 <p>Planta con ZOH: $G(z)=\frac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$. El lazo cerrado $\frac{G_{PID}G}{1+G_{PID}G}$ tiene por denominador $z^4-1{,}890z^3+1{,}601z^2-0{,}638z+0{,}053$.</p>
@@ -1098,7 +1098,7 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 <div class="figrow"><div id="fig-jz"></div><div id="fig-jt"></div></div>
 <figcaption>Para $z^2+a_1z+a_0$, las tres condiciones de Jury dibujan un <b>triángulo</b> en el plano $(a_1,a_0)$: dentro, las dos raíces están en el disco unidad. La línea es el polinomio del ejemplo $G_p=\frac1{s(s+1)}$ al mover $K$: entra en $K=0$ (polo en $z=1$, lado inferior) y sale por arriba ($a_0=1$) en $K\approx2{,}39$. Ahí los dos polos complejos cruzan la circunferencia a la vez. En el plano z, los puntos grises son el <b>lugar de las raíces</b> para $0\le K\le3$.</figcaption>
 </figure>
-<h3>Jury general y transformación bilineal <span class="tag">programa 6.3</span><span class="tag w">no está en los apuntes de clase</span></h3>
+<h3>Jury general y transformación bilineal <span class="tag">programa 6.3</span><span class="tag w">prioridad baja</span></h3>
 <div class="grid2">
 <div class="box">
 <h4>Criterio de Jury, orden $n$</h4>
@@ -1113,7 +1113,7 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 <p>Ejemplo del rango de $K$: el término central se anula en $K=\frac{1-0{,}3679}{0{,}2642}=2{,}39$, el mismo límite que con Jury.</p>
 </div>
 </div>
-<h3>Ejemplo: tabla de Jury de grado 3 <span class="tag">programa 6.3</span><span class="tag w">no está en los apuntes de clase</span></h3>
+<h3>Ejemplo: tabla de Jury de grado 3 <span class="tag">programa 6.3</span><span class="tag w">prioridad baja</span></h3>
 <details><summary>$P(z)=z^3-0{,}7z^2-0{,}14z+0{,}12$</summary><div class="inner">
 
 <p>Condiciones previas: $P(1)=0{,}28&gt;0$ ✓; $\;(-1)^3P(-1)=1{,}44&gt;0$ ✓; $\;|a_0|=0{,}12&lt;a_3=1$ ✓.</p>
@@ -1124,7 +1124,7 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 <div class="grid2">
 <div class="box">
 <h4>Polos deseados a partir de especificaciones</h4>
-<p>$t_s\approx\dfrac{4{,}6}{\zeta\omega_n}$ (el criterio que usa el profesor), $\;M_p=e^{-\pi\zeta/\sqrt{1-\zeta^2}}$, $\;\omega_d=\omega_n\sqrt{1-\zeta^2}$.</p>
+<p>$t_s\approx\dfrac{4{,}6}{\zeta\omega_n}$ (el criterio habitual), $\;M_p=e^{-\pi\zeta/\sqrt{1-\zeta^2}}$, $\;\omega_d=\omega_n\sqrt{1-\zeta^2}$.</p>
 <p>$z=e^{-\zeta\omega_nT}e^{\pm j\omega_dT}$ → $\;D(z)=z^2-2e^{-\zeta\omega_nT}\cos(\omega_dT)\,z+e^{-2\zeta\omega_nT}$.</p>
 </div>
 <div class="box">
@@ -1152,7 +1152,7 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 <details class="nom"><summary><span class="nom-ic" aria-hidden="true">Aa</span>Nomenclatura del tema 7 <span class="src">10 símbolos</span></summary><div class="inner">
 <div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr>
 <tr><td class="sym">$H(z)$</td><td>Lazo cerrado <b>deseado</b>, el que tú eliges</td><td class="u">$H=\frac{G_cG}{1+G_cG}$</td></tr>
-<tr><td class="sym">$\mu(\cdot)$</td><td>Grado relativo: grado del denominador menos el del numerador. En los apuntes, $\nu$ o «g.r.»</td><td class="u">$\mu\big(\frac{z+1}{z^2}\big)=1$</td></tr>
+<tr><td class="sym">$\mu(\cdot)$</td><td>Grado relativo: grado del denominador menos el del numerador. También se escribe $\nu$ o «g.r.»</td><td class="u">$\mu\big(\frac{z+1}{z^2}\big)=1$</td></tr>
 <tr><td class="sym">$D(z),\ N(z)$</td><td>Denominador y numerador de $H$</td><td class="u">$D$ sale de los polos deseados</td></tr>
 <tr><td class="sym">$b_1,b_0,\ K$</td><td>Coeficientes libres de $H$, que fijan las reglas de Ragazzini</td><td class="u">$H(1)=1$ ⇒ una ecuación</td></tr>
 <tr><td class="sym">$z_0$</td><td>Cero de la planta (a conservar si $|z_0|\ge1$)</td><td class="u"></td></tr>
@@ -1163,7 +1163,7 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 <tr><td class="sym">ripple</td><td>Oscilación de la salida <b>entre</b> muestras, invisible en $y[k]$</td><td class="u">ver el simulador</td></tr>
 </table></div>
 </div></details>
-<h3>Diseño por emulación <span class="tag">programa 7.1</span><span class="tag w">no está en los apuntes de clase</span></h3>
+<h3>Diseño por emulación <span class="tag">programa 7.1</span><span class="tag w">prioridad baja</span></h3>
 <p>Diseñas $C(s)$ en continuo, como en Ingeniería de Control, y lo pasas a $z$. Funciona bien si $T$ es pequeño frente a la dinámica (de 10 a 20 muestras por tiempo de subida).</p>
 <div class="tw"><table>
 <tr><th>Método</th><th>Sustitución</th><th>Comentario</th></tr>
@@ -1180,12 +1180,12 @@ $\;C(z)=0{,}7\,\dfrac{z-0{,}9048}{z-0{,}3333}$.</p>
 <p><b>Polos y ceros:</b> $z=e^{-0{,}1}=0{,}9048$ y $e^{-1}=0{,}3679$, con la ganancia ajustada para que $C(1)=C(s{=}0)=0{,}1$.</p>
 <p>Los tres coinciden en $C(1)=0{,}1$, pero el polo cae en sitios distintos: con $T$ grande, los métodos difieren mucho. Comprobado con <code>c2d(tf([1 1],[1 10]),0.1,'tustin')</code>.</p>
 </div></details>
-<h3>Lugar de las raíces en el plano z <span class="tag">programa 7.2</span><span class="tag w">no está en los apuntes de clase</span></h3>
+<h3>Lugar de las raíces en el plano z <span class="tag">programa 7.2</span><span class="tag w">prioridad baja</span></h3>
 <div class="box">
 <p>Mismas reglas que en continuo, aplicadas a $1+KG(z)=0$: empieza en los polos de $G$, acaba en sus ceros (o en el infinito), y el eje real pertenece al lugar a la izquierda de un número impar de polos y ceros. La diferencia está en la frontera: lo que importa es <b>cuándo cruza la circunferencia unidad</b>, no el eje imaginario.</p>
 <p>Las especificaciones se leen en el plano z: $|z|=e^{-\zeta\omega_nT}$ (círculos de tiempo de asentamiento constante) y $\angle z=\omega_dT$ (rectas radiales de frecuencia constante). El lugar dibujado en la figura del triángulo de Jury (puntos grises) es el de $G_p=\frac1{s(s+1)}$ con $T=1$.</p>
 </div>
-<h3>Ejemplo: lugar de las raíces dibujado a mano <span class="tag">programa 7.2</span><span class="tag w">no está en los apuntes de clase</span></h3>
+<h3>Ejemplo: lugar de las raíces dibujado a mano <span class="tag">programa 7.2</span><span class="tag w">prioridad baja</span></h3>
 <details><summary>$KG(z)$ con $G=\frac{0{,}3679(z+0{,}7183)}{(z-1)(z-0{,}3679)}$ ($G_p=\frac1{s(s+1)}$, $T=1$) <span class="src">Comprobado numéricamente</span></summary><div class="inner">
 
 <ol class="steps">
@@ -1469,7 +1469,7 @@ H = feedback(Gpid*Gz,1); step(H,30); pole(H)</pre>
 <p>$$\omega_1=120\pi-100\pi=20\pi\ \text{rad/s}\quad(f_1=10\text{ Hz}),\qquad\text{equivale a }\ \omega_1=\Omega/T_s=0{,}4\pi\cdot50.$$</p>
 <p><b>Sentido de rotación:</b> la señal real gira $2{,}4\pi$ por muestra, es decir, 1,2 vueltas en sentido antihorario. Al muestrear se pierden las vueltas enteras y se ve solo el resto: 0,2 vueltas (72°) por muestra. Como $\Omega=+0{,}4\pi&gt;0$, el giro aparente <b>conserva el sentido antihorario</b>, pero es <b>mucho más lento</b> (parece de 10 Hz y no de 60).</p>
 <p>El sentido se invertiría si la pulsación reducida cayera en $(-\pi,0)$, es decir, si la parte fraccionaria por muestra superase media vuelta. Por ejemplo, $f_0=90$ Hz da $3{,}6\pi\to-0{,}4\pi$ y la secuencia gira hacia atrás a $-10$ Hz. Es el efecto de la rueda de carro de las películas.</p>
-<p class="muted" style="font-size:14px">En tu transcripción el intervalo aparece como «[0, nfs)»; lo he tomado como $[0,\omega_s)=[0,2\pi f_s)$, que es lo que tiene sentido para una exponencial compleja (no hay simetría que permita doblar a $[0,\omega_s/2]$).</p>
+<p class="muted" style="font-size:14px">El intervalo «[0, nfs)» del enunciado se toma como $[0,\omega_s)=[0,2\pi f_s)$, que es lo que tiene sentido para una exponencial compleja (no hay simetría que permita doblar a $[0,\omega_s/2]$).</p>
 </div></details>
 <figure class="fig">
 <p class="ft">Visual · lo que gira de verdad y lo que se ve</p>
@@ -1608,7 +1608,7 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 <div class="zero"><p class="ft">Cómo se demuestra en este examen</p><ol>
 <li><b>Escribe la definición</b> de lo que te piden: periódica, estable, causal, ROC… Casi siempre el primer paso es ese.</li>
 <li><b>Haz la cuenta en general</b>, sin números, y marca dónde usas cada hipótesis (por ejemplo, «como $\operatorname{mcd}(M,N)=1$…»).</li>
-<li><b>Termina con una frase de interpretación</b>: qué significa geométrica o físicamente. El profesor puntúa ese apartado aparte.</li>
+<li><b>Termina con una frase de interpretación</b>: qué significa geométrica o físicamente. Ese apartado suele puntuar aparte.</li>
 <li>Si es un «si y solo si», haz <b>las dos implicaciones</b>.</li></ol></div>
 <h3>Temas 1–3</h3>
 <details><summary>D1 · La exponencial compleja es autofunción de un LTI <span class="src">EP1 2026, P2</span></summary><div class="inner">
@@ -1616,7 +1616,7 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 <ol class="steps"><li>Escribe la convolución con $h$ dentro: $y[n]=\sum_kh[k]x[n-k]=\sum_kh[k]z_0^{n-k}$.</li><li>Saca de la suma lo que no depende de $k$: $y[n]=z_0^n\sum_kh[k]z_0^{-k}$.</li><li>Reconoce la suma: es $H(z_0)$ (si converge). Con $z_0=e^{j\Omega_0}$ es la respuesta en frecuencia.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> decir que $\lambda=H(z_0)$ <b>no depende de $n$</b>: la entrada sale multiplicada por una constante. Es el problema 2 del EP1.</p>
 </div></details>
-<details><summary>D2 · Periodicidad de $e^{j\Omega_0n}$ <span class="src">Clase T4-E15</span></summary><div class="inner">
+<details><summary>D2 · Periodicidad de $e^{j\Omega_0n}$ <span class="src">Teoría · T1–2</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> $e^{j\Omega_0n}$ es periódica ⇔ $\frac{\Omega_0}{2\pi}\in\mathbb Q$; con $\frac{\Omega_0}{2\pi}=\frac MN$ irreducible, $N_0=N$.</p>
 <ol class="steps"><li>Periódica ⇔ existe $N\in\mathbb Z^+$ con $e^{j\Omega_0(n+N)}=e^{j\Omega_0n}$ ⇔ $e^{j\Omega_0N}=1$.</li><li>$e^{j\theta}=1$ ⇔ $\theta=2\pi k$. Así que $\Omega_0N=2\pi k$ ⇔ $\frac{\Omega_0}{2\pi}=\frac kN\in\mathbb Q$.</li><li>El menor $N^\prime$ con $\frac{MN^\prime}{N}\in\mathbb Z$: como $\operatorname{mcd}(M,N)=1$, $N$ tiene que dividir a $N^\prime$, así que el menor es $N^\prime=N$.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> que $N$ tiene que ser <b>entero</b> (en continuo no hace falta) y usar $\operatorname{mcd}=1$ para el periodo fundamental.</p>
@@ -1687,10 +1687,10 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 <ol class="steps"><li>$G_c=\frac{H}{G(1-H)}$: un cero $c$ de $G$ aparece como <b>polo</b> de $G_c$ salvo que $H(c)=0$.</li><li>Un polo $p$ de $G$ aparece como <b>cero</b> de $G_c$ que cancelaría el polo inestable. La cancelación nunca es exacta y el modo inestable queda escondido dentro del lazo.</li><li>Para que no haya cancelación, $1-H$ tiene que contener el factor $(z-p)$.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> decir que una cancelación inestable produce estabilidad «interna» falsa: la salida parece estable, pero $u[k]$ explota.</p>
 </div></details>
-<details><summary>D16 · Las réplicas, desde la integral de Jury <span class="src">Apuntes de clase, T5</span></summary><div class="inner">
+<details><summary>D16 · Las réplicas, desde la integral de Jury <span class="src">Teoría · T5</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> Cerrando el contorno por la derecha, $X^*(s)=\frac1T\sum_kX(s+jk\omega_s)$.</p>
 <ol class="steps"><li>Los polos de $\frac1{1-e^{-(s-p)T}}$ en $p$ están en $p=s+jk\omega_s$.</li><li>Residuo en cada uno (L’Hôpital): $\frac{X(s+jk\omega_s)}{T}$.</li><li>Suma sobre $k$ ⇒ la fórmula. Con $s=j\omega$ es la del muestreo del tema 3.</li></ol>
-<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> unir el tema 3 y el tema 5 en una misma idea. Es una pregunta de «interpretar» muy típica de este profesor.</p>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> unir el tema 3 y el tema 5 en una misma idea. Es una pregunta de «interpretar» muy típica de estos exámenes.</p>
 </div></details>
 
 </section>
@@ -1751,19 +1751,19 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 </section>
 <section class="sec" style="--tc:var(--c8);--tcs:var(--c8s)">
 <div class="sh"><span class="badge" aria-hidden="true">97</span><div class="shx"><p class="kick">Practicar</p><h2 id="academia">Ejercicios complementarios externos, resueltos</h2></div></div>
-<p>Los apuntes externos que me pasaste (<i>Control por Computador explicado desde cero</i>, 208 págs.) traen <b>97 ejercicios</b>: 61 de los temas 1 a 4 y 36 de los temas 5 a 7. Están <b>resueltos los 97</b>: primero los más representativos de cada tipo y después <a href="#academia-resto">el resto</a>, ordenados por tema. Los resultados numéricos están <b>comprobados con código</b>, y al final tienes el mapa de todos con su página del PDF.</p>
+<p>Esta colección reúne <b>97 ejercicios</b>: 61 de los temas 1 a 4 y 36 de los temas 5 a 7. Están <b>resueltos los 97</b>: primero los más representativos de cada tipo y después <a href="#academia-resto">el resto</a>, ordenados por tema. Los resultados numéricos están <b>comprobados con código</b>, y al final tienes el mapa de todos por tipo.</p>
 <div class="zero"><p class="ft">Cómo trabajarlos</p>
 <p>Lee el enunciado y la pista «Cómo pensarlo», cierra la solución e inténtalo en papel. Muchos se pueden comprobar con los simuladores de la guía: la <b>calculadora de convolución</b> y el <b>explorador de ROC</b> de esta sección, y la calculadora de Schur-Cohn del tema 6.</p></div>
 
 <h3>Temas 1–2 · Señales, sistemas y convolución</h3>
-<details><summary>T1-E10 · De la respuesta al escalón a la impulsiva <span class="src">PDF complementario p. 108</span></summary><div class="inner">
+<details><summary>T1-E10 · De la respuesta al escalón a la impulsiva <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> La respuesta al escalón de un LTI es $s[n]=\frac{n}{2^n}1[n]$. Encuentra $h[n]$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> como $\delta[n]=1[n]-1[n-1]$ y el sistema es LTI, la respuesta al impulso es la diferencia de respuestas al escalón.</p>
 <p>$h[n]=s[n]-s[n-1]=\frac{n}{2^n}1[n]-\frac{n-1}{2^{n-1}}1[n-1]$. Para $n\ge1$: $\frac{n-2(n-1)}{2^n}=\frac{2-n}{2^n}$; en $n=0$ vale 0.</p>
 <p>$$\boxed{h[n]=\frac{2-n}{2^n}\,1[n-1]}\qquad h=\{0,\ \tfrac12,\ 0,\ -\tfrac18,\ -\tfrac18,\dots\}$$</p>
 </div></details>
 
-<details><summary>T1-E14 · Ecuación en diferencias, convolución y estabilidad <span class="src">PDF complementario p. 114</span></summary><div class="inner">
+<details><summary>T1-E14 · Ecuación en diferencias, convolución y estabilidad <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Sistema causal $y[n]-\frac12y[n-1]=x[n]$. (a) $h[n]$. (b) Salida para $x[n]=(\frac13)^n1[n]$ usando la convolución. (d) ¿Es estable?</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> con $x=\delta$ la ecuación da $h[n]=\frac12h[n-1]$ para $n\ge1$ y $h[0]=1$. Después, convolución de dos exponenciales.</p>
 <p>(a) $h[n]=(\tfrac12)^n1[n]$.</p>
@@ -1771,55 +1771,55 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 <p>(d) $\sum|h[n]|=\frac1{1-1/2}=2&lt;\infty$ → estable (polo en $z=\frac12$).</p>
 </div></details>
 
-<details><summary>T1-E11 / E13 · Convolución de dos exponenciales <span class="src">PDF complementario p. 110, 112</span></summary><div class="inner">
+<details><summary>T1-E11 / E13 · Convolución de dos exponenciales <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $x[n]=(\frac12)^n1[n]$, $h[n]=(\frac32)^n1[n]$; y en general $a^n1[n]*b^n1[n]$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> solo hay solape para $0\le k\le n$; saca factor común $b^n$ y suma la geométrica de razón $a/b$.</p>
 <p>$a^n1[n]*b^n1[n]=\dfrac{a^{n+1}-b^{n+1}}{a-b}1[n]$ (si $a=b$: $(n+1)a^n1[n]$).</p>
 <p>Con $a=\frac12$, $b=\frac32$: $\boxed{y[n]=\big[(\tfrac32)^{n+1}-(\tfrac12)^{n+1}\big]1[n]}$. Crece sin límite porque $h$ no es sumable.</p>
 </div></details>
 
-<details><summary>T1-E48 · Convolución con un escalón desplazado <span class="src">PDF complementario p. 149</span></summary><div class="inner">
+<details><summary>T1-E48 · Convolución con un escalón desplazado <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $x[n]=(\frac15)^n1[n]$, $h[n]=(\frac12)^n1[n-3]$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> las condiciones son $k\ge0$ (por $x$) y $n-k\ge3$ (por $h$). Así que $0\le k\le n-3$, y solo hay salida para $n\ge3$.</p>
 <p>$y[n]=(\tfrac12)^n\sum_{k=0}^{n-3}(\tfrac25)^k=(\tfrac12)^n\dfrac{1-(\frac25)^{n-2}}{3/5}$</p>
 <p>$$\boxed{y[n]=\tfrac53\Big[(\tfrac12)^n-\tfrac14(\tfrac15)^{n-2}\Big]1[n-3]}$$ <span class="muted">Comprobado contra la convolución numérica.</span></p>
 </div></details>
 
-<details><summary>T1-E60 · Otra con desplazamiento <span class="src">PDF complementario p. 161</span></summary><div class="inner">
+<details><summary>T1-E60 · Otra con desplazamiento <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $x[n]=(\frac12)^n1[n-2]$, $h[n]=(\frac32)^n1[n]$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $0\le k\le n-2$. Al juntar las potencias queda $(\frac12)^n\sum 3^k$.</p>
 <p>$y[n]=\sum_{k=0}^{n-2}(\tfrac32)^k(\tfrac12)^{n-k}=(\tfrac12)^n\sum_{k=0}^{n-2}3^k\;\Rightarrow\;\boxed{y[n]=(\tfrac12)^n\,\dfrac{3^{n-1}-1}{2}\,1[n-2]}$</p>
 </div></details>
 
-<details><summary>T1-E49 · Convolución aritmético-geométrica <span class="src">PDF complementario p. 150</span></summary><div class="inner">
+<details><summary>T1-E49 · Convolución aritmético-geométrica <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $x[n]=(\frac13)^n1[n]$, $h[n]=(2n+1)1[n]$.</p>
-<p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $y[n]=(\frac13)^n\sum_{k=0}^n(2k+1)3^k$. Necesitas $\sum k r^k=\frac{r(1-(n+1)r^n+nr^{n+1})}{(1-r)^2}$ (ejercicio E26 de los apuntes).</p>
+<p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $y[n]=(\frac13)^n\sum_{k=0}^n(2k+1)3^k$. Necesitas $\sum k r^k=\frac{r(1-(n+1)r^n+nr^{n+1})}{(1-r)^2}$ (ejercicio E26).</p>
 <p>$\sum_{k=0}^n3^k=\frac{3^{n+1}-1}2$ y $\sum_{k=0}^nk3^k=\frac{3(1+(2n-1)3^n)}4$. Sumando, $\sum(2k+1)3^k=1+n\,3^{n+1}$.</p>
 <p>$$\boxed{y[n]=\big(3n+3^{-n}\big)1[n]}$$ Comprobación: $y[0]=1$ ✓, $y[1]=h_0x_1+h_1x_0=\frac13+3$ ✓.</p>
 </div></details>
 
-<details><summary>T1-E59 · Convolución gráfica de dos pulsos (examen, 3,5 puntos) <span class="src">PDF complementario p. 160</span></summary><div class="inner">
+<details><summary>T1-E59 · Convolución gráfica de dos pulsos (examen, 3,5 puntos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $h[n]=1$ para $0\le n\le2$, $x[n]=1$ para $0\le n\le3$. Método gráfico y analítico.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> el resultado mide $3+4-1=6$ muestras y empieza en $0+0$. Cada $y[n]$ es el número de muestras que se solapan.</p>
 <p>$y=\{1,2,3,3,2,1\}$ para $n=0,\dots,5$: un trapecio. Sube mientras el pulso corto entra, se mantiene mientras está dentro y baja al salir.</p>
 <p>Analítico: $y[n]=\sum_{k=\max(0,n-2)}^{\min(3,n)}1=\min(3,n)-\max(0,n-2)+1$. <span class="muted">Pruébalo en la calculadora de convolución.</span></p>
 </div></details>
 
-<details><summary>T1-E52 / E55 · Pulso por exponencial truncada <span class="src">PDF complementario p. 153, 156</span></summary><div class="inner">
+<details><summary>T1-E52 / E55 · Pulso por exponencial truncada <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E52) $h=1$ en $0\le n\le5$, $x=\alpha^n$ en $1\le n\le3$. (E55) $x=1$ en $0\le n\le4$, $h=\alpha^n$ en $0\le n\le6$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> como en el anterior, pero sumando potencias de $\alpha$ entre los límites de solape. Distingue los tramos «entrando», «dentro» y «saliendo».</p>
 <p><b>E52:</b> $y[n]=\sum_{k=\max(1,n-5)}^{\min(3,n)}\alpha^k$, es decir, $y[1]=\alpha$, $y[2]=\alpha+\alpha^2$, $y[3..6]=\alpha+\alpha^2+\alpha^3$, $y[7]=\alpha^2+\alpha^3$, $y[8]=\alpha^3$.</p>
 <p><b>E55:</b> $y[n]=\dfrac{\alpha^{\max(0,n-4)}-\alpha^{\min(6,n)+1}}{1-\alpha}$ para $0\le n\le10$, y 0 fuera. Tramos: $n\in[0,4]$: $\frac{1-\alpha^{n+1}}{1-\alpha}$; $\;n\in[5,6]$: $\frac{\alpha^{n-4}-\alpha^{n+1}}{1-\alpha}$; $\;n\in[7,10]$: $\frac{\alpha^{n-4}-\alpha^{7}}{1-\alpha}$.</p>
 </div></details>
 
-<details><summary>T1-E42 · ¿Invariante en el tiempo? <span class="src">PDF complementario p. 139</span></summary><div class="inner">
+<details><summary>T1-E42 · ¿Invariante en el tiempo? <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Un sistema lineal responde $h_k[n]$ a $\delta[n-k]$. ¿Es invariante si (i) $h_k[n]=(n-k)1[n-k]$; (ii) $h_k[n]=\delta[2n-k]$?</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> es invariante si y solo si $h_k[n]=h_0[n-k]$: la respuesta al impulso retrasado es la misma, retrasada.</p>
 <p>(i) $h_0[n]=n1[n]$ y $h_0[n-k]=(n-k)1[n-k]=h_k[n]$ ✓ → <b>invariante</b>.</p>
 <p>(ii) $h_0[n]=\delta[2n]=\delta[n]$, pero $h_2[n]=\delta[2n-2]=\delta[n-1]\neq\delta[n-2]$ → <b>no invariante</b>. Basta un contraejemplo.</p>
 </div></details>
 
-<details><summary>T1-E22 / E23 / E24 / E54 · Batería de periodicidad <span class="src">PDF complementario p. 121–155</span></summary><div class="inner">
+<details><summary>T1-E22 / E23 / E24 / E54 · Batería de periodicidad <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E22) $\sin7t$, $e^{j5\pi t}$, $\sin\frac{\pi n}6$, $\cos\frac n6$, $\cos\frac{7\pi n}3$. (E23) $\cos\frac{\pi n}3+\sin\frac{\pi n}6+\cos\frac{\pi n}4$. (E24) $e^{j2\pi n/3}+e^{j3\pi n/4}$. (E54) $\sin\frac{\pi n}3+3\cos5\pi n+2\sin\frac{7\pi n}3+5e^{j\pi n}$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> continuas: siempre periódicas, $T=2\pi/\omega$. Discretas: $\frac{\Omega}{2\pi}$ irreducible $=\frac kN\Rightarrow N$. Para las sumas, el mcm de los periodos.</p>
 <div class="tw"><table><tr><th>Señal</th><th>$\Omega/2\pi$ o $\omega$</th><th>Periodo</th></tr>
@@ -1834,14 +1834,14 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 </div></details>
 
 <h3>Tema 3 · Fourier y muestreo</h3>
-<details><summary>T1-E40 / E41 · Todas las señales analógicas de una secuencia <span class="src">PDF complementario p. 138–139</span></summary><div class="inner">
+<details><summary>T1-E40 / E41 · Todas las señales analógicas de una secuencia <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E40) $x[n]=\cos\frac{\pi n}8$ con $f_s=10$ kHz. (E41) $x[n]=3\cos\frac{4\pi n}3$ con $f_s=75$ Hz: frecuencia fundamental y alias.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $F=\frac{\Omega}{2\pi}$ reducida a $[0,\frac12]$; $f=Ff_s$; los alias son $\pm f+kf_s$.</p>
 <p><b>E40:</b> $F=\frac1{16}\Rightarrow f=625$ Hz. Valen todas las $\cos(2\pi(\pm625+10\,000k)t)$: 625 Hz, 9 375 Hz, 10 625 Hz…</p>
 <p><b>E41:</b> $\Omega=\frac{4\pi}3&gt;\pi$, así que se reduce: $\frac{4\pi}3-2\pi=-\frac{2\pi}3$ y, como el coseno es par, $x[n]=3\cos\frac{2\pi n}3$. $F=\frac13\Rightarrow$ <b>fundamental $f=25$ Hz</b>. Alias: $3\cos(2\pi(\pm25+75k)t)$, es decir, 50, 100, 125, 175 Hz… (la de 50 Hz es la que «parece» el enunciado).</p>
 </div></details>
 
-<details><summary>T1-E61 · Muestrear $A\cos(k\frac{2\pi}3t)$ (examen, 3 puntos) <span class="src">PDF complementario p. 162</span></summary><div class="inner">
+<details><summary>T1-E61 · Muestrear $A\cos(k\frac{2\pi}3t)$ (examen, 3 puntos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (i) $x_k^*(t)$; (ii) $x_k[n]$; (iii) ¿qué $T_s$ la hace periódica?; (iv) periodo si $T_s=1$; (v) ¿cuántas secuencias distintas?</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> sustituye $t=nT_s$ y aplica la regla de periodicidad discreta con $\frac{\Omega}{2\pi}=\frac{kT_s}3$.</p>
 <p>(i) $x_k^*(t)=\sum_nA\cos(\frac{2\pi k}3nT_s)\,\delta(t-nT_s)$. (ii) $x_k[n]=A\cos(\frac{2\pi kT_s}3n)$.</p>
@@ -1850,7 +1850,7 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 <p>(v) $k$ y $k+3$ dan la misma secuencia, y $k$ y $-k$ también (coseno par): solo hay <b>2 distintas</b>, la constante $A$ y $A\cos\frac{2\pi n}3$.</p>
 </div></details>
 
-<details><summary>T1-E21 / E17 · Transformadas de Fourier básicas <span class="src">PDF complementario p. 120, 117</span></summary><div class="inner">
+<details><summary>T1-E21 / E17 · Transformadas de Fourier básicas <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> TF de $1$, $e^{\pm j\omega_0t}$, $\cos\omega_0t$, $\sin\omega_0t$, $\cos^2\omega_0t$; y la inversa del pulso $X(\omega)=1$ para $|\omega|\le B$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> todo sale de $e^{j\omega_0t}\leftrightarrow2\pi\delta(\omega-\omega_0)$ y de Euler.</p>
 <p>$1\to2\pi\delta(\omega)$ · $e^{\pm j\omega_0t}\to2\pi\delta(\omega\mp\omega_0)$ · $\cos\omega_0t\to\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]$ · $\sin\omega_0t\to\frac\pi j[\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]$.</p>
@@ -1859,7 +1859,7 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 </div></details>
 
 <h3>Tema 4 · Transformada Z y regiones de convergencia</h3>
-<p>El tipo de ejercicio que más se repite en los apuntes (E36–E39, E44–E46, E53, E56, E58) es «<b>halla $h[n]$ en todas las ROC posibles</b>». Con dos polos reales hay tres ROC: fuera del mayor (causal), el anillo entre ambos (bilateral) y dentro del menor (anticausal). Una sola regla lo resuelve todo:</p>
+<p>El tipo de ejercicio que más se repite en la colección (E36–E39, E44–E46, E53, E56, E58) es «<b>halla $h[n]$ en todas las ROC posibles</b>». Con dos polos reales hay tres ROC: fuera del mayor (causal), el anillo entre ambos (bilateral) y dentro del menor (anticausal). Una sola regla lo resuelve todo:</p>
 <div class="box key"><p>$$\frac{z}{z-a}\ \longleftrightarrow\ \begin{cases}a^n\,1[n], &amp; |z|&gt;|a|\ \text{(el término es «derecho»)}\\ -a^n\,1[-n-1], &amp; |z|&lt;|a|\ \text{(el término es «izquierdo»)}\end{cases}$$
 El sistema es <b>estable</b> si la ROC contiene la circunferencia $|z|=1$; si hay un polo justo sobre ella, ninguna ROC es estable.</p></div>
 
@@ -1879,21 +1879,21 @@ El sistema es <b>estable</b> si la ROC contiene la circunferencia $|z|=1$; si ha
 <figcaption>Elige un ejercicio y una ROC. Izquierda: polos, ROC sombreada y circunferencia unidad (discontinua). Derecha: $h[n]$ para $n$ de −10 a 10, con la parte $n&lt;0$ en rojo. La misma $H(z)$ da tres sistemas distintos según la ROC: <b>causal</b> (todo a la derecha), <b>anticausal</b> (todo a la izquierda) o <b>bilateral</b>. Solo es estable el que tiene la ROC que contiene $|z|=1$. En E53 hay un polo en $z=-1$ y ninguna ROC es estable.</figcaption>
 </figure>
 
-<details><summary>T1-E33 / E34 / E35 · Transformadas directas <span class="src">PDF complementario p. 129–130</span></summary><div class="inner">
+<details><summary>T1-E33 / E34 / E35 · Transformadas directas <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $Z\{n2^n1[n]\}$; $Z\{(\frac12)^n1[n]+(\frac13)^n1[n]\}$; $Z\{(n^2+3n+5)(\frac12)^n1[n]\}$, con su ROC.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> tabla: $a^n\to\frac z{z-a}$, $na^n\to\frac{az}{(z-a)^2}$, $n^2a^n\to\frac{az(z+a)}{(z-a)^3}$ (derivando: $nx[n]\leftrightarrow-z\frac{dX}{dz}$). La ROC es la intersección.</p>
 <p>$Z\{n2^n\}=\dfrac{2z}{(z-2)^2}$, $|z|&gt;2$. $\quad Z\{(\tfrac12)^n+(\tfrac13)^n\}=\dfrac z{z-\frac12}+\dfrac z{z-\frac13}$, $|z|&gt;\frac12$.</p>
 <p>$$Z\{(n^2+3n+5)(\tfrac12)^n\}=\frac{\frac12z(z+\frac12)}{(z-\frac12)^3}+\frac{\frac32z}{(z-\frac12)^2}+\frac{5z}{z-\frac12},\quad|z|&gt;\tfrac12$$ <span class="muted">Comprobado sumando la serie en un punto de la ROC.</span></p>
 </div></details>
 
-<details><summary>T1-E38 · Inversa anticausal <span class="src">PDF complementario p. 134</span></summary><div class="inner">
+<details><summary>T1-E38 · Inversa anticausal <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $X(z)=\dfrac{z}{2z^2-3z+1}$ con $|z|&lt;\frac12$: fracciones parciales, $x[-1]$ y $x[n]$ para $n\ge0$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $|z|&lt;\frac12$ está dentro de los dos polos, así que <b>los dos</b> términos son izquierdos.</p>
 <p>$2z^2-3z+1=2(z-\frac12)(z-1)$, $\;\frac{X}{z}=\frac{-1}{z-\frac12}+\frac{1}{z-1}$, $\;X=-\frac{z}{z-\frac12}+\frac{z}{z-1}$.</p>
 <p>$$\boxed{x[n]=\big[(\tfrac12)^n-1\big]1[-n-1]}\qquad x[-1]=2-1=1,\quad x[n]=0\ (n\ge0)$$</p>
 </div></details>
 
-<details><summary>T1-E44 · El ejemplo de Proakis: estable, inestable y anticausal <span class="src">PDF complementario p. 142</span></summary><div class="inner">
+<details><summary>T1-E44 · El ejemplo de Proakis: estable, inestable y anticausal <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $H(z)=\dfrac{3-4z^{-1}}{1-\frac72z^{-1}+\frac32z^{-2}}$. ROC y $h[n]$ si (i) estable, (ii) inestable, (iii) anticausal.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> polos de $z^2-\frac72z+\frac32$: $3$ y $\frac12$. Después, fracciones parciales de $H/z$.</p>
 <p>$H(z)=\dfrac{2z}{z-3}+\dfrac{z}{z-\frac12}$.</p>
@@ -1902,7 +1902,7 @@ El sistema es <b>estable</b> si la ROC contiene la circunferencia $|z|=1$; si ha
 <p>(iii) Anticausal, $|z|&lt;\frac12$: $\;h[n]=-\big[2\cdot3^n+(\frac12)^n\big]1[-n-1]$. <span class="muted">Las tres comprobadas con la ecuación en diferencias. Ábrelo en el explorador de ROC.</span></p>
 </div></details>
 
-<details><summary>T1-E58 · Todas las respuestas (examen, 3,5 puntos) <span class="src">PDF complementario p. 159</span></summary><div class="inner">
+<details><summary>T1-E58 · Todas las respuestas (examen, 3,5 puntos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $H(z)=\dfrac{6}{(2z-1)(z-2)}$: todas las $h[n]$ con su ROC.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> aquí no hay $z$ en el numerador: $\frac{1}{z-a}=z^{-1}\frac{z}{z-a}$, así que cada término sale <b>retrasado una muestra</b>.</p>
 <p>$H=\dfrac{3}{(z-\frac12)(z-2)}=\dfrac{-2}{z-\frac12}+\dfrac{2}{z-2}$.</p>
@@ -1911,7 +1911,7 @@ El sistema es <b>estable</b> si la ROC contiene la circunferencia $|z|=1$; si ha
 <p>$|z|&lt;\frac12$ (anticausal): $\;h[n]=\big[4(\tfrac12)^n-2^n\big]1[-n]$.</p>
 </div></details>
 
-<details><summary>T1-E53 / E46 · Polo sobre la circunferencia: nunca estable <span class="src">PDF complementario p. 154, 145</span></summary><div class="inner">
+<details><summary>T1-E53 / E46 · Polo sobre la circunferencia: nunca estable <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E53) $H=\frac1{(z+1)(z+2)}$ en todas sus ROC. (E46) $H=\frac{z+4}{(z^2-3z+2)(z-\frac13)}$: causal, estable y anticausal.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> mira primero si algún polo cae sobre $|z|=1$: entonces ninguna ROC contiene la circunferencia.</p>
 <p><b>E53:</b> $H=\frac1{z+1}-\frac1{z+2}$. Causal ($|z|&gt;2$): $h=[(-1)^{n-1}-(-2)^{n-1}]1[n-1]$. Hay tres ROC ($|z|&gt;2$, $1&lt;|z|&lt;2$, $|z|&lt;1$) y <b>ninguna es estable</b>: el polo $z=-1$ está sobre la circunferencia.</p>
@@ -1919,7 +1919,7 @@ El sistema es <b>estable</b> si la ROC contiene la circunferencia $|z|=1$; si ha
 </div></details>
 
 <h3>Tema 5 · Datos muestreados y función de transferencia pulso</h3>
-<details><summary>T2-E9 / E12 · Jury con dos polos y $(G_1G_2)^*\neq G_1^*G_2^*$ <span class="src">PDF complementario p. 170, 173</span></summary><div class="inner">
+<details><summary>T2-E9 / E12 · Jury con dos polos y $(G_1G_2)^*\neq G_1^*G_2^*$ <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $X(s)=\frac1{(s+a)(s+b)}$: calcula $X(z)$ por residuos. Después demuestra que $(G_1G_2)^*\ne G_1^*G_2^*$ con $G_1=\frac1{s+a}$, $G_2=\frac1{s+b}$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> dos polos simples, dos residuos. Para la segunda parte, compara con el producto de $\frac z{z-e^{-aT}}$ y $\frac z{z-e^{-bT}}$.</p>
 <p>$\operatorname{Res}_{-a}=\frac{1}{b-a}\frac{1}{1-z^{-1}e^{-aT}}$, $\;\operatorname{Res}_{-b}=\frac{1}{a-b}\frac{1}{1-z^{-1}e^{-bT}}$:
@@ -1927,13 +1927,13 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 <p>En cambio, $G_1(z)G_2(z)=\dfrac{z^2}{(z-e^{-aT})(z-e^{-bT})}$. Los polos son los mismos, pero el numerador es otro: <b>distintos</b>. Lo tienes en el simulador del muestreador del tema 5.</p>
 </div></details>
 
-<details><summary>T2-E15 · Doble integrador con ZOH <span class="src">PDF complementario p. 176</span></summary><div class="inner">
+<details><summary>T2-E15 · Doble integrador con ZOH <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $G_{ZOH}(s)\cdot\frac1{s^2}$: calcula $G(z)$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $(1-z^{-1})\mathcal Z\{\frac1{s^3}\}$ y la tabla: $\frac1{s^3}\to\frac{T^2z(z+1)}{2(z-1)^3}$.</p>
 <p>$$G(z)=\frac{z-1}{z}\cdot\frac{T^2z(z+1)}{2(z-1)^3}=\boxed{\frac{T^2(z+1)}{2(z-1)^2}}$$ <span class="muted">Comprobado con <code>c2d(tf(1,[1 0 0]),T,'zoh')</code>.</span></p>
 </div></details>
 
-<details><summary>T2-E13 / E14 · ¿Existe la FT pulso? Dos esquemas <span class="src">PDF complementario p. 174–175</span></summary><div class="inner">
+<details><summary>T2-E13 / E14 · ¿Existe la FT pulso? Dos esquemas <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E13) $e^*\to G_c(s)\to$ muestreador $\to$ ZOH $\to G_p$, con realimentación unitaria. (E14) $r\to\Sigma\to G_1\to$ muestreador $\to G_2\to y$, con realimentación $H(s)$ tomada antes del muestreador de salida.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> recorre hacia atrás desde la salida y escribe una ecuación por cada señal muestreada. Existe la FT si $R$ aparece solo como $R^*$.</p>
 <p><b>E13:</b> $E^*=R^*-Y^*$, $\;U^*=G_c^*E^*$, $\;Y^*=(G_{ZOH}G_p)^*U^*$ ⇒ $\dfrac{Y(z)}{R(z)}=\dfrac{G_c(z)G(z)}{1+G_c(z)G(z)}$: <b>existe</b>.</p>
@@ -1941,21 +1941,21 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 </div></details>
 
 <h3>Tema 6 · Estabilidad</h3>
-<details><summary>T2-E16 / E20 · Polinomio reflejado <span class="src">PDF complementario p. 177, 180</span></summary><div class="inner">
+<details><summary>T2-E16 / E20 · Polinomio reflejado <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $p^*(z)$ para $p(z)=z^3+2z^2+z+5$; y demuestra que las raíces de $p^*$ son las inversas $1/z_k$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $p^*(z)=z^np(1/z)$: los coeficientes al revés. Si $p(z_k)=0$, evalúa $p^*$ en $1/z_k$.</p>
 <p>$p^*(z)=5z^3+z^2+2z+1$.</p>
 <p>$p^*(1/z_k)=z_k^{-n}\,p(z_k)=0$ ⇒ $1/z_k$ es raíz de $p^*$. Por eso, si $p$ tiene una raíz dentro del disco, $p^*$ la tiene fuera: es la base de Schur-Cohn.</p>
 </div></details>
 
-<details><summary>T2-E25 · Estabilidad de un sistema de grado 3 (examen dic. 2016, 5 puntos) <span class="src">PDF complementario p. 189</span></summary><div class="inner">
+<details><summary>T2-E25 · Estabilidad de un sistema de grado 3 (examen dic. 2016, 5 puntos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $H(z)=\dfrac{1}{24z^3-26z^2+9z-1}$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> aplica Schur-Cohn (escribe <code>24, -26, 9, -1</code> en la calculadora) o busca una raíz evidente.</p>
 <p>$z=\frac12$ es raíz: $3-6{,}5+4{,}5-1=0$. Dividiendo, $24z^2-14z+2$ ⇒ $z=\frac13,\frac14$.</p>
 <p>Polos $\frac12,\frac13,\frac14\in D(0,1)$ ⇒ <b>estable</b>. Schur-Cohn llega a lo mismo: paso 0, $\frac1{24}&lt;1$; y sigue cumpliéndose en cada reducción.</p>
 </div></details>
 
-<details><summary>T2-E26 · Condiciones generales para grado 3 (examen feb. 2018) <span class="src">PDF complementario p. 190</span></summary><div class="inner">
+<details><summary>T2-E26 · Condiciones generales para grado 3 (examen feb. 2018) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Condiciones de estabilidad de $p(z)=z^3+a_2z^2+a_1z+a_0$ por Schur-Cohn.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> haz el algoritmo con letras: dos reducciones, y en cada paso $|$término independiente$|&lt;|$principal$|$.</p>
 <p>Paso 0: $|a_0|&lt;1$. Reducción: $p_1=(1-a_0^2)z^2+(a_2-a_0a_1)z+(a_1-a_0a_2)$.</p>
@@ -1963,7 +1963,7 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 <p>$$\boxed{|a_0|&lt;1,\quad|a_1-a_0a_2|&lt;1-a_0^2,\quad|a_2-a_0a_1|&lt;1+a_1-a_0^2-a_0a_2}$$ <span class="muted">Comprobado con 20 000 polinomios aleatorios: coincide siempre con el cálculo de raíces.</span></p>
 </div></details>
 
-<details><summary>T2-E29 / E30 · Lema de Schur y raíces en un disco cualquiera <span class="src">PDF complementario p. 196–197</span></summary><div class="inner">
+<details><summary>T2-E29 / E30 · Lema de Schur y raíces en un disco cualquiera <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E29) Polinomio con raíces $\frac12\pm\frac12j$, $\pm\frac12$; demuestra la estabilidad con el lema de Schur. (E30) ¿Están las raíces de $z^4+10z^3+50z^2+120z+144$ en $D(-\frac52,\frac{31}{10})$?</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> lema de Schur: $S=U^TU-L^TL$ definida positiva ⇔ estable. Para un disco $D(z_0,R)$, cambia $z=Rw+z_0$ y estudia el polinomio en $w$ respecto del disco unidad.</p>
 <p>(E29) $p(z)=(z^2-z+\frac12)(z^2-\frac14)=z^4-z^3+0{,}25z^2+0{,}25z-0{,}125$. Mételo en la calculadora del tema 6: los cuatro menores principales de $S$ salen positivos ⇒ estable.</p>
@@ -1971,7 +1971,7 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 </div></details>
 
 <h3>Tema 7 · Diseño</h3>
-<details><summary>T2-E23 · Colocar polos con planta inestable (examen, 3 puntos) <span class="src">PDF complementario p. 186</span></summary><div class="inner">
+<details><summary>T2-E23 · Colocar polos con planta inestable (examen, 3 puntos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $G(z)=\frac1{z+2}$. Diseña un regulador con polos de lazo cerrado en $z=0$ y $z=0{,}8$ y error nulo al escalón. Ecuación en diferencias del control.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> Ragazzini: $\mu(G)=1$, el polo $-2$ está fuera ⇒ $1-H$ debe anularse en $-2$, es decir, $H(-2)=1$. Junto con $H(1)=1$ son dos ecuaciones para $b_1,b_0$.</p>
 <p>$H(z)=\dfrac{b_1z+b_0}{z(z-0{,}8)}$. $\;H(1)=1$: $b_1+b_0=0{,}2$. $\;H(-2)=1$: $-2b_1+b_0=5{,}6$. ⇒ $b_1=-1{,}8$, $b_0=2$.</p>
@@ -1979,7 +1979,7 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 <p>Control: $u[k]=u[k-1]-1{,}8\,e[k]+2\,e[k-1]$. Comprobación: $(z-1)(z+2)+(-1{,}8z+2)=z^2-0{,}8z$ → polos 0 y 0,8 ✓.</p>
 </div></details>
 
-<details><summary>T2-E24 · Deadbeat con polo inestable <span class="src">PDF complementario p. 188</span></summary><div class="inner">
+<details><summary>T2-E24 · Deadbeat con polo inestable <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $G_p(z)=4\dfrac{z-\frac23}{(z-\frac12)(z-2)}$: control en tiempo mínimo.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $\mu=1$, cero $\frac23$ dentro (se puede cancelar), polo 2 fuera ⇒ $H(2)=1$. Con $H(1)=1$ hacen falta dos coeficientes: $H=\frac{b_1z+b_0}{z^2}$.</p>
 <p>$b_1+b_0=1$, $\;2b_1+b_0=4$ ⇒ $H=\dfrac{3z-2}{z^2}$, $\;1-H=\dfrac{(z-1)(z-2)}{z^2}$.</p>
@@ -1987,7 +1987,7 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 <p>Respuesta al escalón: $y=\{0,\ 3,\ 1,\ 1,\dots\}$. Llega en 2 muestras, pero con un sobreimpulso del <b>200 %</b> en $k=1$: es el precio de estabilizar un polo inestable en tiempo mínimo. Comprobación: $(z-1)(z-2)+3(z-\frac23)=z^2$ ✓.</p>
 </div></details>
 
-<p class="muted" style="font-size:14px">Los otros diseños de los apuntes (E22 Ragazzini con $t_s$ y $\omega_n$, E33 deadbeat del motor) ya están resueltos en el tema 7 de esta guía.</p>
+<p class="muted" style="font-size:14px">Los otros diseños de la colección (E22 Ragazzini con $t_s$ y $\omega_n$, E33 deadbeat del motor) ya están resueltos en el tema 7 de esta guía.</p>
 <figure class="fig">
 <p class="ft">Calculadora · convolución de secuencias finitas</p>
 <div class="ctrl"><label for="w13-x">$x[n]$ <input type="text" id="w13-x" value="1, 1, 1, 1" spellcheck="false" autocomplete="off"></label><label for="w13-xn">empieza en $n=$ <input type="text" id="w13-xn" value="0" style="width:56px"></label></div>
@@ -1995,46 +1995,46 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 <div class="ctrl"><button type="button" id="w13-e59">E59: pulsos 4 y 3</button><button type="button" id="w13-e52">E52 con α = 0,5</button><button type="button" id="w13-e55">E55 con α = 0,5</button>
 <label for="w13-n">Ver el cálculo de $y[n]$ en $n=$ <input type="range" id="w13-n" min="0" max="10" step="1" value="2"></label><output id="w13-n-o"></output></div>
 <div id="w13-xh"></div><div id="w13-y"></div><div class="readout" id="w13-txt"></div>
-<figcaption>Escribe los valores separados por comas y el índice donde empieza cada secuencia. Debajo verás la secuencia resultante y, para el $n$ que elijas, la suma de productos $\sum_k x[k]h[n-k]$ término a término, igual que en el «método de la tabla» de los apuntes. Sirve para comprobar cualquier convolución de pulsos del examen.</figcaption>
+<figcaption>Escribe los valores separados por comas y el índice donde empieza cada secuencia. Debajo verás la secuencia resultante y, para el $n$ que elijas, la suma de productos $\sum_k x[k]h[n-k]$ término a término, igual que en el «método de la tabla». Sirve para comprobar cualquier convolución de pulsos del examen.</figcaption>
 </figure>
 
 <h3 id="academia-resto">El resto de ejercicios complementarios externos</h3>
 <p>Con estos quedan resueltos los 97. Los que repiten un examen que ya está resuelto en la guía llevan la solución corta y un enlace al desarrollo completo.</p>
 <h4>Temas 1–2 · Impulso, escalón y demostraciones</h4>
-<details><summary>T1-E1 · Propiedad de muestreo del impulso <span class="src">PDF complementario p. 101</span></summary><div class="inner">
+<details><summary>T1-E1 · Propiedad de muestreo del impulso <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Demostrar que $x(t)\,\delta(t-a)=x(a)\,\delta(t-a)$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $\delta(t-a)$ es nula fuera de $t=a$, así que de $x(t)$ solo cuenta su valor en ese punto. Para que la demostración sea rigurosa, compara las dos expresiones dentro de una integral con cualquier función $\varphi(t)$.</p>
 <p>Para cualquier $\varphi$: $\int x(t)\delta(t-a)\varphi(t)\,dt=x(a)\varphi(a)=\int x(a)\delta(t-a)\varphi(t)\,dt$. Como las dos distribuciones actúan igual sobre toda $\varphi$, son iguales: $\boxed{x(t)\delta(t-a)=x(a)\delta(t-a)}$.</p>
 <p>Intuición: en $t\neq a$ los dos lados valen 0; en $t=a$, los dos son «un pinchazo de área $x(a)$».</p>
 </div></details>
 
-<details><summary>T1-E2 · Toda señal es una suma de impulsos <span class="src">PDF complementario p. 102</span></summary><div class="inner">
+<details><summary>T1-E2 · Toda señal es una suma de impulsos <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Demostrar que $x(t)=\int_{-\infty}^{+\infty}x(\tau)\,\delta(t-\tau)\,d\tau$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> aplica E1 con la variable de integración $\tau$ y el punto $t$ fijo.</p>
 <p>Por E1, $x(\tau)\delta(t-\tau)=x(t)\delta(t-\tau)$, porque la delta solo es no nula en $\tau=t$. Entonces $\int x(\tau)\delta(t-\tau)d\tau=x(t)\int\delta(t-\tau)d\tau=x(t)\cdot1$ ∎.</p>
 <p>Lectura: la señal es una «suma continua» de impulsos desplazados de peso $x(\tau)$. Es la base de la convolución: si el sistema es LTI, la salida es la misma suma de respuestas $h(t-\tau)$.</p>
 </div></details>
 
-<details><summary>T1-E3 · Señal muestreada <span class="src">PDF complementario p. 102</span></summary><div class="inner">
+<details><summary>T1-E3 · Señal muestreada <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Obtener la señal muestreada de $x(t)$ con periodo $T$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> muestrear es multiplicar por el tren de impulsos $p(t)=\sum_k\delta(t-kT)$ y aplicar E1 a cada término.</p>
 <p>$$x^*(t)=x(t)\,p(t)=\sum_kx(t)\delta(t-kT)=\boxed{\sum_kx(kT)\,\delta(t-kT)}$$ Es un tren de impulsos de pesos $x(kT)$. La secuencia es $x[k]=x(kT)$.</p>
 </div></details>
 
-<details><summary>T1-E4 / E5 · Escalón e impulso discretos <span class="src">PDF complementario p. 103–104</span></summary><div class="inner">
+<details><summary>T1-E4 / E5 · Escalón e impulso discretos <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Demostrar que $1[n]=\sum_{k=0}^{\infty}\delta[n-k]$ y que $\delta[n]=1[n]-1[n-1]$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> evalúa por casos de $n$: en una suma de deltas desplazadas, cada $n$ «enciende» como mucho un término.</p>
 <p>(E4) Si $n&lt;0$, ningún $k\ge0$ cumple $k=n$: la suma vale 0. Si $n\ge0$, solo el término $k=n$ vale 1: la suma vale 1. Eso es $1[n]$ ∎.</p>
 <p>(E5) $1[n]-1[n-1]$: para $n&lt;0$ es $0-0$; para $n=0$, $1-0=1$; para $n\ge1$, $1-1=0$. Eso es $\delta[n]$ ∎. Por lo mismo, en sistemas LTI $h[n]=s[n]-s[n-1]$.</p>
 </div></details>
 
-<details><summary>T1-E6 · $y=x^2$ no es lineal <span class="src">PDF complementario p. 105</span></summary><div class="inner">
+<details><summary>T1-E6 · $y=x^2$ no es lineal <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Probar que $y[n]=x[n]^2$ no es lineal.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> basta un contraejemplo para la homogeneidad o para la aditividad.</p>
 <p>Con $x_1=x_2=1$: $T\{x_1+x_2\}=2^2=4$, pero $T\{x_1\}+T\{x_2\}=1+1=2$. Como $4\neq2$, <b>no es lineal</b> ∎. (También falla la homogeneidad: $T\{2x\}=4x^2\neq2x^2$.)</p>
 </div></details>
 
-<details><summary>T1-E7 / E8 · Condición BIBO (discreto y continuo) <span class="src">PDF complementario p. 106–107</span></summary><div class="inner">
+<details><summary>T1-E7 / E8 · Condición BIBO (discreto y continuo) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Demostrar que un LTI es estable BIBO si y solo si $\sum|h[n]|&lt;\infty$ (discreto) o $\int|h(t)|dt&lt;\infty$ (continuo).</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> suficiencia: acota el módulo de la convolución. Necesidad: construye una entrada acotada que haga la salida tan grande como $\sum|h|$.</p>
 <p><b>⇐</b> Si $|x|\le M$: $|y[n]|=\left|\sum_kh[k]x[n-k]\right|\le M\sum_k|h[k]|&lt;\infty$.</p>
@@ -2042,20 +2042,20 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 <p>En continuo es idéntico, con integrales: $|y(t)|\le M\int|h(\tau)|d\tau$ y $x(t)=\operatorname{sign}(h(-t))$.</p>
 </div></details>
 
-<details><summary>T1-E9 · Propiedad conmutativa <span class="src">PDF complementario p. 107</span></summary><div class="inner">
+<details><summary>T1-E9 · Propiedad conmutativa <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Probar que $x*h=h*x$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> cambio de índice $m=n-k$ en la suma.</p>
 <p>$\sum_kx[k]h[n-k]\overset{m=n-k}{=}\sum_mx[n-m]h[m]=\sum_mh[m]x[n-m]=(h*x)[n]$ ∎. Al recorrer $k$ todo $\mathbb Z$, $m$ también lo recorre.</p>
 </div></details>
 
-<details><summary>T1-E50 / E51 · Sin memoria y causal en términos de $h[n]$ <span class="src">PDF complementario p. 152</span></summary><div class="inner">
+<details><summary>T1-E50 / E51 · Sin memoria y causal en términos de $h[n]$ <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Demostrar que un LTI es sin memoria ⇔ $h[n]=K\delta[n]$, y causal ⇔ $h[n]=0$ para $n&lt;0$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> escribe $y[n]=\sum_kh[k]x[n-k]$ y mira qué valores de $x$ intervienen según dónde sea $h$ distinta de cero.</p>
 <p><b>Sin memoria:</b> $y[n]$ solo puede depender de $x[n]$, es decir, del término $k=0$. Eso exige $h[k]=0$ para $k\ne0$, o sea, $h=K\delta$. Recíprocamente, $h=K\delta\Rightarrow y=Kx[n]$ ∎.</p>
 <p><b>Causal:</b> los términos con $k&lt;0$ usan $x[n-k]$ con $n-k&gt;n$ (el futuro). No dependen del futuro ⇔ $h[k]=0$ para todo $k&lt;0$ ∎.</p>
 </div></details>
 
-<details><summary>T1-E26 / E57 · Series geométrica y aritmético-geométrica <span class="src">PDF complementario p. 124, 159</span></summary><div class="inner">
+<details><summary>T1-E26 / E57 · Series geométrica y aritmético-geométrica <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E57) Demostrar $\sum_{n\ge0}z^n=\frac1{1-z}$ si $|z|&lt;1$. (E26) Calcular $\sum_{j=0}^n(a_0+dj)\,b_0r^j$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> la suma parcial $S_n$ cumple $S_n-zS_n=1-z^{n+1}$. Para la aritmético-geométrica, separa la parte $\sum r^j$ de la parte $\sum jr^j$ y obtén esta última derivando la geométrica.</p>
 <p>(E57) $S_n=\frac{1-z^{n+1}}{1-z}$ y $z^{n+1}\to0$ si $|z|&lt;1$ ⇒ $\frac1{1-z}$ ∎.</p>
@@ -2063,14 +2063,14 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1)r^n+nr^{n+1})}{(1-r)^2}\right]$$ <span class="muted">Comprobado numéricamente. Es la fórmula que usan E27 y E49.</span></p>
 </div></details>
 
-<details><summary>T1-E12 · Convolución con dos desplazamientos <span class="src">PDF complementario p. 111</span></summary><div class="inner">
+<details><summary>T1-E12 · Convolución con dos desplazamientos <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $x[n]=(\frac16)^{n-6}1[n]$, $h[n]=(\frac13)^n1[n-3]$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> solape: $k\ge0$ y $n-k\ge3$, así que $0\le k\le n-3$ y la salida empieza en $n=3$. Saca las constantes y queda una geométrica de razón $\frac12$.</p>
 <p>$y[n]=\sum_{k=0}^{n-3}6^{6-k}3^{-(n-k)}=6^6\,3^{-n}\sum_{k=0}^{n-3}(\tfrac12)^k=6^6(\tfrac13)^n\cdot2\big(1-(\tfrac12)^{n-2}\big)$.</p>
 <p>$$\boxed{y[n]=2\cdot6^6\,(\tfrac13)^n\big(1-(\tfrac12)^{n-2}\big)1[n-3]}$$ <span class="muted">Comprobado numéricamente.</span></p>
 </div></details>
 
-<details><summary>T1-E27 · Convolución de dos señales izquierdas (entregable) <span class="src">PDF complementario p. 125</span></summary><div class="inner">
+<details><summary>T1-E27 · Convolución de dos señales izquierdas (entregable) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $h[n]=1[-n-1]$ y $x[n]=-n\,3^n1[-n]$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $x$ vive en $n\le0$ y $h$ en $n\le-1$. El solape es $k\in[n+1,0]$, y solo existe si $n\le-1$. La suma es aritmético-geométrica (E26).</p>
 <p>Para $n\le-1$: $y[n]=\sum_{k=n+1}^{0}(-k)3^k$. Con la fórmula de E26:</p>
@@ -2079,14 +2079,14 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 </div></details>
 
 <h4>Tema 3 · Fourier y reconstrucción</h4>
-<details><summary>T1-E15 · La exponencial es autofunción de un LTI continuo <span class="src">PDF complementario p. 116</span></summary><div class="inner">
+<details><summary>T1-E15 · La exponencial es autofunción de un LTI continuo <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Si $x(t)=\sum_ka_ke^{s_kt}$, entonces $y(t)=\sum_ka_kH(s_k)e^{s_kt}$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> convoluciona una sola exponencial y saca $e^{st}$ de la integral; después usa la linealidad.</p>
 <p>$e^{st}*h=\int h(\tau)e^{s(t-\tau)}d\tau=e^{st}\underbrace{\int h(\tau)e^{-s\tau}d\tau}_{H(s)}$. Por linealidad, cada sumando sale multiplicado por su $H(s_k)$ ∎.</p>
 <p>Es la versión continua del problema 2 del EP1: por eso las exponenciales son el «ladrillo» para construir cualquier señal (Fourier).</p>
 </div></details>
 
-<details><summary>T1-E16 / E18 / E19 · De Laplace a Fourier, y TF de una exponencial <span class="src">PDF complementario p. 117–119</span></summary><div class="inner">
+<details><summary>T1-E16 / E18 / E19 · De Laplace a Fourier, y TF de una exponencial <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E16) Ver que la Laplace bilateral con $s=j\omega$ da la TF. (E18) $\mathcal F\{e^{jnt}\}=2\pi\delta(\omega-n)$. (E19) $X(\omega)*\delta(\omega-k\omega_0)=X(\omega-k\omega_0)$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> (E16) sustituye $s=j\omega$ en $\int x(t)e^{-st}dt$. (E18) es más fácil ir al revés: calcula la inversa de $2\pi\delta(\omega-n)$. (E19) es la propiedad de muestreo de la delta (E1) dentro de la convolución.</p>
 <p>(E16) $X(s)\big|_{s=j\omega}=\int x(t)e^{-j\omega t}dt=X(\omega)$: la TF es la Laplace sobre el eje imaginario (si este está en la ROC).</p>
@@ -2094,13 +2094,13 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>(E19) $\int X(\nu)\delta(\omega-k\omega_0-\nu)d\nu=X(\omega-k\omega_0)$ ∎. Convolucionar con una delta <b>desplaza</b>, y por eso muestrear (convolucionar con un tren de deltas en frecuencia) <b>replica</b> el espectro.</p>
 </div></details>
 
-<details><summary>T1-E20 · TF del pulso rectangular <span class="src">PDF complementario p. 119</span></summary><div class="inner">
+<details><summary>T1-E20 · TF del pulso rectangular <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $x(t)=1$ si $|t|&lt;a$, 0 si no.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> integra $e^{-j\omega t}$ entre $-a$ y $a$ y aplica Euler.</p>
 <p>$X(\omega)=\int_{-a}^{a}e^{-j\omega t}dt=\frac{e^{j\omega a}-e^{-j\omega a}}{j\omega}=\boxed{\frac{2\sin(a\omega)}{\omega}}$, con $X(0)=2a$ (el área del pulso). Pulso estrecho en el tiempo ⇒ espectro ancho, y al revés.</p>
 </div></details>
 
-<details><summary>T1-E43 · Fórmula de reconstrucción de Shannon <span class="src">PDF complementario p. 140</span></summary><div class="inner">
+<details><summary>T1-E43 · Fórmula de reconstrucción de Shannon <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Si $X(\omega)=0$ para $|\omega|&gt;\omega_B$ y $T_s=\pi/\omega_B$, demostrar que $x(t)=\sum_kx(kT_s)\dfrac{\sin\omega_B(t-kT_s)}{\omega_B(t-kT_s)}$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> muestrea, filtra con un paso bajo ideal de ganancia $T_s$ y corte $\omega_B$, y calcula la respuesta impulsiva de ese filtro.</p>
 <p>$x^*(t)=\sum x(kT_s)\delta(t-kT_s)$ tiene espectro $\frac1{T_s}\sum X(\omega-k\omega_s)$ con $\omega_s=2\omega_B$: las copias justo se tocan y no se solapan.</p>
@@ -2108,7 +2108,7 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>Salida: $x^**h=\sum x(kT_s)h(t-kT_s)$, que es la fórmula pedida ∎. Cada muestra «pone» un seno cardinal, y entre todos rellenan los huecos.</p>
 </div></details>
 
-<details><summary>T1-E25 · Periodos (examen nov. 2012, 5 puntos) <span class="src">PDF complementario p. 123</span></summary><div class="inner">
+<details><summary>T1-E25 · Periodos (examen nov. 2012, 5 puntos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (i) Periodo de $e^{j2\pi kn/N}$ para $N=7$ y $N=16$. (ii) ¿Periódicas? $3\cos(5t+\frac\pi6)$, $3\cos(5n+\frac\pi6)$, $2e^{j(n/6-\pi)}$, $\cos\frac n8\cos\frac{\pi n}8$, $\cos\frac{\pi n}2-\sin\frac{\pi n}8+3\cos(\frac{\pi n}4+\frac\pi3)$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $N_0=N/\operatorname{mcd}(k,N)$. El desarrollo completo está en el <a href="#t1">tema 1</a>.</p>
 <p>(i) $N=7$: $N_0=1$ si $7\mid k$; si no, 7. $\;N=16$: $N_0=16/\operatorname{mcd}(k,16)\in\{1,2,4,8,16\}$.</p>
@@ -2116,14 +2116,14 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 </div></details>
 
 <h4>Tema 4 · Transformada Z</h4>
-<details><summary>T1-E28 / E29 / E31 · Transformadas básicas <span class="src">PDF complementario p. 126–128</span></summary><div class="inner">
+<details><summary>T1-E28 / E29 / E31 · Transformadas básicas <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $Z\{1[n]\}$, $Z\{a^n1[n]\}$ con su ROC; ¿qué $h[n]$ tiene $H(z)=1$?</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> serie geométrica de razón $az^{-1}$: converge si $|az^{-1}|&lt;1$.</p>
 <p>$\sum_{n\ge0}(az^{-1})^n=\frac{1}{1-az^{-1}}=\frac{z}{z-a}$, con ROC $|z|&gt;|a|$. Con $a=1$: $Z\{1[n]\}=\frac z{z-1}$, $|z|&gt;1$.</p>
 <p>$H(z)=1=\sum h[n]z^{-n}$ ⇒ solo $h[0]=1$: $h[n]=\delta[n]$, con ROC todo el plano.</p>
 </div></details>
 
-<details><summary>T1-E30 / E36 · $\frac{z}{z-a}$ en todas sus ROC <span class="src">PDF complementario p. 127, 131</span></summary><div class="inner">
+<details><summary>T1-E30 / E36 · $\frac{z}{z-a}$ en todas sus ROC <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Obtener las señales cuya transformada es $\frac{z}{z-a}$ según la ROC.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> dos ROC posibles: fuera o dentro de $|a|$. La de dentro se obtiene desarrollando en potencias de $z$ (no de $z^{-1}$).</p>
 <p>$|z|&gt;|a|$: $\;a^n1[n]$ (causal).</p>
@@ -2131,13 +2131,13 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>Es la regla que usan todos los ejercicios de «todas las ROC» (explorador de ROC de la guía).</p>
 </div></details>
 
-<details><summary>T1-E32 · Derivación en $z$ <span class="src">PDF complementario p. 128</span></summary><div class="inner">
+<details><summary>T1-E32 · Derivación en $z$ <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Expresión de $Z\{n\,h_1[n]\}$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> deriva $H_1(z)=\sum h_1[n]z^{-n}$ término a término.</p>
 <p>$\frac{dH_1}{dz}=\sum(-n)h_1[n]z^{-n-1}$ ⇒ $\boxed{Z\{nh_1[n]\}=-z\frac{dH_1(z)}{dz}}$, con la misma ROC. Ejemplo: $Z\{na^n\}=-z\frac{d}{dz}\frac{z}{z-a}=\frac{az}{(z-a)^2}$.</p>
 </div></details>
 
-<details><summary>T1-E37 / E39 · Todas las ROC con polos negativos <span class="src">PDF complementario p. 132, 136</span></summary><div class="inner">
+<details><summary>T1-E37 / E39 · Todas las ROC con polos negativos <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $h[n]$ en todas las ROC para (E37) $H=\frac1{(z+2)(z+3)}$ y (E39) $H=\frac1{(z+\frac12)(z+2)}$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> aquí no hay $z$ en el numerador, así que cada término es $\frac{1}{z-a}=z^{-1}\frac{z}{z-a}$: sale retrasado una muestra. Derecho: $a^{n-1}1[n-1]$; izquierdo: $-a^{n-1}1[-n]$.</p>
 <p><b>E37:</b> $H=\frac1{z+2}-\frac1{z+3}$.</p>
@@ -2151,7 +2151,7 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p class="muted">Las seis comprobadas con la ecuación en diferencias.</p>
 </div></details>
 
-<details><summary>T1-E45 · Proakis, segundo ejemplo (cuatro casos) <span class="src">PDF complementario p. 143</span></summary><div class="inner">
+<details><summary>T1-E45 · Proakis, segundo ejemplo (cuatro casos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $H(z)=\dfrac{3+4z^{-1}}{1-\frac{16}3z^{-1}+\frac53z^{-2}}$: ROC y $h[n]$ si es (i) estable, (ii) inestable, (iii) anticausal, (iv) causal.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> polos: $z^2-\frac{16}3z+\frac53=(z-5)(z-\frac13)$. Fracciones parciales de $H/z=\frac{3z+4}{(z-5)(z-\frac13)}$.</p>
 <p>$A=\frac{19}{14/3}=\frac{57}{14}$ (polo 5), $\;B=\frac{5}{-14/3}=-\frac{15}{14}$ (polo $\frac13$): $\;H=\frac{57}{14}\frac{z}{z-5}-\frac{15}{14}\frac{z}{z-\frac13}$.</p>
@@ -2161,7 +2161,7 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>(ii) Inestable: cualquiera de las dos anteriores. <span class="muted">Ojo: en el material complementario el primer coeficiente se lee 57/15, pero es 57/14.</span></p>
 </div></details>
 
-<details><summary>T1-E56 · Tres polos contando el de $z=0$ <span class="src">PDF complementario p. 157</span></summary><div class="inner">
+<details><summary>T1-E56 · Tres polos contando el de $z=0$ <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $H(z)=\dfrac{3}{(z+\frac12)(2z+8)}$: todas las $h[n]$ y sus propiedades.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> primero ajusta los coeficientes: $2z+8=2(z+4)$. Al dividir por $z$ aparece un polo en 0, que da un término $\delta[n]$.</p>
 <p>$\frac Hz=\frac{3/2}{z(z+\frac12)(z+4)}=\frac{3/4}{z}-\frac{6/7}{z+\frac12}+\frac{3/28}{z+4}$ ⇒ $H=\frac34-\frac67\frac{z}{z+\frac12}+\frac3{28}\frac{z}{z+4}$.</p>
@@ -2171,27 +2171,27 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>Comprobación en el caso causal: $h[0]=\frac34-\frac67+\frac3{28}=0$ ✓ (debe ser 0 porque $H\sim z^{-2}$).</p>
 </div></details>
 
-<details><summary>T1-E47 · Diseñar $h[n]$ desde entrada y salida (EP1 feb. 2021) <span class="src">PDF complementario p. 147</span></summary><div class="inner">
+<details><summary>T1-E47 · Diseñar $h[n]$ desde entrada y salida (EP1 feb. 2021) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Si $x[n]=(\frac12)^n1[n]-\frac14(\frac12)^{n-1}1[n-1]$ produce $y[n]=(\frac13)^n1[n]$: $h[n]$, ecuación en diferencias y estabilidad.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $H=Y/X$ y fracciones parciales. Está resuelto entero en el <a href="#t4">tema 4</a>.</p>
 <p>$h[n]=\big[3(\frac14)^n-2(\frac13)^n\big]1[n]$; $\;12y[n]-7y[n-1]+y[n-2]=12x[n]-6x[n-1]$; estable.</p>
 </div></details>
 
 <h4>Tema 5 · Señal muestreada, Jury y diagramas</h4>
-<details><summary>T2-E1 / E2 · Laplace de la señal muestreada <span class="src">PDF complementario p. 164–165</span></summary><div class="inner">
+<details><summary>T2-E1 / E2 · Laplace de la señal muestreada <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (E1) $\mathcal L\{\delta(t-kT)\}=e^{-skT}$. (E2) Expresión de $X^*(s)$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> propiedad de muestreo de la delta dentro de la integral de Laplace. Después, linealidad sobre el tren de impulsos de E3.</p>
 <p>(E1) $\int\delta(t-kT)e^{-st}dt=e^{-skT}$ ∎.</p>
 <p>(E2) $x^*(t)=\sum x(kT)\delta(t-kT)$ ⇒ $\boxed{X^*(s)=\sum_kx(kT)e^{-skT}}$. Con $z=e^{sT}$ pasa a ser $X(z)=\sum x(kT)z^{-k}$: de aquí sale la transformada Z.</p>
 </div></details>
 
-<details><summary>T2-E3 / E4 / E5 · $\frac1s$, $\frac1{s^2}$, $\frac1{s^3}$ por señales muestreadas <span class="src">PDF complementario p. 166–167</span></summary><div class="inner">
+<details><summary>T2-E3 / E4 / E5 · $\frac1s$, $\frac1{s^2}$, $\frac1{s^3}$ por señales muestreadas <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $X(z)$ de $1$, $t$ y $\frac{t^2}2$ sumando las series.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $\sum z^{-k}$, $\sum kz^{-k}$ y $\sum k^2z^{-k}$, derivando la geométrica (como en el examen de dic. 2023).</p>
 <p>$\frac1s\to\sum z^{-k}=\frac{z}{z-1}$ · $\;\frac1{s^2}\to T\sum kz^{-k}=\frac{Tz}{(z-1)^2}$ · $\;\frac1{s^3}\to\frac{T^2}2\sum k^2z^{-k}=\frac{T^2z(z+1)}{2(z-1)^3}$. Todos con ROC $|z|&gt;1$.</p>
 </div></details>
 
-<details><summary>T2-E6 / E7 / E8 · Los mismos por la integral de Jury <span class="src">PDF complementario p. 168–169</span></summary><div class="inner">
+<details><summary>T2-E6 / E7 / E8 · Los mismos por la integral de Jury <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $X(z)$ de $\frac1s$, $\frac1{s^2}$ y $\frac1{s^3}$ por residuos.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> polo en $s=0$ de orden 1, 2 y 3: hay que derivar 0, 1 y 2 veces $\frac{1}{1-z^{-1}e^{sT}}$.</p>
 <p>Orden 1: $\lim_{s\to0}\frac{1}{1-z^{-1}e^{sT}}=\frac{1}{1-z^{-1}}$.</p>
@@ -2199,13 +2199,13 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>Orden 3: $\frac12\frac{d^2}{ds^2}(\cdot)\Big|_0=\frac{T^2z^{-1}(1+z^{-1})}{2(1-z^{-1})^3}$. Coinciden con el ejercicio anterior; el desarrollo completo de la derivada segunda está en el <a href="#t5">tema 5</a>.</p>
 </div></details>
 
-<details><summary>T2-E10 / E11 · Cascada con y sin muestreador intermedio <span class="src">PDF complementario p. 172–173</span></summary><div class="inner">
+<details><summary>T2-E10 / E11 · Cascada con y sin muestreador intermedio <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> FT pulso de $x\to$ muestreador $\to G_1\to$ (muestreador o nada) $\to G_2\to$ muestreador $\to y^*$.</p>
-<p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> método Mulero: lo que queda entre dos muestreadores se discretiza junto.</p>
+<p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> método práctico: lo que queda entre dos muestreadores se discretiza junto.</p>
 <p>Con muestreador intermedio: $\frac{Y(z)}{X(z)}=G_1(z)G_2(z)$. Sin él: $\frac{Y(z)}{X(z)}=(G_1G_2)(z)$. Son distintas (T2-E12 y el simulador del muestreador en el <a href="#t5">tema 5</a>).</p>
 </div></details>
 
-<details><summary>T2-E32 · Servo de posición con lazo tacométrico <span class="src">PDF complementario p. 199</span></summary><div class="inner">
+<details><summary>T2-E32 · Servo de posición con lazo tacométrico <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $\Theta_R^*\to K_{pot}\to\Sigma\to K_p\to\Sigma$ (menos $K_{tac}\Omega^*$) $\to u\to$ ZOH $\to G_1\to\Omega\to G_2\to\Theta_0$, con $\Theta_0$ y $\Omega$ muestreadas y realimentación $K_{pot}\Theta_0^*$. Calcular $\Theta_0^*/\Theta_R^*$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $u$ se forma solo con señales muestreadas, así que $u=u^*$. Escribe $\Omega^*$ y $\Theta_0^*$ en función de $u^*$ y despeja. (El material complementario lo deja a medias.)</p>
 <p>$u^*=K_pK_{pot}(\Theta_R^*-\Theta_0^*)-K_{tac}\Omega^*$, $\;\Omega^*=(G_{ZOH}G_1)^*u^*$, $\;\Theta_0^*=(G_{ZOH}G_1G_2)^*u^*$.</p>
@@ -2213,14 +2213,14 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>$$\boxed{\frac{\Theta_0(z)}{\Theta_R(z)}=\frac{K_pK_{pot}\,(G_{ZOH}G_1G_2)(z)}{1+K_{tac}\,(G_{ZOH}G_1)(z)+K_pK_{pot}\,(G_{ZOH}G_1G_2)(z)}}$$ Existe la FT porque la referencia entra muestreada. Tiene la misma estructura que el problema 2(ii) de dic. 2023.</p>
 </div></details>
 
-<details><summary>T2-E35 · Dos lazos con muestreadores (examen dic. 2021, 3,33 puntos) <span class="src">PDF complementario p. 202</span></summary><div class="inner">
+<details><summary>T2-E35 · Dos lazos con muestreadores (examen dic. 2021, 3,33 puntos) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $R\to\Sigma$ (menos $HC$) $\to E^*\to G_1\to\Sigma$ (menos $G_2M^*$) $\to M^*\to G_2\to C$. ¿Existe la FT? Calcula $C(z)$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> tres ecuaciones: $E$, $M$ y $C$. Muestrea cada una y saca los asteriscos que se puedan.</p>
 <p>$M^*=G_1^*E^*-G_2^*M^*$, $\;C=G_2M^*$, $\;E^*=R^*-(G_2H)^*M^*$.</p>
 <p>$$\boxed{C(z)=\frac{G_1(z)G_2(z)}{1+G_2(z)+G_1(z)(G_2H)(z)}R(z)}$$ <b>Existe</b> FT pulso: $R$ aparece como $R^*$, separable.</p>
 </div></details>
 
-<details><summary>T2-E36 · Respuestas impulsivas de dos diagramas (EP2 feb. 2021) <span class="src">PDF complementario p. 204</span></summary><div class="inner">
+<details><summary>T2-E36 · Respuestas impulsivas de dos diagramas (EP2 feb. 2021) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (a) $E^*\to$ ZOH, cuya salida va directa a la salida y además por $\frac1s$; esa rama $\frac1s$ también se realimenta. (b) Cascada $5\to$ muestreador $\to$ ZOH $\to\frac{0{,}2}s\to\frac1s$, con realimentación interna 0,1.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> (a) muestrear el retenedor sin nada detrás deja la señal igual, $(G_{ZOH})^*=1$; y $(G_{ZOH}\frac1s)^*=\frac{T}{z-1}$.</p>
 <p>(a) $\dfrac{C(z)}{R(z)}=\dfrac{1+\frac{T}{z-1}}{1+\frac{T}{z-1}}=1$ ⇒ $\boxed{h[n]=\delta[n]}$: la salida copia la entrada.</p>
@@ -2228,38 +2228,38 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 $\;\dfrac{C(z)}{R(z)}=\dfrac{G_a}{1+0{,}02\,G_b+G_a}$, y $h[n]$ sale por fracciones parciales en cuanto se fija $T$. Es el desarrollo de la recopilación de exámenes.</p>
 </div></details>
 
-<details><summary>T2-E27 · Perturbación sin muestreador (2.º parcial ene. 2021) <span class="src">PDF complementario p. 193</span></summary><div class="inner">
+<details><summary>T2-E27 · Perturbación sin muestreador (2.º parcial ene. 2021) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> ¿Existe FT desde la perturbación? $y[\infty]$ ante un impulso de área $A$ con $G=\frac1{s+1}$, $G_d=\frac1s$, $C=K_c$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> la perturbación pasa por $GG_d$ antes de muestrearse. Resuelto en el <a href="#t5">tema 5</a>.</p>
 <p>No existe FT: $Y(z)=\frac{(GG_dD)(z)}{1+(G_{ZOH}G)(z)K_c}$. Valor final: $\boxed{y[\infty]=\frac{A}{1+K_c}}$.</p>
 </div></details>
 
 <h4>Tema 6 · Estabilidad</h4>
-<details><summary>T2-E17 · Un caso fácil de Schur-Cohn <span class="src">PDF complementario p. 177</span></summary><div class="inner">
+<details><summary>T2-E17 · Un caso fácil de Schur-Cohn <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Estabilidad de $p(z)=(z-\frac12)(z+\frac12)=z^2-\frac14$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> por raíces es inmediato; hazlo también por Schur-Cohn para practicar el algoritmo.</p>
 <p>Raíces $\pm\frac12$ ⇒ estable. Schur-Cohn: $|a_0/a_2|=\frac14&lt;1$; $p^*=-\frac14z^2+1$; $p_1=\frac1z\big[p+\frac14p^*\big]=\frac{15}{16}z$, de raíz 0 ⇒ <b>estable</b>.</p>
 </div></details>
 
-<details><summary>T2-E18 / E28 · $z^2-\frac74z-\frac12$ de dos formas <span class="src">PDF complementario p. 178, 195</span></summary><div class="inner">
+<details><summary>T2-E18 / E28 · $z^2-\frac74z-\frac12$ de dos formas <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Estabilidad de $H(z)=\frac{z^2}{z^2-\frac74z-\frac12}$ por raíces y por Schur-Cohn (o lema de Schur).</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> desarrollado paso a paso en el <a href="#t6">tema 6</a>.</p>
 <p>Raíces $2$ y $-\frac14$ ⇒ <b>inestable</b>. Schur-Cohn: paso 0 se cumple ($\frac12$), $p_1=\frac34z-\frac{21}8$, y $\frac{21/8}{3/4}=3{,}5&gt;1$ ⇒ inestable. Lema de Schur: $S=\begin{pmatrix}0{,}75&amp;-2{,}625\\-2{,}625&amp;0{,}75\end{pmatrix}$, con $\Delta_2=0{,}5625-6{,}89&lt;0$ ⇒ no es definida positiva.</p>
 </div></details>
 
-<details><summary>T2-E19 · Grado 3 por raíces y por Schur-Cohn <span class="src">PDF complementario p. 179</span></summary><div class="inner">
+<details><summary>T2-E19 · Grado 3 por raíces y por Schur-Cohn <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $p(z)=(z-\frac13)(z+\frac13)(z-\frac12)$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> desarrolla: $z^3-\frac12z^2-\frac19z+\frac1{18}$. Mételo en la calculadora para ver los pasos.</p>
 <p>Raíces $\pm\frac13$, $\frac12$ ⇒ estable. Schur-Cohn: $|a_0/a_3|=0{,}0556$ ✓ → $p_1=0{,}9969z^2-0{,}4938z-0{,}0833$; $\;0{,}0836$ ✓ → $p_2=0{,}9900z-0{,}5351$; $\;0{,}5405$ ✓ ⇒ <b>estable</b>.</p>
 </div></details>
 
-<details><summary>T2-E20 · Raíces del reflejado <span class="src">PDF complementario p. 180</span></summary><div class="inner">
+<details><summary>T2-E20 · Raíces del reflejado <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Si $p$ tiene raíces $z_k\neq0$, las de $p^*$ son $1/z_k$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> evalúa $p^*(z)=z^np(1/z)$ en $1/z_k$.</p>
 <p>$p^*(1/z_k)=z_k^{-n}\,p(z_k)=0$ ∎ (resuelto junto a E16 arriba).</p>
 </div></details>
 
-<details><summary>T2-E31 · Polinomios simétricos de Schur (teoría, jun. 2015) <span class="src">PDF complementario p. 198</span></summary><div class="inner">
+<details><summary>T2-E31 · Polinomios simétricos de Schur (teoría, jun. 2015) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> (i) Si $p=p^*$, con $r$ raíces en $|z|=1$ y $s$ en $|z|\le1$, entonces $r=2s-n$. (ii) $np^*=(p')^*+z(p^*)'$. (iii) Si $p=p^*$ y $z_0$ es raíz múltiple, $z_0$ es raíz de $(p')^*$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> (i) $p=p^*$ ⇒ las raíces vienen en pares $z_k$, $1/z_k$: tantas dentro como fuera. (ii) Deriva $p^*(z)=z^np(1/z)$ con la regla del producto. (iii) Si $z_0$ es raíz múltiple, $p(z_0)=p\,{}'(z_0)=0$.</p>
 <p>(i) Hay $s-r$ raíces dentro, $r$ en la frontera y, por la simetría, $s-r$ fuera. En total $2(s-r)+r=n$ ⇒ $r=2s-n$ ∎.</p>
@@ -2267,14 +2267,14 @@ $\;\dfrac{C(z)}{R(z)}=\dfrac{G_a}{1+0{,}02\,G_b+G_a}$, y $h[n]$ sale por fraccio
 <p>(iii) Si $p=p^*$, también $1/z_0$ es raíz múltiple de $p$, luego $p\,{}'(1/z_0)=0$ y $(p')^*(z_0)=z_0^{n-1}p\,{}'(1/z_0)=0$ ∎.</p>
 </div></details>
 
-<details><summary>T2-E34 · Schur-Cohn con $|a_0|=|a_n|$ (examen dic. 2021) <span class="src">PDF complementario p. 202</span></summary><div class="inner">
+<details><summary>T2-E34 · Schur-Cohn con $|a_0|=|a_n|$ (examen dic. 2021) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> Estabilidad de $p(z)=z^2-\frac52z+1$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> la condición necesaria falla en el primer paso.</p>
 <p>$|a_0|=|a_2|=1$, no estrictamente menor ⇒ <b>no es estable</b> (raíces 2 y $\frac12$).</p>
 </div></details>
 
 <h4>Tema 7 · Diseño</h4>
-<details><summary>T2-E21 · Ragazzini con polinomio característico y $K_v$ dados <span class="src">PDF complementario p. 181</span></summary><div class="inner">
+<details><summary>T2-E21 · Ragazzini con polinomio característico y $K_v$ dados <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $G_p(z)=0{,}0484\dfrac{z+0{,}9672}{(z-1)(z-0{,}9048)}$, $T=1$. Lazo cerrado con el equivalente discreto de $p_c(s)=s^2+s+1$ y $K_v=1$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> polos $s=-\frac12\pm j\frac{\sqrt3}2$ → $z=e^{sT}$ → $D(z)$. Grado relativo 1 ⇒ $H=\frac{az+b}{D(z)}$. Dos condiciones: $H(1)=1$ y $H\,{}^\prime(1)=-\frac{1}{K_vT}=-1$ (Truxal).</p>
 <p>$D(z)=z^2-2e^{-1/2}\cos\frac{\sqrt3}2\,z+e^{-1}=z^2-0{,}7859z+0{,}3679$. La regla 2 no actúa: el polo en $z=1$ queda cubierto por $H(1)=1$, y el cero está dentro del disco.</p>
@@ -2283,34 +2283,34 @@ $\;\dfrac{C(z)}{R(z)}=\dfrac{G_a}{1+0{,}02\,G_b+G_a}$, y $h[n]$ sale por fraccio
 $$\boxed{G_c(z)=13{,}06\,\frac{(z-0{,}9048)(z-0{,}0793)}{(z+0{,}9672)(z-0{,}418)}}$$ <span class="muted">Comprobado: $H(1)=1$, $H\,{}^\prime(1)=-1{,}000$ y $\frac{G_cG_p}{1+G_cG_p}=H$.</span></p>
 </div></details>
 
-<details><summary>T2-E22 · Ragazzini con $t_s$ y $\omega_n$ (examen ene. 2021) <span class="src">PDF complementario p. 183</span></summary><div class="inner">
+<details><summary>T2-E22 · Ragazzini con $t_s$ y $\omega_n$ (examen ene. 2021) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $G(s)=\frac1{(s+1)(s+5)}$, $T=1$: escalón exacto, $t_s&lt;2$ s, $\omega_n=5$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> resuelto en el <a href="#t7">tema 7</a>.</p>
 <p>$\zeta=0{,}46$, $D(z)=z^2+0{,}054z+0{,}0101$, $H=\frac{b_1z+b_0}{D(z)}$ con $b_1+b_0=1{,}0641$, y $G_c=\frac1G\frac H{1-H}$.</p>
 </div></details>
 
-<details><summary>T2-E33 · Deadbeat para un motor DC (examen dic. 2021) <span class="src">PDF complementario p. 200</span></summary><div class="inner">
+<details><summary>T2-E33 · Deadbeat para un motor DC (examen dic. 2021) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $G(s)=\frac1{(s+1)(s+10)}$, $T=0{,}1$.</p>
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> resuelto en el <a href="#t7">tema 7</a>.</p>
 <p>$G(z)=\frac{0{,}31951z+0{,}22188}{90(z-0{,}36788)(z-0{,}90484)}$, $H=z^{-1}$, $\;G_c=\frac{90(z-0{,}36788)(z-0{,}90484)}{(0{,}31951z+0{,}22188)(z-1)}$, y $y[n]=1[n-1]$.</p>
 </div></details>
 
-<h3>Mapa de los 97 ejercicios de los apuntes</h3>
+<h3>Mapa de los 97 ejercicios</h3>
 <div class="tw"><table>
-<tr><th>Tipo</th><th>Ejercicios (serie 1: T1-…, serie 2: T2-…)</th><th>Págs. del PDF</th></tr>
-<tr><td>Impulso, escalón, demostraciones básicas</td><td>T1-E1 a E5, E50, E51, E57</td><td>101–105, 152, 159</td></tr>
-<tr><td>Linealidad, estabilidad BIBO</td><td>T1-E6 a E8, E42</td><td>105–107, 139</td></tr>
-<tr><td>Convolución</td><td>T1-E9 a E14, E27, E48, E49, E52, E55, E59, E60</td><td>107–114, 125, 149–161</td></tr>
-<tr><td>Fourier y autofunciones</td><td>T1-E15 a E21, E43</td><td>116–120, 140</td></tr>
-<tr><td>Periodicidad</td><td>T1-E22 a E25, E54, E61</td><td>121–123, 155, 162</td></tr>
-<tr><td>Series y sumas</td><td>T1-E26, E57</td><td>124, 159</td></tr>
-<tr><td>Transformada Z directa</td><td>T1-E28 a E35</td><td>126–130</td></tr>
-<tr><td>Z inversa y todas las ROC</td><td>T1-E36 a E39, E44 a E47, E53, E56, E58</td><td>131–159</td></tr>
-<tr><td>Aliasing: señales de una secuencia</td><td>T1-E40, E41</td><td>138–139</td></tr>
-<tr><td>Laplace y señal muestreada, Jury</td><td>T2-E1 a E9</td><td>164–170</td></tr>
-<tr><td>FT pulso y diagramas de bloques</td><td>T2-E10 a E15, E27, E32, E35, E36</td><td>172–176, 193, 199, 202–204</td></tr>
-<tr><td>Estabilidad: reflejado, Schur-Cohn, lema de Schur, disco</td><td>T2-E16 a E20, E25, E26, E28 a E31, E34</td><td>177–198, 202</td></tr>
-<tr><td>Diseño: Ragazzini, polos, deadbeat</td><td>T2-E21 a E24, E33</td><td>181–188, 200</td></tr>
+<tr><th>Tipo</th><th>Ejercicios (serie 1: T1-…, serie 2: T2-…)</th></tr>
+<tr><td>Impulso, escalón, demostraciones básicas</td><td>T1-E1 a E5, E50, E51, E57</td></tr>
+<tr><td>Linealidad, estabilidad BIBO</td><td>T1-E6 a E8, E42</td></tr>
+<tr><td>Convolución</td><td>T1-E9 a E14, E27, E48, E49, E52, E55, E59, E60</td></tr>
+<tr><td>Fourier y autofunciones</td><td>T1-E15 a E21, E43</td></tr>
+<tr><td>Periodicidad</td><td>T1-E22 a E25, E54, E61</td></tr>
+<tr><td>Series y sumas</td><td>T1-E26, E57</td></tr>
+<tr><td>Transformada Z directa</td><td>T1-E28 a E35</td></tr>
+<tr><td>Z inversa y todas las ROC</td><td>T1-E36 a E39, E44 a E47, E53, E56, E58</td></tr>
+<tr><td>Aliasing: señales de una secuencia</td><td>T1-E40, E41</td></tr>
+<tr><td>Laplace y señal muestreada, Jury</td><td>T2-E1 a E9</td></tr>
+<tr><td>FT pulso y diagramas de bloques</td><td>T2-E10 a E15, E27, E32, E35, E36</td></tr>
+<tr><td>Estabilidad: reflejado, Schur-Cohn, lema de Schur, disco</td><td>T2-E16 a E20, E25, E26, E28 a E31, E34</td></tr>
+<tr><td>Diseño: Ragazzini, polos, deadbeat</td><td>T2-E21 a E24, E33</td></tr>
 </table></div>
 
 <!-- ===================== SIMULACRO ===================== -->
@@ -2401,7 +2401,7 @@ $$\boxed{G_c(z)=13{,}06\,\frac{(z-0{,}9048)(z-0{,}0793)}{(z+0{,}9672)(z-0{,}418)
 <li>PID: $G_c=K_p+\frac{K_iT}{1-z^{-1}}+\frac{K_d}T(1-z^{-1})$</li>
 </ul></div>
 </div>
-<h3>Qué te piden y qué haces (recetas de los apuntes)</h3>
+<h3>Qué te piden y qué haces (recetas)</h3>
 <div class="tw"><table>
 <tr><th>Te piden…</th><th>Haz esto</th></tr>
 <tr><td>Periodo de una secuencia</td><td>$\Omega/2\pi=k/N$ irreducible ⇒ $N_0=N$; si no es racional, no es periódica. Sumas: mcm.</td></tr>
@@ -2415,7 +2415,7 @@ $$\boxed{G_c(z)=13{,}06\,\frac{(z-0{,}9048)(z-0{,}0793)}{(z+0{,}9672)(z-0{,}418)
 <tr><td>Estabilidad sin raíces</td><td>$|a_0|&lt;|a_n|$, después Schur-Cohn (o Jury, o bilineal + Routh). En un disco $D(z_0,R)$: $z=Rw+z_0$.</td></tr>
 <tr><td>Diseñar $G_c$</td><td>Ragazzini: $H$ con las tres reglas, $G_c=\frac{H}{G(1-H)}$, y <b>verificar</b> que $\frac{G_cG}{1+G_cG}=H$.</td></tr>
 </table></div>
-<div class="box trap"><h4>Fallos típicos (según los apuntes)</h4><ul>
+<div class="box trap"><h4>Fallos típicos</h4><ul>
 <li>No dividir por $z$ antes de las fracciones parciales.</li>
 <li>Dar una transformada Z sin su ROC.</li>
 <li>Separar $(GH)^*$ como $G^*H^*$.</li>
@@ -2439,7 +2439,7 @@ $$\boxed{G_c(z)=13{,}06\,\frac{(z-0{,}9048)(z-0{,}0793)}{(z+0{,}9672)(z-0{,}418)
 </section>
 <section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
 <div class="sh"><span class="badge" aria-hidden="true">A–Z</span><div class="shx"><p class="kick">Repasar</p><h2 id="glosario">Glosario</h2></div></div>
-<p class="muted">Los términos tal como los usa el profesor, agrupados por el tema en el que se presentan por primera vez. Entre corchetes, todos los temas en los que aparecen (numeración del programa oficial).</p>
+<p class="muted">Los términos de la asignatura, agrupados por el tema en el que se presentan por primera vez. Entre corchetes, todos los temas en los que aparecen (numeración del programa oficial).</p>
 <h3 style="--tc:var(--c1)">Temas 1–2 · Señales y sistemas <span class="src">8 términos</span></h3>
 <dl class="gl" style="--tc:var(--c1)">
 <div><dt>BIBO <span class="tt">[T2, T6]</span></dt><dd><i>Bounded input, bounded output</i>: toda entrada acotada da salida acotada. En un LTI equivale a $\sum|h[n]|&lt;\infty$; en $z$, a polos dentro del disco unidad.</dd></div>
