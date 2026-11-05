@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a aria-current="page" class="cur" href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -79,19 +79,19 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <ol class="steps"><li>Llama $r=e^{j2\pi kM/N}$: es una geométrica de $N$ términos.</li><li>Si $N\mid k$, $r=1$ y la suma vale $N$.</li><li>Si $N\nmid k$, $r\neq1$ (por Euclides con $\operatorname{mcd}(M,N)=1$), y $S=r^{n_0}\frac{1-r^N}{1-r}=0$ porque $r^N=1$.</li><li>Geometría: los vectores forman un polígono regular cerrado, con centro de masas en el origen.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> justificar $r\ne1$ antes de usar la fórmula de la geométrica.</p>
 </div></details>
-<details><summary>D4 · Condición BIBO <span class="src">Ejercicios complementarios T1-E7</span></summary><div class="inner">
+<details><summary>D4 · Condición BIBO <span class="src">Ejercicio T1-E7</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> Un LTI es estable BIBO ⇔ $\sum|h[n]|&lt;\infty$.</p>
 <ol class="steps"><li>(⇐) Si $|x|\le M$: $|y[n]|\le\sum|h[k]||x[n-k]|\le M\sum|h[k]|$.</li><li>(⇒) Con la entrada acotada $x[n]=\operatorname{sign}(h[-n])$ sale $y[0]=\sum|h[k]|$.</li><li>Si la suma fuera infinita, habría una entrada acotada con salida no acotada: contradicción.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> hacer las <b>dos</b> implicaciones. La segunda es la que casi nadie pone.</p>
 </div></details>
-<details><summary>D5 · Causal y estable ⇔ polos dentro del disco unidad <span class="src">Teoría 2.º parcial, 6.3</span></summary><div class="inner">
+<details><summary>D5 · Causal y estable ⇔ polos dentro del disco unidad <span class="src">Tema 6.3</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> Si $H(z)$ es racional, el sistema es causal y estable ⇔ todos los polos cumplen $|p|&lt;1$.</p>
 <ol class="steps"><li>Causal ⇒ secuencia derecha ⇒ ROC $=\{|z|&gt;r\}$, el exterior del polo de mayor módulo.</li><li>Estable ⇒ $\sum|h|&lt;\infty$ ⇒ la serie converge en $|z|=1$ ⇒ $\partial D(0,1)\subset$ ROC.</li><li>Juntas: $|z|=1$ está fuera del polo mayor, luego $r&lt;1$ y todos los polos están en $D(0,1)$. El recíproco se ve igual.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> usar la <b>ROC</b> (no solo «los polos decaen»): la ROC no contiene polos.</p>
 </div></details>
 <details><summary>D6 · Muestrear replica el espectro <span class="src">Oppenheim 7.1</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> Si $x_p(t)=x(t)\sum_k\delta(t-kT)$, entonces $X_p(\omega)=\frac1T\sum_kX(\omega-k\omega_s)$.</p>
-<ol class="steps"><li>El tren de impulsos es periódico: su TF es $P(\omega)=\frac{2\pi}T\sum_k\delta(\omega-k\omega_s)$.</li><li>Producto en el tiempo ⇒ convolución en frecuencia: $X_p=\frac1{2\pi}X*P$.</li><li>Convolucionar con $\delta(\omega-k\omega_s)$ desplaza (ejercicios complementarios, T1-E19): sale la suma de copias.</li></ol>
+<ol class="steps"><li>El tren de impulsos es periódico: su TF es $P(\omega)=\frac{2\pi}T\sum_k\delta(\omega-k\omega_s)$.</li><li>Producto en el tiempo ⇒ convolución en frecuencia: $X_p=\frac1{2\pi}X*P$.</li><li>Convolucionar con $\delta(\omega-k\omega_s)$ desplaza (ejercicio T1-E19): sale la suma de copias.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> llegar a la fórmula y dibujar las réplicas. De ahí sale Shannon: no se solapan si $\omega_s&gt;2\omega_B$.</p>
 </div></details>
 <details><summary>D7 · Aliasing: dos frecuencias, mismas muestras <span class="src">EP1 2026, P3</span></summary><div class="inner">
@@ -100,42 +100,42 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> el argumento «$kn$ es entero». Con exponenciales complejas, además, el signo indica el sentido de giro.</p>
 </div></details>
 <h3 id="demos-temas-4-7">Temas 4–7</h3>
-<details><summary>D8 · Condición necesaria de estabilidad $|a_0|&lt;|a_n|$ <span class="src">Teoría 2.º parcial</span></summary><div class="inner">
+<details><summary>D8 · Condición necesaria de estabilidad $|a_0|&lt;|a_n|$ <span class="src">Tema 6</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> Si $p(z)=a_nz^n+\dots+a_0$ tiene todas las raíces en $D(0,1)$, entonces $|a_0|&lt;|a_n|$.</p>
 <ol class="steps"><li>Cardano-Vieta: $\frac{a_0}{a_n}=(-1)^nr_1r_2\cdots r_n$.</li><li>Tomando módulos, $\left|\frac{a_0}{a_n}\right|=|r_1|\cdots|r_n|&lt;1$.</li><li>Contrarrecíproco: si $|a_0|\ge|a_n|$, el polinomio no es estable.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> decir que es <b>necesaria pero no suficiente</b> (por eso Schur-Cohn sigue reduciendo).</p>
 </div></details>
-<details><summary>D9 · Las raíces de $p^*$ son las inversas <span class="src">Ejercicios complementarios T2-E20</span></summary><div class="inner">
+<details><summary>D9 · Las raíces de $p^*$ son las inversas <span class="src">Ejercicio T2-E20</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> Si $p(z_k)=0$ con $z_k\ne0$, entonces $p^*(1/z_k)=0$, donde $p^*(z)=z^np(1/z)$.</p>
 <ol class="steps"><li>Sustituye: $p^*(1/z_k)=z_k^{-n}\,p(z_k)$.</li><li>Como $p(z_k)=0$, sale 0 ∎.</li><li>Consecuencia: una raíz dentro del disco en $p$ es una raíz fuera en $p^*$.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> la sustitución en una línea y la consecuencia geométrica.</p>
 </div></details>
-<details><summary>D10 · Transformada del retenedor de orden cero <span class="src">Teoría 2.º parcial, 5.4</span></summary><div class="inner">
+<details><summary>D10 · Transformada del retenedor de orden cero <span class="src">Tema 5.4</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> $G_{ZOH}(s)=\frac{1-e^{-sT}}{s}$, y $(G_{ZOH}G)(z)=(1-z^{-1})\,\mathcal Z\{G(s)/s\}$.</p>
 <ol class="steps"><li>La salida del ZOH es la suma de pulsos $\sum x(kT)[1(t-kT)-1(t-(k+1)T)]$.</li><li>Laplace de cada pulso: $x(kT)e^{-skT}\frac{1-e^{-sT}}{s}$. Sumando: $X^*(s)\frac{1-e^{-sT}}{s}$.</li><li>Para la planta: $\frac{1-e^{-sT}}{s}G=(1-e^{-sT})G_1$ con $G_1=\frac Gs$. El factor $e^{-sT}$ es un retardo exacto de $T$, que en $z$ es $z^{-1}$.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> explicar por qué $(1-e^{-sT})$ «sale» del asterisco: es periódico en $s$ con periodo $j\omega_s$.</p>
 </div></details>
-<details><summary>D11 · $(GX^*)^*=G^*X^*$, pero $(G_1G_2)^*\neq G_1^*G_2^*$ <span class="src">Ejercicios complementarios T2-E12</span></summary><div class="inner">
+<details><summary>D11 · $(GX^*)^*=G^*X^*$, pero $(G_1G_2)^*\neq G_1^*G_2^*$ <span class="src">Ejercicio T2-E12</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> El asterisco se puede separar si uno de los factores ya está muestreado, pero no en general.</p>
 <ol class="steps"><li>$y=g*x^*=\sum_kx(kT)g(t-kT)$; muestreando en $t=lT$: $y(lT)=\sum_kx(kT)g((l-k)T)$, una convolución discreta ⇒ $Y^*=G^*X^*$.</li><li>Contraejemplo para el producto: $G_1=\frac1{s+1}$, $G_2=\frac1{s+2}$, $T=1$.</li><li>$(G_1G_2)(z)=\frac{0{,}233z}{(z-e^{-1})(z-e^{-2})}$, pero $G_1(z)G_2(z)=\frac{z^2}{(z-e^{-1})(z-e^{-2})}$: distintas.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> dar un contraejemplo concreto. Es la regla que decide si existe la FT pulso.</p>
 </div></details>
-<details><summary>D12 · El mapeo $z=e^{sT}$ conserva la estabilidad <span class="src">Teoría 2.º parcial, 5.2</span></summary><div class="inner">
+<details><summary>D12 · El mapeo $z=e^{sT}$ conserva la estabilidad <span class="src">Tema 5.2</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> El semiplano izquierdo de $s$ va al interior del disco unidad, el eje $j\omega$ a la circunferencia y el semiplano derecho al exterior.</p>
 <ol class="steps"><li>$s=\sigma+j\omega\Rightarrow z=e^{\sigma T}e^{j\omega T}$, así que $|z|=e^{\sigma T}$ y $\angle z=\omega T$.</li><li>$\sigma&lt;0\iff|z|&lt;1$; $\;\sigma=0\iff|z|=1$; $\;\sigma&gt;0\iff|z|&gt;1$.</li><li>Ojo: no es inyectiva, porque $s$ y $s+jk\omega_s$ van al mismo $z$. Es el aliasing en el plano $s$.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> las dos igualdades $|z|=e^{\sigma T}$ y $\angle z=\omega T$, y la observación de que no es inyectiva.</p>
 </div></details>
-<details><summary>D13 · Error nulo al escalón ⇔ $H(1)=1$ <span class="src">Teoría 2.º parcial, 7.3</span></summary><div class="inner">
+<details><summary>D13 · Error nulo al escalón ⇔ $H(1)=1$ <span class="src">Tema 7.3</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> En un lazo estable, $e[\infty]=0$ ante un escalón ⇔ $H(1)=1$.</p>
 <ol class="steps"><li>$E(z)=(1-H(z))R(z)$ con $R=\frac1{1-z^{-1}}$.</li><li>Teorema del valor final (lazo estable): $e[\infty]=\lim_{z\to1}(1-z^{-1})E(z)=1-H(1)$.</li><li>Para la rampa, la indeterminación $\frac00$ se resuelve con L’Hôpital: $e[\infty]=-TH\,{}^\prime(1)$, y se anula si $H\,{}^\prime(1)=0$ (Truxal).</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> mencionar que el TVF exige que el lazo sea estable.</p>
 </div></details>
-<details><summary>D14 · Regla de causalidad de Ragazzini <span class="src">Teoría 2.º parcial, 7.3</span></summary><div class="inner">
+<details><summary>D14 · Regla de causalidad de Ragazzini <span class="src">Tema 7.3</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> $G_c=\frac1G\frac H{1-H}$ es causal ⇔ $\mu(H)\ge\mu(G)$.</p>
 <ol class="steps"><li>Una FdT racional es causal ⇔ grado del denominador $\ge$ grado del numerador ⇔ $\mu\ge0$.</li><li>El grado relativo de un producto es la suma: $\mu(G_c)=\mu(H)-\mu(1-H)-\mu(G)$.</li><li>Si $H$ es propia, $1-H=\frac{D-N}{D}$ tiene $\mu=0$. Queda $\mu(G_c)=\mu(H)-\mu(G)\ge0$ ∎.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> el paso $\mu(1-H)=0$. Lectura física: el lazo no puede responder antes que la propia planta.</p>
 </div></details>
-<details><summary>D15 · Por qué se conservan los ceros y polos inestables de $G$ <span class="src">Teoría 2.º parcial, 7.3</span></summary><div class="inner">
+<details><summary>D15 · Por qué se conservan los ceros y polos inestables de $G$ <span class="src">Tema 7.3</span></summary><div class="inner">
 <p><b>Qué hay que demostrar.</b> Si $G$ tiene un cero $c$ con $|c|\ge1$, $H$ debe anularse en $c$. Si tiene un polo $p$ con $|p|\ge1$, $1-H$ debe anularse en $p$.</p>
 <ol class="steps"><li>$G_c=\frac{H}{G(1-H)}$: un cero $c$ de $G$ aparece como <b>polo</b> de $G_c$ salvo que $H(c)=0$.</li><li>Un polo $p$ de $G$ aparece como <b>cero</b> de $G_c$ que cancelaría el polo inestable. La cancelación nunca es exacta y el modo inestable queda escondido dentro del lazo.</li><li>Para que no haya cancelación, $1-H$ tiene que contener el factor $(z-p)$.</li></ol>
 <p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> decir que una cancelación inestable produce estabilidad «interna» falsa: la salida parece estable, pero $u[k]$ explota.</p>
@@ -149,6 +149,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <nav class="pager" aria-label="Páginas"><a href="simulacro-ep2.html"><small>← Anterior</small>Simulacro del EP2</a><a class="nx" href="autoevaluacion.html"><small>Siguiente →</small>Autoevaluación</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

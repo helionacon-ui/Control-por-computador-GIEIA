@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -99,7 +99,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p>Con la fracción irreducible, el periodo fundamental es $N$. En general, para $e^{j2\pi kn/N}$: $\;N_0=\dfrac{N}{\operatorname{mcd}(k,N)}$.</p>
 <p>Suma o producto de secuencias periódicas: $N=\operatorname{mcm}(N_1,N_2)=\dfrac{N_1N_2}{\operatorname{mcd}(N_1,N_2)}$. Si una de ellas no es periódica, el resultado tampoco.</p>
 </div>
-<details><summary>Examen nov. 2012 · ¿cuáles son periódicas? <span class="src">Recopilación, p. 1</span></summary><div class="inner">
+<details><summary>Examen nov. 2012 · ¿cuáles son periódicas? <span class="src">Examen p. 1</span></summary><div class="inner">
 <p>(a) $x(t)=3\cos(5t+\pi/6)$: continua, siempre periódica. $T_0=2\pi/5$ s.</p>
 <p>(b) $x[n]=3\cos(5n+\pi/6)$: $\Omega_0/2\pi=5/2\pi\notin\mathbb Q$ → <b>no periódica</b>.</p>
 <p>(c) $x[n]=2e^{j(n/6-\pi)}$: $\Omega_0/2\pi=1/12\pi\notin\mathbb Q$ → <b>no periódica</b>.</p>
@@ -158,7 +158,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p>Resultado clásico: $a^n1[n]*b^n1[n]=\dfrac{a^{n+1}-b^{n+1}}{a-b}\,1[n]$ (para $a\ne b$).</p>
 <p>Respuesta al escalón $s[n]$ ↔ respuesta impulsiva: $h[n]=s[n]-s[n-1]$.</p>
 </div>
-<details><summary>Examen 2024 · P1: convolución, estabilidad y causalidad <span class="src">examen 2024.pdf</span></summary><div class="inner">
+<details><summary>Examen 2024 · P1: convolución, estabilidad y causalidad <span class="src">Examen 2024</span></summary><div class="inner">
 <p>$h[n]=\alpha^{-n}1[-n]$, $x[n]=\alpha^n1[n]$, con $0&lt;\alpha&lt;1$.</p>
 <p>$$y[n]=\sum_k \alpha^{-(n-k)}1[k-n]\;\alpha^k1[k]=\alpha^{-n}\!\!\sum_{k=\max(0,n)}^{\infty}\!\!\alpha^{2k}$$</p>
 <p>Si $n\ge0$: $\;y[n]=\alpha^{-n}\dfrac{\alpha^{2n}}{1-\alpha^2}=\dfrac{\alpha^{n}}{1-\alpha^2}$. Si $n&lt;0$: $\;y[n]=\dfrac{\alpha^{-n}}{1-\alpha^2}$.</p>
@@ -180,6 +180,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <nav class="pager" aria-label="Páginas"><a href="empezar.html"><small>← Anterior</small>El examen y cómo estudiar</a><a class="nx" href="tema-3.html"><small>Siguiente →</small>T3 · Muestreo y Fourier</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

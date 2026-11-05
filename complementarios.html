@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a aria-current="page" class="cur" href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a aria-current="page" class="cur" href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -56,7 +56,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <main>
 <div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
 <section class="sec" style="--tc:var(--c8);--tcs:var(--c8s)">
-<div class="sh"><span aria-hidden="true" class="badge">97</span><div class="shx"><p class="kick">Practicar</p><h2 id="academia">Ejercicios complementarios externos, resueltos</h2></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#academia-temas-1-2-senales-sistemas-y-convolucion">Temas 1–2 · Señales, sistemas y convolución</a><a href="#academia-tema-3-fourier-y-muestreo">Tema 3 · Fourier y muestreo</a><a href="#academia-tema-4-transformada-z-y-regiones-de-conv">Tema 4 · Transformada Z y regiones de convergencia</a><a href="#academia-tema-5-datos-muestreados-y-funcion-de-tr">Tema 5 · Datos muestreados y función de transferencia pulso</a><a href="#academia-tema-6-estabilidad">Tema 6 · Estabilidad</a><a href="#academia-tema-7-diseno">Tema 7 · Diseño</a><a href="#academia-resto">El resto de ejercicios complementarios externos</a><a href="#academia-mapa-de-los-97-ejercicios">Mapa de los 97 ejercicios</a></nav>
+<div class="sh"><span aria-hidden="true" class="badge">97</span><div class="shx"><p class="kick">Practicar</p><h2 id="academia">Ejercicios complementarios, resueltos</h2></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#academia-temas-1-2-senales-sistemas-y-convolucion">Temas 1–2 · Señales, sistemas y convolución</a><a href="#academia-tema-3-fourier-y-muestreo">Tema 3 · Fourier y muestreo</a><a href="#academia-tema-4-transformada-z-y-regiones-de-conv">Tema 4 · Transformada Z y regiones de convergencia</a><a href="#academia-tema-5-datos-muestreados-y-funcion-de-tr">Tema 5 · Datos muestreados y función de transferencia pulso</a><a href="#academia-tema-6-estabilidad">Tema 6 · Estabilidad</a><a href="#academia-tema-7-diseno">Tema 7 · Diseño</a><a href="#academia-resto">El resto de ejercicios complementarios</a><a href="#academia-mapa-de-los-97-ejercicios">Mapa de los 97 ejercicios</a></nav>
 <p>Esta colección reúne <b>97 ejercicios</b>: 61 de los temas 1 a 4 y 36 de los temas 5 a 7. Están <b>resueltos los 97</b>: primero los más representativos de cada tipo y después <a href="#academia-resto">el resto</a>, ordenados por tema. Los resultados numéricos están <b>comprobados con código</b>, y al final tienes el mapa de todos por tipo.</p>
 <div class="zero"><p class="ft">Cómo trabajarlos</p>
 <p>Lee el enunciado y la pista «Cómo pensarlo», cierra la solución e inténtalo en papel. Muchos se pueden comprobar con los simuladores de la guía: la <b>calculadora de convolución</b> y el <b>explorador de ROC</b> de esta sección, y la calculadora de Schur-Cohn del tema 6.</p></div>
@@ -273,7 +273,7 @@ $$(G_1G_2)(z)=\frac{1}{b-a}\left[\frac{z}{z-e^{-aT}}-\frac{z}{z-e^{-bT}}\right]=
 <div id="w13-xh"></div><div id="w13-y"></div><div class="readout" id="w13-txt"></div>
 <figcaption>Escribe los valores separados por comas y el índice donde empieza cada secuencia. Debajo verás la secuencia resultante y, para el $n$ que elijas, la suma de productos $\sum_k x[k]h[n-k]$ término a término, igual que en el «método de la tabla». Sirve para comprobar cualquier convolución de pulsos del examen.</figcaption>
 </figure>
-<h3 id="academia-resto">El resto de ejercicios complementarios externos</h3>
+<h3 id="academia-resto">El resto de ejercicios complementarios</h3>
 <p>Con estos quedan resueltos los 97. Los que repiten un examen que ya está resuelto en la guía llevan la solución corta y un enlace al desarrollo completo.</p>
 <h4>Temas 1–2 · Impulso, escalón y demostraciones</h4>
 <details><summary>T1-E1 · Propiedad de muestreo del impulso <span class="src">Ejercicio complementario</span></summary><div class="inner">
@@ -413,7 +413,7 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p>(i) Estable, $\frac13&lt;|z|&lt;5$: $\;h=-\frac{57}{14}5^n1[-n-1]-\frac{15}{14}(\frac13)^n1[n]$.</p>
 <p>(iv) Causal, $|z|&gt;5$: $\;h=\big[\frac{57}{14}5^n-\frac{15}{14}(\frac13)^n\big]1[n]$ (inestable).</p>
 <p>(iii) Anticausal, $|z|&lt;\frac13$: $\;h=\big[-\frac{57}{14}5^n+\frac{15}{14}(\frac13)^n\big]1[-n-1]$ (inestable).</p>
-<p>(ii) Inestable: cualquiera de las dos anteriores. <span class="muted">Ojo: en el material complementario el primer coeficiente se lee 57/15, pero es 57/14.</span></p>
+<p>(ii) Inestable: cualquiera de las dos anteriores. <span class="muted">Ojo: el primer coeficiente es 57/14 (no 57/15).</span></p>
 </div></details>
 <details><summary>T1-E56 · Tres polos contando el de $z=0$ <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $H(z)=\dfrac{3}{(z+\frac12)(2z+8)}$: todas las $h[n]$ y sus propiedades.</p>
@@ -455,7 +455,7 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 </div></details>
 <details><summary>T2-E32 · Servo de posición con lazo tacométrico <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> $\Theta_R^*\to K_{pot}\to\Sigma\to K_p\to\Sigma$ (menos $K_{tac}\Omega^*$) $\to u\to$ ZOH $\to G_1\to\Omega\to G_2\to\Theta_0$, con $\Theta_0$ y $\Omega$ muestreadas y realimentación $K_{pot}\Theta_0^*$. Calcular $\Theta_0^*/\Theta_R^*$.</p>
-<p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $u$ se forma solo con señales muestreadas, así que $u=u^*$. Escribe $\Omega^*$ y $\Theta_0^*$ en función de $u^*$ y despeja. (El material complementario lo deja a medias.)</p>
+<p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> $u$ se forma solo con señales muestreadas, así que $u=u^*$. Escribe $\Omega^*$ y $\Theta_0^*$ en función de $u^*$ y despeja.</p>
 <p>$u^*=K_pK_{pot}(\Theta_R^*-\Theta_0^*)-K_{tac}\Omega^*$, $\;\Omega^*=(G_{ZOH}G_1)^*u^*$, $\;\Theta_0^*=(G_{ZOH}G_1G_2)^*u^*$.</p>
 <p>De la primera: $u^*=\dfrac{K_pK_{pot}(\Theta_R^*-\Theta_0^*)}{1+K_{tac}(G_{ZOH}G_1)^*}$. Sustituyendo en la tercera y despejando:</p>
 <p>$$\boxed{\frac{\Theta_0(z)}{\Theta_R(z)}=\frac{K_pK_{pot}\,(G_{ZOH}G_1G_2)(z)}{1+K_{tac}\,(G_{ZOH}G_1)(z)+K_pK_{pot}\,(G_{ZOH}G_1G_2)(z)}}$$ Existe la FT porque la referencia entra muestreada. Tiene la misma estructura que el problema 2(ii) de dic. 2023.</p>
@@ -471,7 +471,7 @@ $$\sum_{j=0}^n(a_0+dj)b_0r^j=b_0\left[a_0\frac{1-r^{n+1}}{1-r}+d\,\frac{r(1-(n+1
 <p class="muted" style="font-size:14px"><b>Cómo pensarlo:</b> (a) muestrear el retenedor sin nada detrás deja la señal igual, $(G_{ZOH})^*=1$; y $(G_{ZOH}\frac1s)^*=\frac{T}{z-1}$.</p>
 <p>(a) $\dfrac{C(z)}{R(z)}=\dfrac{1+\frac{T}{z-1}}{1+\frac{T}{z-1}}=1$ ⇒ $\boxed{h[n]=\delta[n]}$: la salida copia la entrada.</p>
 <p>(b) Con $G_a=(G_{ZOH}/s^2)^*=\frac{T^2(z+1)}{2(z-1)^2}$ y $G_b=(G_{ZOH}/s)^*=\frac{T}{z-1}$:
-$\;\dfrac{C(z)}{R(z)}=\dfrac{G_a}{1+0{,}02\,G_b+G_a}$, y $h[n]$ sale por fracciones parciales en cuanto se fija $T$. Es el desarrollo de la recopilación de exámenes.</p>
+$\;\dfrac{C(z)}{R(z)}=\dfrac{G_a}{1+0{,}02\,G_b+G_a}$, y $h[n]$ sale por fracciones parciales en cuanto se fija $T$. Es el desarrollo habitual de este tipo de ejercicio.</p>
 </div></details>
 <details><summary>T2-E27 · Perturbación sin muestreador (2.º parcial ene. 2021) <span class="src">Ejercicio complementario</span></summary><div class="inner">
 <p><b>Enunciado.</b> ¿Existe FT desde la perturbación? $y[\infty]$ ante un impulso de área $A$ con $G=\frac1{s+1}$, $G_d=\frac1s$, $C=K_c$.</p>
@@ -552,6 +552,6 @@ $$\boxed{G_c(z)=13{,}06\,\frac{(z-0{,}9048)(z-0{,}0793)}{(z+0{,}9672)(z-0{,}418)
 <nav class="pager" aria-label="Páginas"><a href="autoevaluacion.html"><small>← Anterior</small>Autoevaluación</a><a class="nx" href="simulacro.html"><small>Siguiente →</small>Simulacro con soluciones</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

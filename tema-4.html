@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -75,7 +75,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <tr><td class="sym">$A,B,C$</td><td>Coeficientes de las fracciones parciales (residuos de $H(z)/z$)</td><td class="u">$A=\lim_{z\to p}(z-p)\frac{H}{z}$</td></tr>
 <tr><td class="sym">$a^n1[n]$</td><td>Término <b>derecho</b> (causal), para $|z|&gt;|a|$</td><td class="u"></td></tr>
 <tr><td class="sym">$-a^n1[-n-1]$</td><td>Término <b>izquierdo</b> (anticausal), para $|z|&lt;|a|$</td><td class="u">vale 0 para $n\ge0$</td></tr>
-<tr><td class="sym">$A(0;r_1,r_2)$</td><td>Anillo $r_1&lt;|z|&lt;r_2$ (notación de los ejercicios complementarios externos)</td><td class="u">ROC de una secuencia bilateral</td></tr>
+<tr><td class="sym">$A(0;r_1,r_2)$</td><td>Anillo $r_1&lt;|z|&lt;r_2$ (notación habitual en los enunciados)</td><td class="u">ROC de una secuencia bilateral</td></tr>
 <tr><td class="sym">$x[0],\ x[\infty]$</td><td>Teoremas del valor inicial y final</td><td class="u">$x[\infty]=\lim_{z\to1}(1-z^{-1})X(z)$</td></tr>
 <tr><td class="sym">$\operatorname{Res}[F,p]$</td><td>Residuo de $F$ en el polo $p$</td><td class="u">integral de contorno</td></tr>
 </table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>En la tabla de pares, $\frac{z}{z-a}$ y $\frac{1}{1-az^{-1}}$ son <b>la misma</b> expresión: la primera en potencias de $z$ y la segunda en potencias de $z^{-1}$. Para las fracciones parciales usa siempre la forma en $z$, dividida por $z$.</p></div>
@@ -107,14 +107,14 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div class="figrow"><div id="fig-zp"></div><div id="fig-zh"></div></div>
 <figcaption>Un par de polos $p=re^{\pm j\theta}$ da $h[n]\propto r^n\cos(\theta n)$. El <b>módulo</b> $r$ fija si decae ($r&lt;1$, estable), se mantiene ($r=1$) o explota ($r&gt;1$). El <b>ángulo</b> $\theta$ fija cuántas muestras dura cada oscilación ($2\pi/\theta$). Con $\theta=0$ es un polo real positivo (sin oscilar); con $\theta=180^\circ$, uno real negativo (alterna de signo en cada muestra). Los valores iniciales ($r=0{,}71$, $\theta=45^\circ$) son los del examen de nov. 2023.</figcaption>
 </figure>
-<details><summary>Examen nov. 2023 · P3 (4 puntos): inversa con polos complejos <span class="src">Recopilación, 1.er parcial 2023</span></summary><div class="inner">
+<details><summary>Examen nov. 2023 · P3 (4 puntos): inversa con polos complejos <span class="src">Examen 1.er parcial 2023</span></summary><div class="inner">
 <p>$H(z)=\dfrac{1+z^{-1}}{1-z^{-1}+\frac12z^{-2}}=\dfrac{z(z+1)}{z^2-z+\frac12}$, causal.</p>
 <p>Polos: $z^2-z+\tfrac12=0\Rightarrow p=\tfrac12+\tfrac12 j=\tfrac1{\sqrt2}e^{j\pi/4}$.</p>
 <p>$\dfrac{H(z)}{z}=\dfrac{C}{z-p}+\dfrac{\bar C}{z-\bar p}$, con $C=\dfrac{p+1}{p-\bar p}=\dfrac{p+1}{j}=\tfrac12-\tfrac32j=\tfrac{\sqrt{10}}2e^{-j\arctan 3}$.</p>
 <p>$$h[n]=\sqrt{10}\left(\tfrac1{\sqrt2}\right)^{n}\cos\!\left(\tfrac{\pi}{4}n-\arctan 3\right)1[n]$$</p>
 <p>Primeros valores: $1,\;2,\;1{,}5,\;0{,}5,\;-0{,}25,\dots$ (coinciden con la división larga). <b>Estable</b>: $|p|=1/\sqrt2&lt;1$.</p>
 </div></details>
-<details><summary>Final feb. 2021 · EP1: diseñar $h[n]$ a partir de entrada y salida <span class="src">Recopilación, feb. 2021</span></summary><div class="inner">
+<details><summary>Final feb. 2021 · EP1: diseñar $h[n]$ a partir de entrada y salida <span class="src">Examen feb. 2021</span></summary><div class="inner">
 <p>$x[n]=(\tfrac12)^n1[n]-\tfrac14(\tfrac12)^{n-1}1[n-1]$, $\;y[n]=(\tfrac13)^n1[n]$.</p>
 <p>$H(z)=\dfrac{Y(z)}{X(z)}=\dfrac{1-\frac12z^{-1}}{(1-\frac14z^{-1})(1-\frac13z^{-1})}=\dfrac{12-6z^{-1}}{12-7z^{-1}+z^{-2}}$.</p>
 <p>(a) Fracciones parciales: $h[n]=\big[3(\tfrac14)^n-2(\tfrac13)^n\big]1[n]$.</p>
@@ -164,6 +164,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <nav class="pager" aria-label="Páginas"><a href="tema-3.html"><small>← Anterior</small>T3 · Muestreo y Fourier</a><a class="nx" href="tema-5.html"><small>Siguiente →</small>T5 · Datos muestreados</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -57,7 +57,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
 <section class="sec" style="--tc:var(--c7);--tcs:var(--c7s)">
 <div class="sh"><span aria-hidden="true" class="badge">Lab</span><div class="shx"><p class="kick">Prácticas · 30 %</p><h2 id="octave">Examen de prácticas (30 %)</h2></div></div>
-<p>Es un único examen de laboratorio por convocatoria. Las prácticas oficiales son cinco: <b>secuencias y sistemas discretos</b>, <b>transformada Z</b>, <b>realización de controladores digitales</b>, <b>régimen transitorio y estacionario</b>, y <b>diseño de controladores digitales</b>. Con estos comandos (MATLAB u Octave) cubres los cinco bloques y las cuestiones prácticas de la recopilación:</p>
+<p>Es un único examen de laboratorio por convocatoria. Las prácticas oficiales son cinco: <b>secuencias y sistemas discretos</b>, <b>transformada Z</b>, <b>realización de controladores digitales</b>, <b>régimen transitorio y estacionario</b>, y <b>diseño de controladores digitales</b>. Con estos comandos (MATLAB u Octave) cubres los cinco bloques y las cuestiones prácticas de los exámenes:</p>
 <pre>pkg load control                       % en Octave; en MATLAB no hace falta
 T  = 0.1;
 Gs = tf(1, conv([1 1],[1 10]));        % planta continua
@@ -90,8 +90,8 @@ rlocus(Gz); zgrid                            % lugar de las raíces con rejilla 
 stepinfo(feedback(2*Gz,1))                   % sobreimpulso, tiempo de establecimiento
 Kp = dcgain(Gz)                               % constantes de error</pre>
 <h3 id="octave-las-practicas-de-la-asignatura-resueltas">Las prácticas de la asignatura, resueltas</h3>
-<p>Estas son las cuatro prácticas de tu carpeta (<code>Practica1</code> a <code>Practica4</code>, más la versión de 2012 de la práctica 3). El examen de laboratorio te pedirá algo de este estilo: programar, simular e <b>interpretar</b> lo que sale. Para cada ejercicio tienes el código y el resultado que tiene que salir.</p>
-<details><summary>Práctica 1 · Secuencias discretas <span class="src">Practica1.pdf</span></summary><div class="inner">
+<p>Estas son las cuatro prácticas de la asignatura, más una versión anterior de la práctica 3. El examen de laboratorio te pedirá algo de este estilo: programar, simular e <b>interpretar</b> lo que sale. Para cada ejercicio tienes el código y el resultado que tiene que salir.</p>
+<details><summary>Práctica 1 · Secuencias discretas</summary><div class="inner">
 <pre>% Ej. 1  x[n] = 2 sin(3n)
 n = 0:40; x = 2*sin(3*n); stem(n,x); grid
 % Ej. 2  x[n] = a^n para a = 1, -1, 2, -2, 1/2, -1/2
@@ -115,7 +115,7 @@ Ts = 2*pi/(15*8); nn = 0:16; stem(nn*Ts, cos(15*nn*Ts))   % N0 = 8</pre>
 <tr><td>6 · suma</td><td>$N_1=3$, $N_2=8$ ⇒ $N=\operatorname{mcm}=24$.</td></tr>
 <tr><td>7 · $\cos15t$</td><td>Periódica si $\frac{T_s}{T}\in\mathbb Q$, con $T=\frac{2\pi}{15}$. Con $T_s=\frac T8$, $N_0=8$. Con $T_s=0{,}1$: $\Omega_0=1{,}5$ rad y $\frac{1{,}5}{2\pi}\notin\mathbb Q$ ⇒ <b>no periódica</b>. (El ejemplo del enunciado, $T_s=\frac{2\pi}5=3T$, da una secuencia constante: muestreas siempre en el mismo punto del ciclo.)</td></tr></table></div>
 </div></details>
-<details><summary>Práctica 2 · Convolución <span class="src">Practica2.pdf</span></summary><div class="inner">
+<details><summary>Práctica 2 · Convolución</summary><div class="inner">
 <pre>function [y,ny] = convolucion(x,nx,h,nh)
   y  = conv(x,h);
   ny = (nx(1)+nh(1)) : (nx(end)+nh(end));
@@ -131,9 +131,9 @@ y1 = conv([1 4 8 2],[0 1 2 3 4])          % [0 1 6 19 34 44 38 8]
 [y2,n2] = convolucion([1 2 1 1], -1:2, [1 1 1], 0:2)   % [1 3 4 4 2 1], n = -1..4
 % Ej. 3 (Oppenheim 2.4)
 a = 0.5; y3 = conv(ones(1,5), a.^(0:6)); stem(0:10, y3)</pre>
-<p><b>Lo que tienes que contestar.</b> La longitud de la salida es $N+M-1$ y empieza en $n_{x,e}+n_{h,e}$. El ejemplo del guion da $y=\{2,-8,8,3,-8,4,1,-2\}$ desde $n=-2$; el ejercicio 1, $\{0,1,6,19,34,44,38,8\}$; el ejercicio 2, $\{1,3,4,4,2,1\}$ desde $n=-1$. El ejercicio 3 es el E55 de los ejercicios complementarios: compara la gráfica con la fórmula por tramos (puedes usar la calculadora de convolución de la guía).</p>
+<p><b>Lo que tienes que contestar.</b> La longitud de la salida es $N+M-1$ y empieza en $n_{x,e}+n_{h,e}$. El ejemplo de la práctica da $y=\{2,-8,8,3,-8,4,1,-2\}$ desde $n=-2$; el ejercicio 1, $\{0,1,6,19,34,44,38,8\}$; el ejercicio 2, $\{1,3,4,4,2,1\}$ desde $n=-1$. El ejercicio 3 es el E55 de los ejercicios complementarios de esta guía: compara la gráfica con la fórmula por tramos (puedes usar la calculadora de convolución de la guía).</p>
 </div></details>
-<details><summary>Práctica 3 · Transformada Z inversa con MATLAB <span class="src">Practica3 (2).pdf</span></summary><div class="inner">
+<details><summary>Práctica 3 · Transformada Z inversa con MATLAB</summary><div class="inner">
 <pre>pkg load signal
 % Ejemplo del guion: H(z^-1) = 4 z^-2 / (4 - z^-2)
 [r,p,k] = residuez([0 0 4],[4 0 -1])       % h[n] = -4 d[n] + 2(1/2)^n + 2(-1/2)^n
@@ -156,7 +156,7 @@ h5 = filter([0 1],[1 -2 2],[1 zeros(1,9)])     % 0 1 2 2 0 -4 -8 -8 0 16</pre>
 <tr><td>4 · $\frac{z}{z^2+1}$</td><td>Polos $\pm j$ sobre la circunferencia: $h[n]=\sin\frac{\pi n}2\,1[n]$. Oscila sin decaer: marginalmente estable (no es BIBO estable).</td></tr>
 <tr><td>5 · $\frac{z}{z^2-2z+2}$</td><td>Polos $1\pm j=\sqrt2e^{\pm j\pi/4}$ fuera del disco: $h[n]=(\sqrt2)^n\sin\frac{\pi n}4\,1[n]$. Oscilación creciente: inestable.</td></tr></table></div>
 </div></details>
-<details><summary>Práctica 4 · Sistemas de datos muestreados (y práctica 3 de 2012) <span class="src">Practica4.pdf, Practica3 (1).pdf</span></summary><div class="inner">
+<details><summary>Práctica 4 · Sistemas de datos muestreados (y práctica 3 de 2012)</summary><div class="inner">
 <pre>pkg load control
 G1 = tf(1,[1 1]); G2 = tf(1,[1 2]); T = 1;
 % Ej. 1  cascada con y sin muestreador intermedio
@@ -191,6 +191,6 @@ H = feedback(Gpid*Gz,1); step(H,30); pole(H)</pre>
 <nav class="pager" aria-label="Páginas"><a href="tema-7.html"><small>← Anterior</small>T7 · Diseño de controladores</a><a class="nx" href="ep1-2026.html"><small>Siguiente →</small>EP1 3-11-2026 resuelto</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

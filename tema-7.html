@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -129,20 +129,20 @@ $$G_c(z)=\frac{1}{G(z)}\cdot\frac{H(z)}{1-H(z)}$$</p>
 <li>Impón $H(1)=1$ para hallar $K$ (y $H'(1)=0$ si piden rampa; necesitarás un coeficiente libre más).</li>
 <li>Escribe $G_c=\frac{H}{G(1-H)}$ y, si da tiempo, la salida $y[n]$.</li>
 </ol>
-<details><summary>Examen dic. 2021 · Deadbeat para el motor ($T=0{,}1$) <span class="src">Recopilación, 2.º parcial 2021</span></summary><div class="inner">
+<details><summary>Examen dic. 2021 · Deadbeat para el motor ($T=0{,}1$) <span class="src">Examen 2.º parcial 2021</span></summary><div class="inner">
 <p>$G(z)=\dfrac{0{,}31951z+0{,}22188}{90(z-0{,}36788)(z-0{,}90484)}$: $\mu(G)=1$, cero en $-0{,}694$ (dentro), polos dentro → la regla 2 no actúa.</p>
 <p>$H(z)=\dfrac{K}{z}$, $\;H(1)=1\Rightarrow K=1$, así que $H(z)=z^{-1}$.</p>
 <p>$$G_c(z)=\frac{1}{G(z)}\cdot\frac{z^{-1}}{1-z^{-1}}=\frac{90(z-0{,}36788)(z-0{,}90484)}{(0{,}31951z+0{,}22188)(z-1)}$$</p>
 <p>Ante escalón: $y[n]=1[n-1]$, la salida vale 1 desde la primera muestra.</p>
 </div></details>
-<details><summary>Examen dic. 2023 · P3 (4 puntos): deadbeat con cero de fase no mínima <span class="src">Recopilación, 2.º parcial 2023</span></summary><div class="inner">
+<details><summary>Examen dic. 2023 · P3 (4 puntos): deadbeat con cero de fase no mínima <span class="src">Examen 2.º parcial 2023</span></summary><div class="inner">
 <p>$G_p(s)=\dfrac{1}{(s+1)(s+5)(s+\frac1{10})}$, $T=1$. Por residuos (4 polos en $G_p/s$):</p>
 <p>$$G(z)=\frac{0{,}05033z^2+0{,}06633z+0{,}002838}{z^3-1{,}2795z^2+0{,}34145z-0{,}0022429}$$</p>
 <p>Polos dentro del disco. Ceros: $-1{,}2734$ (<b>fuera</b>) y $-0{,}0443$. El de fuera tiene que ser cero de $H$.</p>
 <p>$\mu(G)=1$, y con el cero $(z+1{,}2734)$ en el numerador hace falta $z^2$ abajo: $H(z)=K\dfrac{z+1{,}2734}{z^2}$.</p>
 <p>$H(1)=1\Rightarrow K=\dfrac1{2{,}2734}=0{,}43987$. Controlador: $G_c=\dfrac{H}{(1-H)\,G}$. Tarda 2 muestras en vez de 1: es el precio de no cancelar el cero inestable.</p>
 </div></details>
-<details><summary>Examen ene. 2021 · Ragazzini con $t_s&lt;2$ s y $\omega_n=5$ <span class="src">Recopilación, 2.º parcial 2021</span></summary><div class="inner">
+<details><summary>Examen ene. 2021 · Ragazzini con $t_s&lt;2$ s y $\omega_n=5$ <span class="src">Examen 2.º parcial 2021</span></summary><div class="inner">
 <p>$G_p=\frac1{(s+1)(s+5)}$, $T=1$: $\;G(z)=0{,}10837\dfrac{z+0{,}15877}{(z-0{,}36788)(z-0{,}0067379)}$.</p>
 <p>$\zeta=\dfrac{4{,}6}{t_s\omega_n}=0{,}46$, $\;\zeta\omega_n=2{,}3$, $\;\omega_d=4{,}4396$ rad/s.</p>
 <p>$D(z)=z^2-2e^{-2{,}3}\cos(4{,}4396)\,z+e^{-4{,}6}=z^2+0{,}054024z+0{,}010052$.</p>
@@ -174,6 +174,6 @@ $$G_c(z)=\frac{1}{G(z)}\cdot\frac{H(z)}{1-H(z)}$$</p>
 <nav class="pager" aria-label="Páginas"><a href="tema-6.html"><small>← Anterior</small>T6 · Estabilidad y análisis</a><a class="nx" href="practicas.html"><small>Siguiente →</small>Examen de prácticas</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

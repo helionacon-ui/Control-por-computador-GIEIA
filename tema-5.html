@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -109,13 +109,13 @@ $$G(z)=\mathcal Z\{G_{ZOH}(s)G_p(s)\}=(1-z^{-1})\,\mathcal Z\!\left\{\frac{G_p(s
 <div id="fig-blk"></div>
 <figcaption>El error se muestrea cada $T$, el controlador $G_c(z)$ calcula $u[k]$, el ZOH lo convierte en escalera y entra a la planta continua. Como ZOH y $G_p(s)$ van seguidos <b>sin muestreador en medio</b>, se discretizan juntos: $G(z)=(1-z^{-1})\mathcal Z\{G_p(s)/s\}$. La entrada $r$ entra muestreada, así que existe la FT pulso $\frac{Y(z)}{R(z)}=\frac{G_cG}{1+G_cG}$.</figcaption>
 </figure>
-<details><summary>Ejemplo base: $G_p(s)=\frac1{s+1}$ con ZOH <span class="src">Teoría 2.º parcial, p. 9</span></summary><div class="inner">
+<details><summary>Ejemplo base: $G_p(s)=\frac1{s+1}$ con ZOH <span class="src">Tema p. 9</span></summary><div class="inner">
 <p>$\dfrac{G_p(s)}{s}=\dfrac1{s(s+1)}$, polos en $0$ y $-1$:</p>
 <p>$\operatorname{Res}_0=\dfrac{1}{1-z^{-1}}$, $\quad\operatorname{Res}_{-1}=\dfrac{1}{-1}\cdot\dfrac1{1-z^{-1}e^{-T}}$.</p>
 <p>$$G(z)=(1-z^{-1})\left[\frac1{1-z^{-1}}-\frac1{1-z^{-1}e^{-T}}\right]=\frac{1-e^{-T}}{z-e^{-T}}$$</p>
 <p>Con $T=1$: $G(z)=\dfrac{0{,}6321}{z-0{,}3679}$.</p>
 </div></details>
-<details><summary>Examen dic. 2021 · Motor DC $G(s)=\frac1{(s+1)(s+10)}$, $T=0{,}1$ s <span class="src">Recopilación, 2.º parcial 2021</span></summary><div class="inner">
+<details><summary>Examen dic. 2021 · Motor DC $G(s)=\frac1{(s+1)(s+10)}$, $T=0{,}1$ s <span class="src">Examen 2.º parcial 2021</span></summary><div class="inner">
 <p>Tres polos en $G(s)/s$: $0$, $-1$, $-10$.</p>
 <p>$R_1=\dfrac{1}{10(1-z^{-1})}$, $\;R_2=-\dfrac{1}{9(1-z^{-1}e^{-T})}$, $\;R_3=\dfrac{1}{90(1-z^{-1}e^{-10T})}$.</p>
 <p>Multiplicando por $(1-z^{-1})$ y operando:</p>
@@ -139,7 +139,7 @@ Con sensor $H(s)$ en la realimentación: el denominador pasa a $1+G_c(z)\,\overl
 <div id="w8-blk"></div><div id="w8-h"></div><div class="readout" id="w8-txt"></div>
 <figcaption>Es la regla que más falla en el EP2: <b>$(G_1G_2)^*\neq G_1^*G_2^*$</b>. Si hay un muestreador entre los bloques, cada uno se discretiza por separado y se multiplican. Si no lo hay, primero se multiplican en $s$ y luego se discretiza el producto. Las dos respuestas impulsivas (verde y roja) son distintas, así que no es un detalle de notación: es otro sistema.</figcaption>
 </figure>
-<details><summary>Examen ene. 2021 · Perturbación sin muestreador a la entrada <span class="src">Recopilación, 2.º parcial 2021</span></summary><div class="inner">
+<details><summary>Examen ene. 2021 · Perturbación sin muestreador a la entrada <span class="src">Examen 2.º parcial 2021</span></summary><div class="inner">
 <p>La perturbación $D$ entra en $G_dG$ sin muestrear:
 $$Y(z)=\frac{(GG_dD)(z)}{1+(G_{ZOH}G)(z)\,C(z)}$$
 No es separable → <b>no existe</b> FT pulso desde $D$.</p>
@@ -178,6 +178,6 @@ Comprobación: con $m=0$ sale $\frac{1-e^{-1}}{z(z-e^{-1})}=z^{-1}G(z)$, la mism
 <nav class="pager" aria-label="Páginas"><a href="tema-4.html"><small>← Anterior</small>T4 · Transformada Z</a><a class="nx" href="tema-6.html"><small>Siguiente →</small>T6 · Estabilidad y análisis</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a aria-current="page" class="cur" href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -58,10 +58,10 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <section class="sec" style="--tc:var(--c8);--tcs:var(--c8s)">
 <div class="sh"><span aria-hidden="true" class="badge">Sim</span><div class="shx"><p class="kick">Practicar</p><h2 id="simulacro">Simulacro con soluciones</h2></div></div>
 <p>Intenta cada uno con papel antes de abrirlo. Son de tus exámenes y hojas, distintos de los ejemplos de arriba.</p>
-<details><summary>1 · Hoja 2: propiedades de $y[n]=x[n-1]$</summary><div class="inner">
+<details><summary>1 · Propiedades de $y[n]=x[n-1]$</summary><div class="inner">
 <p>Con memoria (usa el instante anterior), causal, lineal, invariante en el tiempo y estable ($|y|\le\max|x|$). $h[n]=\delta[n-1]$.</p>
 </div></details>
-<details><summary>2 · Hoja 2: convolución de $a^n1[n]$ con $b^n1[n]$</summary><div class="inner">
+<details><summary>2 · Convolución de $a^n1[n]$ con $b^n1[n]$</summary><div class="inner">
 <p>$y[n]=\sum_{k=0}^{n}a^kb^{n-k}=b^n\sum_{k=0}^{n}(a/b)^k=\dfrac{a^{n+1}-b^{n+1}}{a-b}\,1[n]$ si $a\ne b$; $\;(n+1)a^n1[n]$ si $a=b$.</p>
 </div></details>
 <details><summary>3 · Periodo de $e^{j2\pi kn/16}$ según $k$</summary><div class="inner">
@@ -86,6 +86,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <nav class="pager" aria-label="Páginas"><a href="complementarios.html"><small>← Anterior</small>Ejercicios complementarios</a><a class="nx" href="formulario.html"><small>Siguiente →</small>Formulario por tema</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

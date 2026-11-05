@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
 <a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
 <a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
-<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
 <a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
 <a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
 <a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
@@ -96,7 +96,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p><b>Reconstrucción ideal:</b> filtro paso bajo de ganancia $T$ hasta $\Omega_s/2$ → interpolación con senos cardinales: $x(t)=\sum x(nT)\,\mathrm{sinc}\!\left(\frac{t-nT}{T}\right)$.</p>
 <p><b>Aliasing:</b> con $F=f/f_s$ (frecuencia digital), las frecuencias $f$ y $f+kf_s$ dan <b>exactamente la misma secuencia</b>: $\cos\!\left(2\pi(f+kf_s)\frac{n}{f_s}\right)=\cos\!\left(2\pi f\frac n{f_s}\right)$.</p>
 </div>
-<details><summary>Examen nov. 2023 · P2: señales continuas que dan la misma secuencia <span class="src">Recopilación, 1.er parcial 2023</span></summary><div class="inner">
+<details><summary>Examen nov. 2023 · P2: señales continuas que dan la misma secuencia <span class="src">Examen 1.er parcial 2023</span></summary><div class="inner">
 <p>$x[n]=\cos(\pi n/8)$ muestreada a $f_s=10$ Hz.</p>
 <p>$\Omega_0=\pi/8=2\pi F\Rightarrow F=1/16$, así que $f=F f_s=10/16=0{,}625$ Hz.</p>
 <p>Todas las señales $x(t)=\cos\!\big(2\pi(0{,}625+10k)\,t\big)$, $k\in\mathbb Z$, producen la misma secuencia (como el coseno es par, también valen $|10k-0{,}625|$ Hz: 9,375; 10,625; 19,375…).</p>
@@ -117,13 +117,13 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div id="fig-zoh"></div>
 <figcaption>El ZOH mantiene cada muestra $x(kT)$ durante un periodo $T$: la salida es la escalera. Cada peldaño es un pulso $x(kT)[1(t-kT)-1(t-(k+1)T)]$, y de ahí sale $G_{ZOH}(s)=\frac{1-e^{-sT}}{s}$. La escalera va, en promedio, medio periodo por detrás de la señal: el ZOH añade retardo.</figcaption>
 </figure>
-<h4>De la Hoja 3 (Fourier)</h4>
+<h4>Pares de Fourier de referencia</h4>
 <p>Domina estos pares, salen en las demostraciones: pulso rectangular de anchura $2a$ → $\dfrac{2\sin(a\omega)}{\omega}$; $\;1\to2\pi\delta(\omega)$; $\;e^{j\omega_0t}\to2\pi\delta(\omega-\omega_0)$; $\;\cos\omega_0t\to\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]$; tren de impulsos de periodo $T_0$ → tren de impulsos $\frac{2\pi}{T_0}\sum\delta(\omega-k\frac{2\pi}{T_0})$. El producto en el tiempo es convolución en frecuencia (dividida por $2\pi$): es justo lo que explica por qué el muestreo replica el espectro cada $\Omega_s$.</p>
 <!-- ===================== T4 ===================== -->
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-1-2.html"><small>← Anterior</small>T1–2 · Señales y sistemas</a><a class="nx" href="tema-4.html"><small>Siguiente →</small>T4 · Transformada Z</a></nav>
 </main>
 </div>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>
