@@ -1,5 +1,5 @@
 // Service worker: guarda la guía, las fuentes y MathJax para usarla sin conexión.
-const CACHE = 'cxc-v4';
+const CACHE = 'cxc-v5';
 const CORE = ['./', './index.html', './manifest.webmanifest', './formulario.pdf',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png',
   'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js'];
