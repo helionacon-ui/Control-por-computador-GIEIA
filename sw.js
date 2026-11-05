@@ -1,6 +1,6 @@
 // Service worker: guarda la guía, las fuentes y MathJax para usarla sin conexión.
-const CACHE = 'cxc-v6';
-const CORE = ['./', './index.html', './manifest.webmanifest', './formulario.pdf',
+const CACHE = 'cxc-v7';
+const CORE = ['./', './index.html', './empezar.html', './tema-1-2.html', './tema-3.html', './tema-4.html', './tema-5.html', './tema-6.html', './tema-7.html', './practicas.html', './ep1-2026.html', './examen-2025-26.html', './examenes.html', './simulacro-ep2.html', './demostraciones.html', './autoevaluacion.html', './complementarios.html', './simulacro.html', './formulario.html', './glosario.html', './plan.html', './style.css?v=7', './app.js?v=7', './search-index.js?v=7', './manifest.webmanifest', './formulario.pdf',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png',
   'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js'];
 self.addEventListener('install', e => {
@@ -13,14 +13,14 @@ self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
-  const isPage = req.mode === 'navigate' || url.pathname.endsWith('.html');
+  const isPage = req.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/');
   if (isPage) {
-    // La página: primero la red (para tener siempre la última versión) y, sin conexión, la copia guardada.
-    e.respondWith(fetch(req).then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put('./index.html', cp)); return r; })
-      .catch(() => caches.match('./index.html')));
+    // Páginas: primero la red (siempre la última versión) y, sin conexión, la copia guardada de esa misma página.
+    e.respondWith(fetch(req).then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put(req, cp)); return r; })
+      .catch(() => caches.match(req, {ignoreSearch: true}).then(h => h || caches.match('./index.html'))));
     return;
   }
-  // Resto (MathJax, fuentes, iconos): la copia guardada y, en segundo plano, se actualiza.
+  // Resto: la copia guardada y, en segundo plano, se actualiza.
   e.respondWith(caches.match(req).then(hit => {
     const net = fetch(req).then(r => { if (r && (r.ok || r.type === 'opaque')) { const cp = r.clone(); caches.open(CACHE).then(c => c.put(req, cp)); } return r; }).catch(() => hit);
     return hit || net;

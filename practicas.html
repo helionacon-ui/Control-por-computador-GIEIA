@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Examen de prácticas · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): Examen de prácticas">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Parcial 2</span><span class="sep">›</span><span>Examen de prácticas</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a aria-current="page" class="cur" href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec" style="--tc:var(--c7);--tcs:var(--c7s)">
+<div class="sh"><span aria-hidden="true" class="badge">Lab</span><div class="shx"><p class="kick">Prácticas · 30 %</p><h2 id="octave">Examen de prácticas (30 %)</h2></div></div>
+<p>Es un único examen de laboratorio por convocatoria. Las prácticas oficiales son cinco: <b>secuencias y sistemas discretos</b>, <b>transformada Z</b>, <b>realización de controladores digitales</b>, <b>régimen transitorio y estacionario</b>, y <b>diseño de controladores digitales</b>. Con estos comandos (MATLAB u Octave) cubres los cinco bloques y las cuestiones prácticas de la recopilación:</p>
+<pre>pkg load control                       % en Octave; en MATLAB no hace falta
+T  = 0.1;
+Gs = tf(1, conv([1 1],[1 10]));        % planta continua
+Gz = c2d(Gs, T, 'zoh')                 % planta + ZOH -&gt; G(z)
+zero(Gz), pole(Gz)                     % para las reglas de Ragazzini
+
+z  = tf('z', T);
+Gc = (1/z) / (Gz*(1 - 1/z));           % deadbeat H = z^-1
+Hcl = feedback(Gc*Gz, 1);              % lazo cerrado con realimentación unitaria
+[y, t] = step(Hcl, 2);                 % respuesta a escalón
+stairs(t, y); grid on; y(end)          % valor estacionario
+
+% Secuencia de salida de un sistema discreto con entrada cualquiera
+r = [0 1 1 1 0 zeros(1,15)];
+[num, den] = tfdata(Hcl, 'v');
+c = filter(num, den, r); stem(0:length(r)-1, c)
+
+% Secuencias y convolución
+n = 0:20; x = (n&lt;=4); h = 0.8.^n; y = conv(x, h); stem(0:length(y)-1, y)
+
+% Transformada Z: residuos / fracciones parciales de H(z)
+[r_, p_, k_] = residuez([1 1], [1 -1 0.5])   % H(z) = (1+z^-1)/(1-z^-1+0.5z^-2)
+impz([1 1], [1 -1 0.5], 10)                  % primeras muestras de h[n]
+
+% Emulación y lugar de las raíces
+Cs = tf([1 1],[1 10]);
+Cz = c2d(Cs, 0.1, 'tustin')                  % también 'zoh', 'matched'
+Gz = c2d(tf(1,[1 1 0]), 1, 'zoh');
+rlocus(Gz); zgrid                            % lugar de las raíces con rejilla zeta/wn
+stepinfo(feedback(2*Gz,1))                   % sobreimpulso, tiempo de establecimiento
+Kp = dcgain(Gz)                               % constantes de error</pre>
+<h3 id="octave-las-practicas-de-la-asignatura-resueltas">Las prácticas de la asignatura, resueltas</h3>
+<p>Estas son las cuatro prácticas de tu carpeta (<code>Practica1</code> a <code>Practica4</code>, más la versión de 2012 de la práctica 3). El examen de laboratorio te pedirá algo de este estilo: programar, simular e <b>interpretar</b> lo que sale. Para cada ejercicio tienes el código y el resultado que tiene que salir.</p>
+<details><summary>Práctica 1 · Secuencias discretas <span class="src">Practica1.pdf</span></summary><div class="inner">
+<pre>% Ej. 1  x[n] = 2 sin(3n)
+n = 0:40; x = 2*sin(3*n); stem(n,x); grid
+% Ej. 2  x[n] = a^n para a = 1, -1, 2, -2, 1/2, -1/2
+for a = [1 -1 2 -2 0.5 -0.5]
+  figure; stem(0:10, a.^(0:10)); title(['a = ' num2str(a)]); grid
+end
+% Ej. 3  e^{j3n}: parte real e imaginaria
+n = 0:40; subplot(2,1,1); stem(n,cos(3*n)); title('Parte real')
+subplot(2,1,2); stem(n,sin(3*n)); title('Parte imaginaria')
+% Ej. 6  x1 = e^{j2pi n/3}, x2 = e^{j3pi n/4}, suma
+n = 0:48; x = exp(1j*2*pi*n/3) + exp(1j*3*pi*n/4); stem(n, real(x))
+% Ej. 7  cos(15t) muestreada
+t = 0:0.001:2; plot(t,cos(15*t)); hold on
+Ts = 2*pi/(15*8); nn = 0:16; stem(nn*Ts, cos(15*nn*Ts))   % N0 = 8</pre>
+<div class="tw"><table><tr><th>Ejercicio</th><th>Lo que tienes que contestar</th></tr>
+<tr><td>1 · $2\sin3n$</td><td>Amplitud 2. <b>No es periódica</b>: $\frac3{2\pi}\notin\mathbb Q$ (la gráfica nunca se repite exactamente).</td></tr>
+<tr><td>2 · $\alpha^n$</td><td>$\alpha=1$: constante. $\;-1$: alterna $\pm1$. $\;2$: crece. $\;-2$: crece alternando signo. $\;\frac12$: decae. $\;-\frac12$: decae alternando. <b>$|\alpha|$ decide si crece o decae y el signo, si alterna</b>: es la idea de los polos del tema 4.</td></tr>
+<tr><td>3 · $e^{j3n}$</td><td>Amplitud 1, <b>no periódica</b> por la misma razón que el ejercicio 1.</td></tr>
+<tr><td>4 · $3\sin(\sqrt2\,n)$</td><td>No periódica: $\frac{\sqrt2}{2\pi}$ es irracional.</td></tr>
+<tr><td>5 · $\cos(k\cdot3n)$</td><td>Con $\Omega_0=3$, $k=2,3,4$ dan $6$, $9$ y $12$ rad, que equivalen a $-0{,}28$, $2{,}72$ y $-0{,}57$ rad (restando $2\pi$). Las «armónicas» <b>no</b> van más rápido: $\cos6n$ parece más lenta que $\cos3n$. Es el aliasing en frecuencia discreta: solo importa $\Omega$ en $(-\pi,\pi]$.</td></tr>
+<tr><td>6 · suma</td><td>$N_1=3$, $N_2=8$ ⇒ $N=\operatorname{mcm}=24$.</td></tr>
+<tr><td>7 · $\cos15t$</td><td>Periódica si $\frac{T_s}{T}\in\mathbb Q$, con $T=\frac{2\pi}{15}$. Con $T_s=\frac T8$, $N_0=8$. Con $T_s=0{,}1$: $\Omega_0=1{,}5$ rad y $\frac{1{,}5}{2\pi}\notin\mathbb Q$ ⇒ <b>no periódica</b>. (El ejemplo del enunciado, $T_s=\frac{2\pi}5=3T$, da una secuencia constante: muestreas siempre en el mismo punto del ciclo.)</td></tr></table></div>
+</div></details>
+<details><summary>Práctica 2 · Convolución <span class="src">Practica2.pdf</span></summary><div class="inner">
+<pre>function [y,ny] = convolucion(x,nx,h,nh)
+  y  = conv(x,h);
+  ny = (nx(1)+nh(1)) : (nx(end)+nh(end));
+end
+
+% Ejemplo del guion
+[y,ny] = convolucion([-1 3 -1 -2], -1:2, [-2 2 0 -1 1], -1:3);
+stem(ny,y)        % y = [2 -8 8 3 -8 4 1 -2] para n = -2..5
+
+% Ej. 1
+y1 = conv([1 4 8 2],[0 1 2 3 4])          % [0 1 6 19 34 44 38 8]
+% Ej. 2 (x empieza en n=-1)
+[y2,n2] = convolucion([1 2 1 1], -1:2, [1 1 1], 0:2)   % [1 3 4 4 2 1], n = -1..4
+% Ej. 3 (Oppenheim 2.4)
+a = 0.5; y3 = conv(ones(1,5), a.^(0:6)); stem(0:10, y3)</pre>
+<p><b>Lo que tienes que contestar.</b> La longitud de la salida es $N+M-1$ y empieza en $n_{x,e}+n_{h,e}$. El ejemplo del guion da $y=\{2,-8,8,3,-8,4,1,-2\}$ desde $n=-2$; el ejercicio 1, $\{0,1,6,19,34,44,38,8\}$; el ejercicio 2, $\{1,3,4,4,2,1\}$ desde $n=-1$. El ejercicio 3 es el E55 de los ejercicios complementarios: compara la gráfica con la fórmula por tramos (puedes usar la calculadora de convolución de la guía).</p>
+</div></details>
+<details><summary>Práctica 3 · Transformada Z inversa con MATLAB <span class="src">Practica3 (2).pdf</span></summary><div class="inner">
+<pre>pkg load signal
+% Ejemplo del guion: H(z^-1) = 4 z^-2 / (4 - z^-2)
+[r,p,k] = residuez([0 0 4],[4 0 -1])       % h[n] = -4 d[n] + 2(1/2)^n + 2(-1/2)^n
+h = filter([0 0 4],[4 0 -1],[1 zeros(1,9)]) % 0 0 1 0 0.25 0 0.0625 ...
+
+% Ej. 1  H = 1/(z^2-3z+2), ROC |z|&gt;2
+h1 = filter([0 0 1],[1 -3 2],[1 zeros(1,9)])   % 0 0 1 3 7 15 31 ...
+% Ej. 2  H = 1/(z^2-0.9z+0.7): polos complejos
+[r,p,k] = residuez([0 0 1],[1 -0.9 0.7]); abs(p), angle(p)
+% Ej. 3  H = z/(z^3-6z^2+11z-6)
+h3 = filter([0 0 1],[1 -6 11 -6],[1 zeros(1,9)])
+% Ej. 4 y 5
+h4 = filter([0 1],[1 0 1],[1 zeros(1,9)])      % 0 1 0 -1 0 1 ...
+h5 = filter([0 1],[1 -2 2],[1 zeros(1,9)])     % 0 1 2 2 0 -4 -8 -8 0 16</pre>
+<div class="tw"><table><tr><th>Ejercicio</th><th>Solución analítica</th></tr>
+<tr><td>Ejemplo</td><td>$h[n]=-4\delta[n]+2(\frac12)^n+2(-\frac12)^n$: $0,0,1,0,\frac14,0,\dots$</td></tr>
+<tr><td>1 · $\frac1{z^2-3z+2}$</td><td>$=\frac{1}{z-2}-\frac{1}{z-1}$ ⇒ $h[n]=(2^{n-1}-1)1[n-1]$: $0,0,1,3,7,15,\dots$</td></tr>
+<tr><td>2 · $\frac1{z^2-0{,}9z+0{,}7}$</td><td>Polos $re^{\pm j\theta}$ con $r=\sqrt{0{,}7}=0{,}837$ y $\theta=1{,}003$ rad. $h[n]=r^{n-2}\frac{\sin((n-1)\theta)}{\sin\theta}1[n-1]$: $0,0,1,0{,}9,0{,}11,-0{,}53,\dots$ Oscilación amortiguada, estable.</td></tr>
+<tr><td>3 · $\frac{z}{(z-1)(z-2)(z-3)}$</td><td>$\frac Hz$: coeficientes $\frac12,-1,\frac12$ ⇒ causal: $h[n]=\big[\frac12-2^n+\frac12 3^n\big]1[n]$: $0,0,1,6,25,90,\dots$ (Ojo: el enunciado dice ROC $|z|&gt;2$, pero con un polo en 3 la ROC causal es $|z|&gt;3$. Con el anillo $2&lt;|z|&lt;3$ el término de 3 sería izquierdo.)</td></tr>
+<tr><td>4 · $\frac{z}{z^2+1}$</td><td>Polos $\pm j$ sobre la circunferencia: $h[n]=\sin\frac{\pi n}2\,1[n]$. Oscila sin decaer: marginalmente estable (no es BIBO estable).</td></tr>
+<tr><td>5 · $\frac{z}{z^2-2z+2}$</td><td>Polos $1\pm j=\sqrt2e^{\pm j\pi/4}$ fuera del disco: $h[n]=(\sqrt2)^n\sin\frac{\pi n}4\,1[n]$. Oscilación creciente: inestable.</td></tr></table></div>
+</div></details>
+<details><summary>Práctica 4 · Sistemas de datos muestreados (y práctica 3 de 2012) <span class="src">Practica4.pdf, Practica3 (1).pdf</span></summary><div class="inner">
+<pre>pkg load control
+G1 = tf(1,[1 1]); G2 = tf(1,[1 2]); T = 1;
+% Ej. 1  cascada con y sin muestreador intermedio
+Ga = c2d(G1,T,'imp') * c2d(G2,T,'imp');     % con muestreador: G1(z)G2(z)
+Gb = c2d(G1*G2,T,'imp');                    % sin muestreador: (G1G2)(z)
+step(Ga, Gb)                                % respuestas distintas
+% Ej. 2  ZOH con G = 1/(s(s+1))
+Gz = c2d(tf(1,[1 1 0]),T,'zoh')             % (0.3679z+0.2642)/(z^2-1.3679z+0.3679)
+% Ej. 3  'imp' frente a 'tustin'
+c2d(tf(1,[1 3 2]),T,'imp'), c2d(tf(1,[1 3 2]),T,'tustin')
+% Ej. 4  lazo cerrado discreto frente a continuo (Ogata B-3-19)
+Hd = feedback(Gz,1); Hc = feedback(tf(1,[1 1 0]),1);
+step(Hd,15); hold on; step(Hc,15)
+% PID discreto (práctica 3 de 2012): Kp=1, Ki=Kd=0.2, T=1, integral por trapecio
+z = tf('z',T);
+Gpid = 1 + 0.2*(1-1/z)/T + 0.2*(T/2)*(1+1/z)/(1-1/z);
+H = feedback(Gpid*Gz,1); step(H,30); pole(H)</pre>
+<div class="tw"><table><tr><th>Ejercicio</th><th>Lo que tiene que salir</th></tr>
+<tr><td>1 · cascada</td><td>Con muestreador intermedio, $\frac{z^2}{(z-0{,}368)(z-0{,}135)}$; sin él, $\frac{0{,}233z}{(z-0{,}368)(z-0{,}135)}$. Los mismos polos con otro numerador, así que las respuestas al escalón son distintas.</td></tr>
+<tr><td>2 · ZOH</td><td>$G(z)=\frac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$. Analíticamente: $\frac{(T-1+e^{-T})z+(1-e^{-T}-Te^{-T})}{(z-1)(z-e^{-T})}$.</td></tr>
+<tr><td>3 · imp / tustin</td><td><code>'imp'</code> da $\frac{0{,}2325z}{z^2-0{,}5032z+0{,}0498}$: es la integral de contorno de Jury (invarianza al impulso). Según la versión, MATLAB/Octave lo escala por $T$; con $T=1$ coinciden. <code>'tustin'</code> da otra cosa: $\frac{0{,}083(z+1)^2}{z^2-0{,}333z}$.</td></tr>
+<tr><td>4 · lazo cerrado</td><td>Discreto: $\frac{0{,}3679z+0{,}2642}{z^2-z+0{,}6321}$, con $y[k]=0;\ 0{,}368;\ 1;\ 1{,}400;\ 1{,}400;\ 1{,}147;\ 0{,}894;\dots$ (sobreimpulso del 40 %). Continuo $\frac{1}{s^2+s+1}$: pico de 1,16. El discreto oscila más porque el ZOH añade retardo.</td></tr>
+<tr><td>PID</td><td>$G_{PID}(z)=\frac{1{,}3z^2-1{,}3z+0{,}2}{z(z-1)}$. Lazo cerrado de 4.º orden, polos de módulo $0{,}79;\ 0{,}79;\ 0{,}77;\ 0{,}11$: estable. Escalón: pico de 1,66 en $k=3$ y luego llega a 1. Ante la rampa, error final nulo, porque hay dos integradores (PID y planta): tipo 2.</td></tr></table></div>
+<p class="muted" style="font-size:14px">La práctica 3 de 2012 hace lo mismo en Simulink: un subsistema con <code>c2d</code>, un bloque Zero-Order Hold delante de $G_p(z)$ y el bloque Discrete PID Controller (derivada por diferencias regresivas e integral por trapecio). El PID por trapecio es $K_p+\frac{K_d}{T}(1-z^{-1})+K_i\frac T2\frac{1+z^{-1}}{1-z^{-1}}$. El último término es justo la transformación bilineal de $\frac1s$.</p>
+</div></details>
+<div class="box trap"><h4>Qué suele fallar en el examen de laboratorio</h4><ul>
+<li>Olvidar <code>pkg load control</code> o <code>pkg load signal</code> en Octave.</li>
+<li>Confundir el orden de los coeficientes: <code>residuez</code> y <code>filter</code> van en potencias de $z^{-1}$; <code>residue</code> y <code>tf</code>, en potencias de $z$.</li>
+<li>Usar <code>'imp'</code> cuando piden la planta con retenedor (es <code>'zoh'</code>).</li>
+<li>No escribir la interpretación. El guion pide «Interpretación del alumno» en cada ejercicio y se puntúa.</li></ul></div>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-7.html"><small>← Anterior</small>T7 · Diseño de controladores</a><a class="nx" href="ep1-2026.html"><small>Siguiente →</small>EP1 3-11-2026 resuelto</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

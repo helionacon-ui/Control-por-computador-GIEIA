@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demostraciones · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): Demostraciones">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Practicar</span><span class="sep">›</span><span>Demostraciones</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a aria-current="page" class="cur" href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec" style="--tc:var(--c8);--tcs:var(--c8s)">
+<div class="sh"><span aria-hidden="true" class="badge">Dem</span><div class="shx"><p class="kick">Practicar</p><h2 id="demos">Demostraciones que pueden caer</h2></div></div>
+<p>El EP1 de este curso fue casi todo demostrar. Aquí tienes las 16 demostraciones más probables de toda la asignatura, cada una con el <b>esqueleto</b> en pocos pasos y <b>lo que da los puntos</b>. Apréndete el esqueleto y reconstruye el resto en el examen.</p>
+<div class="zero"><p class="ft">Cómo se demuestra en este examen</p><ol>
+<li><b>Escribe la definición</b> de lo que te piden: periódica, estable, causal, ROC… Casi siempre el primer paso es ese.</li>
+<li><b>Haz la cuenta en general</b>, sin números, y marca dónde usas cada hipótesis (por ejemplo, «como $\operatorname{mcd}(M,N)=1$…»).</li>
+<li><b>Termina con una frase de interpretación</b>: qué significa geométrica o físicamente. Ese apartado suele puntuar aparte.</li>
+<li>Si es un «si y solo si», haz <b>las dos implicaciones</b>.</li></ol></div>
+<h3 id="demos-temas-1-3">Temas 1–3</h3>
+<details><summary>D1 · La exponencial compleja es autofunción de un LTI <span class="src">EP1 2026, P2</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Si $x[n]=z_0^n$ entra en un LTI de respuesta $h[n]$, la salida es $y[n]=H(z_0)\,z_0^n$.</p>
+<ol class="steps"><li>Escribe la convolución con $h$ dentro: $y[n]=\sum_kh[k]x[n-k]=\sum_kh[k]z_0^{n-k}$.</li><li>Saca de la suma lo que no depende de $k$: $y[n]=z_0^n\sum_kh[k]z_0^{-k}$.</li><li>Reconoce la suma: es $H(z_0)$ (si converge). Con $z_0=e^{j\Omega_0}$ es la respuesta en frecuencia.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> decir que $\lambda=H(z_0)$ <b>no depende de $n$</b>: la entrada sale multiplicada por una constante. Es el problema 2 del EP1.</p>
+</div></details>
+<details><summary>D2 · Periodicidad de $e^{j\Omega_0n}$ <span class="src">Teoría · T1–2</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> $e^{j\Omega_0n}$ es periódica ⇔ $\frac{\Omega_0}{2\pi}\in\mathbb Q$; con $\frac{\Omega_0}{2\pi}=\frac MN$ irreducible, $N_0=N$.</p>
+<ol class="steps"><li>Periódica ⇔ existe $N\in\mathbb Z^+$ con $e^{j\Omega_0(n+N)}=e^{j\Omega_0n}$ ⇔ $e^{j\Omega_0N}=1$.</li><li>$e^{j\theta}=1$ ⇔ $\theta=2\pi k$. Así que $\Omega_0N=2\pi k$ ⇔ $\frac{\Omega_0}{2\pi}=\frac kN\in\mathbb Q$.</li><li>El menor $N^\prime$ con $\frac{MN^\prime}{N}\in\mathbb Z$: como $\operatorname{mcd}(M,N)=1$, $N$ tiene que dividir a $N^\prime$, así que el menor es $N^\prime=N$.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> que $N$ tiene que ser <b>entero</b> (en continuo no hace falta) y usar $\operatorname{mcd}=1$ para el periodo fundamental.</p>
+</div></details>
+<details><summary>D3 · La suma de las $N$ raíces de la unidad es cero <span class="src">EP1 2026, P1</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> $\sum_{n=n_0}^{n_0+N-1}e^{j2\pi kMn/N}=N$ si $N\mid k$ y $0$ en otro caso, con $\operatorname{mcd}(M,N)=1$.</p>
+<ol class="steps"><li>Llama $r=e^{j2\pi kM/N}$: es una geométrica de $N$ términos.</li><li>Si $N\mid k$, $r=1$ y la suma vale $N$.</li><li>Si $N\nmid k$, $r\neq1$ (por Euclides con $\operatorname{mcd}(M,N)=1$), y $S=r^{n_0}\frac{1-r^N}{1-r}=0$ porque $r^N=1$.</li><li>Geometría: los vectores forman un polígono regular cerrado, con centro de masas en el origen.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> justificar $r\ne1$ antes de usar la fórmula de la geométrica.</p>
+</div></details>
+<details><summary>D4 · Condición BIBO <span class="src">Ejercicios complementarios T1-E7</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Un LTI es estable BIBO ⇔ $\sum|h[n]|&lt;\infty$.</p>
+<ol class="steps"><li>(⇐) Si $|x|\le M$: $|y[n]|\le\sum|h[k]||x[n-k]|\le M\sum|h[k]|$.</li><li>(⇒) Con la entrada acotada $x[n]=\operatorname{sign}(h[-n])$ sale $y[0]=\sum|h[k]|$.</li><li>Si la suma fuera infinita, habría una entrada acotada con salida no acotada: contradicción.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> hacer las <b>dos</b> implicaciones. La segunda es la que casi nadie pone.</p>
+</div></details>
+<details><summary>D5 · Causal y estable ⇔ polos dentro del disco unidad <span class="src">Teoría 2.º parcial, 6.3</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Si $H(z)$ es racional, el sistema es causal y estable ⇔ todos los polos cumplen $|p|&lt;1$.</p>
+<ol class="steps"><li>Causal ⇒ secuencia derecha ⇒ ROC $=\{|z|&gt;r\}$, el exterior del polo de mayor módulo.</li><li>Estable ⇒ $\sum|h|&lt;\infty$ ⇒ la serie converge en $|z|=1$ ⇒ $\partial D(0,1)\subset$ ROC.</li><li>Juntas: $|z|=1$ está fuera del polo mayor, luego $r&lt;1$ y todos los polos están en $D(0,1)$. El recíproco se ve igual.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> usar la <b>ROC</b> (no solo «los polos decaen»): la ROC no contiene polos.</p>
+</div></details>
+<details><summary>D6 · Muestrear replica el espectro <span class="src">Oppenheim 7.1</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Si $x_p(t)=x(t)\sum_k\delta(t-kT)$, entonces $X_p(\omega)=\frac1T\sum_kX(\omega-k\omega_s)$.</p>
+<ol class="steps"><li>El tren de impulsos es periódico: su TF es $P(\omega)=\frac{2\pi}T\sum_k\delta(\omega-k\omega_s)$.</li><li>Producto en el tiempo ⇒ convolución en frecuencia: $X_p=\frac1{2\pi}X*P$.</li><li>Convolucionar con $\delta(\omega-k\omega_s)$ desplaza (ejercicios complementarios, T1-E19): sale la suma de copias.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> llegar a la fórmula y dibujar las réplicas. De ahí sale Shannon: no se solapan si $\omega_s&gt;2\omega_B$.</p>
+</div></details>
+<details><summary>D7 · Aliasing: dos frecuencias, mismas muestras <span class="src">EP1 2026, P3</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> $\cos(2\pi fnT)=\cos(2\pi(f+kf_s)nT)$ para todo $k\in\mathbb Z$ y $n\in\mathbb Z$.</p>
+<ol class="steps"><li>$2\pi(f+kf_s)nT=2\pi fnT+2\pi kn$, porque $f_sT=1$.</li><li>$2\pi kn$ es un múltiplo entero de $2\pi$, así que el coseno no cambia.</li><li>Como el coseno es par, también da lo mismo $kf_s-f$.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> el argumento «$kn$ es entero». Con exponenciales complejas, además, el signo indica el sentido de giro.</p>
+</div></details>
+<h3 id="demos-temas-4-7">Temas 4–7</h3>
+<details><summary>D8 · Condición necesaria de estabilidad $|a_0|&lt;|a_n|$ <span class="src">Teoría 2.º parcial</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Si $p(z)=a_nz^n+\dots+a_0$ tiene todas las raíces en $D(0,1)$, entonces $|a_0|&lt;|a_n|$.</p>
+<ol class="steps"><li>Cardano-Vieta: $\frac{a_0}{a_n}=(-1)^nr_1r_2\cdots r_n$.</li><li>Tomando módulos, $\left|\frac{a_0}{a_n}\right|=|r_1|\cdots|r_n|&lt;1$.</li><li>Contrarrecíproco: si $|a_0|\ge|a_n|$, el polinomio no es estable.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> decir que es <b>necesaria pero no suficiente</b> (por eso Schur-Cohn sigue reduciendo).</p>
+</div></details>
+<details><summary>D9 · Las raíces de $p^*$ son las inversas <span class="src">Ejercicios complementarios T2-E20</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Si $p(z_k)=0$ con $z_k\ne0$, entonces $p^*(1/z_k)=0$, donde $p^*(z)=z^np(1/z)$.</p>
+<ol class="steps"><li>Sustituye: $p^*(1/z_k)=z_k^{-n}\,p(z_k)$.</li><li>Como $p(z_k)=0$, sale 0 ∎.</li><li>Consecuencia: una raíz dentro del disco en $p$ es una raíz fuera en $p^*$.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> la sustitución en una línea y la consecuencia geométrica.</p>
+</div></details>
+<details><summary>D10 · Transformada del retenedor de orden cero <span class="src">Teoría 2.º parcial, 5.4</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> $G_{ZOH}(s)=\frac{1-e^{-sT}}{s}$, y $(G_{ZOH}G)(z)=(1-z^{-1})\,\mathcal Z\{G(s)/s\}$.</p>
+<ol class="steps"><li>La salida del ZOH es la suma de pulsos $\sum x(kT)[1(t-kT)-1(t-(k+1)T)]$.</li><li>Laplace de cada pulso: $x(kT)e^{-skT}\frac{1-e^{-sT}}{s}$. Sumando: $X^*(s)\frac{1-e^{-sT}}{s}$.</li><li>Para la planta: $\frac{1-e^{-sT}}{s}G=(1-e^{-sT})G_1$ con $G_1=\frac Gs$. El factor $e^{-sT}$ es un retardo exacto de $T$, que en $z$ es $z^{-1}$.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> explicar por qué $(1-e^{-sT})$ «sale» del asterisco: es periódico en $s$ con periodo $j\omega_s$.</p>
+</div></details>
+<details><summary>D11 · $(GX^*)^*=G^*X^*$, pero $(G_1G_2)^*\neq G_1^*G_2^*$ <span class="src">Ejercicios complementarios T2-E12</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> El asterisco se puede separar si uno de los factores ya está muestreado, pero no en general.</p>
+<ol class="steps"><li>$y=g*x^*=\sum_kx(kT)g(t-kT)$; muestreando en $t=lT$: $y(lT)=\sum_kx(kT)g((l-k)T)$, una convolución discreta ⇒ $Y^*=G^*X^*$.</li><li>Contraejemplo para el producto: $G_1=\frac1{s+1}$, $G_2=\frac1{s+2}$, $T=1$.</li><li>$(G_1G_2)(z)=\frac{0{,}233z}{(z-e^{-1})(z-e^{-2})}$, pero $G_1(z)G_2(z)=\frac{z^2}{(z-e^{-1})(z-e^{-2})}$: distintas.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> dar un contraejemplo concreto. Es la regla que decide si existe la FT pulso.</p>
+</div></details>
+<details><summary>D12 · El mapeo $z=e^{sT}$ conserva la estabilidad <span class="src">Teoría 2.º parcial, 5.2</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> El semiplano izquierdo de $s$ va al interior del disco unidad, el eje $j\omega$ a la circunferencia y el semiplano derecho al exterior.</p>
+<ol class="steps"><li>$s=\sigma+j\omega\Rightarrow z=e^{\sigma T}e^{j\omega T}$, así que $|z|=e^{\sigma T}$ y $\angle z=\omega T$.</li><li>$\sigma&lt;0\iff|z|&lt;1$; $\;\sigma=0\iff|z|=1$; $\;\sigma&gt;0\iff|z|&gt;1$.</li><li>Ojo: no es inyectiva, porque $s$ y $s+jk\omega_s$ van al mismo $z$. Es el aliasing en el plano $s$.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> las dos igualdades $|z|=e^{\sigma T}$ y $\angle z=\omega T$, y la observación de que no es inyectiva.</p>
+</div></details>
+<details><summary>D13 · Error nulo al escalón ⇔ $H(1)=1$ <span class="src">Teoría 2.º parcial, 7.3</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> En un lazo estable, $e[\infty]=0$ ante un escalón ⇔ $H(1)=1$.</p>
+<ol class="steps"><li>$E(z)=(1-H(z))R(z)$ con $R=\frac1{1-z^{-1}}$.</li><li>Teorema del valor final (lazo estable): $e[\infty]=\lim_{z\to1}(1-z^{-1})E(z)=1-H(1)$.</li><li>Para la rampa, la indeterminación $\frac00$ se resuelve con L’Hôpital: $e[\infty]=-TH\,{}^\prime(1)$, y se anula si $H\,{}^\prime(1)=0$ (Truxal).</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> mencionar que el TVF exige que el lazo sea estable.</p>
+</div></details>
+<details><summary>D14 · Regla de causalidad de Ragazzini <span class="src">Teoría 2.º parcial, 7.3</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> $G_c=\frac1G\frac H{1-H}$ es causal ⇔ $\mu(H)\ge\mu(G)$.</p>
+<ol class="steps"><li>Una FdT racional es causal ⇔ grado del denominador $\ge$ grado del numerador ⇔ $\mu\ge0$.</li><li>El grado relativo de un producto es la suma: $\mu(G_c)=\mu(H)-\mu(1-H)-\mu(G)$.</li><li>Si $H$ es propia, $1-H=\frac{D-N}{D}$ tiene $\mu=0$. Queda $\mu(G_c)=\mu(H)-\mu(G)\ge0$ ∎.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> el paso $\mu(1-H)=0$. Lectura física: el lazo no puede responder antes que la propia planta.</p>
+</div></details>
+<details><summary>D15 · Por qué se conservan los ceros y polos inestables de $G$ <span class="src">Teoría 2.º parcial, 7.3</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Si $G$ tiene un cero $c$ con $|c|\ge1$, $H$ debe anularse en $c$. Si tiene un polo $p$ con $|p|\ge1$, $1-H$ debe anularse en $p$.</p>
+<ol class="steps"><li>$G_c=\frac{H}{G(1-H)}$: un cero $c$ de $G$ aparece como <b>polo</b> de $G_c$ salvo que $H(c)=0$.</li><li>Un polo $p$ de $G$ aparece como <b>cero</b> de $G_c$ que cancelaría el polo inestable. La cancelación nunca es exacta y el modo inestable queda escondido dentro del lazo.</li><li>Para que no haya cancelación, $1-H$ tiene que contener el factor $(z-p)$.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> decir que una cancelación inestable produce estabilidad «interna» falsa: la salida parece estable, pero $u[k]$ explota.</p>
+</div></details>
+<details><summary>D16 · Las réplicas, desde la integral de Jury <span class="src">Teoría · T5</span></summary><div class="inner">
+<p><b>Qué hay que demostrar.</b> Cerrando el contorno por la derecha, $X^*(s)=\frac1T\sum_kX(s+jk\omega_s)$.</p>
+<ol class="steps"><li>Los polos de $\frac1{1-e^{-(s-p)T}}$ en $p$ están en $p=s+jk\omega_s$.</li><li>Residuo en cada uno (L’Hôpital): $\frac{X(s+jk\omega_s)}{T}$.</li><li>Suma sobre $k$ ⇒ la fórmula. Con $s=j\omega$ es la del muestreo del tema 3.</li></ol>
+<p class="muted" style="font-size:14px"><b>Lo que puntúa:</b> unir el tema 3 y el tema 5 en una misma idea. Es una pregunta de «interpretar» muy típica de estos exámenes.</p>
+</div></details>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="simulacro-ep2.html"><small>← Anterior</small>Simulacro del EP2</a><a class="nx" href="autoevaluacion.html"><small>Siguiente →</small>Autoevaluación</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

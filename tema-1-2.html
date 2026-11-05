@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T1–2 · Señales y sistemas · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): T1–2 · Señales y sistemas">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Parcial 1</span><span class="sep">›</span><span>T1–2 · Señales y sistemas</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a aria-current="page" class="cur" href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec tema" style="--tc:var(--c1);--tcs:var(--c1s)">
+<div class="sh"><span aria-hidden="true" class="badge">1–2</span><div class="shx"><p class="kick">Parcial 1 · Tema 1–2</p><h2 id="t1">Señales, secuencias y sistemas</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈3 puntos</span></div></div></div>
+<div class="zero">
+<p class="ft">Desde cero</p>
+<p><b>Señal continua</b> $x(t)$: existe en cada instante, como el sonido. <b>Secuencia</b> $x[n]$: una lista de números numerados por un entero $n$, como los fotogramas de un vídeo. Pasar de una a otra tiene dos pasos: <b>muestrear</b> (quedarte con el valor cada $T$ segundos, $x[n]=x(nT)$) y <b>cuantizar</b> (redondear ese valor a los niveles que el conversor A/D puede representar con sus bits).</p>
+<p>Un <b>sistema</b> es una máquina que recibe una secuencia y devuelve otra. Las «propiedades» (lineal, causal, estable…) son preguntas de sí o no sobre cómo se comporta esa máquina. Los sistemas que importan son los <b>LTI</b> (lineales e invariantes), porque quedan determinados por completo por <b>cómo responden a un golpe</b>, $\delta[n]$: su respuesta impulsiva $h[n]$.</p>
+</div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura de los temas 1 y 2 <span class="src">13 símbolos</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr>
+<tr><td class="sym">$x(nT)=x[n]$</td><td>Valor de la señal en el instante de muestreo $n$</td><td class="u">$T=0{,}1$ s ⇒ $x[3]=x(0{,}3)$</td></tr>
+<tr><td class="sym">$\Delta$</td><td>Paso de cuantización: distancia entre dos niveles del A/D</td><td class="u">$\Delta=\frac{2V}{2^b}$ voltios</td></tr>
+<tr><td class="sym">$b$</td><td>Número de bits del conversor A/D</td><td class="u">$2^b$ niveles</td></tr>
+<tr><td class="sym">$\Omega_0$</td><td>Pulsación <b>discreta</b>: ángulo que avanza la secuencia en cada muestra</td><td class="u">rad/muestra; solo importa en $(-\pi,\pi]$</td></tr>
+<tr><td class="sym">$\omega_0$</td><td>Pulsación <b>continua</b></td><td class="u">rad/s; $\omega_0=2\pi f_0$</td></tr>
+<tr><td class="sym">$\frac MN$</td><td>Fracción irreducible $\frac{\Omega_0}{2\pi}$, con $\operatorname{mcd}(M,N)=1$</td><td class="u">$\Omega_0=\frac{3\pi}4$ ⇒ $\frac38$</td></tr>
+<tr><td class="sym">$N_0$</td><td>Periodo fundamental de una secuencia</td><td class="u">número entero de muestras</td></tr>
+<tr><td class="sym">$T\{\cdot\}$</td><td>El sistema visto como operador: transforma una secuencia en otra</td><td class="u">$y=T\{x\}$</td></tr>
+<tr><td class="sym">$h[n]$</td><td>Respuesta impulsiva: salida cuando la entrada es $\delta[n]$</td><td class="u">caracteriza todo LTI</td></tr>
+<tr><td class="sym">$s[n]$</td><td>Respuesta al escalón</td><td class="u">$h[n]=s[n]-s[n-1]$</td></tr>
+<tr><td class="sym">$k$</td><td>Índice mudo de la suma de convolución (el que se suma)</td><td class="u">$y[n]=\sum_kx[k]h[n-k]$</td></tr>
+<tr><td class="sym">$h[n-k]$</td><td>$h$ <b>girada</b> (por el $-k$) y <b>desplazada</b> $n$ posiciones</td><td class="u">método «girar y desplazar»</td></tr>
+<tr><td class="sym">$a^n1[n]$</td><td>Exponencial causal: la señal tipo de los ejercicios</td><td class="u">$|a|&lt;1$ ⇒ se apaga</td></tr>
+</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>$x[n-k]$ es $x$ <b>retrasada</b> $k$ muestras (se mueve a la derecha). $x[-n]$ es $x$ <b>invertida</b> en el tiempo. $x[n+1]$ es <b>adelantada</b> y no es causal.</p></div>
+</div></details>
+<figure class="fig">
+<p class="ft">Simulador · del mundo continuo a los números del ordenador</p>
+<div class="ctrl"><label for="w1-T">Periodo de muestreo $T$ <input id="w1-T" max="0.5" min="0.05" step="0.01" type="range" value="0.2"/></label><output id="w1-T-o"></output>
+<label for="w1-b">Bits del A/D <input id="w1-b" max="8" min="1" step="1" type="range" value="3"/></label><output id="w1-b-o"></output></div>
+<div id="w1-plot"></div><div id="w1-err"></div><div class="readout" id="w1-txt"></div>
+<figcaption>La línea gris es la señal real. Los puntos son lo que el ordenador guarda: el valor en cada instante $nT$, <b>redondeado</b> al nivel más cercano (líneas horizontales). La escalera es lo que devolvería un D/A con retenedor. Sube $T$ y pierdes detalle en el tiempo; baja los bits y pierdes detalle en la amplitud. Abajo, el error de cuantización: nunca pasa de $\pm\Delta/2$.</figcaption>
+</figure>
+<h3 id="t1-cuantizacion-y-conversion-a-d-programa-1">Cuantización y conversión A/D <span class="tag">programa 1.4</span></h3>
+<div class="box key">
+<p>Muestreo (tiempo) → <b>cuantización</b> ($\mathbb R\to\Delta\mathbb Z$) → <b>codificación</b> ($\Delta\mathbb Z\to\mathbb Z$). Juntas son la conversión A/D; la D/A va seguida de un retenedor.</p>
+<p>Con $n$ bits y rango $[-V,V]$: paso $\;\Delta=\dfrac{2V}{2^n}$. Redondeando, el error está acotado por $|e|\le\dfrac{\Delta}{2}$; modelado como ruido uniforme, su varianza es $\sigma_e^2=\dfrac{\Delta^2}{12}$.</p>
+<p>Relación señal/ruido para una senoide a fondo de escala: $\;SNR\approx6{,}02\,n+1{,}76$ dB. Cada bit extra da unos 6 dB.</p>
+<p><b>Ejemplo:</b> A/D de 10 bits, $\pm5$ V → $\Delta=10/1024=9{,}77$ mV, error máximo $4{,}88$ mV, $SNR\approx62$ dB.</p>
+</div>
+<h3 id="t1-periodicidad-de-secuencias">Periodicidad de secuencias</h3>
+<div class="box key">
+<p>En continuo, $\cos(\omega t)$ siempre es periódica. En discreto, $x[n]=\cos(\Omega_0 n)$ o $e^{j\Omega_0 n}$ es periódica <b>solo si</b> $\dfrac{\Omega_0}{2\pi}=\dfrac{k}{N}$ es <b>racional</b>.</p>
+<p>Con la fracción irreducible, el periodo fundamental es $N$. En general, para $e^{j2\pi kn/N}$: $\;N_0=\dfrac{N}{\operatorname{mcd}(k,N)}$.</p>
+<p>Suma o producto de secuencias periódicas: $N=\operatorname{mcm}(N_1,N_2)=\dfrac{N_1N_2}{\operatorname{mcd}(N_1,N_2)}$. Si una de ellas no es periódica, el resultado tampoco.</p>
+</div>
+<details><summary>Examen nov. 2012 · ¿cuáles son periódicas? <span class="src">Recopilación, p. 1</span></summary><div class="inner">
+<p>(a) $x(t)=3\cos(5t+\pi/6)$: continua, siempre periódica. $T_0=2\pi/5$ s.</p>
+<p>(b) $x[n]=3\cos(5n+\pi/6)$: $\Omega_0/2\pi=5/2\pi\notin\mathbb Q$ → <b>no periódica</b>.</p>
+<p>(c) $x[n]=2e^{j(n/6-\pi)}$: $\Omega_0/2\pi=1/12\pi\notin\mathbb Q$ → <b>no periódica</b>.</p>
+<p>(d) $\cos(n/8)\cos(\pi n/8)$: el primer factor no es periódico → el producto tampoco.</p>
+<p>(e) $\cos(\pi n/2)\sin(\pi n/8)+3\cos(\pi n/4+\pi/3)$: periodos 4, 16 y 8 → $N=\operatorname{mcm}(4,16,8)=16$.</p>
+</div></details>
+<figure class="fig">
+<p class="ft">Visual · periódica frente a no periódica</p>
+<div id="fig-per1"></div>
+<div id="fig-per2"></div>
+<figcaption>Arriba, $\cos(\pi n/4)$: $\Omega_0/2\pi=1/8$ es racional, así que la secuencia se repite exactamente cada $N=8$ muestras (líneas discontinuas). Abajo, $\cos(n/2)$: la curva continua de la que sale sí es periódica (discontinua), pero $\Omega_0/2\pi=1/4\pi$ es irracional y las muestras nunca vuelven a caer en el mismo sitio.</figcaption>
+</figure>
+<figure class="fig">
+<p class="ft">Simulador · ¿es periódica esta secuencia?</p>
+<div class="ctrl"><label for="w2-M">$M$ <input id="w2-M" max="12" min="1" step="1" type="range" value="3"/></label><output id="w2-M-o"></output>
+<label for="w2-N">$N$ <input id="w2-N" max="20" min="1" step="1" type="range" value="8"/></label><output id="w2-N-o"></output>
+<label><input id="w2-irr" type="checkbox"/> usar $\Omega_0=1$ rad (irracional)</label><span class="pill" id="w2-p"></span></div>
+<div id="w2-plot"></div><div class="readout" id="w2-txt"></div>
+<figcaption>Con $\Omega_0=2\pi\frac MN$ la secuencia $\cos(\Omega_0n)$ se repite cada $N_0=\frac{N}{\operatorname{mcd}(M,N)}$ muestras (las bandas marcan cada periodo). Prueba $M=2$, $N=8$: la fracción se simplifica a $1/4$ y el periodo baja a 4. Activa la casilla de $\Omega_0=1$ rad: la curva continua sí es periódica, pero las muestras nunca se repiten.</figcaption>
+</figure>
+<h3 id="t1-propiedades-de-un-sistema">Propiedades de un sistema</h3>
+<div class="tw"><table>
+<tr><th>Propiedad</th><th>Cómo se comprueba</th><th>Ejemplo que cae</th></tr>
+<tr><td>Sin memoria</td><td>$y[n]$ depende solo de $x[n]$ en el mismo instante</td><td>$y=x[n]^2$ sí; $y=x[n-1]$ no</td></tr>
+<tr><td>Causal</td><td>$y[n]$ no usa $x[n+k]$, $k&gt;0$. LTI: $h[n]=0$ para $n&lt;0$</td><td>$y=x[|n|]$ no es causal ($n=-2$ usa $x[2]$)</td></tr>
+<tr><td>Lineal</td><td>$a x_1+b x_2 \mapsto a y_1+b y_2$</td><td>$y=x^2$ no: $(x_1+x_2)^2\ne x_1^2+x_2^2$</td></tr>
+<tr><td>Invariante</td><td>Retrasar la entrada $n_0$ retrasa la salida $n_0$</td><td>$y=x[n]\,1[n]$ no lo es</td></tr>
+<tr><td>Estable BIBO</td><td>Entrada acotada → salida acotada. LTI: $\sum|h[n]|&lt;\infty$</td><td>$y=e^{x[n]}/x[n-1]$ no (si $x[n-1]=0$)</td></tr>
+</table></div>
+<figure class="fig">
+<p class="ft">Simulador · probador de propiedades de sistemas</p>
+<div class="ctrl"><label for="w3-sys">Sistema <select id="w3-sys">
+<option value="a">y[n] = x[n−1] (retardo)</option>
+<option value="f">y[n] = (x[n]+x[n−1]+x[n−2])/3 (media móvil)</option>
+<option value="b">y[n] = x[n]² (cuadrado)</option>
+<option value="e">y[n] = 2x[n] + 3 (afín)</option>
+<option value="c">y[n] = n·x[n] (ganancia variable)</option>
+<option value="d">y[n] = x[−n] (inversión)</option>
+<option value="g">y[n] = x[n+1] (adelanto)</option>
+<option value="h">y[n] = Σ x[k], k ≤ n (acumulador)</option>
+</select></label>
+<label for="w3-in">Entrada <select id="w3-in"><option value="imp">impulso δ[n]</option><option value="esc">escalón 1[n]</option><option value="pul">pulso 1[n]−1[n−4]</option><option value="alt">rampa corta</option></select></label></div>
+<div id="w3-x"></div><div id="w3-y"></div>
+<div class="props" id="w3-props"></div>
+<div class="readout" id="w3-txt"></div>
+<figcaption>Elige un sistema y una entrada. Arriba, la entrada; abajo, la salida. Las tarjetas dicen qué propiedades cumple y por qué. Las pruebas de linealidad e invariancia se hacen <b>numéricamente</b> con tu entrada: el simulador compara $T\{2x\}$ con $2T\{x\}$ y $T\{x[n-2]\}$ con $y[n-2]$. Así es exactamente como se razona en el examen: busca un contraejemplo o demuestra que la igualdad se cumple siempre.</figcaption>
+</figure>
+<h3 id="t1-convolucion">Convolución</h3>
+<div class="box key">
+<p>$$y[n]=\sum_{k=-\infty}^{\infty}x[k]\,h[n-k]$$</p>
+<ol class="steps">
+<li>Escribe los escalones de $x[k]$ y de $h[n-k]$ como condiciones sobre $k$.</li>
+<li>Intersecta: eso da los límites del sumatorio, que dependen de $n$. Separa casos ($n\ge0$, $n&lt;0$).</li>
+<li>Suma la geométrica: $\sum_{k=a}^{\infty}r^k=\dfrac{r^a}{1-r}$, $\;\sum_{k=0}^{n}r^k=\dfrac{1-r^{n+1}}{1-r}$.</li>
+</ol>
+<p>Resultado clásico: $a^n1[n]*b^n1[n]=\dfrac{a^{n+1}-b^{n+1}}{a-b}\,1[n]$ (para $a\ne b$).</p>
+<p>Respuesta al escalón $s[n]$ ↔ respuesta impulsiva: $h[n]=s[n]-s[n-1]$.</p>
+</div>
+<details><summary>Examen 2024 · P1: convolución, estabilidad y causalidad <span class="src">examen 2024.pdf</span></summary><div class="inner">
+<p>$h[n]=\alpha^{-n}1[-n]$, $x[n]=\alpha^n1[n]$, con $0&lt;\alpha&lt;1$.</p>
+<p>$$y[n]=\sum_k \alpha^{-(n-k)}1[k-n]\;\alpha^k1[k]=\alpha^{-n}\!\!\sum_{k=\max(0,n)}^{\infty}\!\!\alpha^{2k}$$</p>
+<p>Si $n\ge0$: $\;y[n]=\alpha^{-n}\dfrac{\alpha^{2n}}{1-\alpha^2}=\dfrac{\alpha^{n}}{1-\alpha^2}$. Si $n&lt;0$: $\;y[n]=\dfrac{\alpha^{-n}}{1-\alpha^2}$.</p>
+<p>Juntando: $\boxed{y[n]=\dfrac{\alpha^{|n|}}{1-\alpha^2}}$, simétrica respecto a $n=0$. (Comprobado numéricamente con $\alpha=0{,}5$: $y[0]=4/3$.)</p>
+<p><b>Estabilidad:</b> $\sum|h[n]|=\sum_{n\le0}\alpha^{-n}=\dfrac1{1-\alpha}&lt;\infty$ → estable porque $|\alpha|&lt;1$.</p>
+<p><b>Causalidad:</b> $h[n]\ne0$ para $n&lt;0$ → <b>no causal</b>.</p>
+</div></details>
+<figure class="fig">
+<p class="ft">Visual interactivo · convolución «girar y desplazar»</p>
+<div class="ctrl"><label for="cn">Mueve $n$ <input id="cn" max="14" min="-3" step="1" type="range" value="2"/></label><output id="cn-o">n = 2</output></div>
+<div id="fig-conv1"></div>
+<div id="fig-conv2"></div>
+<div id="fig-conv3"></div>
+<figcaption id="cn-cap"></figcaption>
+<p class="muted" style="font-size:14px;margin:6px 0 0">Ejemplo clásico del Oppenheim (ej. 2.3): $x[k]$ es un pulso de 5 muestras y $h[k]=0{,}8^k\,1[k]$. Para cada $n$ se gira $h$ ($h[-k]$), se desplaza $n$ posiciones, se multiplica muestra a muestra por $x[k]$ y se suma: esa suma es $y[n]$.</p>
+</figure>
+<!-- ===================== T3 ===================== -->
+</section>
+<nav class="pager" aria-label="Páginas"><a href="empezar.html"><small>← Anterior</small>El examen y cómo estudiar</a><a class="nx" href="tema-3.html"><small>Siguiente →</small>T3 · Muestreo y Fourier</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

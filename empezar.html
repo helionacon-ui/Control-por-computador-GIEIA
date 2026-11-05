@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El examen y cómo estudiar · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): El examen y cómo estudiar">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Empezar</span><span class="sep">›</span><span>El examen y cómo estudiar</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a aria-current="page" class="cur" href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
+<div class="sh"><span aria-hidden="true" class="badge">i</span><div class="shx"><p class="kick">Empezar</p><h2 id="examen">Cómo es el examen</h2></div></div>
+<p>Revisando los exámenes de 2020 a 2024 de tu recopilación, el patrón es muy estable:</p>
+<div class="grid2">
+<div class="box key">
+<h4>Primer parcial (temas 1–4)</h4>
+<p>3 problemas (3 + 3 + 4 puntos). En la recopilación siempre cae algo de: periodicidad de secuencias, propiedades de sistemas o convolución, muestreo/aliasing, y transformada Z inversa con estudio de estabilidad.</p><p><b>El EP1 de este curso (3-11-2026)</b> fue distinto: temas 1 a 3, sin transformada Z, y con demostraciones sobre exponenciales complejas. Lo tienes <a href="ep1-2026.html">resuelto más abajo</a>. Lo más probable es que la Z entre en el EP2.</p>
+</div>
+<div class="box key">
+<h4>Segundo parcial (temas 5–7)</h4>
+<p>3 problemas (3 + 3 + 4). Casi fijo: transformada Z de una planta con retenedor (residuos / integral de Jury), función de transferencia pulso de un diagrama de bloques, estabilidad (Schur-Cohn) y diseño de un controlador <b>deadbeat o Ragazzini</b> (el de 4 puntos).</p>
+</div>
+</div>
+<div class="box key">
+<h4>Evaluación según la guía docente 2026-27</h4>
+<ul>
+<li><b>Teoría, 70 %.</b> Dos parciales, EP1 y EP2, puntuados de 0 a 10. Cada uno <b>elimina materia si sacas 4 o más</b>, y para aprobar por evaluación continua la media tiene que ser $\frac{EP1+EP2}{2}\ge5$.</li>
+<li>Si no cumples eso, vas a la <b>evaluación global</b> (examen final), donde necesitas un <b>5</b>.</li>
+<li><b>Prácticas, 30 %.</b> Un único <b>examen de laboratorio</b> por convocatoria: configurar, programar, simular y analizar un sistema de control. Sustituye a las memorias.</li>
+<li>Tu nota final es la mayor entre la de evaluación continua y la de la global. Las notas de continua y la del examen de prácticas solo valen durante el curso académico.</li>
+</ul>
+<p class="muted" style="margin:8px 0 0;font-size:14px">4,5 ECTS, 3.º curso, 1.er cuatrimestre.</p>
+</div>
+<p>En los finales de la recopilación indicas de qué parte te examinas (EP1 / EP2). Los exámenes se resuelven siempre con los mismos métodos: fracciones parciales sobre $H(z)/z$, residuos para discretizar y las tres reglas de Ragazzini. Si usas sus métodos y su notación, puntúas.</p>
+<p class="muted" style="font-size:14px">Los temas de esta guía siguen la numeración del programa oficial (1 a 7). Los apartados del programa que no salían en los exámenes recopilados también están cubiertos; los verás marcados con <span class="tag">programa</span>.</p>
+</section>
+<section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
+<div class="sh"><span aria-hidden="true" class="badge">!</span><div class="shx"><p class="kick">Empezar</p><h2 id="clase">Prioridades y ejercicios extra</h2></div></div>
+<p>Qué apartados del programa pesan más en el examen, para que repartas el tiempo con cabeza.</p>
+<div class="tw"><table>
+<tr><th>Apartado del programa</th><th>Prioridad para el examen</th></tr>
+<tr><td>1 · Muestreo, retención, cuantización</td><td><span class="tag">media</span></td></tr>
+<tr><td>2 · Secuencias, sistemas, convolución, estabilidad</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>3 · Fourier, autofunciones, Shannon, aliasing</td><td><span class="tag w">alta</span> (fue el EP1)</td></tr>
+<tr><td>4 · Transformada Z, ROC, inversa, propiedades</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>5 · $X^*(s)$, Jury, ZOH, FT pulso, PID digital</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>5.6 · Z modificada (respuesta entre muestras)</td><td><span class="tag">baja</span></td></tr>
+<tr><td>6 · Schur-Cohn, error estacionario</td><td><span class="tag w">alta</span></td></tr>
+<tr><td>6.3 · Bilineal + Routh, tabla de Jury</td><td><span class="tag">baja</span></td></tr>
+<tr><td>7.1–7.2 · Emulación, lugar de las raíces</td><td><span class="tag">baja</span></td></tr>
+<tr><td>7.3–7.4 · Ragazzini y deadbeat</td><td><span class="tag w">alta</span></td></tr>
+</table></div>
+<p>En los temas, los apartados de prioridad baja llevan la etiqueta <span class="tag w">prioridad baja</span>. Léelos para entenderlos, pero dedica el tiempo fuerte a lo marcado como prioridad alta.</p>
+<h3 id="clase-ejercicios-extra">Ejercicios extra</h3>
+<details><summary>Extra T4-E13 / E15 · Periodicidad de la oscilación continua y de la secuencia <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
+<p><b>Enunciado.</b> (a) Probar que $x_a(t)=A\cos(\omega t+\theta)$ es periódica para toda frecuencia $f$. (b) Probar que $x[n]=A\cos(2\pi Fn+\theta)$ es periódica si y solo si $F\in\mathbb Q$, y dar el periodo fundamental.</p>
+<p>(a) Buscamos $T$ con $x_a(t+T)=x_a(t)$ para todo $t$: $\cos(2\pi ft+\theta+2\pi fT)=\cos(2\pi ft+\theta)$ exige $2\pi fT=2\pi k$, así que $T=\frac1f$ (con $k=1$) siempre existe ∎.</p>
+<p>(b) Ahora el desplazamiento tiene que ser un <b>entero</b> $N$: $2\pi FN=2\pi k$ ⇔ $F=\frac kN\in\mathbb Q$ ∎. Con $F=\frac{k'}{N'}$ irreducible, $N_0=N'$. Es la misma idea que en el EP1: en continuo siempre se puede elegir $T$ real; en discreto, $N$ tiene que ser entero.</p>
+</div></details>
+<details><summary>Extra T4-E14 · Muestrear $3\cos(100\pi t)$ <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
+<p><b>Enunciado.</b> (a) Velocidad mínima de muestreo para evitar el aliasing. (b) Secuencia obtenida con $f_s=200$ Hz.</p>
+<p>(a) $\omega=100\pi\Rightarrow f=50$ Hz $\Rightarrow f_s&gt;100$ Hz.</p>
+<p>(b) $x[n]=3\cos(2\pi\frac{50}{200}n)=\boxed{3\cos\frac{\pi n}{2}}$, periódica con $N_0=4$: cuatro muestras por periodo.</p>
+</div></details>
+<details><summary>Extra T4-E20 · Propiedades: diferencia y expansión en el tiempo <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
+<p><b>Enunciado.</b> Si $\mathcal Z\{x[n]\}=X(z)$, calcula la transformada de (a) $\Delta x[n]=x[n]-x[n-1]$; (b) $x_1[n]=x[n/2]$ si $n$ es par y 0 si es impar.</p>
+<p>(a) Por linealidad y retardo: $\boxed{(1-z^{-1})X(z)}$. Es la «derivada discreta» y aparece en el PID y en el ZOH.</p>
+<p>(b) Solo sobreviven los índices pares $n=2k$: $\sum_kx[k]z^{-2k}=\boxed{X(z^2)}$. Intercalar ceros en el tiempo equivale a sustituir $z$ por $z^2$.</p>
+</div></details>
+<details><summary>Extra T4-E21 · Un sistema que usa $y[n+1]$ <span class="src">Ejercicio adicional · T4</span></summary><div class="inner">
+<p><b>Enunciado.</b> $x[n]=y[n-1]-\frac52y[n]+y[n+1]$. Posibles respuestas al escalón.</p>
+<p>$X=Y(z^{-1}-\frac52+z)$ ⇒ $H(z)=\dfrac{Y}{X}=\dfrac{z}{z^2-\frac52z+1}=\dfrac{z}{(z-2)(z-\frac12)}$.</p>
+<p>Con el escalón, $Y(z)=H(z)\frac{z}{z-1}$, con polos en $\frac12$, $1$ y $2$. Las ROC compatibles con el escalón ($|z|&gt;1$) son $1&lt;|z|&lt;2$ (bilateral) y $|z|&gt;2$ (causal). Fracciones parciales de $Y/z=\frac{z}{(z-2)(z-\frac12)(z-1)}$: coeficientes $\frac43$ (polo 2), $\frac23$ (polo $\frac12$) y $-2$ (polo 1).</p>
+<p>Causal ($|z|&gt;2$): $y[n]=\big[\tfrac43\,2^n+\tfrac23(\tfrac12)^n-2\big]1[n]$. Bilateral ($1&lt;|z|&lt;2$): $y[n]=\big[\tfrac23(\tfrac12)^n-2\big]1[n]-\tfrac43\,2^n1[-n-1]$. Interpretación: la ecuación usa $y[n+1]$, así que no obliga a que el sistema sea causal. Es la ROC la que decide qué sistema es.</p>
+</div></details>
+<details><summary>Extra T5 · $X^*(s)$ cerrando el contorno por la derecha: las réplicas del espectro <span class="src">Teoría · T5</span></summary><div class="inner">
+<p><b>Enunciado.</b> En la integral de contorno de Jury, cierra el contorno por la derecha en lugar de por la izquierda. ¿Qué expresión de $X^*(s)$ sale?</p>
+<p>Por la derecha se encierran los polos de $\frac{1}{1-e^{-(s-p)T}}$, que están en $p=s+jk\omega_s$, $k\in\mathbb Z$. Cada residuo vale, por L'Hôpital, $\frac{X(s+jk\omega_s)}{T}$. Sumando:</p>
+<p>$$\boxed{X^*(s)=\frac1T\sum_{k=-\infty}^{+\infty}X(s+jk\omega_s)}\qquad\big(+\tfrac12x(0^+)\text{ si }x\text{ salta en }t=0\big)$$</p>
+<p>Es la misma fórmula que la del muestreo del tema 3: con $s=j\omega$ queda $X^*(j\omega)=\frac1T\sum X(j(\omega+k\omega_s))$, el espectro repetido cada $\omega_s$. Las dos formas de cerrar el contorno son las dos caras del muestreo: <b>por la izquierda</b> dan una suma finita de residuos (útil para calcular $X(z)$) y <b>por la derecha</b>, las réplicas del espectro (útil para entender el aliasing).</p>
+</div></details>
+<details><summary>Extra T7 / examen jun. 2020 · Identificar una planta de grado 3 <span class="src">Recopilación, jun. 2020</span></summary><div class="inner">
+<p><b>Enunciado.</b> $G(z)=\frac{K_p}{D(z)}$, de tercer orden, con $D(0)=1$ y $G(1)=2$, en lazo cerrado con $G_c=K_c$ (sin ZOH). Los polos cruzan la circunferencia unidad con $K_c=6$ en el ángulo $\Omega=\frac\pi3$. Determina $G(z)$.</p>
+<p><b>Cómo pensarlo:</b> «cruzar la circunferencia en $e^{j\pi/3}$» significa que $z=e^{j\pi/3}$ es raíz de la ecuación característica. Una ecuación compleja son <b>dos</b> ecuaciones reales (parte real e imaginaria).</p>
+<p>$D=z^3+a_2z^2+a_1z+a_0$ con $a_0=D(0)=1$; $\;G(1)=2\Rightarrow K_p=2(2+a_2+a_1)$. Ecuación característica: $z^3+a_2z^2+a_1z+1+6K_p=0$ en $z=e^{j\pi/3}$:</p>
+<p>Imaginaria: $\sin\pi+a_2\sin\frac{2\pi}3+a_1\sin\frac\pi3=0\Rightarrow a_1=-a_2$, y entonces $K_p=4$. Real: $-1-\frac{a_2}2+\frac{a_1}2+1+24=0\Rightarrow a_1-a_2=-48$.</p>
+<p>$$\boxed{G(z)=\frac{4}{z^3+24z^2-24z+1}}$$ Comprobación: con $K_c=6$ las raíces son $e^{\pm j\pi/3}$ (módulo 1, 60°) y $-25$, y $G(1)=4/2=2$ ✓.</p>
+</div></details>
+</section>
+<section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
+<div class="sh"><span aria-hidden="true" class="badge">Bib</span><div class="shx"><p class="kick">Empezar</p><h2 id="oppenheim">Qué leer del Oppenheim</h2></div></div>
+<p>La bibliografía básica oficial es: <b>Oppenheim</b>, <i>Señales y sistemas</i> (temas 2 a 4); <b>Ogata</b>, <i>Sistemas de control en tiempo discreto</i>, y <b>Franklin, Powell y Workman</b>, <i>Digital Control of Dynamic Systems</i> (temas 5 a 7); <b>Reinoso</b>, <i>Control de sistemas discretos</i> (problemas resueltos en castellano), y <b>Proakis</b>, <i>Tratamiento digital de señales</i>, de donde sale el ejemplo clásico de Schur-Cohn. Como refuerzo, tienes 97 ejercicios complementarios resueltos en <a href="complementarios.html">esta sección</a>.</p>
+<p>El primer parcial sigue el <i>Señales y sistemas</i> de Oppenheim y Willsky (2.ª ed., Prentice Hall), que tienes en la carpeta. Las páginas son las impresas en el libro; en tu PDF, súmales <b>29</b> (la p. 741 del libro es la 770 del PDF). Los problemas recomendados son los del final de cada capítulo que más se parecen a los de examen.</p>
+<div class="tw"><table>
+<tr><th>Tema</th><th>Secciones del libro</th><th>Problemas</th></tr>
+<tr><td>T1 Señales</td><td>1.2.2 Señales periódicas (p. 11) · 1.3.2–1.3.3 Exponenciales discretas y su periodicidad (pp. 21–30) · 1.4 Impulso y escalón (p. 30)</td><td>1.9, 1.26 (periodicidad)</td></tr>
+<tr><td>T2 Sistemas</td><td>1.6 Propiedades: memoria, causalidad, estabilidad, invariancia, linealidad (pp. 44–56)</td><td>1.27, 1.28</td></tr>
+<tr><td>T2 Convolución</td><td>2.1 Suma de convolución (pp. 75–90) · 2.3 Propiedades de los LTI, causalidad, estabilidad y respuesta al escalón (pp. 103–116) · 2.4.2 Ecuaciones en diferencias (p. 121)</td><td>2.21 (sale casi igual), 2.14 (estabilidad)</td></tr>
+<tr><td>T3 Fourier</td><td>3.3 Serie de Fourier continua (p. 186) · 4.1–4.2 Transformada de Fourier y señales periódicas (pp. 285–300) · 4.5 Propiedad de multiplicación (p. 322)</td><td>Los de la Hoja 3 son de aquí</td></tr>
+<tr><td>T3 Muestreo</td><td>Cap. 7: 7.1 Teorema de muestreo (p. 514) · 7.2 Reconstrucción, incluido el retenedor de orden cero · 7.3 Traslape o aliasing (p. 527)</td><td>7.7 (ZOH), 7.10 (verdadero/falso)</td></tr>
+<tr><td>T4 Transformada Z</td><td>Cap. 10: 10.1 (p. 741) · 10.2 Región de convergencia (p. 748) · 10.3 Z inversa (p. 757) · 10.5 Propiedades (p. 767) · 10.6 Pares comunes · 10.7 Causalidad y estabilidad de sistemas LTI</td><td>10.21, 10.24, 10.33, 10.34</td></tr>
+<tr><td>T5–T7</td><td>El Oppenheim no trata el retenedor con planta, Schur-Cohn ni Ragazzini. Para eso: <i>Teoria_2_parcial</i> y el Ogata (<i>Sistemas de control en tiempo discreto</i>), capítulos 3 y 4</td><td>Recopilación de exámenes</td></tr>
+</table></div>
+<div class="box trap">
+<h4>Diferencias de notación</h4>
+<ul>
+<li>Oppenheim escribe el escalón como $u[n]$; en la asignatura y en esta guía, como $1[n]$.</li>
+<li>Oppenheim llama $\omega$ a la frecuencia discreta y escribe $X(e^{j\omega})$. En el Tema 1 de la asignatura, $\Omega$ es la frecuencia continua en rad/s (Tema 1). Fíjate en cuál usa cada enunciado.</li>
+<li>Oppenheim usa transformada Z bilateral con ROC explícita. En examen, di siempre qué ROC eliges (causal → exterior).</li>
+</ul>
+</div>
+</section>
+<section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
+<div class="sh"><span aria-hidden="true" class="badge">✓</span><div class="shx"><p class="kick">Empezar</p><h2 id="progreso">Tu progreso</h2></div></div>
+<p class="muted">Marca cada tema cuando seas capaz de hacer su problema de examen sin mirar la solución. Se guarda en este navegador.</p>
+<div aria-hidden="true" class="bar"><i id="barfill"></i></div>
+<p class="muted" id="bartxt" style="margin:0 0 8px;font-size:14px">0 de 8 temas</p>
+<div id="checks">
+<div class="check"><input id="c1" type="checkbox"/><label for="c1">T1–2: periodicidad, propiedades de sistemas, convolución</label></div>
+<div class="check"><input id="c2" type="checkbox"/><label for="c2">T3: Shannon, aliasing, señales que dan la misma secuencia</label></div>
+<div class="check"><input id="c3" type="checkbox"/><label for="c3">T4: Z inversa (también con polos complejos), ecuación en diferencias</label></div>
+<div class="check"><input id="c4" type="checkbox"/><label for="c4">T5: residuos y planta con ZOH, $G(z)=(1-z^{-1})\,\mathcal Z\{G(s)/s\}$</label></div>
+<div class="check"><input id="c5" type="checkbox"/><label for="c5">T5: ¿existe la FT pulso? Salida de un diagrama de bloques</label></div>
+<div class="check"><input id="c6" type="checkbox"/><label for="c6">T6: Schur-Cohn / Jury, rango de $K$, error estacionario</label></div>
+<div class="check"><input id="c7" type="checkbox"/><label for="c7">T7: deadbeat y Ragazzini con especificaciones</label></div>
+<div class="check"><input id="c8" type="checkbox"/><label for="c8">Octave: <code>c2d</code>, <code>feedback</code>, <code>step</code>, <code>filter</code></label></div>
+</div>
+<!-- ===================== T1-2 ===================== -->
+</section>
+<nav class="pager" aria-label="Páginas"><a href="index.html"><small>← Anterior</small>Inicio</a><a class="nx" href="tema-1-2.html"><small>Siguiente →</small>T1–2 · Señales y sistemas</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formulario por tema · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): Formulario por tema">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Repasar</span><span class="sep">›</span><span>Formulario por tema</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a aria-current="page" class="cur" href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec" style="--tc:var(--c0);--tcs:var(--c0s)">
+<div class="sh"><span aria-hidden="true" class="badge">Σ</span><div class="shx"><p class="kick">Repasar</p><h2 id="formulario">Formulario por tema</h2></div></div>
+<p>Lo mínimo que tienes que saber escribir de memoria. Si puedes rellenar cada tarjeta en un folio en blanco, estás listo.</p>
+<div class="box key"><p style="margin:0"><b>Versión para imprimir:</b> tienes el <a href="formulario.pdf">formulario de una página en PDF</a>, con lo esencial de los 7 temas en una sola hoja A4. Comprueba antes del examen si te dejan llevar formulario.</p></div>
+<div class="fcards">
+<div class="box key"><h4>T1–2 · Señales y sistemas</h4><ul>
+<li>Periódica discreta ⇔ $\frac{\Omega_0}{2\pi}=\frac kN\in\mathbb Q$; $\;N_0=\frac{N}{\operatorname{mcd}(k,N)}$</li>
+<li>Suma de periódicas: $N=\operatorname{mcm}(N_1,N_2)$</li>
+<li>$x[n]=\sum_k x[k]\delta[n-k]$</li>
+<li>$y[n]=\sum_k x[k]h[n-k]$ (conmutativa, asociativa, distributiva)</li>
+<li>LTI causal ⇔ $h[n]=0,\ n&lt;0$; estable ⇔ $\sum|h[n]|&lt;\infty$</li>
+<li>$h[n]=s[n]-s[n-1]$; $\;\sum_{k=0}^{n}r^k=\frac{1-r^{n+1}}{1-r}$</li>
+</ul></div>
+<div class="box key"><h4>T3 · Muestreo y Fourier</h4><ul>
+<li>Serie: $x(t)=\sum a_ke^{jk\omega_0t}$, $\;a_k=\frac1{T_0}\int_{T_0}x(t)e^{-jk\omega_0t}dt$</li>
+<li>$X(\omega)=\int x(t)e^{-j\omega t}dt$; $\;x\cdot y\leftrightarrow\frac1{2\pi}X*Y$</li>
+<li>$X_p(\Omega)=\frac1T\sum_k X(\Omega-k\Omega_s)$</li>
+<li>Shannon: $\Omega_s=\frac{2\pi}T&gt;2\Omega_H$</li>
+<li>Alias: $f\equiv f+kf_s$; $\;F=f/f_s$</li>
+<li>Reconstrucción: $x(t)=\sum x(nT)\,\mathrm{sinc}\frac{t-nT}{T}$</li>
+</ul></div>
+<div class="box key"><h4>T4 · Transformada Z</h4><ul>
+<li>$X(z)=\sum x[n]z^{-n}$; causal → ROC $|z|&gt;r$</li>
+<li>$x[n-k]\leftrightarrow z^{-k}X(z)$; $\;x*h\leftrightarrow XH$</li>
+<li>$na^n\leftrightarrow\frac{az}{(z-a)^2}$; $\;a^n\leftrightarrow\frac z{z-a}$</li>
+<li>Inversa: fracciones de $\frac{H(z)}z$</li>
+<li>Complejos: $h=2|C||p|^n\cos(n\angle p+\angle C)$</li>
+<li>TVF: $x[\infty]=\lim_{z\to1}(1-z^{-1})X(z)$; TVI: $x[0]=\lim_{z\to\infty}X(z)$</li>
+</ul></div>
+<div class="box key"><h4>T5 · Datos muestreados</h4><ul>
+<li>$X^*(s)=\sum x(kT)e^{-skT}$, $\;z=e^{sT}$, $\;s=\frac{\ln z}T$</li>
+<li>Jury: $X(z)=\sum\operatorname{Res}\Big[\frac{X(s)}{1-z^{-1}e^{sT}}\Big]$</li>
+<li>Res. orden $m$: $\frac1{(m-1)!}\frac{d^{m-1}}{ds^{m-1}}[(s-p)^m\cdots]$</li>
+<li>$G_{ZOH}=\frac{1-e^{-sT}}s$; $\;G(z)=(1-z^{-1})\mathcal Z\{\frac{G_p}s\}$</li>
+<li>$(G_1G_2)^*\ne G_1^*G_2^*$; $\;(GX^*)^*=G^*X^*$</li>
+<li>FT pulso existe ⇔ entrada muestreada (separable)</li>
+</ul></div>
+<div class="box key"><h4>T6 · Estabilidad y análisis</h4><ul>
+<li>Estable ⇔ raíces de $D(z)$ en $|z|&lt;1$</li>
+<li>Necesaria: $|a_0|&lt;|a_n|$</li>
+<li>Schur-Cohn: $p_1=\frac1z[p-\frac{a_0}{a_n}p^*]$, $\;p^*=z^np(\frac1z)$</li>
+<li>2.º orden: $|a_0|&lt;1$, $1\pm a_1+a_0&gt;0$</li>
+<li>$|z|=e^{-\zeta\omega_nT}$, $\;\angle z=\omega_dT$, $\;t_s\approx\frac{4{,}6}{\zeta\omega_n}$</li>
+<li>$e_{esc}=\frac1{1+K_p}$, $\;e_{ramp}=\frac1{K_v}$, $\;K_v=\lim\frac{(1-z^{-1})G_cG}{T}$</li>
+<li>Bilineal: $z=\frac{1+w}{1-w}$ y Routh en $w$</li>
+</ul></div>
+<div class="box key"><h4>T7 · Diseño</h4><ul>
+<li>$G_c=\frac1G\cdot\frac H{1-H}$</li>
+<li>Causalidad: $\mu(H)\ge\mu(G)$</li>
+<li>Ceros de $G$ con $|z|\ge1$ → ceros de $H$</li>
+<li>Polos de $G$ con $|z|\ge1$ → ceros de $1-H$</li>
+<li>Escalón: $H(1)=1$; rampa: además $H'(1)=0$</li>
+<li>Deadbeat: $H=\frac{N(z)}{z^m}$ (todos los polos en 0)</li>
+<li>Tustin: $s=\frac2T\frac{z-1}{z+1}$; Euler atrás: $s=\frac{z-1}{Tz}$</li>
+<li>PID: $G_c=K_p+\frac{K_iT}{1-z^{-1}}+\frac{K_d}T(1-z^{-1})$</li>
+</ul></div>
+</div>
+<h3 id="formulario-que-te-piden-y-que-haces-recetas">Qué te piden y qué haces (recetas)</h3>
+<div class="tw"><table>
+<tr><th>Te piden…</th><th>Haz esto</th></tr>
+<tr><td>Periodo de una secuencia</td><td>$\Omega/2\pi=k/N$ irreducible ⇒ $N_0=N$; si no es racional, no es periódica. Sumas: mcm.</td></tr>
+<tr><td>Convolución</td><td>Pulsos cortos: tabla o gráfico (calculadora). Exponenciales: límites de solape y suma geométrica. O bien $X(z)H(z)$.</td></tr>
+<tr><td>¿Causal? ¿Estable?</td><td>Causal: $h[n]=0$ para $n&lt;0$. Estable: $\sum|h|&lt;\infty$, o la ROC contiene $|z|=1$.</td></tr>
+<tr><td>$H(z)$ desde la ecuación</td><td>$y[n-k]\to z^{-k}Y$; despeja $Y/X$.</td></tr>
+<tr><td>Z inversa</td><td>Divide por $z$, fracciones parciales, tabla según la ROC. Comprueba $x[0]$ y $x[\infty]$.</td></tr>
+<tr><td>Frecuencia mínima de muestreo</td><td>$f_s&gt;2f_B$. Si hay productos de señales, los anchos de banda se suman.</td></tr>
+<tr><td>$G(z)$ con ZOH</td><td>$(1-z^{-1})\,\mathcal Z\{G(s)/s\}$ por residuos.</td></tr>
+<tr><td>Lazo cerrado</td><td>Ecuaciones por señal muestreada; $\frac{G}{1+GH}$; polos dentro del círculo.</td></tr>
+<tr><td>Estabilidad sin raíces</td><td>$|a_0|&lt;|a_n|$, después Schur-Cohn (o Jury, o bilineal + Routh). En un disco $D(z_0,R)$: $z=Rw+z_0$.</td></tr>
+<tr><td>Diseñar $G_c$</td><td>Ragazzini: $H$ con las tres reglas, $G_c=\frac{H}{G(1-H)}$, y <b>verificar</b> que $\frac{G_cG}{1+G_cG}=H$.</td></tr>
+</table></div>
+<div class="box trap"><h4>Fallos típicos</h4><ul>
+<li>No dividir por $z$ antes de las fracciones parciales.</li>
+<li>Dar una transformada Z sin su ROC.</li>
+<li>Separar $(GH)^*$ como $G^*H^*$.</li>
+<li>Olvidar el factor $(1-z^{-1})$ del ZOH.</li>
+<li>En Ragazzini, no comprobar $H(1)=1$ o dejar un $G_c$ no causal.</li>
+</ul></div>
+<h3 id="formulario-tabla-de-transformadas">Tabla de transformadas</h3>
+<div class="tw"><table>
+<tr><th>$x(t)$ / $x[n]$</th><th>$X(s)$</th><th>$X(z)$</th></tr>
+<tr><td>$\delta[n]$</td><td>—</td><td>$1$</td></tr>
+<tr><td>$1(t)$, $1[n]$</td><td>$\frac1s$</td><td>$\frac{z}{z-1}$</td></tr>
+<tr><td>$t$</td><td>$\frac1{s^2}$</td><td>$\frac{Tz}{(z-1)^2}$</td></tr>
+<tr><td>$t^2/2$</td><td>$\frac1{s^3}$</td><td>$\frac{T^2z(z+1)}{2(z-1)^3}$</td></tr>
+<tr><td>$e^{-at}$</td><td>$\frac1{s+a}$</td><td>$\frac{z}{z-e^{-aT}}$</td></tr>
+<tr><td>$a^n$</td><td>—</td><td>$\frac{z}{z-a}$</td></tr>
+<tr><td>$n\,a^n$</td><td>—</td><td>$\frac{az}{(z-a)^2}$</td></tr>
+<tr><td>$\cos(\Omega n)$</td><td>—</td><td>$\frac{z(z-\cos\Omega)}{z^2-2z\cos\Omega+1}$</td></tr>
+<tr><td>$\sin(\Omega n)$</td><td>—</td><td>$\frac{z\sin\Omega}{z^2-2z\cos\Omega+1}$</td></tr>
+<tr><td>$\frac{a}{s+a}$ con ZOH</td><td>—</td><td>$\frac{1-e^{-aT}}{z-e^{-aT}}$</td></tr>
+</table></div>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="simulacro.html"><small>← Anterior</small>Simulacro con soluciones</a><a class="nx" href="glosario.html"><small>Siguiente →</small>Glosario</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

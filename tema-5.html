@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T5 · Datos muestreados · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): T5 · Datos muestreados">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Parcial 2</span><span class="sep">›</span><span>T5 · Datos muestreados</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a aria-current="page" class="cur" href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec tema" style="--tc:var(--c4);--tcs:var(--c4s)">
+<div class="sh"><span aria-hidden="true" class="badge">5</span><div class="shx"><p class="kick">Parcial 2 · Tema 5</p><h2 id="t5">Sistemas de datos muestreados</h2><div class="tags"><span class="tag">Parcial 2</span><span class="tag">aparece en todos</span></div></div></div>
+<div class="zero">
+<p class="ft">Desde cero</p>
+<p>Ahora juntamos las dos partes del mundo: el <b>ordenador</b> trabaja con números cada $T$ segundos y la <b>planta</b> (motor, horno, depósito) es continua y se describe con $G_p(s)$, como en Ingeniería de Control. Entre ellos hay dos traductores:</p>
+<ul>
+<li><b>Muestreador:</b> convierte la señal de la planta en números, $y(t)\to y[k]=y(kT)$.</li>
+<li><b>Retenedor de orden cero (ZOH):</b> convierte los números del ordenador en una señal para la planta, manteniendo cada valor durante $T$ (una escalera).</li>
+</ul>
+<p>La gran pregunta del tema es: <b>¿qué ve el ordenador de la planta?</b> Ve un sistema discreto $G(z)$ que, en los instantes de muestreo, da <b>exactamente</b> lo mismo que la planta real. Para calcularlo se usa $G(z)=(1-z^{-1})\mathcal Z\{G_p(s)/s\}$, y los residuos son la forma de obtener esa $\mathcal Z\{\cdot\}$.</p>
+</div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 5 <span class="src">13 símbolos</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr>
+<tr><td class="sym">$s$</td><td>Variable de Laplace</td><td class="u">$s=\sigma+j\omega$</td></tr>
+<tr><td class="sym">$z=e^{sT}$</td><td>Puente entre $s$ y $z$ (y al revés, $s=\frac{\ln z}{T}$)</td><td class="u">polo $s=-a$ → $z=e^{-aT}$</td></tr>
+<tr><td class="sym">$x^*(t),\ X^*(s)$</td><td>Señal muestreada y su transformada de Laplace</td><td class="u">$X(z)=X^*(s)\big|_{z=e^{sT}}$</td></tr>
+<tr><td class="sym">$G_p(s)$</td><td>Planta continua (motor, horno…)</td><td class="u">p de planta</td></tr>
+<tr><td class="sym">$G_c(z)$</td><td>Controlador digital (el programa del ordenador)</td><td class="u">c de controlador</td></tr>
+<tr><td class="sym">$G_{ZOH}(s)$</td><td>Retenedor de orden cero (también $G_{ho}$ o $G_h$)</td><td class="u">$\frac{1-e^{-sT}}{s}$</td></tr>
+<tr><td class="sym">$G_1(s)=\frac{G(s)}{s}$</td><td>Función auxiliar del cálculo con ZOH</td><td class="u">$G(z)=(1-z^{-1})G_1(z)$</td></tr>
+<tr><td class="sym">$(G_1G_2)(z)$</td><td>Discretización del <b>producto</b> (sin muestreador entre ellos)</td><td class="u">$\ne G_1(z)G_2(z)$</td></tr>
+<tr><td class="sym">$G^*(s)$, $G(z)$</td><td>FdT pulso: la planta «vista por el ordenador»</td><td class="u">solo existe si la entrada está muestreada</td></tr>
+<tr><td class="sym">$R,E,U,Y$</td><td>Referencia, error, señal de control y salida</td><td class="u">$E=R-Y$</td></tr>
+<tr><td class="sym">$u[k],\ y[k]$</td><td>Valores en el instante $kT$ (en control se usa $k$ en lugar de $n$)</td><td class="u">$u[k]$ dura de $kT$ a $(k+1)T$</td></tr>
+<tr><td class="sym">$K_p,K_i,K_d$</td><td>Ganancias proporcional, integral y derivativa del PID</td><td class="u"></td></tr>
+<tr><td class="sym">$G(z,m)$</td><td>Transformada Z modificada: salida en $t=(k-1+m)T$</td><td class="u">$0\le m&lt;1$</td></tr>
+</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>Escribir $G(z)$ a secas para la planta con ZOH es una abreviatura de $\mathcal Z\{G_{ZOH}G_p\}$. Cuando en un diagrama hay varios bloques seguidos sin muestreador, se escribe el producto entre paréntesis, $(G_{ZOH}G_p)(z)$ o $(G_{ZOH}G_p)^*$, para dejar claro que se discretizan juntos.</p></div>
+</div></details>
+<figure class="fig">
+<p class="ft">Simulador · ZOH + planta: el modelo discreto acierta en cada muestra</p>
+<div class="ctrl"><label for="w7-a">Rapidez de la planta $a$ <input id="w7-a" max="4" min="0.3" step="0.1" type="range" value="1"/></label><output id="w7-a-o"></output>
+<label for="w7-T">Periodo $T$ <input id="w7-T" max="2" min="0.1" step="0.05" type="range" value="0.5"/></label><output id="w7-T-o"></output></div>
+<div id="w7-plot"></div><div class="readout" id="w7-txt"></div>
+<figcaption>Planta $G_p(s)=\frac{a}{s+a}$. El ordenador manda la escalera (verde), que es la referencia gris muestreada y retenida. La planta responde de forma continua (negro). Los puntos rojos son lo que calcula el modelo discreto $y[k+1]=e^{-aT}y[k]+(1-e^{-aT})u[k]$, es decir, $G(z)=\frac{1-e^{-aT}}{z-e^{-aT}}$: caen <b>exactamente</b> sobre la curva continua en cada instante $kT$. Entre muestras, el modelo discreto no dice nada.</figcaption>
+</figure>
+<div class="box key">
+<p>Señal muestreada: $x^*(t)=\sum x(kT)\delta(t-kT)$, $\;X^*(s)=\sum x(kT)e^{-skT}$ y $X(z)=X^*(s)\big|_{z=e^{sT}}$.</p>
+<p><b>Mapeo $s\to z$:</b> $s=\sigma+j\omega \Rightarrow |z|=e^{\sigma T},\ \angle z=\omega T$. Semiplano izquierdo → interior del disco (estable); eje $j\omega$ → circunferencia unidad; semiplano derecho → exterior.</p>
+<p><b>Integral de contorno de Jury (residuos):</b>
+$$X(z)=\sum_{p\,\in\,\text{polos de }X(s)}\operatorname{Res}\left[\frac{X(s)}{1-z^{-1}e^{sT}},\,p\right]$$
+Polo simple: $\lim_{s\to p}(s-p)\dfrac{X(s)}{1-z^{-1}e^{sT}}$. Polo de orden $m$: $\dfrac1{(m-1)!}\lim_{s\to p}\dfrac{d^{m-1}}{ds^{m-1}}\!\left[(s-p)^m\dfrac{X(s)}{1-z^{-1}e^{sT}}\right]$.</p>
+<p><b>Retenedor de orden cero:</b> $G_{ZOH}(s)=\dfrac{1-e^{-sT}}{s}$, y
+$$G(z)=\mathcal Z\{G_{ZOH}(s)G_p(s)\}=(1-z^{-1})\,\mathcal Z\!\left\{\frac{G_p(s)}{s}\right\}$$</p>
+</div>
+<figure class="fig">
+<p class="ft">Visual · el mapeo z = e^{sT}</p>
+<div id="fig-map"></div>
+<figcaption>Todo el semiplano izquierdo de $s$ (verde, estable) cae dentro del disco unidad; el semiplano derecho (rojo), fuera. Ejemplo con $T=0{,}5$: los polos $s=-1\pm 2j$ pasan a $z=e^{-0{,}5}e^{\pm j}=0{,}607\,\angle\pm57^\circ$, y el polo inestable $s=0{,}5$ pasa a $z=e^{0{,}25}=1{,}28$, fuera del disco. La parte real de $s$ fija el módulo de $z$; la imaginaria, el ángulo.</figcaption>
+</figure>
+<figure class="fig">
+<p class="ft">Visual · el lazo de control digital típico</p>
+<div id="fig-blk"></div>
+<figcaption>El error se muestrea cada $T$, el controlador $G_c(z)$ calcula $u[k]$, el ZOH lo convierte en escalera y entra a la planta continua. Como ZOH y $G_p(s)$ van seguidos <b>sin muestreador en medio</b>, se discretizan juntos: $G(z)=(1-z^{-1})\mathcal Z\{G_p(s)/s\}$. La entrada $r$ entra muestreada, así que existe la FT pulso $\frac{Y(z)}{R(z)}=\frac{G_cG}{1+G_cG}$.</figcaption>
+</figure>
+<details><summary>Ejemplo base: $G_p(s)=\frac1{s+1}$ con ZOH <span class="src">Teoría 2.º parcial, p. 9</span></summary><div class="inner">
+<p>$\dfrac{G_p(s)}{s}=\dfrac1{s(s+1)}$, polos en $0$ y $-1$:</p>
+<p>$\operatorname{Res}_0=\dfrac{1}{1-z^{-1}}$, $\quad\operatorname{Res}_{-1}=\dfrac{1}{-1}\cdot\dfrac1{1-z^{-1}e^{-T}}$.</p>
+<p>$$G(z)=(1-z^{-1})\left[\frac1{1-z^{-1}}-\frac1{1-z^{-1}e^{-T}}\right]=\frac{1-e^{-T}}{z-e^{-T}}$$</p>
+<p>Con $T=1$: $G(z)=\dfrac{0{,}6321}{z-0{,}3679}$.</p>
+</div></details>
+<details><summary>Examen dic. 2021 · Motor DC $G(s)=\frac1{(s+1)(s+10)}$, $T=0{,}1$ s <span class="src">Recopilación, 2.º parcial 2021</span></summary><div class="inner">
+<p>Tres polos en $G(s)/s$: $0$, $-1$, $-10$.</p>
+<p>$R_1=\dfrac{1}{10(1-z^{-1})}$, $\;R_2=-\dfrac{1}{9(1-z^{-1}e^{-T})}$, $\;R_3=\dfrac{1}{90(1-z^{-1}e^{-10T})}$.</p>
+<p>Multiplicando por $(1-z^{-1})$ y operando:</p>
+<p>$$G(z)=\frac{0{,}31951\,z+0{,}22188}{90\,(z-0{,}36788)(z-0{,}90484)}$$</p>
+<p>Comprobado con <code>c2d(tf(1,conv([1 1],[1 10])),0.1,'zoh')</code>.</p>
+</div></details>
+<h3 id="t5-existe-la-funcion-de-transferencia-pulso">¿Existe la función de transferencia pulso?</h3>
+<div class="box key">
+<p>Existe <b>solo si la entrada $R$ entra por un muestreador</b> (aparece como $R^*$ o $R(z)$ separable). Si $R$ pasa por un bloque continuo antes de muestrearse, aparece un término $(G R)(z)$, que <b>no se puede separar</b>: entonces das la salida $Y(z)$ explícitamente, no $Y/R$.</p>
+<p>Regla clave: $(G_1G_2)^*\neq G_1^*G_2^*$. Bloques continuos en serie <b>sin muestreador en medio</b> se discretizan juntos.</p>
+<p><b>Método práctico:</b> parte de la salida y recorre hacia atrás; lo que quede entre dos muestreadores es una FT pulso. Plantea una ecuación por cada señal muestreada, despeja.</p>
+<p>Lazo típico (controlador digital, ZOH, planta, realimentación unitaria):
+$$\frac{Y(z)}{R(z)}=\frac{G_c(z)G(z)}{1+G_c(z)G(z)},\qquad G(z)=(1-z^{-1})\mathcal Z\{G_p/s\}$$
+Con sensor $H(s)$ en la realimentación: el denominador pasa a $1+G_c(z)\,\overline{GH}(z)$, con $\overline{GH}(z)=\mathcal Z\{G_{ZOH}G_pH\}$.</p>
+</div>
+<figure class="fig">
+<p class="ft">Simulador · ¿dónde está el muestreador? Cambia el resultado</p>
+<div class="ctrl"><span>Cascada $G_1=\frac1{s+1}$ y $G_2=\frac1{s+2}$, $T=1$:</span>
+<button aria-pressed="true" id="w8-a" type="button">Con muestreador entre los bloques</button>
+<button aria-pressed="false" id="w8-b" type="button">Sin muestreador entre los bloques</button></div>
+<div id="w8-blk"></div><div id="w8-h"></div><div class="readout" id="w8-txt"></div>
+<figcaption>Es la regla que más falla en el EP2: <b>$(G_1G_2)^*\neq G_1^*G_2^*$</b>. Si hay un muestreador entre los bloques, cada uno se discretiza por separado y se multiplican. Si no lo hay, primero se multiplican en $s$ y luego se discretiza el producto. Las dos respuestas impulsivas (verde y roja) son distintas, así que no es un detalle de notación: es otro sistema.</figcaption>
+</figure>
+<details><summary>Examen ene. 2021 · Perturbación sin muestreador a la entrada <span class="src">Recopilación, 2.º parcial 2021</span></summary><div class="inner">
+<p>La perturbación $D$ entra en $G_dG$ sin muestrear:
+$$Y(z)=\frac{(GG_dD)(z)}{1+(G_{ZOH}G)(z)\,C(z)}$$
+No es separable → <b>no existe</b> FT pulso desde $D$.</p>
+<p>Con $G=\frac1{s+1}$, $G_d=\frac1s$, $C=K_c$, impulso de área $A$ ($D(s)=A$): $(GG_dD)(z)=A\left[\frac1{1-z^{-1}}-\frac1{1-z^{-1}e^{-T}}\right]$ y $(1-z^{-1})(GG_dD)(z)=A\,(G_{ZOH}G)(z)$.</p>
+<p>Valor final: $\lim_{z\to1}(G_{ZOH}G)(z)=1\Rightarrow\;y[\infty]=\dfrac{A}{1+K_c}$.</p>
+</div></details>
+<h3 id="t5-pid-digital-programa-5-5">PID digital <span class="tag">programa 5.5</span></h3>
+<div class="box key">
+<p>Discretizando la integral por rectángulos hacia atrás y la derivada por diferencias:</p>
+<p>$$u[k]=K_p\,e[k]+K_iT\sum_{j=0}^{k}e[j]+\frac{K_d}{T}\big(e[k]-e[k-1]\big)$$</p>
+<p>$$G_c(z)=K_p+\frac{K_iT}{1-z^{-1}}+\frac{K_d}{T}(1-z^{-1})$$</p>
+<p>Forma de velocidad (incremental), la que se programa en el microcontrolador: $\;u[k]=u[k-1]+q_0e[k]+q_1e[k-1]+q_2e[k-2]$, con $q_0=K_p+K_iT+\frac{K_d}T$, $\;q_1=-K_p-\frac{2K_d}T$, $\;q_2=\frac{K_d}T$.</p>
+<p>El polo en $z=1$ es la acción integral: sube el tipo del sistema y anula el error al escalón.</p>
+</div>
+<h3 id="t5-respuesta-entre-muestras-transformada-z-">Respuesta entre muestras: transformada Z modificada <span class="tag">programa 5.6</span><span class="tag w">prioridad baja</span></h3>
+<div class="box">
+<p>$Y(z)$ solo da la salida en $t=kT$; entre muestras puede haber oscilaciones ocultas (el <i>ripple</i> típico del deadbeat). Para verlas se retrasa la salida una fracción, $t=(k-1+m)T$ con $0\le m&lt;1$:</p>
+<p>$$G(z,m)=z^{-1}\sum_{\text{polos}}\operatorname{Res}\left[\frac{G(s)\,e^{msT}}{1-z^{-1}e^{sT}}\right]\qquad\text{p. ej. }\ \frac1{s+a}\ \to\ \frac{e^{-amT}}{z-e^{-aT}}$$</p>
+<p>Barriendo $m$ entre 0 y 1 reconstruyes $y(t)$ completa. La alternativa, el «método de la transformada de Laplace», es calcular $y(t)$ en continuo a partir de la escalera $u(t)$ que sale del ZOH.</p>
+</div>
+<h3 id="t5-ejemplo-la-respuesta-entre-muestras-con-">Ejemplo: la respuesta entre muestras con la Z modificada <span class="tag">programa 5.6</span><span class="tag w">prioridad baja</span></h3>
+<details><summary>$G_p=\frac1{s+1}$ con ZOH y $T=1$: salida en $t=(k-1+m)T$ <span class="src">Comprobado numéricamente</span></summary><div class="inner">
+<p>$\mathcal Z_m\{\frac1s\}=\frac1{z-1}$ y $\mathcal Z_m\{\frac1{s+1}\}=\frac{e^{-m}}{z-e^{-1}}$. Como $\frac{G_p}{s}=\frac1s-\frac1{s+1}$:
+$$G(z,m)=(1-z^{-1})\left[\frac1{z-1}-\frac{e^{-m}}{z-e^{-1}}\right]=\frac1z-\frac{(z-1)e^{-m}}{z(z-e^{-1})}$$
+Comprobación: con $m=0$ sale $\frac{1-e^{-1}}{z(z-e^{-1})}=z^{-1}G(z)$, la misma planta retrasada una muestra ✓.</p>
+<p>Ante un escalón: $Y(z,m)=G(z,m)\frac{z}{z-1}=\frac1{z-1}-\frac{e^{-m}}{z-e^{-1}}$ ⇒ $y\big((k-1+m)T\big)=1-e^{-(k-1+m)}$ para $k\ge1$. Es exactamente $1-e^{-t}$, la respuesta continua, para <b>cualquier</b> $t$: con la Z modificada recuperas toda la curva, no solo las muestras.</p>
+</div></details>
+<h3 id="t5-ejemplo-el-pid-de-las-practicas-en-lazo-">Ejemplo: el PID de las prácticas en lazo cerrado</h3>
+<details><summary>$G_p=\frac1{s(s+1)}$, $T=1$, $K_p=1$, $K_i=K_d=0{,}2$ (práctica 3) <span class="src">Comprobado numéricamente</span></summary><div class="inner">
+<p>Con la integral por trapecio: $G_{PID}(z)=K_p+\frac{K_d}T(1-z^{-1})+K_i\frac T2\frac{1+z^{-1}}{1-z^{-1}}=\dfrac{1{,}3z^2-1{,}3z+0{,}2}{z(z-1)}$.</p>
+<p>Planta con ZOH: $G(z)=\frac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$. El lazo cerrado $\frac{G_{PID}G}{1+G_{PID}G}$ tiene por denominador $z^4-1{,}890z^3+1{,}601z^2-0{,}638z+0{,}053$.</p>
+<p>Polos: $0{,}505\pm0{,}611j$ (módulo $0{,}79$), $0{,}771$ y $0{,}109$ ⇒ <b>estable</b>. Escalón: $y=0;\ 0{,}48;\ 1{,}25;\ 1{,}66;\ 1{,}58;\ 1{,}22;\dots\to1$ (sobreimpulso del 66 %). Rampa: error final nulo, porque hay <b>dos</b> polos en $z=1$ (el del PID y el de la planta): tipo 2.</p>
+</div></details>
+<!-- ===================== T6 ===================== -->
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-4.html"><small>← Anterior</small>T4 · Transformada Z</a><a class="nx" href="tema-6.html"><small>Siguiente →</small>T6 · Estabilidad y análisis</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

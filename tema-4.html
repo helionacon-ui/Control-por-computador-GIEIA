@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T4 · Transformada Z · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): T4 · Transformada Z">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Parcial 1</span><span class="sep">›</span><span>T4 · Transformada Z</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a aria-current="page" class="cur" href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec tema" style="--tc:var(--c3);--tcs:var(--c3s)">
+<div class="sh"><span aria-hidden="true" class="badge">4</span><div class="shx"><p class="kick">Parcial 1 · Tema 4</p><h2 id="t4">Transformada Z</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈4 puntos</span></div></div></div>
+<div class="zero">
+<p class="ft">Desde cero</p>
+<p>Un sistema discreto se describe con una <b>ecuación en diferencias</b>, por ejemplo $y[n]=0{,}5\,y[n-1]+x[n]$: la salida de ahora depende de la de antes. Resolver eso a mano es pesado. La <b>transformada Z</b> lo convierte en álgebra, como hacía Laplace con las ecuaciones diferenciales.</p>
+<p>La idea clave es que <b>$z^{-1}$ significa «retrasar una muestra»</b>. Así, $y[n]-0{,}5y[n-1]=x[n]$ pasa a $Y(z)(1-0{,}5z^{-1})=X(z)$, y despejas $H(z)=\frac{Y}{X}=\frac{1}{1-0{,}5z^{-1}}$.</p>
+<p>Los <b>polos</b> de $H(z)$ (donde se anula el denominador) son los «modos» del sistema. Cada polo $p$ aporta a la respuesta un término $p^n$: si $|p|&lt;1$ se apaga, y si $|p|&gt;1$ crece sin parar. Por eso <b>estable ⇔ polos dentro del círculo de radio 1</b>. La <b>ROC</b> (región de convergencia) es el conjunto de $z$ donde la suma converge; en un sistema causal es todo lo que queda fuera del polo más grande.</p>
+</div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 4 <span class="src">13 símbolos</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr>
+<tr><td class="sym">$z$</td><td>Variable compleja de la transformada Z</td><td class="u">$z=re^{j\Omega}$</td></tr>
+<tr><td class="sym">$z^{-1}$</td><td>Operador <b>retardo</b> de una muestra</td><td class="u">$x[n-1]\leftrightarrow z^{-1}X(z)$</td></tr>
+<tr><td class="sym">$X(z)=\mathcal Z\{x[n]\}$</td><td>Transformada Z de la secuencia</td><td class="u">$\sum x[n]z^{-n}$</td></tr>
+<tr><td class="sym">$H(z)$</td><td>Función de transferencia: $Y(z)/X(z)$, o Z de $h[n]$</td><td class="u">FdT o «f.d.T.»</td></tr>
+<tr><td class="sym">ROC, RoC</td><td>Región de convergencia: dónde converge la suma</td><td class="u">siempre se da junto a $X(z)$</td></tr>
+<tr><td class="sym">$p_i$, ×</td><td>Polos: raíces del denominador. Se dibujan con una cruz</td><td class="u">$|p_i|&lt;1$ ⇒ modo que se apaga</td></tr>
+<tr><td class="sym">ceros, ○</td><td>Raíces del numerador. Se dibujan con un círculo</td><td class="u"></td></tr>
+<tr><td class="sym">$A,B,C$</td><td>Coeficientes de las fracciones parciales (residuos de $H(z)/z$)</td><td class="u">$A=\lim_{z\to p}(z-p)\frac{H}{z}$</td></tr>
+<tr><td class="sym">$a^n1[n]$</td><td>Término <b>derecho</b> (causal), para $|z|&gt;|a|$</td><td class="u"></td></tr>
+<tr><td class="sym">$-a^n1[-n-1]$</td><td>Término <b>izquierdo</b> (anticausal), para $|z|&lt;|a|$</td><td class="u">vale 0 para $n\ge0$</td></tr>
+<tr><td class="sym">$A(0;r_1,r_2)$</td><td>Anillo $r_1&lt;|z|&lt;r_2$ (notación de los ejercicios complementarios externos)</td><td class="u">ROC de una secuencia bilateral</td></tr>
+<tr><td class="sym">$x[0],\ x[\infty]$</td><td>Teoremas del valor inicial y final</td><td class="u">$x[\infty]=\lim_{z\to1}(1-z^{-1})X(z)$</td></tr>
+<tr><td class="sym">$\operatorname{Res}[F,p]$</td><td>Residuo de $F$ en el polo $p$</td><td class="u">integral de contorno</td></tr>
+</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>En la tabla de pares, $\frac{z}{z-a}$ y $\frac{1}{1-az^{-1}}$ son <b>la misma</b> expresión: la primera en potencias de $z$ y la segunda en potencias de $z^{-1}$. Para las fracciones parciales usa siempre la forma en $z$, dividida por $z$.</p></div>
+</div></details>
+<figure class="fig">
+<p class="ft">Simulador · de los polos a h[n], con fracciones parciales en directo</p>
+<div class="ctrl"><label for="w6-p1">Polo $p_1$ <input id="w6-p1" max="1.2" min="-1.2" step="0.05" type="range" value="0.8"/></label><output id="w6-p1-o"></output>
+<label for="w6-p2">Polo $p_2$ <input id="w6-p2" max="1.2" min="-1.2" step="0.05" type="range" value="-0.5"/></label><output id="w6-p2-o"></output><span class="pill" id="w6-p"></span></div>
+<div class="figrow"><div id="w6-z"></div><div id="w6-h"></div></div>
+<div class="readout" id="w6-txt"></div>
+<figcaption>$H(z)=\dfrac{z^2}{(z-p_1)(z-p_2)}$, causal. Izquierda: polos y <b>ROC sombreada</b> ($|z|&gt;\max|p_i|$). Derecha: $h[n]=A\,p_1^n+B\,p_2^n$, con $A$ y $B$ calculados por fracciones parciales de $H(z)/z$ (abajo, paso a paso). El sistema es estable justo cuando la ROC contiene la circunferencia unidad. Un polo negativo hace que $h[n]$ alterne de signo en cada muestra.</figcaption>
+</figure>
+<div class="box key">
+<p>$X(z)=\sum x[n]z^{-n}$. <b>Secuencia derecha (causal)</b> → ROC exterior a un círculo $|z|&gt;r$. <b>Causal y estable</b> ⇔ todos los polos dentro del disco unidad $D(0,1)$.</p>
+<p><b>Desplazamiento:</b> $x[n-k]\leftrightarrow z^{-k}X(z)$. <b>Valor final:</b> $x[\infty]=\lim_{z\to1}(1-z^{-1})X(z)$, solo si $(1-z^{-1})X(z)$ es estable. <b>Valor inicial:</b> $x[0]=\lim_{z\to\infty}X(z)$.</p>
+</div>
+<h3 id="t4-receta-de-la-z-inversa">Receta de la Z inversa</h3>
+<ol class="steps">
+<li>Pasa a potencias positivas de $z$ (multiplica arriba y abajo por $z^{k}$).</li>
+<li>Expande <b>$H(z)/z$</b> (no $H(z)$) en fracciones parciales: $C_i=\lim_{z\to p_i}(z-p_i)\frac{H(z)}{z}$.</li>
+<li>Multiplica por $z$ y usa $\dfrac{z}{z-p}\leftrightarrow p^n1[n]$.</li>
+<li><b>Polos complejos</b> $p,\bar p$: $h[n]=2\,\mathrm{Re}\{C p^n\}=2|C|\,|p|^n\cos(n\angle p+\angle C)\,1[n]$. Sin $j$ en la respuesta final.</li>
+<li>Estabilidad: mira $|p_i|&lt;1$.</li>
+</ol>
+<figure class="fig">
+<p class="ft">Visual interactivo · dónde está el polo decide cómo es h[n]</p>
+<div class="ctrl"><label for="zr">Módulo $r=|p|$ <input id="zr" max="1.15" min="0.3" step="0.01" type="range" value="0.71"/></label><output id="zr-o"></output>
+<label for="zt">Ángulo $\theta$ <input id="zt" max="180" min="0" step="1" type="range" value="45"/></label><output id="zt-o"></output><span class="pill" id="z-p"></span></div>
+<div class="figrow"><div id="fig-zp"></div><div id="fig-zh"></div></div>
+<figcaption>Un par de polos $p=re^{\pm j\theta}$ da $h[n]\propto r^n\cos(\theta n)$. El <b>módulo</b> $r$ fija si decae ($r&lt;1$, estable), se mantiene ($r=1$) o explota ($r&gt;1$). El <b>ángulo</b> $\theta$ fija cuántas muestras dura cada oscilación ($2\pi/\theta$). Con $\theta=0$ es un polo real positivo (sin oscilar); con $\theta=180^\circ$, uno real negativo (alterna de signo en cada muestra). Los valores iniciales ($r=0{,}71$, $\theta=45^\circ$) son los del examen de nov. 2023.</figcaption>
+</figure>
+<details><summary>Examen nov. 2023 · P3 (4 puntos): inversa con polos complejos <span class="src">Recopilación, 1.er parcial 2023</span></summary><div class="inner">
+<p>$H(z)=\dfrac{1+z^{-1}}{1-z^{-1}+\frac12z^{-2}}=\dfrac{z(z+1)}{z^2-z+\frac12}$, causal.</p>
+<p>Polos: $z^2-z+\tfrac12=0\Rightarrow p=\tfrac12+\tfrac12 j=\tfrac1{\sqrt2}e^{j\pi/4}$.</p>
+<p>$\dfrac{H(z)}{z}=\dfrac{C}{z-p}+\dfrac{\bar C}{z-\bar p}$, con $C=\dfrac{p+1}{p-\bar p}=\dfrac{p+1}{j}=\tfrac12-\tfrac32j=\tfrac{\sqrt{10}}2e^{-j\arctan 3}$.</p>
+<p>$$h[n]=\sqrt{10}\left(\tfrac1{\sqrt2}\right)^{n}\cos\!\left(\tfrac{\pi}{4}n-\arctan 3\right)1[n]$$</p>
+<p>Primeros valores: $1,\;2,\;1{,}5,\;0{,}5,\;-0{,}25,\dots$ (coinciden con la división larga). <b>Estable</b>: $|p|=1/\sqrt2&lt;1$.</p>
+</div></details>
+<details><summary>Final feb. 2021 · EP1: diseñar $h[n]$ a partir de entrada y salida <span class="src">Recopilación, feb. 2021</span></summary><div class="inner">
+<p>$x[n]=(\tfrac12)^n1[n]-\tfrac14(\tfrac12)^{n-1}1[n-1]$, $\;y[n]=(\tfrac13)^n1[n]$.</p>
+<p>$H(z)=\dfrac{Y(z)}{X(z)}=\dfrac{1-\frac12z^{-1}}{(1-\frac14z^{-1})(1-\frac13z^{-1})}=\dfrac{12-6z^{-1}}{12-7z^{-1}+z^{-2}}$.</p>
+<p>(a) Fracciones parciales: $h[n]=\big[3(\tfrac14)^n-2(\tfrac13)^n\big]1[n]$.</p>
+<p>(b) Producto en cruz: $12y[n]-7y[n-1]+y[n-2]=12x[n]-6x[n-1]$.</p>
+<p>(c) Polos $\tfrac14,\tfrac13\in D(0,1)$ → estable.</p>
+</div></details>
+<h3 id="t4-otros-metodos-del-programa-programa-4-2-">Otros métodos del programa <span class="tag">programa 4.2, 4.5–4.7</span></h3>
+<div class="grid2">
+<div class="box">
+<h4>División larga</h4>
+<p>Divide numerador entre denominador en potencias de $z^{-1}$: los coeficientes del cociente son $h[0],h[1],\dots$ Sirve para dar las primeras muestras o comprobar tu fórmula. Ejemplo (1.<sup>er</sup> parcial 2023-24, P3):</p>
+<p>$$\frac{1+z^{-1}}{1-z^{-1}+\frac12z^{-2}}$$ $$=1+2z^{-1}+1{,}5z^{-2}+0{,}5z^{-3}-0{,}25z^{-4}-\dots$$</p>
+<p>Es decir, $h=\{1;\ 2;\ 1{,}5;\ 0{,}5;\ -0{,}25;\dots\}$, lo mismo que da $h[n]=\sqrt{10}\,(\tfrac1{\sqrt2})^n\cos(\tfrac\pi4n-\arctan3)$.</p>
+</div>
+<div class="box">
+<h4>Integral de contorno (residuos en $z$)</h4>
+<p>$$x[n]=\frac1{2\pi j}\oint_C X(z)\,z^{n-1}\,dz=\sum\operatorname{Res}\big[X(z)\,z^{n-1}\big]$$</p>
+<p>Los residuos se toman en los polos que quedan <b>dentro del contorno $C$</b>, una circunferencia contenida en la ROC. Para una secuencia causal son todos los polos. Con $n\ge0$ y polos simples da lo mismo que las fracciones parciales. Ojo: para $n=0$, el factor $z^{-1}$ puede añadir un polo en $z=0$.</p>
+</div>
+<div class="box">
+<h4>Z unilateral y condiciones iniciales</h4>
+<p>$$\mathcal Z\{x[n-1]\}=z^{-1}X(z)+x[-1]$$ $$\mathcal Z\{x[n-2]\}=z^{-2}X(z)+z^{-1}x[-1]+x[-2]$$ $$\mathcal Z\{x[n+1]\}=zX(z)-z\,x[0]$$</p>
+</div>
+<div class="box">
+<h4>Continuo ↔ discreto</h4>
+<p>Invarianza al impulso: cada polo $s=p$ pasa a $z=e^{pT}$. Si se toma $h[n]=h_c(nT)$, entonces $\frac1{s+a}\to\frac{z}{z-e^{-aT}}$ (la tabla que usamos).</p>
+<p class="muted" style="font-size:14px">El Oppenheim define $h[n]=T\,h_c(nT)$ para conservar la ganancia, y entonces aparece un factor $T$: $\frac1{s+a}\to\frac{Tz}{z-e^{-aT}}$.</p>
+</div>
+</div>
+<details><summary>Ejemplo: resolver una ecuación en diferencias con condición inicial <span class="src">programa 4.7</span></summary><div class="inner">
+<p>$y[n]-\tfrac12y[n-1]=x[n]$, con $x[n]=1[n]$ e $y[-1]=1$.</p>
+<p>Z unilateral: $Y(z)-\tfrac12\big(z^{-1}Y(z)+y[-1]\big)=X(z)\;\Rightarrow\;Y(z)=\dfrac{X(z)+\frac12}{1-\frac12z^{-1}}$.</p>
+<p>Respuesta forzada: $\dfrac{1}{(1-z^{-1})(1-\frac12z^{-1})}=\dfrac{2}{1-z^{-1}}-\dfrac{1}{1-\frac12z^{-1}}\to 2-(\tfrac12)^n$.</p>
+<p>Respuesta libre: $\dfrac{1/2}{1-\frac12z^{-1}}\to(\tfrac12)^{n+1}$.</p>
+<p>Total: $\boxed{y[n]=2-(\tfrac12)^{n+1}}$, $n\ge0$. Comprobación: $y[0]=\tfrac12\cdot1+1=1{,}5$ ✓, $\;y[1]=0{,}75+1=1{,}75$ ✓.</p>
+</div></details>
+<div class="box trap">
+<h4>Trampas típicas</h4>
+<ul>
+<li>Expandir $H(z)$ en lugar de $H(z)/z$: pierdes la forma $z/(z-p)$ y te sale un $h[n]$ desplazado.</li>
+<li>Sin ROC o sin causalidad, la inversa no es única. Di siempre «bajo hipótesis de causalidad (secuencia derecha)».</li>
+<li>Aplicar el valor final a algo inestable da un número que no significa nada.</li>
+</ul>
+</div>
+<!-- ===================== T5 ===================== -->
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-3.html"><small>← Anterior</small>T3 · Muestreo y Fourier</a><a class="nx" href="tema-5.html"><small>Siguiente →</small>T5 · Datos muestreados</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

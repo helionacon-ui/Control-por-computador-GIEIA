@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>T6 · Estabilidad y análisis · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): T6 · Estabilidad y análisis">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Parcial 2</span><span class="sep">›</span><span>T6 · Estabilidad y análisis</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a aria-current="page" class="cur" href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec tema" style="--tc:var(--c5);--tcs:var(--c5s)">
+<div class="sh"><span aria-hidden="true" class="badge">6</span><div class="shx"><p class="kick">Parcial 2 · Tema 6</p><h2 id="t6">Estabilidad, transitorio y estacionario</h2><div class="tags"><span class="tag">Parcial 2</span></div></div></div>
+<div class="zero">
+<p class="ft">Desde cero</p>
+<p>Una vez cerrado el lazo (el ordenador corrige con el error $e=r-y$), hay que contestar tres cosas:</p>
+<ol>
+<li><b>¿Es estable?</b> Si le pides 1, ¿se acaba quedando quieta o se dispara? Depende solo de los polos del lazo cerrado: <b>todos dentro del círculo unidad</b>. Como no siempre se pueden calcular las raíces, hay tests que lo deciden mirando los coeficientes: Jury, Schur-Cohn y la bilineal con Routh.</li>
+<li><b>¿Cómo llega?</b> (transitorio) Cuánto se pasa (sobreimpulso) y cuánto tarda (tiempo de establecimiento). Depende de dónde estén los polos dentro del círculo.</li>
+<li><b>¿Llega al valor exacto?</b> (estacionario) Lo que queda de error al final. Se calcula con el teorema del valor final y depende del <b>tipo</b>: cuántos integradores (polos en $z=1$) tiene el lazo.</li>
+</ol>
+<p>Más ganancia $K$ suele significar más rapidez y menos error, pero también más oscilación. Si te pasas, el lazo se vuelve inestable: es el compromiso de todo el control.</p>
+</div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 6 <span class="src">13 símbolos</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr>
+<tr><td class="sym">$p(z),\ D(z)$</td><td>Polinomio característico: denominador del lazo cerrado</td><td class="u">$1+G_cG=0$</td></tr>
+<tr><td class="sym">$a_n,\dots,a_0$</td><td>Coeficientes del polinomio, de mayor a menor grado</td><td class="u">$a_n$ principal, $a_0$ independiente</td></tr>
+<tr><td class="sym">$p^*(z)$</td><td>Polinomio <b>reflejado</b>: los coeficientes al revés</td><td class="u">$z^np(1/z)$</td></tr>
+<tr><td class="sym">$p_1,p_2,\dots$</td><td>Polinomios que va dando Schur-Cohn, un grado menos cada vez</td><td class="u"></td></tr>
+<tr><td class="sym">$n_-,n_0,n_+$</td><td>Número de raíces dentro, sobre y fuera de la circunferencia</td><td class="u"></td></tr>
+<tr><td class="sym">$U,L,S$</td><td>Matrices del lema de Schur, $S=U^TU-L^TL$</td><td class="u">definida positiva ⇔ estable</td></tr>
+<tr><td class="sym">$\Delta_k$</td><td>Menores principales de $S$ (criterio de Sylvester)</td><td class="u">todos $&gt;0$</td></tr>
+<tr><td class="sym">$w$</td><td>Variable de la transformación bilineal</td><td class="u">$z=\frac{1+w}{1-w}$</td></tr>
+<tr><td class="sym">$\zeta,\ \omega_n,\ \omega_d$</td><td>Amortiguamiento, frecuencia natural y frecuencia amortiguada</td><td class="u">$\omega_d=\omega_n\sqrt{1-\zeta^2}$</td></tr>
+<tr><td class="sym">$t_s,\ M_p$</td><td>Tiempo de establecimiento y sobreimpulso</td><td class="u">$t_s\approx\frac{4{,}6}{\zeta\omega_n}$</td></tr>
+<tr><td class="sym">$K_p,\ K_v$</td><td>Constantes de error de posición y de velocidad</td><td class="u">$e_{esc}=\frac1{1+K_p}$</td></tr>
+<tr><td class="sym">$e_\infty$</td><td>Error en régimen permanente</td><td class="u">$\lim_{z\to1}(1-z^{-1})E(z)$</td></tr>
+<tr><td class="sym">tipo</td><td>Número de polos del lazo abierto en $z=1$ (integradores)</td><td class="u">tipo 1: error al escalón nulo</td></tr>
+</table></div><div class="box trap" style="margin:12px 0 0"><h4>Ojo con la notación</h4><p>$K_p$ aparece con dos significados: <b>constante de error de posición</b> (aquí) y <b>ganancia proporcional del PID</b> (tema 5). Y $p^*$ (reflejado) no tiene nada que ver con $x^*$ (muestreada).</p></div>
+</div></details>
+<figure class="fig">
+<p class="ft">Simulador · cierra el lazo y sube la ganancia</p>
+<div class="ctrl"><label for="w9-K">Ganancia $K$ <input id="w9-K" max="4" min="0.1" step="0.05" type="range" value="1"/></label><output id="w9-K-o"></output>
+<label for="w9-T">Periodo $T$ <input id="w9-T" max="2" min="0.1" step="0.05" type="range" value="1"/></label><output id="w9-T-o"></output><span class="pill" id="w9-p"></span></div>
+<div class="figrow"><div id="w9-z"></div><div id="w9-y"></div></div>
+<div class="readout" id="w9-txt"></div>
+<figcaption>Lazo $\frac{KG(z)}{1+KG(z)}$ con $G_p=\frac1{s(s+1)}$ y ZOH. Izquierda: polos de lazo cerrado; las cruces rojas indican polos fuera del disco. Derecha: respuesta al escalón muestra a muestra. Observa tres cosas: (1) más $K$ da más sobreimpulso; (2) la $K$ crítica <b>baja al aumentar $T$</b>, porque muestrear más despacio desestabiliza; (3) el error final al escalón es 0, porque la planta tiene un integrador (tipo 1).</figcaption>
+</figure>
+<h3 id="t6-estabilidad">Estabilidad</h3>
+<div class="box key">
+<p>El lazo cerrado es estable ⇔ las raíces del polinomio característico $D(z)=a_nz^n+\dots+a_0$ están en $|z|&lt;1$.</p>
+<p><b>Condición necesaria</b> (Cardano–Vieta): $|a_0|&lt;|a_n|$. Si falla, inestable sin hacer nada más.</p>
+<p><b>Schur-Cohn:</b> polinomio reflejado $p^*(z)=z^np(1/z)$ (coeficientes al revés) y
+$$p_{1}(z)=\frac1z\left[p(z)-\frac{a_0}{a_n}p^*(z)\right],\qquad \operatorname{gr}(p_1)=n-1$$
+$p$ es estable ⇔ $p_1$ es estable. Repite hasta grado 1 y comprueba $|a_0|&lt;|a_1|$ en cada paso.</p>
+<p><b>Atajo para grado 2</b> (Jury), $z^2+a_1z+a_0$: $\;|a_0|&lt;1,\;\;1+a_1+a_0&gt;0,\;\;1-a_1+a_0&gt;0$. Ideal para hallar el rango de $K$.</p>
+</div>
+<details><summary>Schur-Cohn paso a paso: $p(z)=z^2-\frac74z-\frac12$ <span class="src">Teoría 2.º parcial (ej. Proakis)</span></summary><div class="inner">
+<p>Paso 0: $|a_0|/|a_2|=1/2&lt;1$ → candidato.</p>
+<p>$p^*(z)=-\tfrac12z^2-\tfrac74z+1$, $\;a_0/a_2=-\tfrac12$:
+$\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
+<p>Test: $\left|\frac{-21/8}{3/4}\right|=3{,}5&gt;1$ → <b>inestable</b> (en efecto, las raíces son $2$ y $-\tfrac14$).</p>
+<p>Examen dic. 2021: $p(z)=z^2-\frac52z+1$ → $|a_0|=|a_2|=1$, falla la condición necesaria → no es estable (raíces $2$ y $\tfrac12$).</p>
+</div></details>
+<figure class="fig">
+<p class="ft">Calculadora · Schur-Cohn paso a paso</p>
+<div class="ctrl"><label for="w10-in">Coeficientes, de mayor a menor grado <input autocomplete="off" id="w10-in" spellcheck="false" type="text" value="1, -1.75, -0.5"/></label>
+<label for="w10-z0">centro $z_0$ <input id="w10-z0" style="width:64px" type="text" value="0"/></label><label for="w10-R">radio $R$ <input id="w10-R" style="width:64px" type="text" value="1"/></label>
+<button id="w10-go" type="button">Analizar</button>
+<button id="w10-ex1" type="button">Ejemplo grado 3</button>
+<button id="w10-ex2" type="button">Examen dic. 2021</button><button id="w10-ex3" type="button">Examen ene. 2021 (disco)</button></div>
+<div class="readout" id="w10-txt"></div>
+<figcaption>Escribe el polinomio característico, por ejemplo <code>1, -1.75, -0.5</code> para $z^2-\frac74z-\frac12$. La calculadora hace lo mismo que harías en el examen: en cada paso comprueba $|a_0|&lt;|a_n|$, construye el reflejado $p^*$ y reduce el grado con $p_{k+1}=\frac1z[p_k-\frac{a_0}{a_n}p_k^*]$. Al final calcula también la <b>matriz del lema de Schur</b>, $S=U^TU-L^TL$, y sus menores principales (todos positivos ⇔ estable), y las raíces para que compruebes el veredicto. Si cambias $z_0$ y $R$, primero hace el cambio $z=Rw+z_0$ y estudia si las raíces están en el disco $D(z_0,R)$.</figcaption>
+</figure>
+<details><summary>Rango de $K$: $G_p=\frac1{s(s+1)}$, ZOH, $T=1$, controlador $K$ <span class="src">tipo Ogata cap. 4</span></summary><div class="inner">
+<p>$G(z)=\dfrac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$. Ecuación característica $1+KG(z)=0$:</p>
+<p>$$z^2+(0{,}3679K-1{,}3679)z+(0{,}3679+0{,}2642K)=0$$</p>
+<p>$|a_0|&lt;1\Rightarrow K&lt;2{,}39$; $\;P(1)=0{,}6321K&gt;0\Rightarrow K&gt;0$; $\;P(-1)=2{,}736-0{,}104K&gt;0\Rightarrow K&lt;26{,}4$.</p>
+<p>Resultado: $\boxed{0&lt;K&lt;2{,}39}$ (comprobado: con $K=2{,}45$ el polo más grande tiene módulo 1,008).</p>
+</div></details>
+<figure class="fig">
+<p class="ft">Visual interactivo · triángulo de estabilidad de 2.º orden</p>
+<div class="ctrl"><label for="jk">Ganancia $K$ <input id="jk" max="3" min="0" step="0.01" type="range" value="1"/></label><output id="jk-o"></output><span class="pill" id="jk-p"></span></div>
+<div class="figrow"><div id="fig-jz"></div><div id="fig-jt"></div></div>
+<figcaption>Para $z^2+a_1z+a_0$, las tres condiciones de Jury dibujan un <b>triángulo</b> en el plano $(a_1,a_0)$: dentro, las dos raíces están en el disco unidad. La línea es el polinomio del ejemplo $G_p=\frac1{s(s+1)}$ al mover $K$: entra en $K=0$ (polo en $z=1$, lado inferior) y sale por arriba ($a_0=1$) en $K\approx2{,}39$. Ahí los dos polos complejos cruzan la circunferencia a la vez. En el plano z, los puntos grises son el <b>lugar de las raíces</b> para $0\le K\le3$.</figcaption>
+</figure>
+<h3 id="t6-jury-general-y-transformacion-bilineal-p">Jury general y transformación bilineal <span class="tag">programa 6.3</span><span class="tag w">prioridad baja</span></h3>
+<div class="grid2">
+<div class="box">
+<h4>Criterio de Jury, orden $n$</h4>
+<p>Para $P(z)=a_nz^n+\dots+a_0$ con $a_n&gt;0$, condiciones previas:</p>
+<p>$P(1)&gt;0,\quad(-1)^nP(-1)&gt;0,\quad|a_0|&lt;a_n$.</p>
+<p>Después se construye la tabla: cada fila es $b_k=\begin{vmatrix}a_0&amp;a_{n-k}\\a_n&amp;a_k\end{vmatrix}$ y se exige $|b_0|&gt;|b_{n-1}|$, $|c_0|&gt;|c_{n-2}|$, … Para $n=2$ solo quedan las tres condiciones previas.</p>
+</div>
+<div class="box">
+<h4>Bilineal + Routh</h4>
+<p>Con $z=\dfrac{1+w}{1-w}$ el disco unidad pasa al semiplano izquierdo de $w$, así que aplicas <b>Routh</b> al polinomio en $w$.</p>
+<p>Para $z^2+a_1z+a_0$: $\;(1-a_1+a_0)w^2+2(1-a_0)w+(1+a_1+a_0)$. Grado 2: estable si los tres coeficientes tienen el mismo signo.</p>
+<p>Ejemplo del rango de $K$: el término central se anula en $K=\frac{1-0{,}3679}{0{,}2642}=2{,}39$, el mismo límite que con Jury.</p>
+</div>
+</div>
+<h3 id="t6-ejemplo-tabla-de-jury-de-grado-3-program">Ejemplo: tabla de Jury de grado 3 <span class="tag">programa 6.3</span><span class="tag w">prioridad baja</span></h3>
+<details><summary>$P(z)=z^3-0{,}7z^2-0{,}14z+0{,}12$</summary><div class="inner">
+<p>Condiciones previas: $P(1)=0{,}28&gt;0$ ✓; $\;(-1)^3P(-1)=1{,}44&gt;0$ ✓; $\;|a_0|=0{,}12&lt;a_3=1$ ✓.</p>
+<p>Fila $b$: $b_k=\begin{vmatrix}a_0&amp;a_{3-k}\\a_3&amp;a_k\end{vmatrix}$ ⇒ $b_0=a_0^2-a_3^2=-0{,}9856$, $\;b_1=a_0a_1-a_3a_2=0{,}6832$, $\;b_2=a_0a_2-a_3a_1=0{,}056$.</p>
+<p>Condición final para $n=3$: $|b_0|&gt;|b_2|$ ⇒ $0{,}9856&gt;0{,}056$ ✓ ⇒ <b>estable</b> (las raíces son $0{,}5$, $-0{,}4$ y $0{,}6$). <span class="muted">Comprobé el criterio con 20 000 polinomios de grado 3 al azar: coincide siempre con el cálculo de raíces.</span></p>
+</div></details>
+<h3 id="t6-transitorio-y-estacionario">Transitorio y estacionario</h3>
+<div class="grid2">
+<div class="box">
+<h4>Polos deseados a partir de especificaciones</h4>
+<p>$t_s\approx\dfrac{4{,}6}{\zeta\omega_n}$ (el criterio habitual), $\;M_p=e^{-\pi\zeta/\sqrt{1-\zeta^2}}$, $\;\omega_d=\omega_n\sqrt{1-\zeta^2}$.</p>
+<p>$z=e^{-\zeta\omega_nT}e^{\pm j\omega_dT}$ → $\;D(z)=z^2-2e^{-\zeta\omega_nT}\cos(\omega_dT)\,z+e^{-2\zeta\omega_nT}$.</p>
+</div>
+<div class="box">
+<h4>Error en régimen permanente</h4>
+<p>$e_\infty=\lim_{z\to1}(1-z^{-1})E(z)$, con $E=(1-H)R$.</p>
+<p>Escalón: $K_p=\lim_{z\to1}G_cG$, $\;e=\frac1{1+K_p}$. Rampa: $K_v=\lim_{z\to1}\frac{(1-z^{-1})G_cG}{T}$, $\;e=\frac1{K_v}$.</p>
+<p>Cada polo de $G_cG$ en $z=1$ sube el tipo del sistema.</p>
+</div>
+</div>
+<!-- ===================== T7 ===================== -->
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-5.html"><small>← Anterior</small>T5 · Datos muestreados</a><a class="nx" href="tema-7.html"><small>Siguiente →</small>T7 · Diseño de controladores</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>

@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exámenes resueltos paso a paso · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): Exámenes resueltos paso a paso">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Practicar</span><span class="sep">›</span><span>Exámenes resueltos paso a paso</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a aria-current="page" class="cur" href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios externos</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec" style="--tc:var(--c8);--tcs:var(--c8s)">
+<div class="sh"><span aria-hidden="true" class="badge">24</span><div class="shx"><p class="kick">Practicar</p><h2 id="examenes">Exámenes resueltos paso a paso</h2><div class="tags"><span class="tag">24 exámenes</span><span class="tag">92 ejercicios</span><span class="tag w">338 pasos desplegables</span></div></div></div>
+<div class="box key"><p><b>Cómo están hechos:</b> cada ejercicio tiene su <b>enunciado completo</b> y debajo la resolución dividida en <b>pasos desplegables</b>. El título de cada paso te dice <b>qué tienes que hacer</b>; al abrirlo ves cómo se hace y el resultado. Intenta cada paso antes de abrirlo. Los números están comprobados con código y, donde la solución de la recopilación tiene una errata, se avisa con un «Ojo».</p></div>
+<div class="zero"><p class="ft">Cómo practicar con ellos</p><p>Elige un examen, pon el cronómetro (2 h) y hazlo en papel con el <a href="formulario.html">formulario</a> al lado. Si te atascas, abre solo el siguiente paso, no toda la solución. Los ejercicios que se repiten de un año a otro aparecen en los dos exámenes, marcados con «se repite en».</p></div>
+<h3 id="examenes-indice-de-examenes">Índice de exámenes</h3>
+<div class="tw"><table><tr><th>Examen</th><th>Contenido</th></tr>
+<tr><td><a href="ep1-2026.html">2026-27 · EP1 (03-11-2026)</a></td><td>sección propia · temas 1–3</td></tr>
+<tr><td><a href="examen-2025-26.html">2025-26 · Examen (San Matías)</a></td><td>sección propia · 4 problemas + práctica</td></tr>
+<tr><td><a href="#x2024">Examen 2024 (P1)</a></td><td>temas 1–2</td></tr>
+<tr><td><a href="#x1213a">2012-13 · Primer control (19-11-2012)</a></td><td>1 problema · temas 1–2</td></tr>
+<tr><td><a href="#x1213s">2012-13 · Final de septiembre (04-09-2013)</a></td><td>2 problemas · temas 4–5</td></tr>
+<tr><td><a href="#x1314a">2013-14 · Primer control (18-11-2013)</a></td><td>temas 1–2</td></tr>
+<tr><td><a href="#x1314b">2013-14 · Segundo control (13-01-2014)</a></td><td>teoría + 1 problema · temas 3–5</td></tr>
+<tr><td><a href="#x1314f">2013-14 · Final de febrero (04-02-2014)</a></td><td>4 de teoría + 2 problemas</td></tr>
+<tr><td><a href="#x1415b">2014-15 · Segundo control (08-01-2015)</a></td><td>1 problema · tema 5</td></tr>
+<tr><td><a href="#x1415f">2014-15 · Final de febrero (22-01-2015)</a></td><td>4 de teoría + 2 problemas</td></tr>
+<tr><td><a href="#x1415j">2014-15 · Final de junio (20-06-2015)</a></td><td>4 de teoría + 2 problemas</td></tr>
+<tr><td><a href="#x1516s">2015-16 · Septiembre (05-09-2016)</a></td><td>4 de teoría + 2 problemas</td></tr>
+<tr><td><a href="#x1617a">2016-17 · Primer control (24-11-2016)</a></td><td>temas 2–3</td></tr>
+<tr><td><a href="#x1617b">2016-17 · Segundo control (22-12-2016)</a></td><td>temas 5–6</td></tr>
+<tr><td><a href="#x1617f">2016-17 · Febrero (14-01-2017)</a></td><td>4 de teoría + 2 problemas</td></tr>
+<tr><td><a href="#x1718f">2017-18 · Febrero (09-02-2018)</a></td><td>4 de teoría + 2 problemas + práctica</td></tr>
+<tr><td><a href="#x1819e">2018-19 · Enero (31-01-2019)</a></td><td>4 de teoría + 2 problemas + práctica</td></tr>
+<tr><td><a href="#x1819s">2018-19 · Septiembre (04-09-2019)</a></td><td>4 de teoría + 2 problemas + práctica</td></tr>
+<tr><td><a href="#x1920j">2019-20 · Junio (22-06-2020)</a></td><td>3 problemas + práctica</td></tr>
+<tr><td><a href="#x2021b">2020-21 · Segundo parcial (22-01-2021)</a></td><td>3 problemas + práctica</td></tr>
+<tr><td><a href="#x2021f">2020-21 · Final de febrero (09-02-2021)</a></td><td>EP1 + EP2 + práctica</td></tr>
+<tr><td><a href="#x2122b">2021-22 · Segundo parcial (10-12-2021)</a></td><td>3 problemas · temas 5–7</td></tr>
+<tr><td><a href="#x2324a">2023-24 · Primer parcial (13-11-2023)</a></td><td>3 problemas · temas 1–4</td></tr>
+<tr><td><a href="#x2324b">2023-24 · Segundo parcial (05-12-2023)</a></td><td>3 problemas · temas 4–7</td></tr>
+</table></div>
+<h3 id="examenes-examenes">Exámenes</h3>
+<details id="x2024"><summary>Examen 2024 (P1) <span class="src">temas 1–2</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>P1: convolución, estabilidad y causalidad</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sean $h[n]=\alpha^{-n}1[-n]$ y $x[n]=\alpha^n1[n]$ con $0&lt;\alpha&lt;1$. Calcula $y[n]=x[n]*h[n]$ y estudia la estabilidad y la causalidad del sistema.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la suma de convolución con los escalones</span></summary><div class="inner"><p>$y[n]=\sum_k\alpha^{-(n-k)}1[k-n]\,\alpha^k1[k]=\alpha^{-n}\sum_{k\ge\max(0,n)}\alpha^{2k}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Separa los casos $n\ge0$ y $n&lt;0$</span></summary><div class="inner"><p>$n\ge0$: $y=\alpha^{-n}\frac{\alpha^{2n}}{1-\alpha^2}=\frac{\alpha^n}{1-\alpha^2}$. $\;n&lt;0$: $y=\frac{\alpha^{-n}}{1-\alpha^2}$. Juntos: $\boxed{y[n]=\dfrac{\alpha^{|n|}}{1-\alpha^2}}$ (con $\alpha=0{,}5$, $y[0]=\frac43$).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Estudia la estabilidad con $\sum|h|$</span></summary><div class="inner"><p>$\sum_{n\le0}\alpha^{-n}=\frac1{1-\alpha}&lt;\infty$: <b>estable</b>.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Estudia la causalidad</span></summary><div class="inner"><p>$h[n]\ne0$ para $n&lt;0$: <b>no causal</b>.</p></div></details>
+</div>
+</div></details>
+<details id="x1213a"><summary>2012-13 · Primer control (19-11-2012) <span class="src">1 problema · temas 1–2</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 2 (5 puntos): periodos de secuencias</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) Determina el período fundamental de $x[n]=e^{j2\pi\frac kNn}$ para $N=7$ y $N=16$ ($k\in\mathbb Z$). (ii) Decide cuál de las siguientes secuencias es periódica e indica su período fundamental: (a) $x(t)=3\cos(5t+\frac\pi6)$; (b) $x[n]=3\cos(5n+\frac\pi6)$; (c) $x[n]=2e^{j(\frac n6-\pi)}$; (d) $x[n]=\cos\frac n8\cos\frac{\pi n}8$; (e) $x[n]=\cos\frac{\pi n}2-\sin\frac{\pi n}8+3\cos(\frac{\pi n}4+\frac\pi3)$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Usa la regla del periodo de una exponencial discreta</span></summary><div class="inner"><p>$e^{j2\pi\frac kNn}$ tiene periodo $N_0=\dfrac{N}{\operatorname{mcd}(k,N)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Aplica la regla con $N=7$</span></summary><div class="inner"><p>7 es primo: $N_0=1$ si $7\mid k$ y $N_0=7$ en otro caso.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(i) Aplica la regla con $N=16$</span></summary><div class="inner"><p>$N_0=1$ si $16\mid k$; $2$ si $\operatorname{mcd}=8$; $4$ si $\operatorname{mcd}=4$; $8$ si $\operatorname{mcd}=2$; $16$ si $k$ es impar.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(a) Señal continua: saca $T_0$ de $\omega$</span></summary><div class="inner"><p>Toda senoide continua es periódica: $\omega=5$ rad/s, así que $T_0=\frac{2\pi}5$ s.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">(b) y (c) Comprueba si $\Omega/2\pi$ es racional</span></summary><div class="inner"><p>(b) $\frac5{2\pi}\notin\mathbb Q$: <b>no</b> periódica. (c) $\Omega=\frac16$, $\frac1{12\pi}\notin\mathbb Q$: <b>no</b> (la fase $-\pi$ no influye).</p></div></details>
+<details class="paso"><summary><span class="pn">6</span><span class="pw">(d) Mira cada factor por separado</span></summary><div class="inner"><p>$\cos\frac n8$ no es periódica (aunque $\cos\frac{\pi n}8$ sí, $N=16$), así que el producto <b>no</b> lo es.</p></div></details>
+<details class="paso"><summary><span class="pn">7</span><span class="pw">(e) Calcula el mcm de los periodos</span></summary><div class="inner"><p>Periodos $4$, $16$ y $8$: $\boxed{N=\operatorname{mcm}(4,16,8)=16}$.</p></div></details>
+</div>
+</div></details>
+<details id="x1213s"><summary>2012-13 · Final de septiembre (04-09-2013) <span class="src">2 problemas · temas 4–5</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): filtro RC con entrada retenida</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dado un filtro pasivo RC con resistencia $R$ y capacidad $C$, supongamos que la entrada de tensión $v_i(t)$ es constante entre muestras (para un $T$), es decir, $v_i(t)=v_i(kT)$ para $kT\le t&lt;(k+1)T$. (i) Determina la función de transferencia $G(s)=\frac{V_o(s)}{V_i(s)}$ y, para el período de muestreo $T$ dado, calcula $V_o^*(s)$. ¿Cuánto valdría $V_o(z)$? (ii) Determina la ecuación en diferencias que relaciona $v_o[n]$ con $v_i[n]$. (iii) Si la entrada es una rampa, $v_i(t)=t$, determina la salida en los instantes de muestreo (por fracciones parciales).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe $G(s)$ del RC</span></summary><div class="inner"><p>$G(s)=\frac{1}{1+RCs}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Reconoce el retenedor</span></summary><div class="inner"><p>Entrada constante a tramos = muestreador + ZOH. Hay que discretizar $G_{ZOH}G$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Discretiza $G_{ZOH}G$</span></summary><div class="inner"><p>Con $a=e^{-T/RC}$: $\;(1-z^{-1})\mathcal Z\Big\{\frac{1/RC}{s(s+1/RC)}\Big\}=\dfrac{1-a}{z-a}$, así que $V_o(z)=\dfrac{1-a}{z-a}V_i(z)$ (y $V_o^*(s)$ es lo mismo con $z=e^{sT}$).</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Pasa a ecuación en diferencias</span></summary><div class="inner"><p>$(z-a)V_o=(1-a)V_i\;\Rightarrow\;\boxed{v_o[n+1]=a\,v_o[n]+(1-a)\,v_i[n]}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">(iii) Haz fracciones parciales de $V_o(z)/z$ con la rampa</span></summary><div class="inner"><p>$V_i=\frac{Tz}{(z-1)^2}$: $\frac{V_o}{z}=\frac{T(1-a)}{(z-a)(z-1)^2}=\frac{A}{z-a}+\frac{B}{z-1}+\frac{C}{(z-1)^2}$, con $C=T$, $A=\frac{T}{1-a}$, $B=-A$.</p></div></details>
+<details class="paso"><summary><span class="pn">6</span><span class="pw">(iii) Invierte y comprueba</span></summary><div class="inner"><p>$\boxed{v_o[n]=T\Big[n-\dfrac{1-a^n}{1-a}\Big]1[n]}$. Comprobación: $v_o[0]=v_o[1]=0$, $v_o[2]=T(1-a)$, como da la recursión.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): FdT de un lazo con realimentación interior</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Encontrad la función de transferencia $\frac{C(z)}{R(z)}$ para el sistema de control de la figura: $R-C\to$ ganancia $2\to$ sumador que resta $2\times$(salida de $\frac1{s(s+1)}$) $\to$ muestreador $T\to$ Hold $\to\frac1{s(s+1)}\to\frac1s\to C$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Pon nombre a lo que ve cada lazo</span></summary><div class="inner"><p>$G_p=\frac1{s(s+1)}$. $Q_1(z)=\mathcal Z\{G_{ZOH}G_p\}$ es lo que ve la realimentación interior; $Q_2(z)=\mathcal Z\{G_{ZOH}G_p/s\}$, lo que llega a la salida.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Escribe las ecuaciones de lo que entra al muestreador</span></summary><div class="inner"><p>$U=2E-2Q_1U$, $\;E=R-Q_2U$, $\;C=Q_2U$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Despeja $C/R$</span></summary><div class="inner"><p>$\boxed{\dfrac{C(z)}{R(z)}=\dfrac{2Q_2(z)}{1+2\big[Q_1(z)+Q_2(z)\big]}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula los bloques (por ejemplo con $T=1$)</span></summary><div class="inner"><p>$Q_1=\frac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$, $\;Q_2=\frac{0{,}1321z^2+0{,}4197z+0{,}0803}{(z-1)^2(z-0{,}3679)}$. Polos del lazo $0{,}5\pm1{,}323j$ ($|z|=1{,}41$): inestable con $T=1$.</p></div></details>
+</div>
+</div></details>
+<details id="x1314a"><summary>2013-14 · Primer control (18-11-2013) <span class="src">temas 1–2</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 2 (i) (2,5 puntos): las cinco secuencias</b> <span class="src">se repite en 2012-13 · Primer control (19-11-2012)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) Determina el período fundamental de $x[n]=e^{j2\pi\frac kNn}$ para $N=7$ y $N=16$ ($k\in\mathbb Z$). (ii) Decide cuál de las siguientes secuencias es periódica e indica su período fundamental: (a) $x(t)=3\cos(5t+\frac\pi6)$; (b) $x[n]=3\cos(5n+\frac\pi6)$; (c) $x[n]=2e^{j(\frac n6-\pi)}$; (d) $x[n]=\cos\frac n8\cos\frac{\pi n}8$; (e) $x[n]=\cos\frac{\pi n}2-\sin\frac{\pi n}8+3\cos(\frac{\pi n}4+\frac\pi3)$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Usa la regla del periodo de una exponencial discreta</span></summary><div class="inner"><p>$e^{j2\pi\frac kNn}$ tiene periodo $N_0=\dfrac{N}{\operatorname{mcd}(k,N)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Aplica la regla con $N=7$</span></summary><div class="inner"><p>7 es primo: $N_0=1$ si $7\mid k$ y $N_0=7$ en otro caso.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(i) Aplica la regla con $N=16$</span></summary><div class="inner"><p>$N_0=1$ si $16\mid k$; $2$ si $\operatorname{mcd}=8$; $4$ si $\operatorname{mcd}=4$; $8$ si $\operatorname{mcd}=2$; $16$ si $k$ es impar.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(a) Señal continua: saca $T_0$ de $\omega$</span></summary><div class="inner"><p>Toda senoide continua es periódica: $\omega=5$ rad/s, así que $T_0=\frac{2\pi}5$ s.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">(b) y (c) Comprueba si $\Omega/2\pi$ es racional</span></summary><div class="inner"><p>(b) $\frac5{2\pi}\notin\mathbb Q$: <b>no</b> periódica. (c) $\Omega=\frac16$, $\frac1{12\pi}\notin\mathbb Q$: <b>no</b> (la fase $-\pi$ no influye).</p></div></details>
+<details class="paso"><summary><span class="pn">6</span><span class="pw">(d) Mira cada factor por separado</span></summary><div class="inner"><p>$\cos\frac n8$ no es periódica (aunque $\cos\frac{\pi n}8$ sí, $N=16$), así que el producto <b>no</b> lo es.</p></div></details>
+<details class="paso"><summary><span class="pn">7</span><span class="pw">(e) Calcula el mcm de los periodos</span></summary><div class="inner"><p>Periodos $4$, $16$ y $8$: $\boxed{N=\operatorname{mcm}(4,16,8)=16}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 2 (ii) (2,5 puntos): suma de secuencias periódicas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sean $x_1[n]$ y $x_2[n]$ secuencias periódicas con períodos fundamentales $N_1$ y $N_2$. ¿Bajo qué condiciones es la suma $x[n]=x_1[n]+x_2[n]$ periódica? ¿Cuál es el período fundamental de $x[n]$ si es periódica?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe qué tiene que cumplir $N$</span></summary><div class="inner"><p>$x[n+N]=x[n]$ si $N=mN_1=kN_2$ con $m,k$ enteros.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Razona que ese $N$ siempre existe</span></summary><div class="inner"><p>Por ejemplo $N=N_1N_2$: la suma de dos secuencias periódicas es <b>siempre periódica</b> (en continuo no ocurre lo mismo).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Da el periodo</span></summary><div class="inner"><p>$\boxed{N=\operatorname{mcm}(N_1,N_2)}$. Puede ser menor si se cancelan armónicos, pero se pide el mcm.</p></div></details>
+</div>
+</div></details>
+<details id="x1314b"><summary>2013-14 · Segundo control (13-01-2014) <span class="src">teoría + 1 problema · temas 3–5</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 1 (5 puntos): teoría de la integral de contorno</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) Deduce la propiedad de modulación de la transformada de Laplace como integral compleja de línea. (ii) Utilizando (i) deduce $G^*(s)$ a partir de la función racional $G(s)$ mediante la integral de contorno. Si el contorno separa polos, indica la localización de los mismos en términos de regiones del plano complejo. (iii) Determina $G(z)$ mediante la integral de contorno.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Sustituye una de las señales por su inversa de Laplace</span></summary><div class="inner"><p>$\mathcal L\{xy\}(s)=\int x(t)y(t)e^{-st}dt$ con $y(t)=\frac1{2\pi j}\int Y(p)e^{pt}dp$; intercambiando: $\mathcal L\{xy\}=\frac1{2\pi j}\int_{c-j\infty}^{c+j\infty}X(s-p)Y(p)\,dp$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Toma $y(t)$ = tren de impulsos</span></summary><div class="inner"><p>$Y(s)=\frac1{1-e^{-sT}}$, así que $G^*(s)=\frac1{2\pi j}\oint G(p)\frac{dp}{1-e^{-(s-p)T}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Decide qué polos encierra el contorno</span></summary><div class="inner"><p>Por la izquierda: los polos de $G(p)$. Por la derecha: los de la exponencial, $p=s+jk\omega_s$, y sale $\frac1T\sum_kG(s+jk\omega_s)$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(iii) Cambia $z=e^{sT}$</span></summary><div class="inner"><p>$\boxed{G(z)=\sum_{p\in\mathcal P(G)}\operatorname{Res}\Big[\dfrac{G(s)}{1-z^{-1}e^{sT}},p\Big]}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 2 (5 puntos): salida con sensor integrador</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Considerad un sistema de control realimentado con un controlador digital con ganancia unidad, planta $G_p(s)=\frac1{s+1}$ y sensor $H(s)=\frac1s$. Encuentra la secuencia de salida $y[n]$ cuando $r(t)$ es un escalón unitario y $T=1$ segundo. Observación: el sensor es continuo y recibe la señal continua de salida de la planta.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe las ecuaciones de bloques</span></summary><div class="inner"><p>$Y^*=(G_{ZOH}G_p)^*E^*$, $\;E^*=R^*-(G_{ZOH}G_pH)^*E^*$, así que $Y(z)=\dfrac{(G_{ZOH}G_p)(z)}{1+(G_{ZOH}G_pH)(z)}R(z)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Discretiza los dos bloques con $T=1$</span></summary><div class="inner"><p>$a=e^{-1}$: $(G_{ZOH}G_p)=\frac{1-a}{z-a}$; $\;(G_{ZOH}G_pH)=(1-z^{-1})\mathcal Z\{\frac1{s^2(s+1)}\}=\frac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Sustituye el escalón y simplifica</span></summary><div class="inner"><p>$R=\frac z{z-1}$; se cancelan $(z-1)$ y $(z-a)$: $\boxed{Y(z)=\dfrac{(1-e^{-1})z}{z^2-z+(1-e^{-1})}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula los polos en forma polar</span></summary><div class="inner"><p>$p=0{,}5\pm0{,}6182j$, con $|p|=\sqrt{1-e^{-1}}=0{,}7951$ y $\angle p=51{,}03^\circ$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Invierte con fracciones de $Y/z$</span></summary><div class="inner"><p>$\boxed{y[n]=1{,}0226\,(0{,}7951)^n\sin(51{,}03^\circ n)}$: $0;\ 0{,}632;\ 0{,}632;\ 0{,}233;\ -0{,}167;\dots\to0$ (el sensor integra).</p></div></details>
+</div>
+</div></details>
+<details id="x1314f"><summary>2013-14 · Final de febrero (04-02-2014) <span class="src">4 de teoría + 2 problemas</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): conversor A/D de doble pendiente</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Explica el conversor A/D de doble pendiente.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Describe las dos fases de integración</span></summary><div class="inner"><p>Se integra $V_x$ durante un tiempo fijo $T_1$; después se integra $-V_{ref}$ hasta volver a cero, lo que tarda $T_2$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Saca la relación y sus propiedades</span></summary><div class="inner"><p>Pendientes proporcionales: $V_x=V_{ref}\frac{T_2}{T_1}$; se cuenta $T_2$ con un reloj. Lento pero preciso, y rechaza el ruido de red si $T_1$ es múltiplo de 20 ms.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): teorema de Shannon</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Enuncia y demuestra el teorema del muestreo de Shannon.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Calcula el espectro de la señal muestreada</span></summary><div class="inner"><p>$x_p=x\cdot\sum\delta(t-kT)$ da $X_p(\omega)=\frac1T\sum_kX(\omega-k\omega_s)$: réplicas cada $\omega_s$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Impón que no se solapen las réplicas</span></summary><div class="inner"><p>Si $x$ tiene banda $\omega_B$, no hay solape si $\omega_s&gt;2\omega_B$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Reconstruye con el filtro ideal</span></summary><div class="inner"><p>Paso bajo de ganancia $T$ y corte entre $\omega_B$ y $\omega_s-\omega_B$: recupera $X(\omega)$, es decir $x(t)=\sum x(kT)\operatorname{sinc}\frac{t-kT}{T}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): especificaciones en el plano $z$</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Representa gráficamente en el plano $z$ las especificaciones de diseño $1&lt;t_s,\,t_r&lt;2$. Utiliza un período de muestreo $T=1$ segundo y supón un amortiguamiento $\xi=0{,}5$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Traduce las especificaciones a $\sigma$ y $\omega_n$</span></summary><div class="inner"><p>$t_s=\frac{4{,}6}{\sigma}$: $2{,}3&lt;\sigma&lt;4{,}6$. $\;t_r=\frac{1{,}8}{\omega_n}$: $0{,}9&lt;\omega_n&lt;1{,}8$; con $\xi=0{,}5$, $0{,}78&lt;\omega_d&lt;1{,}56$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Dibuja la región en $s$ y transfórmala con $z=e^{sT}$</span></summary><div class="inner"><p>En $s$ es un rectángulo (y su simétrico). Las rectas $\sigma=$cte pasan a circunferencias de radio $e^{-\sigma}$ (entre $0{,}010$ y $0{,}100$) y las $\omega_d=$cte a radios de ángulo $\omega_dT$ (entre $0{,}78$ y $1{,}56$ rad): un sector de corona.</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> Con $\xi=0{,}5$ fijo, $\sigma=\xi\omega_n$ no puede cumplir a la vez $\sigma&gt;2{,}3$ y $\omega_n&lt;1{,}8$: conviene decirlo en el examen.</p>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): Schur-Cohn y región de estabilidad</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) Demuestra el teorema de Schur-Cohn y deduce el criterio (0,5 puntos). (ii) Dado el sistema causal $y[n]=-a_1y[n-1]-a_2y[n-2]+b_0x[n]$, determina y dibuja la región de estabilidad en el plano de coeficientes $(a_1,a_2)$ (0,5 puntos).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Recuerda el criterio</span></summary><div class="inner"><p>Reflejado $p^*(z)=z^np(1/z)$. Si $|a_0|&lt;|a_n|$, $p_1=\frac1z[p-\frac{a_0}{a_n}p^*]$ tiene las mismas raíces dentro del disco que $p$ menos una (teorema del cruce de la frontera); se repite hasta grado 0 (ver tema 6).</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Escribe el polinomio característico</span></summary><div class="inner"><p>$\frac YX=\frac{b_0z^2}{z^2+a_1z+a_2}$: $p(z)=z^2+a_1z+a_2$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Aplica las condiciones de grado 2</span></summary><div class="inner"><p>$|a_2|&lt;1$, $\;1+a_1+a_2&gt;0$, $\;1-a_1+a_2&gt;0$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Dibuja el triángulo</span></summary><div class="inner"><p>Vértices $(a_1,a_2)=(-2,1)$, $(2,1)$ y $(0,-1)$. Por encima de la parábola $a_2=a_1^2/4$ los polos son complejos.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): transformada Z de una parábola</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Si el período de muestreo es $T$, calcula la transformada $\mathcal Z$ de una señal parabólica $x(t)=\frac{t^2}2$: (i) utiliza el método de señales muestreadas (1,5 puntos); (ii) utiliza el método de la integral de contorno de Jury (1,5 puntos).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Muestrea y escribe la serie</span></summary><div class="inner"><p>$X(z)=\frac{T^2}2\sum_{k\ge0}k^2z^{-k}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Suma la serie derivando la geométrica</span></summary><div class="inner"><p>$\sum k\alpha^k=\frac{\alpha}{(1-\alpha)^2}$ y $\sum k^2\alpha^k=\frac{\alpha(1+\alpha)}{(1-\alpha)^3}$, con $\alpha=z^{-1}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(i) Da el resultado</span></summary><div class="inner"><p>$\boxed{X(z)=\dfrac{T^2}{2}\dfrac{z(z+1)}{(z-1)^3}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Aplica Jury con el polo triple en 0</span></summary><div class="inner"><p>$X(s)=\frac1{s^3}$: $X(z)=\frac12\lim_{s\to0}\frac{d^2}{ds^2}\frac{1}{1-z^{-1}e^{sT}}$, que da lo mismo.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): FdT de dos esquemas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) Encontrad la función de transferencia $\frac{Y(z)}{R(z)}$ del esquema de la figura 3: $r\to H_1\to$ sumador $(-y)\to$ muestreador $\to D(z)\to$ muestreador $\to G_{h0}\to$ sumador $(+H_2r)\to G_p\to y$ (1,5 puntos). (ii) Encontrad $\frac{Y(z)}{R(z)}$ y $\frac{X(z)}{R(z)}$ del esquema de la figura 4: $r\to$ sumador $(-y)\to$ sumador $(-x)\to$ muestreador $\to D(z)\to$ muestreador $\to G_{h0}\to G_1\to x\to G_2\to y$ (1,5 puntos). Si no existe la FdT pulso, da explícitamente la salida.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Comprueba si $R$ entra muestreada</span></summary><div class="inner"><p>Antes del primer muestreador entra $H_1R$, no $R^*$: <b>no existe FdT pulso</b>.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Plantea las ecuaciones y despeja $Y^*$</span></summary><div class="inner"><p>$Y=G_p(H_2R+G_{h0}U^*)$, $U^*=D^*E^*$, $E=H_1R-Y$: $\;Y^*=\dfrac{(G_pH_2R)^*+(G_pG_{h0})^*D^*(H_1R)^*}{1+(G_pG_{h0})^*D^*}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Plantea las ecuaciones con los dos lazos</span></summary><div class="inner"><p>$E^*=R^*-Y^*-X^*$, $X^*=(G_1G_{h0})^*D^*E^*$, $Y^*=(G_2G_1G_{h0})^*D^*E^*$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Despeja las dos FdT</span></summary><div class="inner"><p>$\dfrac{Y}{R}=\dfrac{(G_2G_1G_{h0})D}{1+(G_1G_{h0})D+(G_2G_1G_{h0})D}$ y $\;\dfrac{X}{R}=\dfrac{(G_1G_{h0})D}{1+(G_1G_{h0})D+(G_2G_1G_{h0})D}$.</p></div></details>
+</div>
+</div></details>
+<details id="x1415b"><summary>2014-15 · Segundo control (08-01-2015) <span class="src">1 problema · tema 5</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 2 (5 puntos): FdT en lazo cerrado (con $T=2$)</b> <span class="src">se repite en Examen 2025-26 (San Matías)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Calcula la FdT en lazo cerrado $\frac{C^*(s)}{R^*(s)}$ del esquema de la figura 1, utilizando las hipótesis $G_1(s)=2G_{zoh}$, $G_3(s)=\frac1{s+1}$, $G_2(s)=\frac{G_{zoh}}{s+2}$, $H(s)=5G_{zoh}(s)$, con $G_{zoh}$ un retenedor de orden cero. (El reloj de los muestreadores es $T=2$ s; el sumador interior resta la rama de $H$, como en las versiones de 2014-15 y 2016-17 del mismo problema.)</p></div>
+<figure class="fig"><p class="ft">Figura 1 del enunciado</p><img alt="Diagrama de bloques del problema 3: R menos C, muestreador E*, G1 y G2 en paralelo, sumador con H(s) alimentada por C* muestreada, G3, sumador de salida C." src="data:image/png;base64,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" style="display:block;width:100%;height:auto;background:#fff;border-radius:8px"/><figcaption>Lazo exterior con realimentación unitaria de $C$. El muestreador de la salida alimenta $H(s)$, que se resta antes de $G_3$.</figcaption></figure>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la salida en $s$ siguiendo el diagrama</span></summary><div class="inner"><p>$E=R-C$ y $\;C=G_3\big[G_1E^*-HC^*\big]+G_2E^*$. $G_1$ y $H$ llevan el retenedor dentro, así que $G_3$ recibe señales retenidas y se discretizan juntos $(G_1G_3)$ y $(G_3H)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Muestrea las ecuaciones con $(GX^*)^*=G^*X^*$</span></summary><div class="inner"><p>$E^*=R^*-C^*$ y $\;C^*=\underbrace{[(G_1G_3)^*+G_2^*]}_{A}E^*-\underbrace{(G_3H)^*}_{B}C^*$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Despeja $C^*/R^*$</span></summary><div class="inner"><p>$C^*=A(R^*-C^*)-BC^*$, así que $$\boxed{\frac{C^*}{R^*}=\frac{A}{1+A+B}=\frac{(G_1G_3)(z)+G_2(z)}{1+(G_1G_3)(z)+G_2(z)+(G_3H)(z)}}$$</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Discretiza cada bloque con $(1-z^{-1})\mathcal Z\{F/s\}$</span></summary><div class="inner"><p>Con $a=e^{-T}$: $\;(G_1G_3)=\frac{2(1-a)}{z-a}$, $\;G_2=\frac{1-a^2}{2(z-a^2)}$, $\;(G_3H)=\frac{5(1-a)}{z-a}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Ordena y sustituye $T=2$</span></summary><div class="inner"><p>$$\frac{C}{R}=\frac{[4(1-a)+(1-a^2)]z-4a^2(1-a)-a(1-a^2)}{2z^2+(15-16a-3a^2)z+(17a^3-14a^2-a)}$$ Con $a=e^{-2}=0{,}1353$: $\;\boxed{\dfrac CR=\dfrac{2{,}2202z-0{,}0981}{z^2+6{,}3898z-0{,}1748}}$. Polos $-6{,}417$ y $0{,}027$: <b>inestable</b> con estas ganancias (coméntalo).</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> Si el sumador interior sumara: $\frac{A}{1+A-B}$, con denominador $z^2-2{,}2568z-0{,}0164$ para $T=2$, también inestable.</p>
+</div>
+</div></details>
+<details id="x1415f"><summary>2014-15 · Final de febrero (22-01-2015) <span class="src">4 de teoría + 2 problemas</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): muestreo de una senoide (transformación biyectiva)</b> <span class="src">se repite en Examen 2025-26 (San Matías)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Se muestrea una señal senoidal analógica $x_a(t)=A\cos(\omega t+\theta)$ con período de muestreo $T_s$. Determina la señal de datos muestreados así como la secuencia senoidal discreta correspondiente. Busca una condición necesaria y suficiente para que la secuencia sea periódica. ¿Cuál es el rango de frecuencias de la señal analógica para obtener secuencias distintas?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la señal de datos muestreados</span></summary><div class="inner"><p>Muestrear es multiplicar por el tren de impulsos: $$x^*(t)=\sum_{n=-\infty}^{\infty}A\cos(\omega nT_s+\theta)\,\delta(t-nT_s)$$ Sigue siendo una señal continua, formada por impulsos de área $x_a(nT_s)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Quédate con las áreas: la secuencia</span></summary><div class="inner"><p>$x[n]=x_a(nT_s)=A\cos(\Omega n+\theta)$, con $\Omega=\omega T_s=2\pi\frac{f}{f_s}$ rad/muestra.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Impón la periodicidad</span></summary><div class="inner"><p>Hace falta un entero $N$ con $\Omega N=2\pi k$: $$\boxed{\frac{\Omega}{2\pi}=\frac{f}{f_s}=\frac kN\in\mathbb Q}$$ Es necesaria y suficiente. Con $k/N$ irreducible, el periodo es $N$. La continua siempre es periódica; la secuencia no ($\cos5n$ no lo es).</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Da el rango de frecuencias</span></summary><div class="inner"><p>Sumar $2\pi$ a $\Omega$ no cambia la secuencia: solo son distintas las $\Omega\in(-\pi,\pi]$, es decir $\boxed{-\frac{f_s}2&lt;f\le\frac{f_s}2}$. Para un coseno, $f$ y $-f$ coinciden cambiando $\theta$ por $-\theta$, así que en la práctica $0\le f\le f_s/2$. Fuera hay aliasing.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): valor inicial nulo</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sea $X(z)=\frac{K}{\prod_{i=1}^n(z-p_i)}$ con polos $p_i\in\mathbb R$ simples. Utilizando expansión en fracciones parciales y la fórmula de inversión de la transformada Z, demuestra que $x[0]=0$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Expande en fracciones parciales</span></summary><div class="inner"><p>$X=\sum\frac{C_i}{z-p_i}=\sum C_iz^{-1}\frac{z}{z-p_i}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Invierte y evalúa en $n=0$</span></summary><div class="inner"><p>$x[n]=\sum C_ip_i^{n-1}1[n-1]$, que vale 0 en $n=0$. Con la fórmula de inversión: $x[0]=\frac1{2\pi j}\oint z^{-1}X\,dz=\sum\frac{C_i}{p_i}\big(1-1\big)=0$. También sale del valor inicial: $\lim_{z\to\infty}X=0$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): cadena creciente de coeficientes</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Demuestra utilizando el test de estabilidad de Schur que si $a_n&gt;a_{n-1}&gt;\dots&gt;a_0&gt;0$ (propiedad de cadena creciente de coeficientes) entonces $p(z)$ es un polinomio Schur. (Hazlo por inducción sobre los polinomios $p_j(z)$, demostrando que la propiedad se preserva.)</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Multiplica por $(1-z)$</span></summary><div class="inner"><p>$(1-z)p(z)=a_0+\sum_{k=1}^{n}(a_k-a_{k-1})z^k-a_nz^{n+1}$, con todos los $a_k-a_{k-1}&gt;0$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Acota para $|z|\ge1$</span></summary><div class="inner"><p>$\big|a_0+\sum(a_k-a_{k-1})z^k\big|\le a_n|z|^n\le|a_nz^{n+1}|$, con igualdad total solo en $z=1$, y $p(1)&gt;0$. No hay raíces con $|z|\ge1$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Enlaza con la inducción de Schur-Cohn</span></summary><div class="inner"><p>La reducción $p_1=\frac1z[p-\frac{a_0}{a_n}p^*]$ conserva la cadena creciente, así que en cada paso $|a_0^{(k)}|&lt;|a_{n-k}^{(k)}|$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): teorema de Schur-Cohn</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Demuestra el teorema de Schur-Cohn mediante el teorema del cruce de la frontera y a partir de aquí deduce el criterio de estabilidad de Schur-Cohn.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Usa el cruce de la frontera</span></summary><div class="inner"><p>Si $|a_0|&lt;|a_n|$, la familia $p-t\frac{a_0}{a_n}p^*$ con $t\in[0,1]$ no tiene raíces en $|z|=1$ (allí $|p^*|=|p|$), así que el número de raíces dentro no cambia.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Deduce el criterio</span></summary><div class="inner"><p>Para $t=1$ se anula el término independiente: $p_1=\frac1z[\dots]$ tiene una raíz menos dentro. Repetir hasta grado 0: $p$ es Schur si y solo si se cumple $|a_0^{(k)}|&lt;|a_{n-k}^{(k)}|$ en todos los pasos.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): control del misil</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un misil se controla con un controlador digital (ganancia $K$), retenedor ZOH y dinámica $\frac{27}{s(s+27)}$, con realimentación unitaria de la aceleración. Encontrad la función de transferencia del sistema y determinad si es estable para $K=20$ y $K=100$ con un período de muestreo $T=\frac1{10}$ segundos.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Discretiza retenedor + planta</span></summary><div class="inner"><p>$G(z)=K(1-z^{-1})\mathcal Z\{\frac{27}{s^2(s+27)}\}=K\frac{0{,}06545z+0{,}02783}{(z-1)(z-0{,}0672)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Escribe la FdT y la ecuación característica</span></summary><div class="inner"><p>$\frac YR=\frac{G}{1+G}$: $(z-1)(z-0{,}0672)+K(0{,}06545z+0{,}02783)=0$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Evalúa $K=20$</span></summary><div class="inner"><p>$z^2+0{,}2418z+0{,}6238=0$, con $|z|=0{,}790$: <b>estable</b>.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Evalúa $K=100$</span></summary><div class="inner"><p>$z^2+5{,}478z+2{,}850=0$, raíces $-4{,}896$ y $-0{,}582$: <b>inestable</b>. El límite está en $K\approx33{,}5$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): salida de un lazo sin FdT pulso</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para el esquema de la figura 2 ($r\to$ sumador $\to G_1\to y$; $y$ muestreada $\to D_c(z)\to G_0$; la salida de $G_0$ se suma con $y$ y pasa por $G_2$ hacia la realimentación) determina si se puede calcular la función de transferencia pulso. Si es así calcúlala; da una expresión para $Y(z)$. Datos: $G_2=10$, $G_1=\frac1{s(s+\frac12)}$, $G_0=G_{zoh}$, $D_c=\frac{0{,}0384z^2+0{,}17z+0{,}18}{(1{,}786z+1{,}378)(z-1)}$, $T=1$ s y escalón.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Comprueba si existe FdT pulso</span></summary><div class="inner"><p>$R$ no se muestrea antes de entrar: aparece $(G_1R)^*$. <b>No existe</b>.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Escribe la salida en $s$ y despéjala</span></summary><div class="inner"><p>$Y=G_1R-G_1G_2Y-G_1G_2G_0D_c^*Y^*$, así que $Y=\frac{G_1R}{1+KG_1}-\frac{KG_1G_0}{1+KG_1}D_c^*Y^*$ con $K=10$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Agrupa en una sola función $F(s)$</span></summary><div class="inner"><p>$F=\frac{G_1}{s(1+KG_1)}=\frac{2}{s(2s^2+s+20)}$: $\;\boxed{Y(z)=\dfrac{F(z)}{1+K(1-z^{-1})F(z)D_c(z)}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula $F(z)$ por Jury</span></summary><div class="inner"><p>Polos $0$ y $-\frac14\pm\frac j4\sqrt{159}$: $F(z)=\frac{0{,}1779z^2+0{,}1385z}{(z-1)(z^2+1{,}5575z+0{,}6065)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Saca la secuencia y su límite</span></summary><div class="inner"><p>Polos del lazo dentro del disco: estable. $y=\{0;\ 0{,}178;\ 0{,}032;\ 0{,}120;\ 0{,}030;\dots\}\to0$ (el integrador de $D_c$ está en la realimentación).</p></div></details>
+</div>
+</div></details>
+<details id="x1415j"><summary>2014-15 · Final de junio (20-06-2015) <span class="src">4 de teoría + 2 problemas</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): ROC con polos $\{-3,-\frac12,2\}$</b> <span class="src">se repite en Examen 2025-26 (San Matías)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un sistema LTI con FdT $H(z)$ presenta patrón de polos y ceros $P(H)=\{-3,\frac12,2\}$ y $Z(H)=\{1\}$. (i) Determinar la ROC de $H(z)$ si se sabe que el sistema es estable. (ii) ¿Es posible que corresponda a un sistema causal y estable? Si es así, ¿cuál es su ROC? (iii) ¿Cuántos sistemas pueden asociarse a este patrón?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Ordena los polos por módulo y dibuja las coronas</span></summary><div class="inner"><p>Módulos $0{,}5$, $2$ y $3$. Coronas sin polos: $|z|&lt;\frac12$, $\;\frac12&lt;|z|&lt;2$, $\;2&lt;|z|&lt;3$, $\;|z|&gt;3$. El cero no influye.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Busca la corona que contiene $|z|=1$</span></summary><div class="inner"><p>Estable significa que la circunferencia unidad está en la ROC: $\boxed{\frac12&lt;|z|&lt;2}$ (bilateral: el polo $0{,}5$ da término derecho; $2$ y $-3$, izquierdos).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Comprueba la ROC causal</span></summary><div class="inner"><p>Causal exige el exterior del polo mayor, $|z|&gt;3$, que no contiene $|z|=1$: <b>no es posible</b>. Haría falta tener todos los polos dentro del disco.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(iii) Cuenta las ROC</span></summary><div class="inner"><p>Una por corona: <b>4 sistemas</b> (anticausal, bilateral estable, bilateral inestable y causal inestable).</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): tabla de errores</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Deduce la tabla de errores de un sistema con realimentación unitaria.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe el error y aplica el valor final</span></summary><div class="inner"><p>$E=\frac{R}{1+G}$, $\;e_\infty=\lim_{z\to1}(1-z^{-1})\frac{R(z)}{1+G(z)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Sustituye cada entrada</span></summary><div class="inner"><p>Escalón: $e=\frac1{1+K_p}$, $K_p=\lim G$. Rampa: $e=\frac1{K_v}$, $K_v=\lim\frac{(z-1)G}{Tz}$. Parábola: $e=\frac1{K_a}$, $K_a=\lim\frac{(z-1)^2G}{T^2z^2}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Resume por tipo</span></summary><div class="inner"><p>Tipo 0: $e_{esc}$ finito. Tipo 1: $e_{esc}=0$, $e_{ramp}$ finito. Tipo 2: $e_{esc}=e_{ramp}=0$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): polinomios simétricos Schur</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sea $p\in\mathbb R[z]$ de grado $n$. (i) Si $p$ es simétrico Schur ($p=p^*$), $r$ es el número de raíces en $\partial D(0,1)$ y $s$ el de raíces en el disco cerrado, entonces $r=2s-n$. (ii) Prueba que $np^*(z)=(p'(z))^*+z(p^*(z))'$. (iii) Si $p$ es simétrico Schur y $z_0$ es raíz múltiple, también es raíz de $(p')^*$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Empareja las raíces</span></summary><div class="inner"><p>Con $p=p^*$, las raíces van en pares $z_0,\,1/\bar z_0$: dentro hay $s-r$, fuera otras $s-r$. $n=2(s-r)+r$, así que $r=2s-n$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Deriva $p^*=z^np(1/z)$</span></summary><div class="inner"><p>$(p^*)'=nz^{n-1}p(1/z)-z^{n-2}p'(1/z)=\frac nzp^*-\frac1z(p')^*$; multiplica por $z$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Evalúa en la raíz múltiple</span></summary><div class="inner"><p>$p(z_0)=p'(z_0)=0$, y de (ii): $(p')^*(z_0)=np^*(z_0)-z_0(p^*)'(z_0)=0$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): polos múltiples en la circunferencia unidad</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Demuestra que un sistema (causal) con polos múltiples en $\partial D(0,1)$ nunca es estable.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Invierte el término de orden $k$</span></summary><div class="inner"><p>$\mathcal Z^{-1}\{\frac1{(z-p)^k}\}=\binom{n-1}{k-1}p^{n-k}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Toma módulos con $|p|=1$</span></summary><div class="inner"><p>$\binom{n-1}{k-1}$ crece como $n^{k-1}$ si $k\ge2$: $h[n]$ no está acotada, así que no es sumable ni BIBO.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): rango de $K$ con retardo</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Determina el rango de valores de $K$ para que el sistema de la figura 1 sea estable: realimentación unitaria, muestreador $T=1$ s, ZOH $\frac{1-e^{-Ts}}{s}$ y planta $\frac{Ke^{-Ts}}{s(s+1)}$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Trata el retardo de un periodo como $z^{-1}$</span></summary><div class="inner"><p>$G(z)=z^{-1}K(1-z^{-1})\mathcal Z\{\frac1{s^2(s+1)}\}=\dfrac{K(0{,}3679z+0{,}2642)}{z(z-1)(z-0{,}3679)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Escribe la ecuación característica</span></summary><div class="inner"><p>$z^3-1{,}3679z^2+(0{,}3679+0{,}3679K)z+0{,}2642K=0$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Aplica Schur-Cohn de grado 3</span></summary><div class="inner"><p>La condición que manda: $K^2(e-2)^2-e^2+K(e^2-2)+e&lt;0$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Da el rango</span></summary><div class="inner"><p>$\boxed{0&lt;K&lt;0{,}8047}$. Sin retardo sería $K&lt;2{,}39$: el retardo reduce mucho el margen.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): constantes de error de un servo</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para el esquema de la figura 5 ($r\to$ sumador $(-\theta)\to K_1\to$ sumador $(-K_2\dot\theta)\to$ muestreador $T\to G_{h0}\to\frac1{Js}\to\dot\theta\to\frac1s\to\theta$) encuentra (i) la constante de error de posición $K_p$, (ii) la de velocidad $K_v$ y (iii) la de aceleración $K_a$, en términos de $K_1$, $K_2$, $J$ y $T$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Cierra el lazo interior de velocidad</span></summary><div class="inner"><p>$(G_{ZOH}/s)^*=\frac T{z-1}$: $\;U^*=\dfrac{K_1}{1+\frac{K_2}{J}\frac{T}{z-1}}E^*$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Calcula la FdT directa completa</span></summary><div class="inner"><p>$(G_{ZOH}/s^2)^*=\frac{T^2(z+1)}{2(z-1)^2}$: $\;G(z)=\dfrac{K_1T^2(z+1)}{2(z-1)[J(z-1)+K_2T]}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Calcula las tres constantes</span></summary><div class="inner"><p>Tipo 1: $K_p=\infty$. $\;K_v=\lim\frac{(z-1)G}{Tz}=\boxed{\dfrac{K_1}{K_2}}$ (igual que en continuo). $\;K_a=0$.</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> En la recopilación aparece $(1+2z^{-1})$ en lugar de $(1+z^{-1})$ y sale $\frac32\frac{K_1}{K_2}T$; con la transformada correcta de $1/s^3$ queda $K_1/K_2$ ($K_1T/K_2$ si no se divide entre $T$).</p>
+</div>
+</div></details>
+<details id="x1516s"><summary>2015-16 · Septiembre (05-09-2016) <span class="src">4 de teoría + 2 problemas</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): señal que da la misma secuencia</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Consideremos la señal analógica $x_a(t)=3\cos100\pi t$. Supongamos que se muestrea con $f_s=75$ Hz produciendo una secuencia. ¿Cuál es la senoidal que produce la misma secuencia? Llamemos $x(t)$ a esta señal. Para la frecuencia de muestreo dada, ¿la señal original qué representa en términos espectrales respecto a $x(t)$?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Muestrea y reduce la pulsación</span></summary><div class="inner"><p>$x[n]=3\cos(\frac{4\pi}3n)=3\cos(\frac{2\pi}3n)$, porque $\frac{4\pi}3-2\pi=-\frac{2\pi}3$ y el coseno es par.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Pasa a frecuencia continua</span></summary><div class="inner"><p>$F=\frac13$, $f=25$ Hz: $\boxed{x(t)=3\cos50\pi t}$. Los 50 Hz originales son un alias de 25 Hz ($50=75-25$).</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): transformada Z de una secuencia periódica</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sea $f:\mathbb Z^+\to\mathbb R$ una señal discreta con período fundamental $N$. Demostrad que su transformada Z viene dada por $F(z)=\frac{P(z^{-1})}{1-z^{-N}}$, donde $P(z^{-1})$ es un polinomio en $z^{-1}$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Agrupa la suma por periodos</span></summary><div class="inner"><p>$F=\sum_{m\ge0}\sum_{k=0}^{N-1}f[k+mN]z^{-k-mN}$, y por periodicidad $f[k+mN]=f[k]$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Suma la geométrica</span></summary><div class="inner"><p>$F=\Big(\sum_{k=0}^{N-1}f[k]z^{-k}\Big)\sum_mz^{-mN}=\boxed{\dfrac{P(z^{-1})}{1-z^{-N}}}$ para $|z|&gt;1$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): muestras por ciclo</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sea $F(z)$ una FdT directa cuyo lazo cerrado (realimentación unitaria) es de segundo orden con polos dominantes complejos $p,\bar p$. Si $\theta$ es la fase del polo $p$, demuestra que $\theta$ está relacionado con el número de muestras por ciclo según $\frac{2\pi}\theta$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la respuesta al escalón</span></summary><div class="inner"><p>$y[n]=A+2\rho|p|^n\cos(n\theta+\phi)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Mide un ciclo</span></summary><div class="inner"><p>Un ciclo completo es $n\theta=2\pi$: $n=\frac{2\pi}\theta$ muestras.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): método de Ragazzini</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Describe el método de Ragazzini.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Enumera las reglas</span></summary><div class="inner"><p>Causalidad: $\mu(H)\ge\mu(G)$. Estabilidad: ceros de $G$ con $|z|\ge1$ en $H$, polos de $G$ con $|z|\ge1$ en $1-H$. Error: $H(1)=1$ (y $H'(1)=-\frac1{K_vT}$ para la rampa).</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Calcula el controlador</span></summary><div class="inner"><p>$G_c=\frac1G\frac{H}{1-H}$ y comprueba que $\frac{G_cG}{1+G_cG}=H$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): estabilidad con y sin ZOH</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un sistema de control en lazo cerrado presenta una función de transferencia directa (controlador-planta) $G(s)=\frac{K}{s(s+2)}$. Compara las propiedades de estabilidad del sistema con ZOH y sin ZOH. Hazlo para períodos de muestreo $T=0{,}4$ s y $T=1$ s. ¿Qué influencia tiene $K$ sobre el margen de estabilidad?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Discretiza con ZOH</span></summary><div class="inner"><p>$G_1(z)=\frac K4\dfrac{(2T-1+b)z+(1-b-2Tb)}{(z-1)(z-b)}$, con $b=e^{-2T}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Discretiza sin ZOH (impulsos)</span></summary><div class="inner"><p>$G_2(z)=\dfrac{K(1-b)z}{2(z-1)(z-b)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Aplica Schur-Cohn de grado 2 con ZOH</span></summary><div class="inner"><p>$K&lt;\dfrac{4(1-b)}{1-b(1+2T)}$: $\boxed{K&lt;11{,}52}$ con $T=0{,}4$ y $\boxed{K&lt;5{,}82}$ con $T=1$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Aplica Schur-Cohn sin ZOH</span></summary><div class="inner"><p>$P(-1)&gt;0$ da $K&lt;\frac{4(1+b)}{1-b}=4\coth T$: $\boxed{K&lt;10{,}53}$ con $T=0{,}4$ y $\boxed{K&lt;5{,}25}$ con $T=1$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Concluye sobre $K$ y $T$</span></summary><div class="inner"><p>En continuo es estable para todo $K&gt;0$. Al muestrear aparece un $K$ máximo que baja al aumentar $T$.</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> En la recopilación se concluye que sin ZOH es estable para todo $K$; la condición $P(-1)&gt;0$ sí limita $K$.</p>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): planta con tiempo muerto</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Supongamos que un sistema en tiempo continuo está descrito por $G_p(s)=G(s)e^{-\tau_Ds}$, donde $\tau_D$ es el tiempo muerto y $G(s)$ no contiene ningún tiempo muerto. Si $N$ es el número mínimo de períodos de muestreo que caben en $[0,\tau_D]$, obtén la transformada z de la conexión retenedor-planta. Denotando $m=1-\Delta$, donde $\Delta=\frac{\tau_D}T-N$, calcula la transformada z del tándem retenedor-planta para $G(s)=\frac1{s+a}$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Separa el retardo en periodos enteros y fracción</span></summary><div class="inner"><p>$\tau_D=(N+\Delta)T$: los $N$ periodos dan $z^{-N}$ y la fracción $\Delta T$ se trata con la Z modificada ($m=1-\Delta$).</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Plantea la transformada</span></summary><div class="inner"><p>$(G_{ZOH}G_p)(z)=z^{-N}(1-z^{-1})\big[e^{-s\Delta T}\tfrac{1}{s(s+a)}\big]^*$, con $\frac1{s(s+a)}=\frac1a\big(\frac1s-\frac1{s+a}\big)$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Calcula y simplifica</span></summary><div class="inner"><p>$\boxed{(G_{ZOH}G_p)(z)=\dfrac{1}{a\,z^{N+1}}\cdot\dfrac{(1-e^{-amT})z+e^{-amT}-e^{-aT}}{z-e^{-aT}}}$. Comprobado simulando el escalón con $a=1$, $T=1$, $\tau_D=1{,}3$.</p></div></details>
+</div>
+</div></details>
+<details id="x1617a"><summary>2016-17 · Primer control (24-11-2016) <span class="src">temas 2–3</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 1 (5 puntos): Fourier y filtrado paso bajo</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dada una señal continua $x(t)$ con espectro limitado en banda (ancho de banda $\omega_B$), desarrolla: (i) Calcula la transformada inversa de un pulso en frecuencia de anchura $\omega_B$ y altura $T$; escríbelo según $\operatorname{sinc}(x)=\frac{\sin\pi x}{\pi x}$ (2 puntos). (ii) Determina la transformada inversa de Fourier del producto de dos espectros $X(\omega)$ e $Y(\omega)$ (2 puntos). (iii) Calcula la transformada inversa de Fourier del filtrado mediante un filtro paso bajo de la señal de datos muestreados $x^*(t)$, es decir de $X^*(\omega)H_{LPF}(\omega)$, siendo $H_{LPF}$ el pulso de (i) (1 punto).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Integra el pulso</span></summary><div class="inner"><p>$h(t)=\frac T{2\pi}\int_{-\omega_B}^{\omega_B}e^{j\omega t}d\omega=\frac{T\sin\omega_Bt}{\pi t}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Escríbelo como sinc</span></summary><div class="inner"><p>$\boxed{h(t)=\dfrac{\omega_BT}{\pi}\operatorname{sinc}\dfrac{\omega_Bt}{\pi}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Sustituye $X(\omega)$ por su definición e intercambia integrales</span></summary><div class="inner"><p>$\mathcal F^{-1}\{XY\}=\int x(\tau)\Big(\frac1{2\pi}\int Y(\omega)e^{j\omega(t-\tau)}d\omega\Big)d\tau=\boxed{x*y}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(iii) Combina (i) y (ii) con $x^*(t)$</span></summary><div class="inner"><p>$x^*=\sum x(kT)\delta(t-kT)$ y $\delta(t-kT)*h=h(t-kT)$: $\boxed{\dfrac{\omega_BT}\pi\sum_kx(kT)\operatorname{sinc}\dfrac{\omega_B(t-kT)}\pi}$, la reconstrucción de Shannon.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 2 (5 puntos): salida de un LTI con entrada periódica</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dado un sistema LTI con respuesta impulsiva $h[n]$ y una entrada $x[n]$ periódica con periodicidad $N$, decide si la salida $y[n]$ es periódica o no (establece una demostración tanto en caso afirmativo como negativo).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la convolución desplazada $N$ muestras</span></summary><div class="inner"><p>$y[n+N]=\sum_kh[k]x[n+N-k]$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Usa la periodicidad de $x$</span></summary><div class="inner"><p>$x[n+N-k]=x[n-k]$, así que $y[n+N]=y[n]$: <b>sí</b> es periódica (periodo $N$ o un divisor), siempre que la suma converja, por ejemplo si el sistema es BIBO.</p></div></details>
+</div>
+</div></details>
+<details id="x1617b"><summary>2016-17 · Segundo control (22-12-2016) <span class="src">temas 5–6</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 1 (5 puntos): contorno de Jury por la derecha</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Supongamos que en la integral de contorno de Jury tomamos el contorno por la derecha en vez de por la izquierda (seguimos separando los polos de $X(s)$ de los de la exponencial). Deduce $X^*(s)$. ¿Qué relación encuentras con el teorema del muestreo?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Identifica qué polos encierra el contorno</span></summary><div class="inner"><p>Por la derecha: los de $\frac1{1-e^{-(s-p)T}}$, en $p=s+jk\omega_s$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Calcula cada residuo</span></summary><div class="inner"><p>Por L’Hôpital y recorriendo en sentido horario, cada residuo vale $\frac1T X(s+jk\omega_s)$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Suma y relaciona con Shannon</span></summary><div class="inner"><p>$\boxed{X^*(s)=\frac1T\sum_kX(s+jk\omega_s)}$: con $s=j\omega$ es el espectro replicado cada $\omega_s$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 2 (5 puntos): estabilidad de un sistema de grado 3</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Decide la estabilidad del sistema $H(z)=\frac{1}{24z^3-26z^2+9z-1}$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Comprueba la condición necesaria</span></summary><div class="inner"><p>$|a_0|=1&lt;|a_3|=24$ ✓.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Construye los polinomios reducidos</span></summary><div class="inner"><p>$p_1=\frac{575}{24}z^2-\frac{205}8z+\frac{95}{12}$ ($\frac{95}{12}&lt;\frac{575}{24}$ ✓); $\;p_2=\frac{3927}{184}z-\frac{3157}{184}$ ($3157&lt;3927$ ✓).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Concluye y comprueba factorizando</span></summary><div class="inner"><p>Todas se cumplen: <b>estable</b>. De hecho $24z^3-26z^2+9z-1=24(z-\frac12)(z-\frac13)(z-\frac14)$.</p></div></details>
+</div>
+</div></details>
+<details id="x1617f"><summary>2016-17 · Febrero (14-01-2017) <span class="src">4 de teoría + 2 problemas</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): periodos y cinco secuencias</b> <span class="src">se repite en 2012-13 · Primer control (19-11-2012)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) Determina el período fundamental de $x[n]=e^{j2\pi\frac kNn}$ para $N=7$ y $N=16$ ($k\in\mathbb Z$). (ii) Decide cuál de las siguientes secuencias es periódica e indica su período fundamental: (a) $x(t)=3\cos(5t+\frac\pi6)$; (b) $x[n]=3\cos(5n+\frac\pi6)$; (c) $x[n]=2e^{j(\frac n6-\pi)}$; (d) $x[n]=\cos\frac n8\cos\frac{\pi n}8$; (e) $x[n]=\cos\frac{\pi n}2-\sin\frac{\pi n}8+3\cos(\frac{\pi n}4+\frac\pi3)$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Usa la regla del periodo de una exponencial discreta</span></summary><div class="inner"><p>$e^{j2\pi\frac kNn}$ tiene periodo $N_0=\dfrac{N}{\operatorname{mcd}(k,N)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Aplica la regla con $N=7$</span></summary><div class="inner"><p>7 es primo: $N_0=1$ si $7\mid k$ y $N_0=7$ en otro caso.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(i) Aplica la regla con $N=16$</span></summary><div class="inner"><p>$N_0=1$ si $16\mid k$; $2$ si $\operatorname{mcd}=8$; $4$ si $\operatorname{mcd}=4$; $8$ si $\operatorname{mcd}=2$; $16$ si $k$ es impar.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(a) Señal continua: saca $T_0$ de $\omega$</span></summary><div class="inner"><p>Toda senoide continua es periódica: $\omega=5$ rad/s, así que $T_0=\frac{2\pi}5$ s.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">(b) y (c) Comprueba si $\Omega/2\pi$ es racional</span></summary><div class="inner"><p>(b) $\frac5{2\pi}\notin\mathbb Q$: <b>no</b> periódica. (c) $\Omega=\frac16$, $\frac1{12\pi}\notin\mathbb Q$: <b>no</b> (la fase $-\pi$ no influye).</p></div></details>
+<details class="paso"><summary><span class="pn">6</span><span class="pw">(d) Mira cada factor por separado</span></summary><div class="inner"><p>$\cos\frac n8$ no es periódica (aunque $\cos\frac{\pi n}8$ sí, $N=16$), así que el producto <b>no</b> lo es.</p></div></details>
+<details class="paso"><summary><span class="pn">7</span><span class="pw">(e) Calcula el mcm de los periodos</span></summary><div class="inner"><p>Periodos $4$, $16$ y $8$: $\boxed{N=\operatorname{mcm}(4,16,8)=16}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): FdT en lazo cerrado del diagrama con $T=2$</b> <span class="src">se repite en Examen 2025-26 (San Matías)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Calcula la FdT en lazo cerrado $\frac{C^*(s)}{R^*(s)}$ del esquema de la figura 1, utilizando las hipótesis $G_1(s)=2G_{zoh}$, $G_3(s)=\frac1{s+1}$, $G_2(s)=\frac{G_{zoh}}{s+2}$, $H(s)=5G_{zoh}(s)$, con $G_{zoh}$ un retenedor de orden cero. (El reloj de los muestreadores es $T=2$ s; el sumador interior resta la rama de $H$, como en las versiones de 2014-15 y 2016-17 del mismo problema.)</p></div>
+<figure class="fig"><p class="ft">Figura 1 del enunciado</p><img alt="Diagrama de bloques del problema 3: R menos C, muestreador E*, G1 y G2 en paralelo, sumador con H(s) alimentada por C* muestreada, G3, sumador de salida C." src="data:image/png;base64,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" style="display:block;width:100%;height:auto;background:#fff;border-radius:8px"/><figcaption>Lazo exterior con realimentación unitaria de $C$. El muestreador de la salida alimenta $H(s)$, que se resta antes de $G_3$.</figcaption></figure>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la salida en $s$ siguiendo el diagrama</span></summary><div class="inner"><p>$E=R-C$ y $\;C=G_3\big[G_1E^*-HC^*\big]+G_2E^*$. $G_1$ y $H$ llevan el retenedor dentro, así que $G_3$ recibe señales retenidas y se discretizan juntos $(G_1G_3)$ y $(G_3H)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Muestrea las ecuaciones con $(GX^*)^*=G^*X^*$</span></summary><div class="inner"><p>$E^*=R^*-C^*$ y $\;C^*=\underbrace{[(G_1G_3)^*+G_2^*]}_{A}E^*-\underbrace{(G_3H)^*}_{B}C^*$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Despeja $C^*/R^*$</span></summary><div class="inner"><p>$C^*=A(R^*-C^*)-BC^*$, así que $$\boxed{\frac{C^*}{R^*}=\frac{A}{1+A+B}=\frac{(G_1G_3)(z)+G_2(z)}{1+(G_1G_3)(z)+G_2(z)+(G_3H)(z)}}$$</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Discretiza cada bloque con $(1-z^{-1})\mathcal Z\{F/s\}$</span></summary><div class="inner"><p>Con $a=e^{-T}$: $\;(G_1G_3)=\frac{2(1-a)}{z-a}$, $\;G_2=\frac{1-a^2}{2(z-a^2)}$, $\;(G_3H)=\frac{5(1-a)}{z-a}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Ordena y sustituye $T=2$</span></summary><div class="inner"><p>$$\frac{C}{R}=\frac{[4(1-a)+(1-a^2)]z-4a^2(1-a)-a(1-a^2)}{2z^2+(15-16a-3a^2)z+(17a^3-14a^2-a)}$$ Con $a=e^{-2}=0{,}1353$: $\;\boxed{\dfrac CR=\dfrac{2{,}2202z-0{,}0981}{z^2+6{,}3898z-0{,}1748}}$. Polos $-6{,}417$ y $0{,}027$: <b>inestable</b> con estas ganancias (coméntalo).</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> Si el sumador interior sumara: $\frac{A}{1+A-B}$, con denominador $z^2-2{,}2568z-0{,}0164$ para $T=2$, también inestable.</p>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): explica el método de Ragazzini demostrando cada paso</b> <span class="src">se repite en 2015-16 · Septiembre (05-09-2016)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Describe el método de Ragazzini.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Enumera las reglas</span></summary><div class="inner"><p>Causalidad: $\mu(H)\ge\mu(G)$. Estabilidad: ceros de $G$ con $|z|\ge1$ en $H$, polos de $G$ con $|z|\ge1$ en $1-H$. Error: $H(1)=1$ (y $H'(1)=-\frac1{K_vT}$ para la rampa).</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Calcula el controlador</span></summary><div class="inner"><p>$G_c=\frac1G\frac{H}{1-H}$ y comprueba que $\frac{G_cG}{1+G_cG}=H$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): teorema de Schur-Cohn</b> <span class="src">se repite en 2014-15 · Final de febrero (22-01-2015)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Demuestra el teorema de Schur-Cohn mediante el teorema del cruce de la frontera y a partir de aquí deduce el criterio de estabilidad de Schur-Cohn.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Usa el cruce de la frontera</span></summary><div class="inner"><p>Si $|a_0|&lt;|a_n|$, la familia $p-t\frac{a_0}{a_n}p^*$ con $t\in[0,1]$ no tiene raíces en $|z|=1$ (allí $|p^*|=|p|$), así que el número de raíces dentro no cambia.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Deduce el criterio</span></summary><div class="inner"><p>Para $t=1$ se anula el término independiente: $p_1=\frac1z[\dots]$ tiene una raíz menos dentro. Repetir hasta grado 0: $p$ es Schur si y solo si se cumple $|a_0^{(k)}|&lt;|a_{n-k}^{(k)}|$ en todos los pasos.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): control de velocidad de un automóvil</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Control digital de la velocidad de un automóvil. El controlador (proporcional $K_c$, con ZOH) controla el acelerador, modelado como una ganancia $0{,}5$. El carburador proporciona un par motor según un sistema de primer orden de constante de tiempo 3 s y ganancia unitaria. La carga total es otro sistema de primer orden con constante de tiempo 3 s y ganancia 100; su salida es la velocidad real. El sensor de velocidad es una ganancia $0{,}1$. Hay una perturbación aditiva $d$ en el par motor y $T=0{,}8$ s. (i) Dibuja el diagrama de bloques. (ii) Determina la FdT en $z$ entre la velocidad real y la deseada. (iii) Intervalo de $K_c&gt;0$ para que el sistema sea estable. (iv) Sin consigna, con perturbación escalón unitario y $K_c=\frac{K_{c,máx}}2$, calcula $y(\infty)$ y $e(\infty)$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Dibuja la cadena de bloques</span></summary><div class="inner"><p>$r\to$ sumador $(-0{,}1y)\to$ muestreador $\to K_c\to$ ZOH $\to0{,}5\to\frac1{1+3s}\to$ sumador $(+d)\to\frac{100}{1+3s}\to y$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Discretiza la planta completa</span></summary><div class="inner"><p>$G=\frac{50}{(1+3s)^2}$ con ZOH: $\;G(z)=\dfrac{1{,}491z+1{,}248}{z^2-1{,}532z+0{,}5866}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Cierra el lazo</span></summary><div class="inner"><p>$\dfrac YR=\dfrac{K_cG}{1+0{,}1K_cG}=\dfrac{(1{,}491z+1{,}248)K_c}{z^2+(0{,}1491K_c-1{,}532)z+(0{,}1248K_c+0{,}5866)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(iii) Aplica las condiciones de grado 2</span></summary><div class="inner"><p>$|a_0|&lt;1$ da $K_c&lt;3{,}31$; $P(\pm1)&gt;0$ no limitan más: $\boxed{0&lt;K_c&lt;3{,}31}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">(iv) Escribe la salida debida a la perturbación</span></summary><div class="inner"><p>$Y(z)=\dfrac{\mathcal Z\{\frac{100}{1+3s}D\}}{1+0{,}1K_cG(z)}$.</p></div></details>
+<details class="paso"><summary><span class="pn">6</span><span class="pw">(iv) Aplica el valor final</span></summary><div class="inner"><p>Con $G(1)=50$ y $K_c=1{,}656$: $\boxed{y(\infty)=\frac{100}{1+5K_c}=10{,}78}$ y, con $e=r-0{,}1y$, $\boxed{e(\infty)=-1{,}078}$.</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> En la recopilación se pone el lazo con signo $+$ y sale inestable; con la realimentación negativa del dibujo es estable (comprobado simulando).</p>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): Ragazzini con $K_v$, $\xi$ y $t_s$</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Consideremos la planta $G(s)=\frac1{s(10s+1)}$ y un período de muestreo $T=1$ s. Diseñad un regulador digital $G_c(z)$ (por el método de Ragazzini) que satisfaga: (i) $K_v\ge1$; (ii) $\xi=0{,}5$; (iii) $t_s$ (tolerancia del 2 %) $\le8$ s.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Discretiza la planta con ZOH</span></summary><div class="inner"><p>$G_p(z)=0{,}04837\dfrac{z+0{,}9672}{(z-1)(z-0{,}9048)}$. Todo dentro del disco salvo el polo en 1.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Traduce las especificaciones a polos</span></summary><div class="inner"><p>$t_s=\frac4\sigma\le8$: $\sigma\ge0{,}5$; con $\xi=0{,}5$, $\omega_n=1$. Polos $e^{-0{,}5}e^{\pm j\sqrt3/2}=0{,}393\pm0{,}462j$: $D(z)=z^2-0{,}7859z+0{,}3679$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Plantea $H$ y sus dos condiciones</span></summary><div class="inner"><p>$H=\frac{b_1z+b_0}{D(z)}$ con $H(1)=1$ y $H'(1)=-\frac1{K_vT}=-1$: $b_1=0{,}6321$, $b_0=-0{,}0501$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula $1-H$ y el controlador</span></summary><div class="inner"><p>$1-H=\frac{(z-1)(z-0{,}418)}{D}$: $\boxed{G_c=13{,}07\dfrac{(z-0{,}9048)(z-0{,}0793)}{(z+0{,}9672)(z-0{,}418)}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Revisa la acción de control</span></summary><div class="inner"><p>El polo de $G_c$ en $-0{,}967$ hace oscilar $u[k]$ (ringing). Se evita metiendo el cero $-0{,}9672$ de la planta en $H$.</p></div></details>
+</div>
+</div></details>
+<details id="x1718f"><summary>2017-18 · Febrero (09-02-2018) <span class="src">4 de teoría + 2 problemas + práctica</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): estabilidad en la circunferencia unidad</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Analiza la estabilidad sobre la circunferencia unidad de un sistema causal (indicación: considera polos múltiples).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Polo simple en $|z|=1$</span></summary><div class="inner"><p>Da un término acotado que no decae: marginalmente estable, no BIBO.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Polo múltiple en $|z|=1$</span></summary><div class="inner"><p>$\binom{n-1}{k-1}|p|^{n-k}\to\infty$ si $k\ge2$: <b>inestable</b>.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): Schur-Cohn de tercer orden</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Determina las condiciones de estabilidad del polinomio característico $p(z)=z^3+a_2z^2+a_1z+a_0$ (aplica el método de Schur-Cohn).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Paso 0: condición necesaria</span></summary><div class="inner"><p>$|a_0|&lt;1$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Paso 1: primer polinomio reducido</span></summary><div class="inner"><p>$|a_1-a_0a_2|&lt;1-a_0^2$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Paso 2: segundo polinomio reducido</span></summary><div class="inner"><p>$|a_2-a_0a_1|&lt;1+a_1-a_0^2-a_0a_2$. (Comprobado con 20 000 polinomios aleatorios.)</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): reconstrucción canónica en serie cardinal</b> <span class="src">se repite en 2016-17 · Primer control (24-11-2016)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dada una señal continua $x(t)$ con espectro limitado en banda (ancho de banda $\omega_B$), desarrolla: (i) Calcula la transformada inversa de un pulso en frecuencia de anchura $\omega_B$ y altura $T$; escríbelo según $\operatorname{sinc}(x)=\frac{\sin\pi x}{\pi x}$ (2 puntos). (ii) Determina la transformada inversa de Fourier del producto de dos espectros $X(\omega)$ e $Y(\omega)$ (2 puntos). (iii) Calcula la transformada inversa de Fourier del filtrado mediante un filtro paso bajo de la señal de datos muestreados $x^*(t)$, es decir de $X^*(\omega)H_{LPF}(\omega)$, siendo $H_{LPF}$ el pulso de (i) (1 punto).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Integra el pulso</span></summary><div class="inner"><p>$h(t)=\frac T{2\pi}\int_{-\omega_B}^{\omega_B}e^{j\omega t}d\omega=\frac{T\sin\omega_Bt}{\pi t}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Escríbelo como sinc</span></summary><div class="inner"><p>$\boxed{h(t)=\dfrac{\omega_BT}{\pi}\operatorname{sinc}\dfrac{\omega_Bt}{\pi}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Sustituye $X(\omega)$ por su definición e intercambia integrales</span></summary><div class="inner"><p>$\mathcal F^{-1}\{XY\}=\int x(\tau)\Big(\frac1{2\pi}\int Y(\omega)e^{j\omega(t-\tau)}d\omega\Big)d\tau=\boxed{x*y}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(iii) Combina (i) y (ii) con $x^*(t)$</span></summary><div class="inner"><p>$x^*=\sum x(kT)\delta(t-kT)$ y $\delta(t-kT)*h=h(t-kT)$: $\boxed{\dfrac{\omega_BT}\pi\sum_kx(kT)\operatorname{sinc}\dfrac{\omega_B(t-kT)}\pi}$, la reconstrucción de Shannon.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): lugar de $\xi$ constante</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Determina el lugar geométrico transformado por invarianza al impulso para la restricción $\xi$ constante (0,5 puntos). Demuestra por qué sólo es necesario representar una parte de la curva transformada cuando se realiza muestreo, es decir, determina el rango del parámetro de la curva (0,5 puntos).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Parametriza la recta de $\xi$ constante</span></summary><div class="inner"><p>$s=-\xi\omega_n+j\omega_n\sqrt{1-\xi^2}$, es decir $\sigma=\omega_d\frac{\xi}{\sqrt{1-\xi^2}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Transforma con $z=e^{sT}$</span></summary><div class="inner"><p>$z=e^{-\omega_dT\xi/\sqrt{1-\xi^2}}\,e^{j\omega_dT}$: una <b>espiral logarítmica</b> que se cierra hacia el origen.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Limita el parámetro</span></summary><div class="inner"><p>Basta $\omega_dT\in[0,\pi]$: más allá, la franja primaria se repite (aliasing) y la otra mitad es la simétrica.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): deadbeat general</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) (2 puntos) Dada una planta $G(z)=\frac{N_p(z)}{D_p(z)}=\frac{\sum_{i=0}^Mb_iz^i}{\sum_{i=0}^Na_iz^i}$, se desea diseñar un sistema deadbeat. Prueba que el controlador se puede escribir como $G_c(z)=\frac{D_p(z)K}{z^m-KN_p(z)}$, con $K=\frac1{\sum b_i}$ y $m=\operatorname{gr}(D_p)$ (comprueba que $N(z)=M(z)N_p(z)$ y usa las restricciones 1 y 3 de Ragazzini). (ii) (1 punto) Usa (i) para diseñar un regulador para $G(z)=\frac{b_0z+b_1}{z-a}$ que alcance el estacionario en el menor número de periodos. Determina ese número.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Impón que todos los polos estén en 0</span></summary><div class="inner"><p>$H=\frac{N(z)}{z^m}$. Para no cancelar ceros de la planta, $N=KN_p$; con $H(1)=1$, $K=\frac1{N_p(1)}=\frac1{\sum b_i}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Calcula $G_c$</span></summary><div class="inner"><p>$G_c=\frac1G\frac H{1-H}=\frac{D_p}{N_p}\cdot\frac{KN_p}{z^m-KN_p}=\boxed{\frac{KD_p}{z^m-KN_p}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Particulariza con $m=1$</span></summary><div class="inner"><p>$K=\frac1{b_0+b_1}$: $G_c=\frac{K(z-a)}{z-K(b_0z+b_1)}=\boxed{\dfrac{z-a}{b_1(z-1)}}$ (porque $1-Kb_0=Kb_1$).</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Cuenta los periodos</span></summary><div class="inner"><p>$y[0]=Kb_0$ e $y[k]=1$ para $k\ge1$: llega en <b>un</b> periodo.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): planta discreta inestable</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Consideremos la planta discreta $G(z)=\frac1{z+2}$. Diseña un regulador que localice los polos en $z=0$ y $z=0{,}8$ y tenga $e(\infty)=0$ frente a entradas en escalón. Calcula la ecuación en diferencias para la acción de control.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Detecta la restricción de estabilidad</span></summary><div class="inner"><p>El polo $-2$ es inestable: $1-H$ tiene que anularse en $z=-2$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Propón $H$ con los polos pedidos</span></summary><div class="inner"><p>$H=\frac{b_0z+b_1}{z(z-0{,}8)}$ (grado relativo $\ge1$).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Impón las dos condiciones</span></summary><div class="inner"><p>$1-H(-2)=0$: $2b_0-b_1=-5{,}6$. $\;H(1)=1$: $b_0+b_1=0{,}2$. Solución: $b_0=-1{,}8$, $b_1=2$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula el controlador y su ecuación</span></summary><div class="inner"><p>$\boxed{G_c=\dfrac{-1{,}8z+2}{z-1}}$ (se cancela $z+2$): $\boxed{u[n]=u[n-1]-1{,}8e[n]+2e[n-1]}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Práctica: condiciones iniciales adaptadas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para la ecuación en diferencias $y[n]-0{,}6y[n-1]+0{,}08y[n-2]=x[n-1]$ con condiciones iniciales $y[-1]=2$, $y[-2]=1$ y excitación $x[n]=1[n]$, calcula analíticamente las condiciones iniciales adaptadas. ¿Qué comandos utilizarías en MATLAB?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la forma directa II traspuesta</span></summary><div class="inner"><p>$b=[0\ 1]$, $a=[1\ {-0{,}6}\ 0{,}08]$; los estados son $z_1=-a_1y[-1]-a_2y[-2]+b_1x[-1]$ y $z_2=-a_2y[-1]$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Calcula los estados iniciales</span></summary><div class="inner"><p>$z_1=1{,}2-0{,}08=1{,}12$; $\;z_2=-0{,}16$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Resuelve en MATLAB</span></summary><div class="inner"><p><code>zi = filtic([0 1],[1 -0.6 0.08],[2 1]); y = filter([0 1],[1 -0.6 0.08],ones(1,30),zi);</code> da $y=\{1{,}12;\ 1{,}512;\ 1{,}818;\dots\}\to2{,}083$.</p></div></details>
+</div>
+</div></details>
+<details id="x1819e"><summary>2018-19 · Enero (31-01-2019) <span class="src">4 de teoría + 2 problemas + práctica</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): identificar un LTI</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un sistema LTI causal en tiempo discreto es tal que frente a la entrada $x[n]=\frac1{2^n}1[n]-\frac14\frac1{2^{n-1}}1[n-1]$ responde con $y[n]=\frac1{3^n}1[n]$. Se pide: (i) la respuesta impulsiva $h[n]$; (ii) la ecuación en diferencias; (iii) si el sistema es estable.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma entrada y salida</span></summary><div class="inner"><p>$X=\frac{z-1/4}{z-1/2}$, $\;Y=\frac z{z-1/3}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Divide y haz fracciones de $H/z$</span></summary><div class="inner"><p>$H=\frac{z(z-1/2)}{(z-1/3)(z-1/4)}$: $\boxed{h[n]=\big[3(\tfrac14)^n-2(\tfrac13)^n\big]1[n]}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Escribe la ecuación en diferencias</span></summary><div class="inner"><p>$y[n]-\frac7{12}y[n-1]+\frac1{12}y[n-2]=x[n]-\frac12x[n-1]$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Estudia la estabilidad</span></summary><div class="inner"><p>Polos $\frac13$ y $\frac14$: <b>estable</b>.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): ROC y respuestas impulsivas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sistema LTI con $Z=\{1\}$ y $P=\{-3,-\frac12,2\}$. (i) ROC si es estable. (ii) ¿Puede ser causal y estable? (iii) ¿Cuántos sistemas hay? Calcula explícitamente la respuesta impulsiva e indica en cada caso la ROC y si es causal y/o estable.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Haz fracciones de $H(z)$</span></summary><div class="inner"><p>$H=\frac{z-1}{(z+3)(z+\frac12)(z-2)}=\frac{-0{,}32}{z+3}+\frac{0{,}24}{z+\frac12}+\frac{0{,}08}{z-2}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Recuerda cómo se invierte cada término</span></summary><div class="inner"><p>Derecho: $c\,p^{n-1}1[n-1]$. Izquierdo: $-c\,p^{n-1}1[-n]$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Escribe las cuatro ROC</span></summary><div class="inner"><p>$|z|&lt;\frac12$: todo izquierdo (anticausal, inestable). $\frac12&lt;|z|&lt;2$: $0{,}24(-\frac12)^{n-1}1[n-1]+[0{,}32(-3)^{n-1}-0{,}08\cdot2^{n-1}]1[-n]$, el único <b>estable</b>. $2&lt;|z|&lt;3$: solo $-3$ izquierdo. $|z|&gt;3$: causal e inestable.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Responde a (ii)</span></summary><div class="inner"><p>Causal y estable no es posible: hay polos fuera del disco.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): BIBO implica sumabilidad</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Si un sistema LTI es estable BIBO, demuestra que su respuesta impulsiva es absolutamente sumable.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Elige una entrada acotada</span></summary><div class="inner"><p>$x[n-k]=\operatorname{sgn}h[k]$, con $|x|\le1$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Concluye</span></summary><div class="inner"><p>$y[n]=\sum_k|h[k]|$ tiene que ser finita por ser BIBO: $\sum|h|&lt;\infty$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): periodicidad de una exponencial muestreada</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dada $x(t)=e^{j\omega_0t}$ con periodo $T_0=\frac{2\pi}{\omega_0}$ y $x[n]=e^{j\omega_0nT}$: (i) demostrad que $x[n]$ es periódica si y solo si $\frac T{T_0}\in\mathbb Q$; (ii) determina el periodo y la pulsación fundamental de $x[n]$ (escribe $\Omega_0$ como fracción de $\omega_0T$); (iii) si es periódica, ¿cuántos periodos de $x(t)$ hacen falta para un periodo de $x[n]$?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Impón la periodicidad</span></summary><div class="inner"><p>$e^{j\omega_0NT}=1\iff\frac{NT}{T_0}\in\mathbb Z\iff\frac T{T_0}=\frac kN\in\mathbb Q$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Saca el periodo</span></summary><div class="inner"><p>Con $\frac T{T_0}=\frac pq$ irreducible: $N_0=q$ y $\Omega_0=\omega_0T=2\pi\frac pq$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Cuenta los periodos continuos</span></summary><div class="inner"><p>$mT_0=N_0T\Rightarrow m=p$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): Ragazzini con tiempo de pico y sobreimpulso</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Considera una planta con función de transferencia pulso $G(z)=\frac{0{,}025(z+0{,}816)}{z^2-1{,}48z+0{,}5026}$ y período $T=0{,}25$ s. Especificaciones: (i) tiempo de pico $t_p=1$ s; (ii) sobreimpulso máximo $0{,}1024$; (iii) error nulo ante escalón; (iv) constante de velocidad $K_v=\frac{10}T$. Diseña un controlador por el método directo de Ragazzini.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Traduce las especificaciones a polos</span></summary><div class="inner"><p>$\omega_d=\frac\pi{t_p}=\pi$; $M_p=e^{-\sigma t_p}\Rightarrow\sigma=2{,}279$. Polos $e^{-\sigma T}e^{\pm j\pi/4}=0{,}4\pm0{,}4j$: $D=z^2-0{,}8z+0{,}32$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Comprueba las restricciones de la planta</span></summary><div class="inner"><p>Polos de $G$ ($0{,}952$, $0{,}528$) y cero ($-0{,}816$) dentro: solo causalidad, $H=\frac{b_1z+b_0}{D}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Impón $H(1)=1$ y $H'(1)=-\frac1{K_vT}$</span></summary><div class="inner"><p>$b_1+b_0=0{,}52$ y $H'(1)=-\frac1{10}$: $\boxed{b_1=1{,}148,\ b_0=-0{,}628}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula el controlador</span></summary><div class="inner"><p>$1-H=\frac{(z-1)(z-0{,}948)}{D}$: $G_c=\dfrac{45{,}92\,(z-0{,}5470)(z-0{,}9521)(z-0{,}5279)}{(z+0{,}816)(z-1)(z-0{,}948)}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): FdT del lazo con realimentación interior</b> <span class="src">se repite en 2012-13 · Final de septiembre (04-09-2013)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Encontrad la función de transferencia $\frac{C(z)}{R(z)}$ para el sistema de control de la figura: $R-C\to$ ganancia $2\to$ sumador que resta $2\times$(salida de $\frac1{s(s+1)}$) $\to$ muestreador $T\to$ Hold $\to\frac1{s(s+1)}\to\frac1s\to C$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Pon nombre a lo que ve cada lazo</span></summary><div class="inner"><p>$G_p=\frac1{s(s+1)}$. $Q_1(z)=\mathcal Z\{G_{ZOH}G_p\}$ es lo que ve la realimentación interior; $Q_2(z)=\mathcal Z\{G_{ZOH}G_p/s\}$, lo que llega a la salida.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Escribe las ecuaciones de lo que entra al muestreador</span></summary><div class="inner"><p>$U=2E-2Q_1U$, $\;E=R-Q_2U$, $\;C=Q_2U$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Despeja $C/R$</span></summary><div class="inner"><p>$\boxed{\dfrac{C(z)}{R(z)}=\dfrac{2Q_2(z)}{1+2\big[Q_1(z)+Q_2(z)\big]}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula los bloques (por ejemplo con $T=1$)</span></summary><div class="inner"><p>$Q_1=\frac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$, $\;Q_2=\frac{0{,}1321z^2+0{,}4197z+0{,}0803}{(z-1)^2(z-0{,}3679)}$. Polos del lazo $0{,}5\pm1{,}323j$ ($|z|=1{,}41$): inestable con $T=1$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Práctica: formas directas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Determina la realización en forma directa I, II y II traspuesta para el sistema del ejercicio T.1.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe $H$ en potencias de $z^{-1}$</span></summary><div class="inner"><p>$H=\frac{1-\frac12z^{-1}}{1-\frac7{12}z^{-1}+\frac1{12}z^{-2}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Dibuja la DF-I</span></summary><div class="inner"><p>Retardos de $x$ (coeficientes $1$, $-\frac12$) y luego de $y$ ($+\frac7{12}$, $-\frac1{12}$): 4 retardos.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Dibuja la DF-II</span></summary><div class="inner"><p>Una sola cadena: $w[n]=x[n]+\frac7{12}w[n-1]-\frac1{12}w[n-2]$, $y=w-\frac12w[n-1]$: 2 retardos.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Dibuja la DF-II traspuesta</span></summary><div class="inner"><p>$y=x+s_1$; $\;s_1'=-\frac12x+\frac7{12}y+s_2$; $\;s_2'=-\frac1{12}y$.</p></div></details>
+</div>
+</div></details>
+<details id="x1819s"><summary>2018-19 · Septiembre (04-09-2019) <span class="src">4 de teoría + 2 problemas + práctica</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>T.1 (1 punto): muestreo y Fourier de una exponencial</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Desarrolla: (i) el proceso de muestreo (0,5 puntos); (ii) la transformada de Fourier de $e^{jk\omega_0t}$ (0,5 puntos).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Describe el muestreo ideal</span></summary><div class="inner"><p>$x^*(t)=x(t)\sum\delta(t-kT)=\sum x(kT)\delta(t-kT)$ y $X^*(\omega)=\frac1T\sum X(\omega-k\omega_s)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Usa la dualidad con el impulso</span></summary><div class="inner"><p>$\mathcal F^{-1}\{2\pi\delta(\omega-k\omega_0)\}=e^{jk\omega_0t}$, así que $e^{jk\omega_0t}\leftrightarrow2\pi\delta(\omega-k\omega_0)$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.2 (1 punto): tren de impulsos y modulación</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Desarrolla: (i) la transformada de Fourier de un tren de impulsos (0,5 puntos); (ii) la propiedad de modulación de la transformada de Fourier (0,5 puntos).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Desarrolla el tren en serie de Fourier</span></summary><div class="inner"><p>$\sum\delta(t-kT)=\frac1T\sum e^{jk\omega_st}\leftrightarrow\frac{2\pi}T\sum\delta(\omega-k\omega_s)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Demuestra la modulación</span></summary><div class="inner"><p>$x(t)y(t)\leftrightarrow\frac1{2\pi}X*Y$ (sustituye $y$ por su inversa e intercambia integrales).</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.3 (1 punto): suma de secuencias periódicas</b> <span class="src">se repite en 2013-14 · Primer control (18-11-2013)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Sean $x_1[n]$ y $x_2[n]$ secuencias periódicas con períodos fundamentales $N_1$ y $N_2$. ¿Bajo qué condiciones es la suma $x[n]=x_1[n]+x_2[n]$ periódica? ¿Cuál es el período fundamental de $x[n]$ si es periódica?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe qué tiene que cumplir $N$</span></summary><div class="inner"><p>$x[n+N]=x[n]$ si $N=mN_1=kN_2$ con $m,k$ enteros.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Razona que ese $N$ siempre existe</span></summary><div class="inner"><p>Por ejemplo $N=N_1N_2$: la suma de dos secuencias periódicas es <b>siempre periódica</b> (en continuo no ocurre lo mismo).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Da el periodo</span></summary><div class="inner"><p>$\boxed{N=\operatorname{mcm}(N_1,N_2)}$. Puede ser menor si se cancelan armónicos, pero se pide el mcm.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>T.4 (1 punto): región de estabilidad</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dado un sistema causal descrito por $y[n]=-a_1y[n-1]-a_2y[n-2]+b_0x[n]$, determina y dibuja la región de estabilidad en el plano de coeficientes $(a_1,a_2)$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe el polinomio característico</span></summary><div class="inner"><p>$p(z)=z^2+a_1z+a_2$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Aplica las condiciones de grado 2</span></summary><div class="inner"><p>$|a_2|&lt;1$, $\;1+a_1+a_2&gt;0$, $\;1-a_1+a_2&gt;0$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Dibuja el triángulo</span></summary><div class="inner"><p>Vértices $(-2,1)$, $(2,1)$ y $(0,-1)$; polos complejos por encima de $a_2=a_1^2/4$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.1 (3 puntos): filtro RC con entrada retenida</b> <span class="src">se repite en 2012-13 · Final de septiembre (04-09-2013)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dado un filtro pasivo RC con resistencia $R$ y capacidad $C$, supongamos que la entrada de tensión $v_i(t)$ es constante entre muestras (para un $T$), es decir, $v_i(t)=v_i(kT)$ para $kT\le t&lt;(k+1)T$. (i) Determina la función de transferencia $G(s)=\frac{V_o(s)}{V_i(s)}$ y, para el período de muestreo $T$ dado, calcula $V_o^*(s)$. ¿Cuánto valdría $V_o(z)$? (ii) Determina la ecuación en diferencias que relaciona $v_o[n]$ con $v_i[n]$. (iii) Si la entrada es una rampa, $v_i(t)=t$, determina la salida en los instantes de muestreo (por fracciones parciales).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe $G(s)$ del RC</span></summary><div class="inner"><p>$G(s)=\frac{1}{1+RCs}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Reconoce el retenedor</span></summary><div class="inner"><p>Entrada constante a tramos = muestreador + ZOH. Hay que discretizar $G_{ZOH}G$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Discretiza $G_{ZOH}G$</span></summary><div class="inner"><p>Con $a=e^{-T/RC}$: $\;(1-z^{-1})\mathcal Z\Big\{\frac{1/RC}{s(s+1/RC)}\Big\}=\dfrac{1-a}{z-a}$, así que $V_o(z)=\dfrac{1-a}{z-a}V_i(z)$ (y $V_o^*(s)$ es lo mismo con $z=e^{sT}$).</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Pasa a ecuación en diferencias</span></summary><div class="inner"><p>$(z-a)V_o=(1-a)V_i\;\Rightarrow\;\boxed{v_o[n+1]=a\,v_o[n]+(1-a)\,v_i[n]}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">(iii) Haz fracciones parciales de $V_o(z)/z$ con la rampa</span></summary><div class="inner"><p>$V_i=\frac{Tz}{(z-1)^2}$: $\frac{V_o}{z}=\frac{T(1-a)}{(z-a)(z-1)^2}=\frac{A}{z-a}+\frac{B}{z-1}+\frac{C}{(z-1)^2}$, con $C=T$, $A=\frac{T}{1-a}$, $B=-A$.</p></div></details>
+<details class="paso"><summary><span class="pn">6</span><span class="pw">(iii) Invierte y comprueba</span></summary><div class="inner"><p>$\boxed{v_o[n]=T\Big[n-\dfrac{1-a^n}{1-a}\Big]1[n]}$. Comprobación: $v_o[0]=v_o[1]=0$, $v_o[2]=T(1-a)$, como da la recursión.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>P.2 (3 puntos): los cinco esquemas clásicos</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Según los esquemas de la figura 2, calcula $C(z)$ e indica en cada caso si existe la función de transferencia pulso. (1) Muestreador en el error, $G$ directo, $H$ en la realimentación. (2) Igual, pero con la salida muestreada antes de $H$. (3) Muestreadores en el error y entre $G_1$ y $G_2$. (4) $G_1$ antes del único muestreador. (5) Muestreador solo en la realimentación.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Regla para decidir</span></summary><div class="inner"><p>Hay FdT pulso si $R$ entra al primer muestreador sin pasar antes por ningún bloque; si aparece $(G\,R)$ junto, no la hay.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(1) y (2)</span></summary><div class="inner"><p>(1) $C=\dfrac{G(z)R(z)}{1+GH(z)}$, sí. (2) $C=\dfrac{G(z)R(z)}{1+G(z)H(z)}$, sí.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(3)</span></summary><div class="inner"><p>$C=\dfrac{G_1(z)G_2(z)R(z)}{1+G_1(z)G_2H(z)}$, sí.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(4) y (5)</span></summary><div class="inner"><p>(4) $C=\dfrac{G_2(z)\,G_1R(z)}{1+G_1G_2H(z)}$, no. (5) $C=\dfrac{GR(z)}{1+GH(z)}$, no.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Práctica: condiciones iniciales adaptadas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Dada la ecuación $y[n]=\frac1{4^n}1[n]+\frac32y[n-1]-\frac12y[n-2]$, $n\ge0$, con $y[-2]=10$ e $y[-1]=4$, calcula las condiciones iniciales adaptadas. Indica los comandos de MATLAB para resolverla y representar la secuencia.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Calcula los estados de la DF-II traspuesta</span></summary><div class="inner"><p>$z_1[-1]=\frac32\cdot4+z_2[-2]=6-5=1$; $\;z_2[-1]=-\frac12\cdot4=-2$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Resuelve en MATLAB</span></summary><div class="inner"><p><code>ic = filtic([1 0 0],[1 -1.5 0.5],[4 10]); n=0:20; y = filter([1 0 0],[1 -1.5 0.5],(1/4).^n,ic); stem(n,y)</code></p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Comprueba con la solución analítica</span></summary><div class="inner"><p>$\boxed{y[n]=\tfrac23+(\tfrac12)^n+\tfrac13(\tfrac14)^n}$: $2;\ 1{,}25;\ 0{,}9375;\dots\to\frac23$.</p></div></details>
+</div>
+</div></details>
+<details id="x1920j"><summary>2019-20 · Junio (22-06-2020) <span class="src">3 problemas + práctica</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 1 (3 puntos): segundo orden y respuesta muestreada</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un sistema de segundo orden estable tiene una ganancia en continua que es un 20 % menos que el valor del pico de la señal de salida frente a un escalón. Determina el porcentaje de sobreimpulso del sistema. Si la ganancia en continua del sistema es $\frac43$, determina el amortiguamiento $\xi_0$. La región $\Omega=\{s:\omega_n&lt;\omega_{n_0},\ \xi&gt;\xi_0\}$ tiene área $4{,}9376$. Escribe la función de transferencia $H(s)$ para $T=2$ s y calcula la respuesta escalón $y[n]$ (con la integral de contorno de Jury, expresada como señal real).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Calcula el sobreimpulso</span></summary><div class="inner"><p>$y(\infty)=0{,}8\,y(t_p)$: $\frac{y(t_p)-y(\infty)}{y(\infty)}=\frac1{0{,}8}-1=\boxed{25\,\%}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Saca $\xi_0$</span></summary><div class="inner"><p>Como en la recopilación: exceso absoluto $\frac43\cdot0{,}25=\frac13=e^{-\pi\xi/\sqrt{1-\xi^2}}$, así que $\boxed{\xi_0=0{,}3301}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Usa el área del sector para $\omega_{n_0}$</span></summary><div class="inner"><p>Sector de radio $\omega_{n_0}$ y ángulo $\pi-2\theta_0$, con $\theta_0=\arcsin\xi_0$: $\frac{\omega_{n_0}^2(\pi-2\theta_0)}2=4{,}9376\Rightarrow\boxed{\omega_{n_0}=2}$ rad/s.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Escribe $H(s)$</span></summary><div class="inner"><p>$\sigma=0{,}6602$, $\omega_d=1{,}8879$: $H(s)=\frac43\cdot\frac{4}{(s+0{,}6602)^2+1{,}8879^2}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Aplica Jury a $Y(s)=H(s)/s$</span></summary><div class="inner"><p>Residuos en $0$, $p$, $\bar p$: $Y(z)=\frac43\Big[\frac1{1-z^{-1}}+\frac{B}{1-z^{-1}e^{pT}}+\frac{\bar B}{1-z^{-1}e^{\bar pT}}\Big]$, $|B|=0{,}5297$, $\arg B=2{,}805$.</p></div></details>
+<details class="paso"><summary><span class="pn">6</span><span class="pw">Pasa a señal real</span></summary><div class="inner"><p>$\boxed{y[n]=\tfrac43\big(1+1{,}0594\,e^{-1{,}3204n}\cos(3{,}7758n+2{,}8052)\big)}$: $0;\ 1{,}694;\ 1{,}273;\ 1{,}333;\dots$</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> Con la definición habitual (sobreimpulso relativo del 25 %) sería $\xi_0=0{,}4037$ y $\omega_{n_0}=2{,}067$; di en el examen cuál usas.</p>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 2 (3 puntos): reconstrucción y respuesta escalón</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un sistema de segundo orden estable críticamente amortiguado con ganancia en continua 4 es muestreado y reconstruido con un filtro paso bajo ideal. La respuesta impulsiva se representa como serie cardinal $h(t)=\sum a_kf_k(t)$, donde $f_k$ es un seno cardinal. Si $f_0(1)=-\frac T\pi$, donde $T$ es el período tomado en la frecuencia de Nyquist, obtén la respuesta escalón $Y(z)$ por el método de muestreo de la señal $y(t)$ e indica su ROC (sin integral de contorno).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Saca $T$ de la condición sobre $f_0$</span></summary><div class="inner"><p>$f_0(t)=\operatorname{sinc}\frac tT$: $\frac{\sin(\pi/T)}{\pi/T}=-\frac T\pi\Rightarrow\sin\frac\pi T=-1\Rightarrow\boxed{T=\frac23}$ s.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Saca $\omega_n$ del ancho de banda</span></summary><div class="inner"><p>$BW=\frac\pi T=\frac{3\pi}2$ y, con $\xi=1$, $BW=\omega_n\sqrt{\sqrt2-1}$: $\omega_n=7{,}322$ rad/s. $H=\frac{4\omega_n^2}{(s+\omega_n)^2}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Calcula $y(t)$ y muestréala</span></summary><div class="inner"><p>$y(t)=4[1-e^{-\omega_nt}(1+\omega_nt)]$; con $a=e^{-\omega_nT}=0{,}00759$ y $\sum k\alpha^k=\frac\alpha{(1-\alpha)^2}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Escribe $Y(z)$ y la ROC</span></summary><div class="inner"><p>$\boxed{Y(z)=\frac{4z}{z-1}-\frac{4z}{z-a}-\frac{4\omega_nTa\,z}{(z-a)^2}}$, con ROC $|z|&gt;1$ (por el término del escalón).</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 3 (3 puntos): identificar la planta por el lugar de las raíces</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Una planta de tercer orden discreta $G(z)=\frac{N(z)}{D(z)}$ se sitúa en un lazo cerrado con un controlador proporcional $G_c=K_c$ y realimentación unitaria (sin retenedor). Suponemos $D(0)=1$, $\operatorname{gr}(N)=0$ y ganancia en continua de $G$ igual a 2. Si los polos en lazo cerrado cruzan la circunferencia unidad con $K=6$ formando un ángulo $\Omega=\frac\pi3$ con el eje real: (i) determina la planta; (ii) decide si es estable Schur.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Plantea las incógnitas</span></summary><div class="inner"><p>$D=z^3+a_2z^2+a_1z+1$ y $K_p=2(a_0+a_1+a_2+1)$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Impón el cruce en $e^{j\pi/3}$</span></summary><div class="inner"><p>Partes real e imaginaria de $D(e^{j\pi/3})+6K_p=0$: $a_1=-24$, $a_2=24$, y $K_p=4$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Concluye</span></summary><div class="inner"><p>$\boxed{G=\dfrac4{z^3+24z^2-24z+1}}$; raíz en $-24{,}96$: <b>no es Schur</b> ($|a_0/a_3|=1$ ya falla).</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Práctica: formas directas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un sistema discreto tiene respuesta impulsiva $h[n]=\big(\frac1{2^n}\cos(3\Omega n)+\frac13\big)1[n]$ con $\Omega=\frac\pi4$. Dibuja la forma directa I, II y II traspuesta.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma el coseno amortiguado</span></summary><div class="inner"><p>$\mathcal Z\{a^n\cos\theta n\}=\frac{1-a\cos\theta\,z^{-1}}{1-2a\cos\theta\,z^{-1}+a^2z^{-2}}$ con $a=\frac12$, $\cos\frac{3\pi}4=-\frac{\sqrt2}2$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Suma el término constante y agrupa</span></summary><div class="inner"><p>$H=\dfrac{\frac43-0{,}4107z^{-1}-0{,}2702z^{-2}}{1-0{,}2929z^{-1}-0{,}4571z^{-2}-0{,}25z^{-3}}$ (comprobado).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Dibuja las tres formas</span></summary><div class="inner"><p>Con <code>b=[4/3 -0.4107 -0.2702]</code> y <code>a=[1 -0.2929 -0.4571 -0.25]</code>: DF-I con 5 retardos, DF-II con 3 y DF-II traspuesta con 3.</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> En la recopilación falta el factor $1-a\cos\theta\,z^{-1}$ del numerador del coseno.</p>
+</div>
+</div></details>
+<details id="x2021b"><summary>2020-21 · Segundo parcial (22-01-2021) <span class="src">3 problemas + práctica</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>Problema 1: perturbación y valor final</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para el esquema de la figura 1 (controlador $C(z)$ con ZOH, perturbación $D$ que entra por $G_d(s)$ entre el ZOH y la planta $G(s)$, realimentación unitaria muestreada) se pide: (i) decide si existe la FdT pulso desde la perturbación a la salida; si existe calcúlala y si no determina $Y^*(s)$. (ii) Si $G=\frac1{s+1}$, $G_d=\frac1s$ y $C(z)=K_c$, calcula la respuesta estacionaria $y[\infty]$ a un impulso de área $A$ (usa la integral de contorno de Jury y el teorema del valor final).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Escribe la salida y mira si $D$ entra muestreada</span></summary><div class="inner"><p>$Y^*=(GG_dD)^*-(G_{ZOH}G)^*C^*Y^*$: $D$ no está muestreada, así que <b>no existe</b>. $\;Y^*=\dfrac{(GG_dD)^*}{1+(G_{ZOH}G)^*C^*}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Calcula los dos términos por Jury</span></summary><div class="inner"><p>$(GG_dD)(z)=A\big(\frac1{1-z^{-1}}-\frac1{1-z^{-1}e^{-T}}\big)$ y $(G_{ZOH}G)=1-\frac{1-z^{-1}}{1-z^{-1}e^{-T}}$; se ve que $(1-z^{-1})(GG_dD)=A(G_{ZOH}G)$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Aplica el valor final</span></summary><div class="inner"><p>Con $(G_{ZOH}G)(1)=1$: $\boxed{y[\infty]=\dfrac{A}{1+K_c}}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 2: raíces en un disco con el lema de Schur</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para el polinomio $p(z)=z^4+10z^3+50z^2+120z+144$, determina si todas las raíces están en el disco $D(z_0,\varepsilon)=D(-\frac52,\frac{31}{10})$. Utiliza el lema de Schur.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Lleva el disco al disco unidad</span></summary><div class="inner"><p>$z=\varepsilon w+z_0$: $q(w)=92{,}3521w^4+120{,}125w^2-15{,}5w+39{,}3125$. La pregunta es si $q$ es Schur.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Construye la matriz de Schur</span></summary><div class="inner"><p>$S=U^TU-L^TL$, con $U$ triangular superior de primera fila $(a_4,a_3,a_2,a_1)$ y $L$ de primera fila $(a_0,\dots,a_3)$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Comprueba que es definida positiva</span></summary><div class="inner"><p>Menores $6983$, $4{,}67\cdot10^7$, $1{,}78\cdot10^{10}$, $6{,}67\cdot10^{12}$, todos positivos: <b>sí</b>, todas dentro.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Verifica con las raíces</span></summary><div class="inner"><p>$-3\pm3j$ (a $3{,}04$ del centro) y $-2\pm2j$ (a $2{,}06$): ambas distancias menores que $3{,}1$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Problema 3: Ragazzini con $t_s$ y $\omega_n$</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Diseña un controlador por el método de Ragazzini con $T=1$ s para la planta $G(s)=\frac{1}{(s+1)(s+5)}$. Especificaciones: (i) seguimiento exacto de escalones en estacionario; (ii) tiempo de establecimiento menor que 2 s; (iii) frecuencia natural no amortiguada $\omega_n=5$ rad/s.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Discretiza la planta con ZOH</span></summary><div class="inner"><p>$G(z)=0{,}10837\dfrac{z+0{,}1588}{(z-0{,}3679)(z-0{,}00674)}$: todo dentro del disco.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Traduce las especificaciones a polos</span></summary><div class="inner"><p>$\xi=\frac{4{,}6}{t_s\omega_n}=0{,}46$, $\sigma=2{,}3$, $\omega_d=4{,}4396$: $D(z)=z^2+0{,}0540z+0{,}01005$, $D(1)=1{,}0641$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Elige $H$ con $H(1)=1$</span></summary><div class="inner"><p>$H=\frac{b_1z+b_0}{D}$ con $b_1+b_0=1{,}0641$; por ejemplo $b_0=0$: $H=\frac{1{,}0641z}{D}$, $1-H=\frac{(z-1)(z-0{,}01005)}{D}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula el controlador</span></summary><div class="inner"><p>$\boxed{G_c=9{,}819\,\dfrac{z(z-0{,}3679)(z-0{,}00674)}{(z-1)(z+0{,}1588)(z-0{,}01005)}}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Práctica: valor estacionario con ZOH en la realimentación</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para el diagrama de la figura 2 ($R\to$ sumador $\to\frac K{s+1}\to C$, con la salida muestreada y retenida $\frac{1-e^{-Ts}}{s}$ en la realimentación) determina con OCTAVE la secuencia de salida $y[n]$ cuando $T=0{,}1$ s, $K=1$ y la entrada es un escalón unitario. ¿Cuál es el valor estacionario $y[\infty]$?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la salida muestreada</span></summary><div class="inner"><p>$C^*=K(\frac{R}{s+1})^*-K(G_{ZOH}\frac1{s+1})^*C^*$: $C(z)=\dfrac{(1-a)z}{(z-1)(z-2a+1)}$, $a=e^{-0{,}1}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Aplica el valor final</span></summary><div class="inner"><p>$\boxed{y[\infty]=\frac12}$, la ganancia $\frac K{1+K}$.</p></div></details>
+</div>
+</div></details>
+<details id="x2021f"><summary>2020-21 · Final de febrero (09-02-2021) <span class="src">EP1 + EP2 + práctica</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>1. EP1: diseñar un LTI a partir de entrada y salida</b> <span class="src">se repite en 2018-19 · Enero (31-01-2019)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un sistema LTI causal en tiempo discreto es tal que frente a la entrada $x[n]=\frac1{2^n}1[n]-\frac14\frac1{2^{n-1}}1[n-1]$ responde con $y[n]=\frac1{3^n}1[n]$. Se pide: (i) la respuesta impulsiva $h[n]$; (ii) la ecuación en diferencias; (iii) si el sistema es estable.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma entrada y salida</span></summary><div class="inner"><p>$X=\frac{z-1/4}{z-1/2}$, $\;Y=\frac z{z-1/3}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Divide y haz fracciones de $H/z$</span></summary><div class="inner"><p>$H=\frac{z(z-1/2)}{(z-1/3)(z-1/4)}$: $\boxed{h[n]=\big[3(\tfrac14)^n-2(\tfrac13)^n\big]1[n]}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Escribe la ecuación en diferencias</span></summary><div class="inner"><p>$y[n]-\frac7{12}y[n-1]+\frac1{12}y[n-2]=x[n]-\frac12x[n-1]$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Estudia la estabilidad</span></summary><div class="inner"><p>Polos $\frac13$ y $\frac14$: <b>estable</b>.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>2. EP2: respuestas impulsivas de dos esquemas</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para los diagramas de la figura 1 halla las respuestas impulsivas de los sistemas. (a) $R\to$ sumador $\to$ muestreador $\to\frac{1-e^{-Ts}}{s}\to$ rama directa $+$ rama por $\frac1s$; la realimentación sale de la rama $\frac1s$. (b) $R\to$ sumador $(-C)\to$ muestreador $\to5\to$ sumador $(-0{,}1\cdot$salida de $\frac{0{,}2}s)\to$ muestreador $\to$ ZOH $\to\frac{0{,}2}s\to\frac1s\to C$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(a) Observa qué hace el ZOH muestreado</span></summary><div class="inner"><p>$(G_{ZOH})^*E^*=E^*$: el retenedor muestreado devuelve la misma secuencia.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(a) Escribe las ecuaciones y despeja</span></summary><div class="inner"><p>$C^*=E^*+(G_{ZOH}E^*/s)^*$ y $E^*=R^*-(G_{ZOH}E^*/s)^*$, así que $C^*=R^*$: $\boxed{h[n]=\delta[n]}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(b) Escribe las ecuaciones</span></summary><div class="inner"><p>$U^*=5E^*-0{,}02(G_{ZOH}/s)^*U^*$, $\;C^*=0{,}2(G_{ZOH}/s^2)^*U^*$, con $(G_{ZOH}/s)=\frac T{z-1}$ y $(G_{ZOH}/s^2)=\frac{T^2(z+1)}{2(z-1)^2}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(b) Despeja y estudia la estabilidad</span></summary><div class="inner"><p>$\boxed{\dfrac CR=\dfrac{\frac{T^2}2(z+1)}{(z-1)^2+0{,}02T(z-1)+\frac{T^2}2(z+1)}}$. Estable solo si $T&lt;0{,}04$ s; con $T=1$, $|z|=1{,}22$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>Práctica: secuencia de salida con OCTAVE</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para el diagrama de la figura 2 ($D(z)=\frac{2z}{z-1}$, D/A, $G_p=\frac1s$, A/D y realimentación $\times2$ a los dos sumadores) determina con OCTAVE la secuencia de salida $c[k]$ cuando $T=0{,}5$ s, para un escalón unitario y para $r[k]=(0,1,1,1,0,\dots)$. ¿Cuál es el valor estacionario $c[\infty]$? Escribe el código.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe las ecuaciones del lazo</span></summary><div class="inner"><p>$U=D(R-2C)-2C$ y $C=\frac T{z-1}U$ (D/A + integrador).</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Despeja y sustituye $T=0{,}5$</span></summary><div class="inner"><p>$\dfrac CR=\dfrac{2z}{(z-1)^2/T+4z+2(z-1)}=\boxed{\dfrac1{z+1}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Calcula las secuencias</span></summary><div class="inner"><p>Escalón: $c=\{0,1,0,1,\dots\}$. Entrada $\{0,1,1,1,0,\dots\}$: $c=\{0,0,1,0,1,-1,1,-1,\dots\}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Responde por el estacionario</span></summary><div class="inner"><p>Polo en $z=-1$: oscila, <b>$c[\infty]$ no existe</b>. Código: <code>num=[0 1]; den=[1 1]; k=0:20; c=filter(num,den,ones(size(k))); stem(k,c)</code></p></div></details>
+</div>
+</div></details>
+<details id="x2122b"><summary>2021-22 · Segundo parcial (10-12-2021) <span class="src">3 problemas · temas 5–7</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>1 (3,33 puntos): FdT pulso de un lazo con dos muestreadores</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Para el diagrama de la figura 1 ($R\to$ sumador $(-B)\to E\to$ muestreador $\to G_1\to$ sumador $(-C)\to M\to$ muestreador $\to G_2\to C$; $B$ es la salida de $H(s)$ alimentada por $C$) determina y justifica si existe la función de transferencia pulso. Calcula la expresión de la salida $C(z)$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe las tres ecuaciones</span></summary><div class="inner"><p>$C^*=G_2^*M^*$, $\;M^*=G_1^*E^*-G_2^*M^*$, $\;E^*=R^*-(G_2H)^*M^*$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Despeja $C^*$</span></summary><div class="inner"><p>$\boxed{C^*=\dfrac{G_1^*G_2^*}{1+G_1^*(G_2H)^*+G_2^*}R^*}$. <b>Sí existe</b>: $R$ entra muestreada.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>2 (3,33 puntos): deadbeat para un motor DC</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Un motor DC presenta una función de transferencia $G(s)=\frac1{(s+1)(s+10)}$. Para un período de muestreo $T=0{,}1$ s, determina la función de transferencia del controlador deadbeat.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Discretiza con ZOH</span></summary><div class="inner"><p>$G(z)=\dfrac{0{,}00355\,(z+0{,}6945)}{(z-0{,}9048)(z-0{,}3679)}$: todo dentro, $\mu(G)=1$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Elige el $H$ deadbeat mínimo</span></summary><div class="inner"><p>$H=z^{-1}$ ($H(1)=1$, grado relativo 1).</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Calcula el controlador</span></summary><div class="inner"><p>$\boxed{G_c=\dfrac{H}{G(1-H)}=281{,}7\,\dfrac{(z-0{,}9048)(z-0{,}3679)}{(z-1)(z+0{,}6945)}}$. La salida es $y[n]=1[n-1]$; el polo en $-0{,}69$ hace oscilar $u[k]$.</p></div></details>
+<p class="muted ojo"><b>Ojo:</b> En la recopilación aparece $G_c=\frac1G\frac{1-H}H$: es una errata, la fórmula es $\frac1G\frac H{1-H}$.</p>
+</div>
+<div class="prob">
+<p class="ph"><b>3 (3,33 puntos): Schur-Cohn</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Decide la estabilidad del polinomio $p(z)=z^2-\frac52z+1$ mediante el método de Schur-Cohn.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Comprueba la condición necesaria</span></summary><div class="inner"><p>$|a_0|=1$ no es menor que $|a_2|=1$: <b>no es Schur</b>. De hecho $p=(z-2)(z-\frac12)$.</p></div></details>
+</div>
+</div></details>
+<details id="x2324a"><summary>2023-24 · Primer parcial (13-11-2023) <span class="src">3 problemas · temas 1–4</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>1 (3 puntos): representación con secuencias $\phi_k$</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Consideremos el conjunto de secuencias $\phi_k[n]=\phi[n-k]$ para $k\in\mathbb Z$ con $\phi[n]=\frac1{2^n}1[n]$. Se pide: (i) demostrad que una secuencia arbitraria $x[n]$ se puede representar como $x[n]=\sum_{k=-\infty}^{\infty}a_k[n]\phi[n-k]$, donde $a_k[n]$ debe calcularse en función de valores de $x[n]$; (ii) sea $r[n]$ la respuesta de un sistema LTI a la entrada $\phi[n]$: determinad la respuesta a una entrada arbitraria en función de $r[n]$ y $x[n]$.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe el impulso con $\phi$</span></summary><div class="inner"><p>$\delta[n]=1[n]-1[n-1]=2^n\phi[n]-2^{n-1}\phi[n-1]$, es decir $\delta[n]=\phi[n]-\frac12\phi[n-1]$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Sustituye en la representación por impulsos y reindexa</span></summary><div class="inner"><p>$x=\sum x[k]\delta[n-k]$ con $l=k+1$ en el segundo término: $\boxed{a_k[n]=(x[k]-x[k-1])\,2^{n-k}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Saca $h$ a partir de $r$</span></summary><div class="inner"><p>Por linealidad e invariancia: $h[n]=r[n]-\frac12r[n-1]$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Escribe la salida</span></summary><div class="inner"><p>$\boxed{y[n]=r[n]*x[n]-\tfrac12\,r[n-1]*x[n]}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>2 (3 puntos): señales continuas con la misma secuencia</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Consideremos la secuencia $x[n]=\cos\frac{\pi n}8$. Encuentra todas las señales diferentes en tiempo continuo que produzcan la secuencia dada cuando se muestrea a una frecuencia $f_s=10$ Hz.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Saca la frecuencia normalizada</span></summary><div class="inner"><p>$F=\frac1{16}$, así que $f=F f_s=0{,}625$ Hz.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Suma múltiplos de $f_s$</span></summary><div class="inner"><p>$\cos(2\pi(f+kf_s)\frac n{f_s})=\cos(2\pi Fn)$: $\boxed{x(t)=\cos\big(2\pi(\pm0{,}625+10k)t\big)}$, es decir $0{,}625;\ 9{,}375;\ 10{,}625;\ 19{,}375$ Hz…</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>3 (4 puntos): respuesta impulsiva real</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Determinad para un sistema causal la respuesta impulsiva $h[n]$ cuya transformada Z viene dada por $H(z)=\frac{1+z^{-1}}{1-z^{-1}+\frac12z^{-2}}$. Escribe $h[n]$ como una secuencia real (no debe aparecer el número imaginario). ¿Es el sistema estable?</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Pasa a potencias positivas y saca los polos</span></summary><div class="inner"><p>$H=\frac{z(z+1)}{(z-p)(z-\bar p)}$, $p=\frac12+\frac j2=\frac1{\sqrt2}e^{j\pi/4}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Calcula el residuo de $H/z$</span></summary><div class="inner"><p>$C=\frac{p+1}{p-\bar p}=\frac12-\frac32j=\frac{\sqrt{10}}2e^{-j\arctan3}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Junta la pareja en un coseno</span></summary><div class="inner"><p>$\boxed{h[n]=\sqrt{10}\,(\tfrac1{\sqrt2})^n\cos\big(\tfrac\pi4n-\arctan3\big)1[n]}$: $1;\ 2;\ 1{,}5;\ 0{,}5;\ -0{,}25;\dots$</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Estudia la estabilidad</span></summary><div class="inner"><p>$|p|=0{,}707&lt;1$ y causal: <b>estable</b>.</p></div></details>
+</div>
+</div></details>
+<details id="x2324b"><summary>2023-24 · Segundo parcial (05-12-2023) <span class="src">3 problemas · temas 4–7</span></summary><div class="inner">
+<div class="prob">
+<p class="ph"><b>1 (3 puntos): transformada Z de una parábola (método de señales muestreadas)</b> <span class="src">se repite en 2013-14 · Final de febrero (04-02-2014)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>Si el período de muestreo es $T$, calcula la transformada $\mathcal Z$ de una señal parabólica $x(t)=\frac{t^2}2$: (i) utiliza el método de señales muestreadas (1,5 puntos); (ii) utiliza el método de la integral de contorno de Jury (1,5 puntos).</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Muestrea y escribe la serie</span></summary><div class="inner"><p>$X(z)=\frac{T^2}2\sum_{k\ge0}k^2z^{-k}$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Suma la serie derivando la geométrica</span></summary><div class="inner"><p>$\sum k\alpha^k=\frac{\alpha}{(1-\alpha)^2}$ y $\sum k^2\alpha^k=\frac{\alpha(1+\alpha)}{(1-\alpha)^3}$, con $\alpha=z^{-1}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(i) Da el resultado</span></summary><div class="inner"><p>$\boxed{X(z)=\dfrac{T^2}{2}\dfrac{z(z+1)}{(z-1)^3}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Aplica Jury con el polo triple en 0</span></summary><div class="inner"><p>$X(s)=\frac1{s^3}$: $X(z)=\frac12\lim_{s\to0}\frac{d^2}{ds^2}\frac{1}{1-z^{-1}e^{sT}}$, que da lo mismo.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>2 (3 puntos): FdT de dos esquemas</b> <span class="src">se repite en 2013-14 · Final de febrero (04-02-2014)</span></p>
+<div class="enun"><p class="et">Enunciado</p><p>(i) Encontrad la función de transferencia $\frac{Y(z)}{R(z)}$ del esquema de la figura 3: $r\to H_1\to$ sumador $(-y)\to$ muestreador $\to D(z)\to$ muestreador $\to G_{h0}\to$ sumador $(+H_2r)\to G_p\to y$ (1,5 puntos). (ii) Encontrad $\frac{Y(z)}{R(z)}$ y $\frac{X(z)}{R(z)}$ del esquema de la figura 4: $r\to$ sumador $(-y)\to$ sumador $(-x)\to$ muestreador $\to D(z)\to$ muestreador $\to G_{h0}\to G_1\to x\to G_2\to y$ (1,5 puntos). Si no existe la FdT pulso, da explícitamente la salida.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Comprueba si $R$ entra muestreada</span></summary><div class="inner"><p>Antes del primer muestreador entra $H_1R$, no $R^*$: <b>no existe FdT pulso</b>.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Plantea las ecuaciones y despeja $Y^*$</span></summary><div class="inner"><p>$Y=G_p(H_2R+G_{h0}U^*)$, $U^*=D^*E^*$, $E=H_1R-Y$: $\;Y^*=\dfrac{(G_pH_2R)^*+(G_pG_{h0})^*D^*(H_1R)^*}{1+(G_pG_{h0})^*D^*}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) Plantea las ecuaciones con los dos lazos</span></summary><div class="inner"><p>$E^*=R^*-Y^*-X^*$, $X^*=(G_1G_{h0})^*D^*E^*$, $Y^*=(G_2G_1G_{h0})^*D^*E^*$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">(ii) Despeja las dos FdT</span></summary><div class="inner"><p>$\dfrac{Y}{R}=\dfrac{(G_2G_1G_{h0})D}{1+(G_1G_{h0})D+(G_2G_1G_{h0})D}$ y $\;\dfrac{X}{R}=\dfrac{(G_1G_{h0})D}{1+(G_1G_{h0})D+(G_2G_1G_{h0})D}$.</p></div></details>
+</div>
+<div class="prob">
+<p class="ph"><b>3 (4 puntos): deadbeat con un cero de fase no mínima</b></p>
+<div class="enun"><p class="et">Enunciado</p><p>Diseña un controlador deadbeat para la planta $G_p(s)=\frac1{(s+1)(s+5)(s+\frac1{10})}$. El objetivo es conseguir un seguimiento perfecto a un escalón unitario en un tiempo finito. $T=1$ s.</p></div>
+<p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Discretiza con ZOH</span></summary><div class="inner"><p>$G(z)=\dfrac{0{,}05033z^2+0{,}06633z+0{,}002838}{z^3-1{,}2795z^2+0{,}3415z-0{,}002243}$. Ceros $-1{,}2734$ y $-0{,}0443$; polos $0{,}905$, $0{,}368$, $0{,}0067$.</p></div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Aplica las restricciones de Ragazzini</span></summary><div class="inner"><p>El cero $-1{,}2734$ está fuera: va en $H$. Con $\mu(H)\ge1$: $H=K\frac{z+1{,}2734}{z^2}$.</p></div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Impón $H(1)=1$</span></summary><div class="inner"><p>$\boxed{K=\frac1{2{,}2734}=0{,}43987}$.</p></div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula el controlador</span></summary><div class="inner"><p>$1-H=\frac{(z-1)(z-0{,}5601)}{z^2}$: $\boxed{G_c=8{,}739\,\dfrac{(z-0{,}9048)(z-0{,}3679)(z-0{,}0067)}{(z-1)(z-0{,}5601)(z+0{,}0443)}}$.</p></div></details>
+<details class="paso"><summary><span class="pn">5</span><span class="pw">Comprueba la respuesta</span></summary><div class="inner"><p>$y[1]=0{,}44$ e $y[n]=1$ para $n\ge2$: llega en 2 muestras.</p></div></details>
+</div>
+</div></details>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="examen-2025-26.html"><small>← Anterior</small>Examen 2025-26 resuelto</a><a class="nx" href="simulacro-ep2.html"><small>Siguiente →</small>Simulacro del EP2</a></nav>
+</main>
+</div>
+<script src="app.js?v=7"></script>
+</body>
+</html>
