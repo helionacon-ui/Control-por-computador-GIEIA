@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=28">
+<link rel="stylesheet" href="style.css?v=30">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -60,7 +60,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div class="sh"><span aria-hidden="true" class="badge">32</span><div class="shx"><p class="kick">Practicar</p><h2 id="examenes">Exámenes resueltos paso a paso</h2><div class="tags"><span class="tag">32 exámenes</span><span class="tag">153 ejercicios</span><span class="tag w">783 pasos desplegables</span></div></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#ex-empieza">Empieza por aquí</a><a href="#ex-temas">Practicar por tema</a><a href="#ex-todos">Buscar un examen</a></nav>
 <p class="lede-ex">Hay muchos ejercicios, pero no hace falta hacerlos todos. Elige <b>una</b> de estas tres formas de entrar y deja el resto plegado.</p>
 <div class="exnav"><a class="exn" href="#ex-empieza"><span class="exn-n">1</span><b>Empieza por aquí</b><small>5 exámenes recientes, en orden</small></a><a class="exn" href="#ex-temas"><span class="exn-n">2</span><b>Practicar por tema</b><small>Todos los ejercicios agrupados por tema</small></a><a class="exn" href="#ex-todos"><span class="exn-n">3</span><b>Buscar un examen</b><small>Por curso, con filtros y buscador</small></a></div>
-<details class="nota-ex"><summary>Cómo están hechos y cómo practicar</summary><div class="inner"><p>Cada ejercicio tiene su <b>enunciado completo</b> y la resolución en <b>pasos desplegables</b>: el título del paso dice qué hay que hacer y, al abrirlo, ves cómo se hace. Intenta cada paso antes de abrirlo. Los números están comprobados con código; donde la solución de referencia tiene una errata se avisa con un «Ojo».</p><p>Para simular el examen: cronómetro de 2 h, papel y el <a href="formulario.html">formulario</a> al lado. Si te atascas, abre solo el siguiente paso. Los ejercicios repetidos entre años están marcados con «se repite en».</p></div></details>
+<details class="nota-ex"><summary>Cómo están hechos y cómo practicar</summary><div class="inner"><p>Cada ejercicio tiene tres partes: el <b>enunciado completo</b>; un recuadro <b>«Antes de empezar»</b> con lo que te piden y la teoría que vas a usar (fórmulas, definiciones y la receta); y la resolución en <b>pasos desplegables</b>, donde cada operación está justificada. Al final, el <b>resultado</b> va plegado para que no te lo destripe. Intenta cada paso antes de abrirlo. Los números están comprobados con código; donde la solución de referencia tiene una errata se avisa con un «Ojo».</p><p>Para simular el examen: cronómetro de 2 h, papel y el <a href="formulario.html">formulario</a> al lado. Si te atascas, abre solo el siguiente paso. Los ejercicios repetidos entre años están marcados con «se repite en».</p></div></details>
 <h3 id="ex-empieza">Empieza por aquí</h3>
 <p class="muted">Haz estos cinco en orden; cubren todo el temario con el formato actual. Después pasa a «Practicar por tema» para reforzar lo que falle.</p>
 <ol class="exrec"><li><a href="examen-2025-26.html"><b>Examen 2025-26</b><span>El más reciente: parciales 1 y 2 y la práctica.</span></a></li><li><a href="#x2024"><b>2024-25 · Primer parcial</b><span>Temas 1–2: el nivel del primer parcial actual.</span></a></li><li><a href="#x2425b"><b>2024-25 · Segundo parcial</b><span>Ragazzini con planta inestable y función pulso.</span></a></li><li><a href="#x2324a"><b>2023-24 · Primer parcial</b><span>Temas 1–4 en tres problemas.</span></a></li><li><a href="#x2324b"><b>2023-24 · Segundo parcial</b><span>Temas 4–7 en tres problemas.</span></a></li></ol>
@@ -1539,79 +1539,96 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div class="prob" id="x0411p-p1">
 <p class="ph"><b>1 (ene 2004): dos retenedores y realimentación por un integrador</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Lazo con $T=2$ s: $r\to\Sigma\to$ muestreo $\to$ ZOH $\to\frac1{s+1}\to$ muestreo $\to$ ZOH $\to y$; $y$ vuelve al sumador a través de $\frac1s$. Calcula el error estacionario al escalón, la rampa y la parábola, las constantes de error y el tipo del sistema.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Dos muestreadores con retenedor: la salida $y$ es una escalera (sale de un ZOH), y el integrador de la realimentación integra esa escalera.</p><p>Error estacionario con el valor final y las constantes: tipo = número de polos de $GH$ en $z=1$; $K_p=\lim GH$, $K_v=\lim\frac{(z-1)GH}T$, $K_a=\lim\frac{(z-1)^2GH}{T^2}$.</p><p>Antes de dar errores hay que comprobar la estabilidad: si el lazo es inestable no existe régimen permanente.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe el lazo en $z$</span></summary><div class="inner"><p>La primera rama da $V(z)=\frac{1-e^{-T}}{z-e^{-T}}E(z)$; $y$ es la escalera de $v$, y la realimentación $\frac1s$ de una escalera vale $\left(\frac{G_{ZOH}}s\right)(z)=\frac T{z-1}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Lazo abierto</span></summary><div class="inner"><p>$G(z)H(z)=\dfrac{T(1-e^{-T})}{(z-1)(z-e^{-T})}=\dfrac{1{,}7293}{(z-1)(z-0{,}1353)}$: tipo 1.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Comprueba la estabilidad antes de nada</span></summary><div class="inner"><p>$p(z)=z^2-1{,}1353z+1{,}8647$: $|a_0|=1{,}86&gt;1$, polos de módulo $1{,}366$: <b>inestable</b> con $T=2$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Constantes (solo formales)</span></summary><div class="inner"><p>$K_p=\infty$, $K_v=\frac1T\lim(z-1)GH=1$, $K_a=0$; con el lazo inestable los errores no existen. Con $a=e^{-T}$ el término independiente es $a+T(1-a)$, que es menor que 1 solo si $T&lt;1$ s: hay que muestrear más rápido.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Con $T=2$ s el lazo es inestable (polos de módulo $1{,}37$): las constantes formales son $K_p=\infty$, $K_v=1$, $K_a=0$, pero los errores no existen; hace falta $T&lt;1$ s.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p2">
 <p class="ph"><b>2 (feb 2005, jul 2005, ene 2009): realimentación continua por un integrador</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Lazo con $T=2$ s: $r\to\Sigma\to$ muestreo $\to$ ZOH $\to\frac1{s+1}\to y$ y realimentación $\frac1s$ desde $y$ (continua). Error estacionario al escalón, rampa y parábola, constantes de error y tipo.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>La realimentación $\frac1s$ es continua y recibe la salida continua de la planta: entre el muestreador y la vuelta al sumador hay ZOH, $\frac1{s+1}$ y $\frac1s$ en serie, que se discretizan juntos: $(G_{ZOH}GH)(z)$.</p><p>Errores: $e_\infty=\lim_{z\to1}(1-z^{-1})\frac{R}{1+GH}$, con las constantes de error del lazo abierto.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Junta los bloques entre muestreadores</span></summary><div class="inner"><p>$E^*=R^*-(G_{ZOH}GH)^*E^*$ con $GH=\frac1{s(s+1)}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Discretiza</span></summary><div class="inner"><p>$(G_{ZOH}GH)(z)=\dfrac{1{,}1353z+0{,}5940}{(z-1)(z-0{,}1353)}$ con $T=2$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Estabilidad</span></summary><div class="inner"><p>$p(z)=z^2+0{,}7293$: polos $\pm0{,}854j$, estable.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Constantes y errores</span></summary><div class="inner"><p>Tipo 1: $K_p=\infty$ ($e=0$ al escalón); $K_v=\frac1T\lim_{z\to1}(z-1)GH=1$ ($e=1$ a la rampa unitaria); $K_a=0$ ($e=\infty$ a la parábola).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Tipo 1, estable: $K_p=\infty$, $K_v=1$, $K_a=0$; errores $0$ (escalón), $1$ (rampa unitaria) e $\infty$ (parábola).</p></div></details>
 </div>
 <div class="prob" id="x0411p-p3">
 <p class="ph"><b>3 (ene 2004, feb 2005): rango de $K$ por Jury</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Realimentación unitaria, $T=1$ s, ZOH y planta $\frac K{s(s+1)}$. Determina el rango de $K$ estable con la prueba de Jury.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Jury (o Schur-Cohn) para grado 2, $p(z)=z^2+a_1z+a_0$: estable si y solo si $|a_0|&lt;1$, $p(1)&gt;0$ y $p(-1)&gt;0$. Primero hay que discretizar la planta con el retenedor.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Discretiza</span></summary><div class="inner"><p>$G(z)=K\dfrac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Polinomio característico</span></summary><div class="inner"><p>$p=z^2+(0{,}3679K-1{,}3679)z+0{,}3679+0{,}2642K$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Condiciones de grado 2</span></summary><div class="inner"><p>$|a_0|&lt;1\Rightarrow K&lt;2{,}392$; $p(1)=0{,}6321K&gt;0\Rightarrow K&gt;0$; $p(-1)=2{,}736-0{,}1037K&gt;0\Rightarrow K&lt;26{,}4$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Concluye</span></summary><div class="inner"><p>$0&lt;K&lt;2{,}39$; en $K\approx2{,}39$ los polos complejos tocan $|z|=1$ (comprobado numéricamente).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$0&lt;K&lt;2{,}39$.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p4">
 <p class="ph"><b>4 (jul 2005, sep 2005, jun 2008): PID digital en forma posicional</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Planta $G_p=\frac1{s(s+1)}$, $T=1$ s, $K_p=1$, $K_I=K_D=0{,}2$. Deduce el PID y obtén la función de transferencia en lazo cerrado.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>PID digital en forma posicional: la integral se aproxima por una suma (rectángulos) y la derivada por diferencias regresivas. En $z$: $G_{pid}=K_p+\frac{K_IT}{1-z^{-1}}+\frac{K_D}T(1-z^{-1})$. Después se cierra el lazo con la planta discretizada con ZOH: $\frac YR=\frac{G_{pid}G}{1+G_{pid}G}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Deduce el PID</span></summary><div class="inner"><p>Integral por rectángulos y derivada por diferencias regresivas: $u[n]=K_pe[n]+K_IT\sum_{k\le n}e[k]+\frac{K_D}T(e[n]-e[n-1])\Rightarrow G_{pid}=K_p+\dfrac{K_IT}{1-z^{-1}}+\dfrac{K_D}T(1-z^{-1})$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Sustituye</span></summary><div class="inner"><p>$G_{pid}=\dfrac{1{,}4z^2-1{,}4z+0{,}2}{z(z-1)}$ y $(G_{ZOH}G_p)=\dfrac{0{,}3679z+0{,}2642}{(z-1)(z-0{,}3679)}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Cierra el lazo</span></summary><div class="inner"><p>$\dfrac YR=\dfrac{0{,}5150z^3-0{,}1451z^2-0{,}2964z+0{,}0528}{z^4-1{,}8528z^3+1{,}5907z^2-0{,}6642z+0{,}0528}$: estable, $y(\infty)=1$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$G_{pid}=\frac{1{,}4z^2-1{,}4z+0{,}2}{z(z-1)}$; $\frac YR=\frac{0{,}5150z^3-0{,}1451z^2-0{,}2964z+0{,}0528}{z^4-1{,}8528z^3+1{,}5907z^2-0{,}6642z+0{,}0528}$, estable.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p5">
 <p class="ph"><b>5 (sep 2005, ene 2006, feb 2007): triángulo de estabilidad de segundo orden</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$y[n]=-a_1y[n-1]-a_2y[n-2]+b_0x[n]$. Determina por Schur-Cohn la región de estabilidad en el plano $(a_1,a_2)$ y el comportamiento en cada zona según los polos.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Sistema causal de segundo orden: estable si las raíces de $z^2+a_1z+a_2$ están dentro del disco unidad. Schur-Cohn da dos condiciones: $|a_2|&lt;1$ y la del polinomio reducido. La forma de la respuesta depende del tipo de polos (discriminante $a_1^2-4a_2$).</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Polinomio característico</span></summary><div class="inner"><p>$A(z)=1+a_1z^{-1}+a_2z^{-2}$, es decir $z^2+a_1z+a_2$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Primera condición</span></summary><div class="inner"><p>$|a_2|&lt;1$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Reduce</span></summary><div class="inner"><p>$p_1=\frac{1-a_2^2}{\dots}\big(z+\frac{a_1}{1+a_2}\big)$: la segunda condición es $\left|\frac{a_1}{1+a_2}\right|&lt;1\iff|a_1|&lt;1+a_2$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Dibuja el triángulo</span></summary><div class="inner"><p>$-1&lt;a_2&lt;1$, $a_2&gt;a_1-1$ y $a_2&gt;-a_1-1$: triángulo de vértices $(0,-1)$, $(2,1)$ y $(-2,1)$.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">Clasifica por la parábola $a_1^2=4a_2$</span></summary><div class="inner"><p>Por encima: polos complejos (oscilación amortiguada). Por debajo: reales distintos (exponenciales que decaen, alternando si son negativos). Sobre ella: reales dobles.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Estable en el triángulo $|a_2|&lt;1$, $|a_1|&lt;1+a_2$ (vértices $(0,-1)$, $(\pm2,1)$); polos complejos por encima de $a_2=a_1^2/4$.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p6">
 <p class="ph"><b>6 (ene 2006, feb 2007, feb 2008): PID con sensor digital</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>PID digital con $K_p=1$, $K_I=2$, $K_D=5$ y planta $G=\frac1{s(s+1)}$; el sensor es un encoder $H=\frac5{s+3}$ que se muestrea. $T=1$ ms. (i) Dibuja el lazo con sus muestreadores y retenedores. (ii) Función de transferencia en lazo cerrado. (iii) Errores al escalón, rampa y parábola.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Con sensor dinámico ($H\ne1$) muestreado, en el lazo aparecen $(G_{ZOH}G)(z)$ hacia la salida y $(G_{ZOH}GH)(z)$ hacia la realimentación.</p><p>Los errores se miden en la señal realimentada; las constantes salen del lazo abierto $G_{pid}(G_{ZOH}GH)$. Con $T$ muy pequeño ($1$ ms) los polos quedan muy cerca de $z=1$ y conviene calcularlos numéricamente.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Coloca los muestreadores</span></summary><div class="inner"><p>$r$ y la medida muestreadas $\to$ PID $\to$ ZOH $\to G\to y$; $y\to H\to$ muestreo $\to$ sumador.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Lazo cerrado</span></summary><div class="inner"><p>$\dfrac YR=\dfrac{G_{pid}(z)(G_{ZOH}G)(z)}{1+G_{pid}(z)(G_{ZOH}GH)(z)}$ con $G_{pid}=K_p+\frac{K_IT}{1-z^{-1}}+\frac{K_D}T(1-z^{-1})$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Comprueba la estabilidad</span></summary><div class="inner"><p>Con $T=10^{-3}$ el polo más lento tiene $|z|=0{,}99993&lt;1$: estable (calculado numéricamente).</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iii) Tipo 2</span></summary><div class="inner"><p>El integrador del PID más el de la planta: $K_p=K_v=\infty$ (error nulo a escalón y rampa).</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">Parábola</span></summary><div class="inner"><p>$K_a=\frac1{T^2}\lim(z-1)^2G_{pid}(G_{ZOH}GH)=K_I\cdot H(0)=2\cdot\frac53=\frac{10}3$; $e=\frac1{K_a}=0{,}3$ (en unidades de la señal medida).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$\frac YR=\frac{G_{pid}(G_{ZOH}G)}{1+G_{pid}(G_{ZOH}GH)}$; estable; tipo 2: errores $0$, $0$ y $0{,}3$ (parábola).</p></div></details>
 </div>
 <div class="prob" id="x0411p-p7">
 <p class="ph"><b>7 (jun 2007, sep 2008, jun 2009, feb 2010, feb 2011): salida muestreada y retenedor con retardo</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(a) Calcula la salida muestreada de: (a1) $G$ directa con $H$ y muestreador en la realimentación; (a2) muestreador, $D(s)$, sumador interno con lazo por $G$ y lazo externo por $H$. (b) Con muestreador y ZOH delante, discretiza $G_1=\frac{e^{-1{,}5s}}{s(s+1)}$ y $G_2=\frac1{s^2-1}$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Regla: si la entrada pasa por un bloque continuo antes del primer muestreador, aparece $(GR)^*$ y no existe FdT pulso.</p><p>Para retardos que no son múltiplo de $T$ se usa la transformada Z modificada (o se simula la respuesta al pulso del ZOH). Residuos de Jury para los bloques sin retardo.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a1)</span></summary><div class="inner"><p>$Y^*=\dfrac{(GR)^*}{1+(GH)^*}$: no hay cociente $Y/R$ porque $R$ no se muestrea.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(a2)</span></summary><div class="inner"><p>$Y^*=\dfrac{D^*G^*}{1+D^*(GH)^*+G^*}R^*$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(b) $G_1$ con $T=1$</span></summary><div class="inner"><p>El retardo de $1{,}5T$ da $G_1(z)=\dfrac{0{,}1065z^2+0{,}4709z+0{,}0547}{z^2(z-1)(z-0{,}3679)}$ (por la transformada Z modificada o simulando el pulso).</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(b) $G_2$</span></summary><div class="inner"><p>Residuos $\frac12$, $\frac12$ y $-1$: con $T=1$, $G_2(z)=\dfrac{0{,}5431(z+1)}{(z-2{,}718)(z-0{,}3679)}$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>(a1) $Y^*=\frac{(GR)^*}{1+(GH)^*}$; (a2) $Y^*=\frac{D^*G^*R^*}{1+D^*(GH)^*+G^*}$; $G_1(z)=\frac{0{,}1065z^2+0{,}4709z+0{,}0547}{z^2(z-1)(z-0{,}3679)}$, $G_2(z)=\frac{0{,}5431(z+1)}{(z-2{,}718)(z-0{,}3679)}$.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p8">
 <p class="ph"><b>8 (jun 2007, feb 2010): antena con compensador</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Planta: lazo interno $\frac1{10s}$ con realimentación unitaria, seguido de $\frac1s$. Compensador $D(s)=\frac{10s+1}{s+1}$ discretizado, $T=0{,}2$ s, realimentación unitaria. Calcula las constantes de error y los errores al escalón, rampa y parábola.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Primero se reduce la planta continua (lazo interno) a una sola FdT; luego se discretiza con ZOH y el compensador $D(s)$ se pasa a $z$ (aquí también con retenedor). Constantes de error del lazo abierto $D(z)G(z)$, tras comprobar la estabilidad.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Reduce la planta</span></summary><div class="inner"><p>$\frac{1/(10s)}{1+1/(10s)}=\frac1{10s+1}$, así $G(s)=\frac1{s(10s+1)}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Discretiza</span></summary><div class="inner"><p>$G(z)=\dfrac{0{,}001987z+0{,}001974}{(z-1)(z-0{,}9802)}$; $D(z)$ con ZOH: $\dfrac{10z-9{,}8187}{z-0{,}8187}$ (ganancia en continua $D(1)=1$).</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Estabilidad</span></summary><div class="inner"><p>Polos en lazo cerrado de módulo $0{,}982$ y $0{,}915$: estable.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Constantes</span></summary><div class="inner"><p>Tipo 1: $K_p=\infty$; $K_v=\frac1T\lim(z-1)DG=D(1)\cdot1=1$; $K_a=0$. Errores: $0$, $1$ y $\infty$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Tipo 1, estable: $K_p=\infty$, $K_v=1$, $K_a=0$; errores $0$, $1$, $\infty$.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p9">
 <p class="ph"><b>9 (feb 2008): depósito de mezcla multivariable</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Depósito: $A\dot H=Q_e+Q_c-Q_s$, $Q_s=W\sqrt{2gH}$, $W=K_1X_s$, $Q_c=K_2X_c$, $Y_H=K_3H$, $\frac{d(C_sAH)}{dt}=Q_eC_e+Q_cC_c-Q_sC_s$, $Y_C=K_4C_s$. Equilibrio: $X_c=3$, $X_s=2$, $Q_e=1$, $C_e=0{,}4$, $C_c=0{,}8$; $K_1=0{,}1$, $K_2=0{,}5$, $K_3=2$, $K_4=3$, $A=1$. Las entradas pasan por ZOH; $T=0{,}1$ s; $Y_H$ se mide $0{,}01$ s antes que $Y_C$. Calcula la matriz de funciones de transferencia de $(X_C,X_S)$ a $(Y_H,Y_C)$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Modelo no lineal $\to$ linealización en el punto de equilibrio (desarrollo de Taylor de primer orden) $\to$ funciones de transferencia continuas $\to$ discretización con ZOH.</p><p>Una medida tomada un poco antes de los instantes de muestreo equivale a muestrear en $(k+m)T$: transformada Z modificada con $m=1-\frac{0{,}01}{T}=0{,}9$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Equilibrio</span></summary><div class="inner"><p>$Q_c=1{,}5$, $Q_s=2{,}5$, $W=0{,}2$, $\sqrt{2gH_0}=12{,}5\Rightarrow H_0=7{,}96$; $C_s=\frac{0{,}4+1{,}2}{2{,}5}=0{,}64$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Linealiza la altura</span></summary><div class="inner"><p>$\delta Q_s=1{,}25\,\delta X_s+0{,}157\,\delta H$: $\delta\dot H=0{,}5\,\delta X_c-1{,}25\,\delta X_s-0{,}157\,\delta H$.</p></div></details>
@@ -1619,211 +1636,266 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Matriz en $s$</span></summary><div class="inner"><p>$\dfrac{Y_H}{X_c}=\dfrac1{s+0{,}157}$, $\dfrac{Y_H}{X_s}=\dfrac{-2{,}5}{s+0{,}157}$, $\dfrac{Y_C}{X_c}=\dfrac{0{,}0301}{s+0{,}314}$, $\dfrac{Y_C}{X_s}=0$.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">Discretiza $Y_C$ (muestreo normal)</span></summary><div class="inner"><p>$\dfrac{Y_C}{X_c}(z)=\dfrac{0{,}002967}{z-0{,}9691}$.</p></div></details>
 <details class="paso"><summary><span class="pn">6</span><span class="pw">Discretiza $Y_H$ (muestreo $0{,}01$ s antes: Z modificada con $m=0{,}9$)</span></summary><div class="inner"><p>$\dfrac{Y_H}{X_c}(z)=\dfrac{0{,}08937z+0{,}00985}{z(z-0{,}9844)}$ y $\dfrac{Y_H}{X_s}(z)=\dfrac{-0{,}2234z-0{,}0246}{z(z-0{,}9844)}$ (comprobado simulando el pulso del ZOH).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Matriz continua $\begin{pmatrix}\frac1{s+0{,}157}&amp;\frac{-2{,}5}{s+0{,}157}\\\frac{0{,}0301}{s+0{,}314}&amp;0\end{pmatrix}$; discretizada: $\frac{0{,}08937z+0{,}00985}{z(z-0{,}9844)}$, $\frac{-0{,}2234z-0{,}0246}{z(z-0{,}9844)}$, $\frac{0{,}002967}{z-0{,}9691}$ y $0$.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p10">
 <p class="ph"><b>10 (ene 2009): regiones del plano $s$ al plano $z$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$T=0{,}3$ s ($\omega_s=20{,}9$ rad/s). Dibuja en el plano $z$: (a) el rectángulo $-4{,}5\le\sigma\le-1$, $|\omega|\le7$; (b) la región $\sigma\ge-4{,}5$, $|\omega|\le7$ limitada a la derecha por las rectas a $30^\circ$ del eje imaginario.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Con $z=e^{sT}$: rectas verticales ($\sigma$ constante) $\to$ circunferencias de radio $e^{\sigma T}$; rectas horizontales ($\omega$ constante) $\to$ rayos de ángulo $\omega T$; rectas de $\xi$ constante $\to$ espirales logarítmicas. Si $|\omega|&lt;\frac{\omega_s}2$ no hay solapamiento.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma los bordes verticales</span></summary><div class="inner"><p>$\sigma$ constante $\to$ circunferencia de radio $e^{\sigma T}$: $e^{-1{,}35}=0{,}259$ y $e^{-0{,}3}=0{,}741$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Transforma los bordes horizontales</span></summary><div class="inner"><p>$\omega=\pm7\to$ rayos de ángulo $\pm7\cdot0{,}3=\pm2{,}1$ rad ($\pm120^\circ$). Como $7&lt;\frac{\omega_s}2=10{,}5$, no hay solapamiento.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(a)</span></summary><div class="inner"><p>Sector de corona: $0{,}259\le|z|\le0{,}741$, $|\arg z|\le120^\circ$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(b) Rectas de $\xi$ constante</span></summary><div class="inner"><p>A $30^\circ$ del eje imaginario: $\xi=\sin30^\circ=0{,}5$, que se transforman en espirales $|z|=e^{-\theta\,\xi/\sqrt{1-\xi^2}}=e^{-0{,}577\theta}$. La región queda entre la circunferencia $0{,}259$, los rayos de $\pm120^\circ$ y la espiral, que sale de $z=1$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>(a) Sector de corona $0{,}259\le|z|\le0{,}741$, $|\arg z|\le120^\circ$. (b) La región limitada por la circunferencia $0{,}259$, los rayos de $\pm120^\circ$ y la espiral $|z|=e^{-0{,}577\theta}$.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p11">
 <p class="ph"><b>11 (jun 2008): copo de nieve de Koch</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Determina el área del copo de Koch tras infinitos pasos (triángulo equilátero inicial de área $A_0$; en cada paso, sobre el tercio central de cada lado se añade un triángulo equilátero).</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Un proceso que se repite paso a paso es una ecuación en diferencias; la transformada Z la convierte en una ecuación algebraica. Hay que contar cuántos triángulos nuevos aparecen en cada paso y de qué tamaño.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Recurrencia</span></summary><div class="inner"><p>$A[n+1]=A[n]+\frac{3\cdot4^n}{9^{n+1}}A_0$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Resuelve con la Z</span></summary><div class="inner"><p>$A[n]=\left(\frac85-\frac35\left(\frac49\right)^n\right)A_0\to\frac85A_0$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$A[n]=\left(\frac85-\frac35(\frac49)^n\right)A_0\to\frac85A_0$.</p></div></details>
 </div>
 <div class="prob" id="x0411p-p12">
 <p class="ph"><b>12 (sep 2008): transformada de una señal periódica y polinomios de Hermite</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(a) Prueba $F(z^k)=\mathcal Z\{\nabla f_1(nT)\}$ con $f_1(nT)=\sum_{m=0}^{[n/k]}f(mT)$. (b) Si $F(z)=e^{-x/z-1/(2z^2)}$, prueba $f(nT)=\frac{H_n(x)}{n!}$. (c) Si $f$ es periódica de período $N$, $F(z)=\frac{P(z^{-1})}{1-z^{-N}}$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Tres propiedades de la transformada Z: intercambio de sumatorios, convolución (producto en $z$) y suma geométrica. Para (b), el apartado (a) con $k=2$ resuelve el factor $e^{-1/(2z^2)}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a) Intercambia sumatorios</span></summary><div class="inner"><p>$F_1(z)=\frac z{z-1}F(z^k)$ y $\mathcal Z\{\nabla f_1\}=(1-z^{-1})F_1=F(z^k)$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b) Producto de exponenciales</span></summary><div class="inner"><p>$e^{-x/z}\leftrightarrow\frac{(-x)^n}{n!}$ y $e^{-1/(2z^2)}$ usa el apartado (a) con $k=2$; la convolución da $\sum_k\frac{(-1)^kx^{n-2k}}{k!(n-2k)!2^k}=\frac{H_n(x)}{n!}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(c) Agrupa por períodos</span></summary><div class="inner"><p>$F=\sum_{k=0}^{N-1}f[k]z^{-k}\sum_mz^{-mN}=\frac{P(z^{-1})}{1-z^{-N}}$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>(a) $F(z^k)=\mathcal Z\{\nabla f_1\}$. (b) $f(nT)=\frac{H_n(x)}{n!}$. (c) $F(z)=\frac{P(z^{-1})}{1-z^{-N}}$.</p></div></details>
 </div>
 </div></details>
 <details class="exd" data-parc="p1 p2" data-tipo="antiguo" id="x0411t"><summary>2004–2011 · Exámenes antiguos: banco de teoría <span class="xc p12">Parciales 1 y 2</span><span class="xc">24 ejercicios</span> <span class="src">24 preguntas que se repiten</span></summary><div class="inner">
 <div class="prob" id="x0411t-p1">
 <p class="ph"><b>1 (6 convocatorias): transformada Z por la integral de contorno (Jury)</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Enuncia y demuestra el cálculo de la transformada Z mediante la integral de contorno (o de convolución).</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Demostración: el muestreo es un producto por el tren de impulsos; el producto en el tiempo es una convolución compleja en $s$; se cierra el contorno por la izquierda sumando residuos de $X(s)$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe el muestreo como producto</span></summary><div class="inner"><p>$x^*(t)=x(t)\sum\delta(t-nT)$ y el tren tiene transformada $\frac1{1-e^{-sT}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Convolución compleja</span></summary><div class="inner"><p>$X^*(s)=\frac1{2\pi j}\oint\frac{X(p)}{1-e^{-(s-p)T}}dp$, cerrando el contorno por los polos de $X$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Pasa a $z$</span></summary><div class="inner"><p>$X(z)=\sum_{\text{polos}}\mathrm{Res}\left(\frac{X(s)}{1-z^{-1}e^{sT}}\right)$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$X(z)=\sum_{\text{polos}}\mathrm{Res}\left(\frac{X(s)}{1-z^{-1}e^{sT}}\right)$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p2">
 <p class="ph"><b>2 (8 convocatorias): estabilidad discreta y pruebas</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Define la estabilidad discreta (también mediante la respuesta impulsiva) y enuncia las pruebas de estabilidad.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Definición BIBO y sus equivalencias (sumabilidad, ROC, polos). Pruebas que conviene enunciar con su condición: Cardano-Vieta ($|a_0/a_n|&lt;1$, necesaria), Schur-Cohn, Jury, matriz de Schur (Sylvester) y bilineal + Routh.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Definición</span></summary><div class="inner"><p>BIBO: entrada acotada da salida acotada $\iff\sum|h[n]|&lt;\infty\iff$ la ROC contiene $|z|=1$; si es causal, todos los polos en $|z|&lt;1$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Pruebas</span></summary><div class="inner"><p>Condición necesaria $|a_0/a_n|&lt;1$; Schur-Cohn (reducciones sucesivas); Jury (tabla); matriz de Schur definida positiva; bilineal $z=\frac{1+w}{1-w}$ más Routh.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Estable $\iff\sum|h|&lt;\infty\iff|z|=1\subset$ ROC; causal: polos en $|z|&lt;1$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p3">
 <p class="ph"><b>3 (4 convocatorias): relación entre $s$ y $z$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Enuncia y demuestra la relación entre el espacio continuo ($s$) y el discreto ($z$).</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Se parte de $X^*(s)=\sum x(kT)e^{-skT}$ y se define $z=e^{sT}$. Después se mira qué hace la transformación con el módulo y el argumento.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma el muestreo</span></summary><div class="inner"><p>$X^*(s)=\sum x(nT)e^{-snT}$; con $z=e^{sT}$ sale $X(z)$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Lee la correspondencia</span></summary><div class="inner"><p>$s=\sigma+j\omega\Rightarrow|z|=e^{\sigma T}$, $\arg z=\omega T$: semiplano izquierdo $\to$ interior del disco, eje $j\omega\to|z|=1$, franjas de altura $\omega_s$ se superponen.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$z=e^{sT}$: $|z|=e^{\sigma T}$, $\arg z=\omega T$; semiplano izquierdo $\to$ disco unidad; eje $j\omega\to|z|=1$; franjas de altura $\omega_s$ se superponen.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p4">
 <p class="ph"><b>4 (4 convocatorias): ROC de la transformada Z</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Define y demuestra el radio (región) de convergencia de la transformada Z; calcula la Z y la ROC de $a^nu[n]$ y $-a^nu[-n-1]$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>ROC: conjunto de $z$ donde $\sum|x[n]||z|^{-n}$ converge. Criterio de la raíz para la parte derecha ($n\ge0$) y para la izquierda ($n&lt;0$).</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Criterio de la raíz</span></summary><div class="inner"><p>Para la parte derecha converge si $|z|&gt;\limsup|x[n]|^{1/n}=r$; para la izquierda si $|z|&lt;R$: ROC $r&lt;|z|&lt;R$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Ejemplos</span></summary><div class="inner"><p>$a^nu[n]\leftrightarrow\frac1{1-az^{-1}}$, $|z|&gt;|a|$; $-a^nu[-n-1]\leftrightarrow\frac1{1-az^{-1}}$, $|z|&lt;|a|$: misma $X$, distinta ROC.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>ROC $=\{r&lt;|z|&lt;R\}$; $a^nu[n]$: $|z|&gt;|a|$; $-a^nu[-n-1]$: $|z|&lt;|a|$, con la misma $X(z)=\frac1{1-az^{-1}}$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p5">
 <p class="ph"><b>5 (feb 2005, jul 2005, sep 2005): dos transformadas con su ROC</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula la Z y la ROC de (i) $\left(-\frac14\right)^nu[n]-\left(\frac12\right)^nu[-n-1]$; (ii) $\left(\frac12\right)^nu[n]+\left(\frac14\right)^nu[n]$. Representa polos y ceros.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Cada término exponencial tiene su transformada y su ROC; la ROC de la suma es la intersección. Secuencia derecha $\to$ exterior de su polo; izquierda $\to$ interior.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Suma derecha e izquierda</span></summary><div class="inner"><p>$X=\frac1{1+\frac14z^{-1}}+\frac1{1-\frac12z^{-1}}$, ROC $\frac14&lt;|z|&lt;\frac12$ (corona, porque es bilateral).</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Dos derechas</span></summary><div class="inner"><p>$X=\frac1{1-\frac12z^{-1}}+\frac1{1-\frac14z^{-1}}=\frac{2z(z-\frac38)}{(z-\frac12)(z-\frac14)}$, ROC $|z|&gt;\frac12$ (exterior del polo más alejado).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>(i) $\frac1{1+\frac14z^{-1}}+\frac1{1-\frac12z^{-1}}$, ROC $\frac14&lt;|z|&lt;\frac12$. (ii) $\frac1{1-\frac12z^{-1}}+\frac1{1-\frac14z^{-1}}$, ROC $|z|&gt;\frac12$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p6">
 <p class="ph"><b>6 (4 convocatorias): secuencia por fracciones simples</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Determina $x[n]$ si $X(z)=\dfrac{1-\frac14z^{-1}}{1-\frac16z^{-1}-\frac16z^{-2}}$ con $|z|&gt;\frac12$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Fracciones simples en potencias de $z^{-1}$ (o de $X/z$ en potencias de $z$) y cada término según la ROC: con $|z|&gt;\frac12$, todos son derechos.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Polos</span></summary><div class="inner"><p>$z^2-\frac z6-\frac16=(z-\frac12)(z+\frac13)$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Descompón en $z^{-1}$</span></summary><div class="inner"><p>$X=\frac{0{,}3}{1-\frac12z^{-1}}+\frac{0{,}7}{1+\frac13z^{-1}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Invierte (derecha)</span></summary><div class="inner"><p>$x[n]=\left(0{,}3\left(\tfrac12\right)^n+0{,}7\left(-\tfrac13\right)^n\right)u[n]$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$x[n]=\left(0{,}3(\frac12)^n+0{,}7(-\frac13)^n\right)u[n]$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p7">
 <p class="ph"><b>7 (jul 2005, sep 2005, feb 2007): de la respuesta al escalón a $H(z)$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>La respuesta al escalón de un LTI es $y[n]=\left(\frac13\right)^{n-2}u[n+2]$. (a) $H(z)$ y polos y ceros. (b) $h[n]$. (c) ¿Causal? ¿Estable?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Respuesta al escalón $s[n]$ e impulsiva: $h[n]=s[n]-s[n-1]$, es decir $H(z)=(1-z^{-1})S(z)$. Causal $\iff h[n]=0$ para $n&lt;0$; estable $\iff\sum|h|&lt;\infty$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma $y$</span></summary><div class="inner"><p>$Y=\sum_{n\ge-2}3^{2-n}z^{-n}=\dfrac{81z^2}{1-\frac13z^{-1}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Divide por el escalón</span></summary><div class="inner"><p>$H=(1-z^{-1})Y=\dfrac{81z^2(1-z^{-1})}{1-\frac13z^{-1}}$: polo en $\frac13$, cero en $1$ y dos ceros más en $0$ con un polo en $\infty$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">$h[n]$</span></summary><div class="inner"><p>$h=y[n]-y[n-1]=81\delta[n+2]-2\cdot3^{2-n}u[n+1]$ ($h[-2]=81$, $h[-1]=-54$, …).</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Propiedades</span></summary><div class="inner"><p>No causal ($h[-2]\ne0$); estable ($\sum|h|&lt;\infty$, el polo $\frac13$ está dentro).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$H(z)=\frac{81z^2(1-z^{-1})}{1-\frac13z^{-1}}$; $h=81\delta[n+2]-2\cdot3^{2-n}u[n+1]$; no causal y estable.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p8">
 <p class="ph"><b>8 (6 convocatorias): ¿por qué varía la secuencia al muestrear una senoide?</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Con $x(t)=A\sin\frac{2\pi}Tt$ y período de muestreo $\Delta T$: ¿por qué distintas frecuencias dan señales distintas? ¿Cómo elegir $\Delta T$ para que la secuencia no sea periódica? Si lo es, ¿cuál es su período?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Muestrear una senoide da $\sin(2\pi\frac{\Delta T}Tn)$. La secuencia es periódica si y solo si $\frac{\Delta T}T$ es racional. En discreto solo son distintas las frecuencias normalizadas en $[-\frac12,\frac12]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la secuencia</span></summary><div class="inner"><p>$x[n]=A\sin\left(2\pi\frac{\Delta T}Tn\right)$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Periodicidad</span></summary><div class="inner"><p>Periódica $\iff\frac{\Delta T}T=\frac kN\in\mathbb Q$; el período es $N$ con la fracción irreducible. Para que no lo sea, $\frac{\Delta T}T$ irracional (por ejemplo $\Delta T=\frac T{\sqrt2}$).</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Frecuencias distintas</span></summary><div class="inner"><p>En continuo cada frecuencia es distinta; en discreto solo hasta $F=\frac12$: más allá aparecen alias. En MATLAB: <code>n=0:40; stem(n,A*sin(2*pi*dT/T*n))</code>.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Periódica $\iff\frac{\Delta T}T=\frac kN\in\mathbb Q$ (período $N$); no periódica si el cociente es irracional.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p9">
 <p class="ph"><b>9 (6 convocatorias): invarianza al impulso</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$H(s)=\sum\frac{C_k}{s-p_k}$. ¿Cómo afecta la invarianza al impulso a los polos y ceros de $H(z)$? Si el sistema es estable, ¿lo es el transformado? ¿Qué pasa con los ceros (y si hay un cero en $z_k$)?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Invarianza al impulso: $h[n]=h(nT)$. Con $H(s)=\sum\frac{C_k}{s-p_k}$, cada término da $\frac{C_k}{1-e^{p_kT}z^{-1}}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Muestrea la respuesta impulsiva</span></summary><div class="inner"><p>$h[n]=h(nT)=\sum C_k(e^{p_kT})^nu[n]\Rightarrow H(z)=\sum\dfrac{C_k}{1-e^{p_kT}z^{-1}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Polos</span></summary><div class="inner"><p>Cada polo $p_k$ pasa a $e^{p_kT}$; si $\mathrm{Re}\,p_k&lt;0$, $|e^{p_kT}|&lt;1$: <b>conserva la estabilidad</b>.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Ceros</span></summary><div class="inner"><p>No se transforman con $e^{sT}$: dependen de todos los polos y residuos. Requiere banda limitada (hay aliasing en frecuencia).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Polos $p_k\to e^{p_kT}$ (conserva la estabilidad); los ceros no se transforman con $e^{sT}$; exige banda limitada.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p10">
 <p class="ph"><b>10 (4 convocatorias): transformación bilineal</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Deduce la forma bilineal y relaciona la frecuencia continua con la discreta.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Integración trapezoidal: $y[n]=y[n-1]+\frac T2(x[n]+x[n-1])$, que en $z$ da $\frac1s\approx\frac T2\frac{1+z^{-1}}{1-z^{-1}}$. Sustituyendo $z=e^{j\Omega}$ se obtiene la relación entre frecuencias.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Integra por trapecios</span></summary><div class="inner"><p>$y[n]=y[n-1]+\frac T2(x[n]+x[n-1])\Rightarrow\frac1s\approx\frac T2\frac{1+z^{-1}}{1-z^{-1}}$, es decir $s=\frac2T\frac{z-1}{z+1}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Frecuencias</span></summary><div class="inner"><p>Con $z=e^{j\Omega}$: $\omega=\frac2T\tan\frac\Omega2$ (compresión o «warping»). Todo el eje $j\omega$ va a la circunferencia una sola vez: no hay aliasing y conserva la estabilidad.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$s=\frac2T\frac{z-1}{z+1}$; $\omega=\frac2T\tan\frac\Omega2$; conserva la estabilidad y no tiene aliasing.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p11">
 <p class="ph"><b>11 (ene 2006, feb 2007): métodos que exigen banda limitada</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>¿Cuál de estos métodos exige respuesta en frecuencia de banda limitada: invarianza al impulso, diferencias regresivas o bilineal? Razona.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Pregunta clave: ¿el método muestrea la respuesta (y entonces el espectro se replica) o transforma la ecuación (y no hay réplicas)?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Respuesta</span></summary><div class="inner"><p>Solo la <b>invarianza al impulso</b>: muestrea $h(t)$ y el espectro se replica, así que hay aliasing si no está limitado en banda. Diferencias regresivas y bilineal transforman la ecuación, no muestrean, y no tienen aliasing (aunque deforman la frecuencia).</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Solo la invarianza al impulso exige banda limitada.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p12">
 <p class="ph"><b>12 (5 convocatorias): procesado discreto de una señal continua</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para una señal de banda limitada (espectro triangular centrado), representa el paso continuo $\to$ discreto $\to$ continuo. ¿Es el conjunto un LTI? ¿Cómo se relaciona el filtro continuo con el discreto? ¿Es el muestreo invariante en el tiempo?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Cadena C/D $\to$ filtro discreto $\to$ D/C. Sin aliasing, el conjunto equivale a un filtro continuo $H_c(\omega)=H(e^{j\omega T})$ en la banda $|\omega|&lt;\frac{\omega_s}2$. Invariancia en el tiempo: un desplazamiento de la entrada debe dar el mismo desplazamiento de la salida.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Cadena</span></summary><div class="inner"><p>C/D (espectro replicado y escalado $\Omega=\omega T$), filtro $H(e^{j\Omega})$, D/C (paso bajo ideal).</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Equivalente</span></summary><div class="inner"><p>Si no hay aliasing, el conjunto es LTI con $H_c(\omega)=H(e^{j\omega T})$ para $|\omega|&lt;\frac{\omega_s}2$ y $0$ fuera.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Muestreo no invariante</span></summary><div class="inner"><p>Un pulso más corto que $T$ da muestras distintas (incluso todas cero) según cómo se desplace respecto del tren: el muestreador solo es invariante a desplazamientos múltiplos de $T$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Equivalente LTI si no hay aliasing; el muestreador solo es invariante para desplazamientos múltiplos de $T$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p13">
 <p class="ph"><b>13 (ene 2006, feb 2008): senoides, rangos y aliasing</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x(t)=A\cos(2\pi ft+\theta)$ muestreada con $f_s=\frac1T$: rango de frecuencias y pulsaciones y relación entre variables. Aplícalo a $\cos(2\pi10t)$ y $\cos(2\pi50t)$. ¿Cómo elegir $f_s$ para que haya aliasing?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>$F=\frac f{f_s}$ y $\Omega=\omega T$. Frecuencias que difieren en $kf_s$ (o con signo cambiado, para cosenos) dan la misma secuencia: aliasing.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Relación</span></summary><div class="inner"><p>$F=\frac f{f_s}$, $\Omega=\omega T$; continuo: $f\in(-\infty,\infty)$; discreto: $F\in[-\frac12,\frac12]$, $\Omega\in[-\pi,\pi]$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Aliasing entre las dos</span></summary><div class="inner"><p>$50=10+kf_s\Rightarrow f_s=40$ Hz (o $20$, $10$…): con $f_s=40$ las dos dan $\cos\frac{\pi n}2$. Con $f_s=60$, $50\equiv-10$: también. Para evitarlo, $f_s&gt;100$ Hz.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$F\in[-\frac12,\frac12]$, $\Omega\in[-\pi,\pi]$; con $f_s=40$ Hz, 10 y 50 Hz se confunden; sin aliasing si $f_s&gt;100$ Hz.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p14">
 <p class="ph"><b>14 (ene 2006): señales con la misma $X(z)$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Determina todas las señales con (a) $X=\frac1{1-1{,}5z^{-1}+0{,}5z^{-2}}$; (b) $X=\frac1{1-\frac12z^{-1}+\frac14z^{-2}}$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Cada ROC posible (anillo entre polos) da una secuencia distinta. Fracciones simples en $z^{-1}$ y cada término derecho o izquierdo según la ROC.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a) Polos $1$ y $\frac12$</span></summary><div class="inner"><p>$X=\frac2{1-z^{-1}}-\frac1{1-\frac12z^{-1}}$. ROC $|z|&gt;1$: $(2-(\frac12)^n)u[n]$; $\frac12&lt;|z|&lt;1$: $-2u[-n-1]-(\frac12)^nu[n]$; $|z|&lt;\frac12$: $(-2+(\frac12)^n)u[-n-1]$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b) Polos complejos $\frac12e^{\pm j\pi/3}$</span></summary><div class="inner"><p>ROC $|z|&gt;\frac12$: $x=(\frac12)^n\left(\cos\frac{\pi n}3+\frac1{\sqrt3}\sin\frac{\pi n}3\right)u[n]$; con $|z|&lt;\frac12$, la misma expresión cambiada de signo en $u[-n-1]$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>(a) Tres secuencias, según $|z|&gt;1$, $\frac12&lt;|z|&lt;1$ o $|z|&lt;\frac12$. (b) Dos: $|z|&gt;\frac12$ (derecha, oscilante amortiguada) o $|z|&lt;\frac12$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p15">
 <p class="ph"><b>15 (feb 2007): ROC por convergencia en $|z|=1$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$X(z)=\dfrac{z^{20}}{(z-\frac12)(z-2)^5(z+\frac52)(z+3)}$ converge en $|z|=1$. (a) ROC. (b) $x[-18]$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Si $X(z)$ converge en $|z|=1$, la ROC es el anillo entre polos que contiene la circunferencia unidad. Un valor concreto $x[n_0]$ se obtiene con la integral de contorno sobre $|z|=1$ sumando residuos dentro.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a)</span></summary><div class="inner"><p>Corona que contiene $|z|=1$ sin polos: $\frac12&lt;|z|&lt;2$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b) Integral de contorno sobre $|z|=1$</span></summary><div class="inner"><p>$x[-18]=\frac1{2\pi j}\oint X(z)z^{-19}dz$; el integrando es $\frac{z}{(z-\frac12)(z-2)^5(\dots)}$ y dentro solo está $z=\frac12$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Residuo</span></summary><div class="inner"><p>$x[-18]=\dfrac{1/2}{(-\frac32)^5\cdot3\cdot\frac72}=-0{,}00627$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>ROC $\frac12&lt;|z|&lt;2$; $x[-18]=-0{,}00627$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p16">
 <p class="ph"><b>16 (feb 2007): salida estacionaria con senoides</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$h[n]=(\frac12)^nu[n]$ y $x[n]=10-5\sin\frac{\pi n}2+20\cos\pi n$ (para todo $n$). Calcula $y[n]$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Respuesta en régimen permanente a una senoide (o constante) que actúa desde siempre: cada componente se multiplica por $H(e^{j\Omega})$ en su frecuencia.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Respuesta en frecuencia</span></summary><div class="inner"><p>$H(e^{j\Omega})=\frac1{1-\frac12e^{-j\Omega}}$: $H(1)=2$, $H(e^{j\pi/2})=0{,}894\angle-26{,}6^\circ$, $H(-1)=\frac23$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Aplica a cada componente</span></summary><div class="inner"><p>$y[n]=20-4{,}47\sin\left(\frac{\pi n}2-26{,}6^\circ\right)+13{,}33\cos\pi n$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$y[n]=20-4{,}47\sin(\frac{\pi n}2-26{,}6^\circ)+13{,}33\cos\pi n$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p17">
 <p class="ph"><b>17 (feb 2007): transitorio y estacionario de un FIR</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$y[n]=\frac12(x[n]-x[n-2])$ con $x[n]=5+3\cos\left(\frac\pi2n+60^\circ\right)$ para todo $n$. Respuesta estacionaria y transitoria.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Respuesta en frecuencia del FIR $H=\frac12(1-e^{-j2\Omega})$ evaluada en cada componente; un FIR de longitud $L$ solo tiene transitorio durante $L-1$ muestras desde que empieza la entrada.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Respuesta en frecuencia</span></summary><div class="inner"><p>$H=\frac12(1-e^{-j2\Omega})$: $H(1)=0$ y $H(e^{j\pi/2})=1$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Estacionaria</span></summary><div class="inner"><p>La continua desaparece: $y[n]=3\cos\left(\frac\pi2n+60^\circ\right)$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Transitoria</span></summary><div class="inner"><p>Con entrada desde $-\infty$ no hay transitorio; si la entrada empieza en $n=0$, el FIR de longitud 3 tiene transitorio solo en $n=0,1$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Estacionaria $y[n]=3\cos(\frac\pi2n+60^\circ)$; la continua se anula; sin transitorio si la entrada existe desde siempre.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p18">
 <p class="ph"><b>18 (jun 2007, feb 2008, feb 2010): Z de $t^3$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula la transformada Z de $x(t)=t^3$ muestreada con período $T$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Derivar en $z$: $\mathcal Z\{nx[n]\}=-z\frac{dX}{dz}$. Aplicado tres veces a $\frac z{z-1}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Deriva tres veces</span></summary><div class="inner"><p>$\mathcal Z\{n^3\}=(-z\frac d{dz})^3\frac z{z-1}=\frac{z(z^2+4z+1)}{(z-1)^4}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Escala</span></summary><div class="inner"><p>$\mathcal Z\{(nT)^3\}=\dfrac{T^3z(z^2+4z+1)}{(z-1)^4}$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$\mathcal Z\{(nT)^3\}=\frac{T^3z(z^2+4z+1)}{(z-1)^4}$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p19">
 <p class="ph"><b>19 (jun 2007): ganancia en continua y desplazamientos</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(a) Dada $H(z)$, ¿cómo deducirías la ganancia en continua? (b) Z de $x[n+a]$ para $a&gt;0$ y $a&lt;0$. (c) Relación entre la Z y la TFD (y entre Fourier continua y discreta).</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Ganancia en continua = respuesta a una constante = $H(1)$. Desplazamientos con la transformada bilateral y la unilateral. TFD = transformada Z sobre $|z|=1$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a)</span></summary><div class="inner"><p>Entrada constante $=z^n$ con $z=1$: ganancia $H(1)$ (si $|z|=1$ está en la ROC).</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b)</span></summary><div class="inner"><p>Bilateral: $z^aX(z)$. Unilateral con $a&gt;0$: $z^a\big(X-\sum_{k=0}^{a-1}x[k]z^{-k}\big)$; con $a&lt;0$ se añaden los valores negativos.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(c)</span></summary><div class="inner"><p>La TFD es la Z sobre la circunferencia: $X(e^{j\Omega})=X(z)|_{z=e^{j\Omega}}$; y la de la secuencia muestreada es $\frac1T\sum X_c\left(\frac{\Omega-2\pi k}T\right)$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Ganancia $H(1)$; $x[n+a]\to z^aX(z)$ (bilateral); $X(e^{j\Omega})=X(z)|_{z=e^{j\Omega}}$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p20">
 <p class="ph"><b>20 (feb 2008): teorema del valor final</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra el teorema del valor final en $z^{-1}$ y calcula el valor final de $X=\frac{1-a^2}{(1-az)(1-az^{-1})}$ según $a$, indicando la ROC.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Teorema del valor final: $\lim x[n]=\lim_{z\to1}(1-z^{-1})X(z)$, válido si $(1-z^{-1})X$ tiene todos sus polos dentro del disco.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Teorema</span></summary><div class="inner"><p>$\lim_nx[n]=\lim_{z\to1}(1-z^{-1})X(z)$ si los polos de $(1-z^{-1})X$ están dentro del disco.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Aplica</span></summary><div class="inner"><p>Con $0&lt;a&lt;1$ ($a&lt;|z|&lt;\frac1a$) es $x=a^{|n|}$, que tiende a $0$; y $(1-z^{-1})X\to0$ en $z=1$. Con $a&gt;1$ los polos cambian de papel y la ROC $\frac1a&lt;|z|&lt;a$ da otra vez $a^{-|n|}\to0$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Tiende a $0$ en los dos casos ($x=a^{|n|}$ o $a^{-|n|}$ según $a$).</p></div></details>
 </div>
 <div class="prob" id="x0411t-p21">
 <p class="ph"><b>21 (feb 2008): bits y relación señal-ruido</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>En un conversor, ¿cuánto mejora la relación señal-ruido por cada bit añadido?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Ruido de cuantización: $\sigma_e^2=\frac{\Delta^2}{12}$, y cada bit divide el paso $\Delta$ por 2.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Respuesta</span></summary><div class="inner"><p>$\mathrm{SQNR}=6{,}02b+1{,}76$ dB (senoide a fondo de escala): unos <b>6 dB por bit</b>, porque cada bit divide $\Delta$ por 2 y la potencia del ruido $\frac{\Delta^2}{12}$ por 4.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Unos 6 dB por bit ($\mathrm{SQNR}=6{,}02b+1{,}76$ dB con senoide a fondo de escala).</p></div></details>
 </div>
 <div class="prob" id="x0411t-p22">
 <p class="ph"><b>22 (jun 2008): sucesión de Fibonacci</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$F[0]=0$, $F[1]=1$, $F[n]=F[n-1]+F[n-2]$. Halla una forma cerrada y demuestra que el cociente entre términos consecutivos tiende a $\frac{1+\sqrt5}2$.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Una recurrencia lineal se resuelve con la transformada Z unilateral y fracciones simples; el término dominante es el del polo de mayor módulo.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma</span></summary><div class="inner"><p>$F(z)=\dfrac{z}{z^2-z-1}$, polos $\varphi=\frac{1+\sqrt5}2$ y $\psi=\frac{1-\sqrt5}2$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Fracciones simples</span></summary><div class="inner"><p>$F[n]=\dfrac{\varphi^n-\psi^n}{\sqrt5}$ (fórmula de Binet).</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Límite del cociente</span></summary><div class="inner"><p>$\frac{F[n+1]}{F[n]}=\frac{\varphi^{n+1}-\psi^{n+1}}{\varphi^n-\psi^n}\to\varphi=1{,}618$ porque $|\psi|&lt;1$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$F[n]=\frac{\varphi^n-\psi^n}{\sqrt5}$ y $\frac{F[n+1]}{F[n]}\to\varphi=\frac{1+\sqrt5}2$.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p23">
 <p class="ph"><b>23 (jun 2008): polos complejos y polo doble en 1</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(a) Con un par de polos complejos conjugados y el resto simples: residuos, respuesta y ROC. (b) $Y(z)=\frac1{(1-z^{-1})^2}$: ¿estable? ¿De qué secuencia procede?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Residuos conjugados dan un coseno real; un polo doble en $z=1$ da una rampa.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a)</span></summary><div class="inner"><p>Los residuos del par son conjugados, $B$ y $\bar B$: juntos dan $2|B||p|^n\cos(n\theta+\arg B)$. La ROC es un anillo entre módulos de polos.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b)</span></summary><div class="inner"><p>Polo doble en $z=1$: $y[n]=(n+1)u[n]$ (ROC $|z|&gt;1$), que crece sin límite. Como respuesta impulsiva sería inestable.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>(a) $2|B||p|^n\cos(n\theta+\arg B)$; (b) $y[n]=(n+1)u[n]$, no acotada.</p></div></details>
 </div>
 <div class="prob" id="x0411t-p24">
 <p class="ph"><b>24 (ene 2004, jul 2005, sep 2005): conceptos sueltos</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(a) Teorema del muestreo. (b) Retenedor de orden cero y su función de transferencia. (c) Conversor D/A en escalera R-2R. (d) Exponenciales complejas frente a secuencias exponenciales. (e) Tipo de sistema y constantes de error. (f) Transformada de Fourier de un tren de impulsos. (g) Comportamiento de $a^nu[n]$ según $a$. (h) Expresión de la Z inversa.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Repaso de definiciones que se preguntan sueltas. Para cada una: definición, fórmula y una línea de justificación.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a) y (f) Muestreo</span></summary><div class="inner"><p>$X^*(\omega)=\frac1T\sum X(\omega-k\omega_s)$ porque el tren tiene transformada $\frac{2\pi}T\sum\delta(\omega-k\omega_s)$; sin solape si $\omega_s&gt;2\omega_{\max}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b) y (c) Hardware</span></summary><div class="inner"><p>$G_{ZOH}=\frac{1-e^{-sT}}s$. R-2R: $v_o=-\frac{V_{ref}}{2^n}\frac{R_F}R\sum b_k2^k$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(d) y (g) Exponenciales</span></summary><div class="inner"><p>En discreto las pulsaciones separadas $2\pi$ coinciden y solo hay $N$ armónicas distintas de período $N$. $a^n$: $|a|&lt;1$ decae, $|a|&gt;1$ crece, $a=1$ constante, $a&lt;0$ alterna de signo.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(e) y (h)</span></summary><div class="inner"><p>Tipo = número de polos en $z=1$ del lazo abierto; $K_p=\lim GH$, $K_v=\frac1T\lim(z-1)GH$, $K_a=\frac1{T^2}\lim(z-1)^2GH$. Inversa: $x[n]=\frac1{2\pi j}\oint X(z)z^{n-1}dz$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>Ver cada paso: muestreo, ZOH, R-2R, exponenciales, tipo y constantes, inversa.</p></div></details>
 </div>
 </div></details>
 </div></details>
@@ -1832,6 +1904,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=28"></script>
+<script src="app.js?v=30"></script>
 </body>
 </html>

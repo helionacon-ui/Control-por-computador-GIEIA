@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=28">
+<link rel="stylesheet" href="style.css?v=30">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -64,6 +64,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div class="prob">
 <h3 id="ep1-2026-problema-1-3-5-puntos-suma-de-una-expone">Problema 1 (3,5 puntos): suma de una exponencial periódica</h3>
 <div class="enun"><p class="et">Enunciado</p><p>Sea $x[n]=e^{j\Omega_0n}$ con $\frac{\Omega_0}{2\pi}=\frac MN$ y $\operatorname{mcd}(M,N)=1$. (a) Demuestra que $\displaystyle S=\sum_{n=n_0}^{n_0+N-1}e^{jk\frac{2\pi}{N}Mn}$ vale $N$ si $N\mid k$ y $0$ en otro caso. (b) Da una interpretación geométrica del resultado.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Te piden demostrar una propiedad de las sumas de exponenciales complejas y verla geométricamente.</p><p>Herramientas: (1) serie geométrica finita $\sum_{n=n_0}^{n_0+N-1}r^n=r^{n_0}\frac{1-r^N}{1-r}$ si $r\ne1$ (y $N$ si $r=1$); (2) lema de Euclides: si $N\mid kM$ y $\mathrm{mcd}(M,N)=1$, entonces $N\mid k$; (3) $e^{j2\pi m}=1$ para $m$ entero.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Reconoce que es una serie geométrica</span></summary><div class="inner"><p>Llama $r=e^{j2\pi kM/N}$. Entonces $S=\sum_{n=n_0}^{n_0+N-1}r^n$ es una <b>serie geométrica</b> de $N$ términos y razón $r$. Todo depende de si $r=1$ o no.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Resuelve el caso $N\mid k$</span></summary><div class="inner"><p>Si $k=lN$, $\;r=e^{j2\pi lM}=1$: cada término vale 1 y la suma es $\boxed{S=N}$.</p></div></details>
@@ -71,6 +72,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Aplica la fórmula de la geométrica</span></summary><div class="inner"><p>$$S=r^{n_0}\,\frac{1-r^N}{1-r},\qquad r^N=e^{j2\pi kM}=1\;\Rightarrow\;\boxed{S=0}.$$ El resultado no depende de $n_0$: solo multiplica por $r^{n_0}$, de módulo 1. ∎</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(b) Dibuja los términos como vectores</span></summary><div class="inner"><p>Cada $r^n$ es un vector de módulo 1 y cada término gira $\frac{2\pi kM}{N}$ respecto al anterior. Con $d=\operatorname{mcd}(k,N)$, los $N$ términos recorren los vértices de un <b>polígono regular</b> de $N/d$ lados, $d$ veces cada uno.</p></div></details>
 <details class="paso"><summary><span class="pn">6</span><span class="pw">(b) Explica por qué la suma es cero</span></summary><div class="inner"><p>Puestos uno detrás de otro, el camino da $kM$ vueltas completas y <b>se cierra</b>: resultante nula. Por simetría también: girar el conjunto $\frac{2\pi kM}N$ lo deja igual, así que $rS=S$, y con $r\ne1$ eso obliga a $S=0$ (el centro de masas de un polígono regular está en el origen). Si $N\mid k$, todos apuntan igual y se suman: $S=N$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$S=N$ si $N\mid k$ y $S=0$ en otro caso: los $N$ vectores unitarios forman polígonos regulares cerrados.</p></div></details>
 <figure class="fig">
 <p class="ft">Visual interactivo · los N vectores y su suma</p>
 <div class="ctrl"><label for="ek">$k$ <input id="ek" max="8" min="0" step="1" type="range" value="1"/></label><output id="ek-o"></output><span class="pill" id="ek-p"></span></div>
@@ -81,6 +83,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div class="prob">
 <h3 id="ep1-2026-problema-2-3-5-puntos-fir-excitado-con-u">Problema 2 (3,5 puntos): FIR excitado con una exponencial</h3>
 <div class="enun"><p class="et">Enunciado</p><p>Sistema con $h[n]=\sum_{m=0}^{P-1}a^m\delta[n-m]$, $a\in\mathbb R\setminus\{0\}$, y entrada $x[n]=e^{j\Omega_0n}$. (a) Demuestra que la salida es $y[n]=\lambda\,x[n]$ y calcula $\lambda$. (b) Para $a=1$, escribe $\lambda$ como núcleo de Dirichlet. (c) ¿Qué pulsaciones $\Omega_0$ anulan la salida?</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Un FIR de longitud $P$ con coeficientes geométricos. La idea clave: las exponenciales complejas son <b>autofunciones</b> de los sistemas LTI, $e^{j\Omega n}\mapsto H(e^{j\Omega})e^{j\Omega n}$, así que $\lambda$ es la respuesta en frecuencia.</p><p>Herramientas: suma geométrica, la identidad $1-e^{-jx}=e^{-jx/2}\cdot2j\sin\frac x2$ y el resultado del problema 1 para el caso $a=1$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a) Escribe la convolución con la exponencial dentro</span></summary><div class="inner"><p>$$y[n]=\sum_{m=0}^{P-1}a^m e^{j\Omega_0(n-m)}=e^{j\Omega_0n}\underbrace{\sum_{m=0}^{P-1}\left(ae^{-j\Omega_0}\right)^m}_{\lambda}$$ $\lambda$ no depende de $n$: la exponencial es <b>autofunción</b> del LTI.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(a) Suma la geométrica de razón $q=ae^{-j\Omega_0}$</span></summary><div class="inner"><p>$$\lambda=\begin{cases}\dfrac{1-a^Pe^{-j\Omega_0P}}{1-ae^{-j\Omega_0}}, &amp; q\ne1\\[2mm] P, &amp; q=1\end{cases}$$ El caso $q=1$ solo ocurre con $a=1,\ \Omega_0=2\pi m$ o con $a=-1,\ \Omega_0=\pi+2\pi m$.</p></div></details>
@@ -88,6 +91,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(c) Plantea la condición de salida nula</span></summary><div class="inner"><p>Como $|x[n]|=1$, $\;y\equiv0\iff\lambda=0$, es decir $a^Pe^{-j\Omega_0P}=1$ con $q\ne1$. Tomando módulos, $|a|^P=1$: solo es posible con $a=\pm1$. Si $|a|\ne1$, <b>ninguna</b> pulsación anula la salida.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(c) Resuelve el caso $a=1$ con el problema 1</span></summary><div class="inner"><p>$\lambda=\sum_{m=0}^{P-1}e^{-j\Omega_0m}$ es una suma de $P$ vectores unitarios equiespaciados, que se anula si $\Omega_0=\frac{2\pi k}{P}$ con $P\nmid k$. En $(-\pi,\pi]$: $k\ne0$, $-\frac P2&lt;k\le\frac P2$. Ejemplo $P=4$: $\Omega_0=\pm\frac\pi2,\ \pi$.</p></div></details>
 <details class="paso"><summary><span class="pn">6</span><span class="pw">(c) Resuelve el caso $a=-1$</span></summary><div class="inner"><p>$e^{-j\Omega_0P}=(-1)^P\Rightarrow\Omega_0=\pi+\frac{2\pi k}{P}$, quitando $\Omega_0=\pi$ (ahí $q=1$ y $\lambda=P$). Ejemplo $P=4$: $\Omega_0=-\frac\pi2,\ 0,\ \frac\pi2$. Todo comprobado numéricamente para $P=3,4,5$.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$\lambda=\frac{1-a^Pe^{-j\Omega_0P}}{1-ae^{-j\Omega_0}}$; con $a=1$, $\lambda=e^{-j\Omega_0(P-1)/2}\frac{\sin(P\Omega_0/2)}{\sin(\Omega_0/2)}$; la salida se anula solo si $a=\pm1$: con $a=1$, $\Omega_0=\frac{2\pi k}P$ ($P\nmid k$); con $a=-1$, $\Omega_0=\pi+\frac{2\pi k}P\ne\pi$.</p></div></details>
 <figure class="fig">
 <p class="ft">Visual · |λ| frente a Ω₀ para a = 1</p>
 <div class="ctrl"><label for="ep">$P$ <input id="ep" max="8" min="2" step="1" type="range" value="4"/></label><output id="ep-o"></output></div>
@@ -98,11 +102,13 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <div class="prob">
 <h3 id="ep1-2026-problema-3-3-puntos-aliasing-de-una-expo">Problema 3 (3 puntos): aliasing de una exponencial compleja</h3>
 <div class="enun"><p class="et">Enunciado</p><p>$x_a(t)=e^{j(\omega_0t+\theta_0)}$ con $\omega_0=120\pi$ rad/s ($f_0=60$ Hz), muestreada a $f_s=50$ Hz ($T_s=0{,}02$ s). (a) Halla la pulsación principal de la secuencia. (b) Halla la frecuencia alias en $[0,\omega_s)$ y explica el sentido de giro aparente.</p></div>
+<div class="idea"><p class="et">Antes de empezar: qué piden y qué teoría usas</p><p>Muestrear $e^{j\omega_0t}$ con período $T_s$ da $e^{j\Omega n}$ con $\Omega=\omega_0T_s$. Como $e^{j2\pi n}=1$, la pulsación discreta solo importa módulo $2\pi$: se reduce a $(-\pi,\pi]$ (pulsación principal). Frecuencias continuas separadas $\omega_s=\frac{2\pi}{T_s}$ dan la misma secuencia (alias). Para una exponencial compleja, a diferencia de un coseno, el signo de $\Omega$ importa: indica el sentido de giro.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(a) Muestrea: sustituye $t=nT_s$</span></summary><div class="inner"><p>$x[n]=e^{j(\omega_0T_sn+\theta_0)}$ con $\omega_0T_s=120\pi\cdot0{,}02=2{,}4\pi$ rad/muestra.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(a) Reduce la pulsación a $(-\pi,\pi]$</span></summary><div class="inner"><p>Como $e^{j2\pi n}=1$, resta $2\pi$: $\Omega=0{,}4\pi$. Resultado: $\boxed{x[n]=e^{j(0{,}4\pi n+\theta_0)}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(b) Busca la pulsación alias</span></summary><div class="inner"><p>Dan la misma secuencia las $\omega=\omega_0+k\omega_s$, con $\omega_s=100\pi$. En $[0,\omega_s)$: $\;\omega_1=20\pi$ rad/s, es decir $\boxed{f_1=10\text{ Hz}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(b) Razona el sentido de giro</span></summary><div class="inner"><p>La señal real gira 1,2 vueltas por muestra; al muestrear solo se ven 0,2 vueltas (72°). Como $\Omega=+0{,}4\pi&gt;0$, el giro aparente <b>conserva el sentido antihorario</b> pero es mucho más lento. Se invertiría si la parte fraccionaria pasara de media vuelta (por ejemplo $f_0=90$ Hz da $-10$ Hz): es el efecto de la rueda de carro.</p></div></details>
+<details class="resul"><summary>Resultado final</summary><div class="inner"><p>$x[n]=e^{j(0{,}4\pi n+\theta_0)}$; alias en $[0,\omega_s)$: $20\pi$ rad/s (10 Hz), con el mismo sentido de giro pero más lento.</p></div></details>
 <figure class="fig">
 <p class="ft">Visual · lo que gira de verdad y lo que se ve</p>
 <div class="ctrl"><label for="ef">$f_0$ <input id="ef" max="100" min="0" step="5" type="range" value="60"/></label><output id="ef-o"></output><span class="pill" id="ef-p"></span></div>
@@ -115,6 +121,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=28"></script>
+<script src="app.js?v=30"></script>
 </body>
 </html>
