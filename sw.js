@@ -1,6 +1,6 @@
 // Service worker: guarda la guía, las fuentes y MathJax para usarla sin conexión.
-const CACHE = 'cxc-v20';
-const CORE = ['./', './index.html', './empezar.html', './tema-1-2.html', './tema-3.html', './tema-4.html', './tema-5.html', './tema-6.html', './tema-7.html', './practicas.html', './ep1-2026.html', './examen-2025-26.html', './examenes.html', './hojas.html', './simulacro-ep2.html', './demostraciones.html', './autoevaluacion.html', './complementarios.html', './simulacro.html', './formulario.html', './glosario.html', './plan.html', './style.css?v=20', './app.js?v=20', './search-index.js?v=20', './manifest.webmanifest', './formulario.pdf',
+const CACHE = 'cxc-v21';
+const CORE = ['./', './index.html', './empezar.html', './tema-1-2.html', './tema-3.html', './tema-4.html', './tema-5.html', './tema-6.html', './tema-7.html', './practicas.html', './ep1-2026.html', './examen-2025-26.html', './examenes.html', './hojas.html', './simulacro-ep2.html', './demostraciones.html', './autoevaluacion.html', './complementarios.html', './simulacro.html', './formulario.html', './glosario.html', './plan.html', './style.css?v=21', './app.js?v=21', './search-index.js?v=21', './manifest.webmanifest', './formulario.pdf',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png',
   'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js'];
 self.addEventListener('install', e => {
