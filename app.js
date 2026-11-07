@@ -878,7 +878,7 @@ try{
   const q=document.getElementById('gsrch'),out=document.getElementById('gsrch-out');if(!q)return;
   const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
   let loaded=false;
-  function load(cb){if(loaded||window.CXC_INDEX){loaded=true;cb();return;}const s=document.createElement('script');s.src='search-index.js?v=15';s.onload=()=>{loaded=true;cb();};document.head.appendChild(s);}
+  function load(cb){if(loaded||window.CXC_INDEX){loaded=true;cb();return;}const s=document.createElement('script');s.src='search-index.js?v=16';s.onload=()=>{loaded=true;cb();};document.head.appendChild(s);}
   function run(){const t=norm(q.value.trim());out.textContent='';if(t.length<2){out.hidden=true;return;}
     const words=t.split(/\s+/);let n=0;
     for(const [txt,url,sec] of window.CXC_INDEX){const k=norm(txt+' '+sec);if(words.every(w=>k.includes(w))){
