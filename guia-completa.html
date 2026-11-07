@@ -784,6 +784,37 @@ details.paso .inner{padding:8px 20px 14px}
 <p class="muted" style="font-size:14px;margin:6px 0 0">Ejemplo clásico del Oppenheim (ej. 2.3): $x[k]$ es un pulso de 5 muestras y $h[k]=0{,}8^k\,1[k]$. Para cada $n$ se gira $h$ ($h[-k]$), se desplaza $n$ posiciones, se multiplica muestra a muestra por $x[k]$ y se suma: esa suma es $y[n]$.</p>
 </figure>
 <!-- ===================== T3 ===================== -->
+<!--auv:t1-->
+<h3>Más a fondo: el lazo, la conversión y la potencia</h3>
+<div class="box"><h4>Para qué sirve realimentar</h4>
+<p>El error se construye comparando la referencia con lo que mide el sensor: $e(t)=r(t)-b(t)$. Si el sensor tiene ganancia unitaria, $b=y$ y $e=r-y$. El objetivo es el <b>seguimiento</b>, y se entiende de dos maneras:</p>
+<ul><li><b>En tiempo finito:</b> para cualquier $\epsilon&gt;0$ existe un $T(\epsilon)$ a partir del cual $|y(t)-r(t)|&lt;\epsilon$.</li>
+<li><b>Asintótico:</b> $\lim_{t\to\infty}y(t)=\lim_{t\to\infty}r(t)$.</li></ul>
+<p>La realimentación se usa contra dos enemigos. La <b>incertidumbre</b> son los errores del modelo: una resistencia de $1\,$kΩ es en realidad $R_0\pm\Delta R$, y los modelos de fricción son leyes experimentales. Las <b>perturbaciones</b> son señales que se suman a la acción de control; por ejemplo, en una grúa el par neto en cada articulación es $\tau_i=\tau_{m_i}-\tau_{r_i}$, donde $\tau_{r_i}$ es el par que produce la carga. En el caso ideal (sin perturbación ni incertidumbre) y con control proporcional, $y=K_pK_c(r-y)\Rightarrow y=\dfrac{K_pK_c}{1+K_pK_c}r$.</p></div>
+<div class="box"><h4>Qué significa «discreto»</h4>
+<p>Un conjunto es discreto si cada punto está <b>aislado</b>: hay un entorno que no contiene ningún otro. En $\mathbb N$, $(9-\frac14,9+\frac14)\cap\mathbb N=\{9\}$. Así son $T\mathbb Z=\{nT\}$ (los instantes de muestreo, separados $T$) y $\Delta\mathbb Z=\{n\Delta\}$ (los niveles del cuantizador, separados $\Delta$). Muestrear discretiza el tiempo; cuantizar discretiza la amplitud.</p></div>
+<div class="box"><h4>El retenedor es un polinomio interpolador</h4>
+<p>En cada intervalo $[kT,(k+1)T)$ el retenedor de orden $n$ reconstruye con un polinomio $p_k(t)=\sum_{i=0}^na_i^{(k)}t^i$ que cumple $p_k(kT)=x(kT)$. Con $n=0$ el polinomio es constante (ZOH, $G_{ZOH}=\frac{1-e^{-sT}}s$). Con $n=1$ es una recta que extrapola con las dos últimas muestras, $y=x(t_n)+\frac{x(t_n)-x(t_{n-1})}T(t-t_n)$, y sale $G_{FOH}(s)=\dfrac{1+Ts}T\left(\dfrac{1-e^{-sT}}s\right)^2$. Retenedores de orden mayor que 1 casi no se usan.</p></div>
+<div class="box"><h4>Conversor A/D de doble rampa</h4>
+<p>Es un integrador inversor, $v_o(t)=-\frac1{RC}\int_{t_0}^tv_i\,d\tau$, que trabaja en dos fases. En la primera integra la entrada $V_a$ durante un tiempo fijo $T_1=n_1T$ ($n_1=2^N$ ciclos de reloj); en la segunda integra la referencia $V_R$, de signo contrario, hasta volver a cero, lo que tarda $T_2=n_2T$. Como la salida vuelve a cero, $V_aT_1=V_RT_2$, y por tanto</p>
+<p style="text-align:center">$V_a=V_R\,\dfrac{n_2}{n_1}$</p>
+<p>La cuenta $n_2$ es proporcional a la entrada y <b>no depende de $R$, $C$ ni del reloj</b>: por eso es muy preciso, aunque lento.</p></div>
+<div class="box"><h4>Potencia media de una senoide y bits</h4>
+<p>$P_x=\lim\frac1T\int_{-T/2}^{T/2}A^2\cos^2\omega_0t\,dt=\frac{A^2}2$, porque $\cos^2=\frac{1+\cos2\omega_0t}2$ y el coseno doble promedia cero. Es la potencia que va en el numerador del SQNR. Como $\mathrm{SQNR}\approx6b$ dB, cada bit suma unos 6 dB: 8 bits (256 niveles) dan unos 48 dB, 12 bits (4096) unos 72 dB y 16 bits (65 536), los de un CD, unos 96–98 dB.</p></div>
+<div class="box"><h4>Ruido de cuantización «blanco»: qué quiere decir</h4>
+<p>Una señal aleatoria es una colección de variables aleatorias indexadas por el tiempo (un <b>proceso aleatorio</b>). La relación entre dos muestras $x[n]$ y $x[m]$ se mide con la <b>autocorrelación</b> $r_{xx}[n,m]=E\{x[n]x[m]\}$; si el proceso es estacionario solo depende del retardo $l=m-n$. Decir que el error de cuantización es <b>blanco</b> es decir que $r_{ee}[l]=\sigma_e^2\delta[l]$: muestras distintas del error no están correladas. Junto con «uniforme e incorrelado con la señal» es la hipótesis que da $\sigma_e^2=\frac{\Delta^2}{12}$.</p></div>
+<h3>Más a fondo: secuencias</h3>
+<div class="box"><h4>Parte par y parte impar</h4>
+<p>Toda secuencia se escribe como $x[n]=\mathrm{Ev}\{x\}+\mathrm{Od}\{x\}$ con</p>
+<p style="text-align:center">$\mathrm{Ev}\{x\}=\dfrac{x[n]+x[-n]}2,\qquad\mathrm{Od}\{x\}=\dfrac{x[n]-x[-n]}2$</p>
+<p>La primera cumple $w[-n]=w[n]$ y la segunda $w[-n]=-w[n]$ (basta sustituir $n\to-n$). Recuerda también que si $x$ tiene período fundamental $N_0$, cualquier $kN_0$ es también un período.</p></div>
+<div class="box"><h4>Exponenciales discretas: solo hay las de $[0,2\pi)$</h4>
+<p>$e^{j(\Omega_0+2\pi k)n}=e^{j\Omega_0n}e^{j2\pi kn}=e^{j\Omega_0n}$: la exponencial discreta es $2\pi$-periódica en la pulsación (1-periódica en $F$). Así, $\Omega=\pi$, $3\pi$ y $5\pi$ dan la misma secuencia, y todas las distintas están en $\Omega\in[0,2\pi)$ (o en $[-\pi,\pi)$). En continuo, en cambio, cada $\omega$ da una señal distinta.</p></div>
+<div class="box"><h4>Las exponenciales son autofunciones de los LTI</h4>
+<p>Con $x=e^{j\omega t}$: $y=\int h(\tau)e^{j\omega(t-\tau)}d\tau=H(j\omega)e^{j\omega t}$. En discreto, con $x=z^n$: $y=z^n\sum h[k]z^{-k}=H(z)z^n$. La salida es la misma exponencial multiplicada por un número (el «autovalor»), que es la función de transferencia. Es la razón de que existan la respuesta en frecuencia y la transformada Z.</p></div>
+<div class="box"><h4>Cómo se programa una ecuación en diferencias</h4>
+<p>Despejando $y[n]=\frac1{a_0}\big(-\sum_{k\ge1}a_ky[n-k]+\sum_kb_kx[n-k]\big)$ sale la <b>forma directa I</b>: primero los ceros y luego los polos, con $2N$ retardos. Si se cambia el orden (primero $z[n]=\frac1{a_0}(x[n]-\sum a_kz[n-k])$ y luego $y=\sum b_kz[n-k]$) sale la <b>forma directa II</b>, que solo necesita $N$ retardos. Invirtiendo el grafo de flujo se obtiene la <b>forma directa II traspuesta</b>, que es la que usa <code>filter</code> en MATLAB/Octave; por eso sus condiciones iniciales son los estados $z_i$ que calcula <code>filtic</code> y no los valores $y[-1],y[-2]$ directamente.</p></div>
+<!--/auv:t1-->
 </section>
 <section class="sec tema" style="--tc:var(--c2);--tcs:var(--c2s)">
 <div class="sh"><span class="badge" aria-hidden="true">3</span><div class="shx"><p class="kick">Parcial 1 · Tema 3</p><h2 id="t3">Muestreo, Shannon y Fourier</h2><div class="tags"><span class="tag">Parcial 1</span></div></div></div>
@@ -852,6 +883,14 @@ details.paso .inner{padding:8px 20px 14px}
 <p>Domina estos pares, salen en las demostraciones: pulso rectangular de anchura $2a$ → $\dfrac{2\sin(a\omega)}{\omega}$; $\;1\to2\pi\delta(\omega)$; $\;e^{j\omega_0t}\to2\pi\delta(\omega-\omega_0)$; $\;\cos\omega_0t\to\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]$; tren de impulsos de periodo $T_0$ → tren de impulsos $\frac{2\pi}{T_0}\sum\delta(\omega-k\frac{2\pi}{T_0})$. El producto en el tiempo es convolución en frecuencia (dividida por $2\pi$): es justo lo que explica por qué el muestreo replica el espectro cada $\Omega_s$.</p>
 
 <!-- ===================== T4 ===================== -->
+<!--auv:t3-->
+<h3>Más a fondo: de dónde salen las fórmulas</h3>
+<div class="box"><h4>Coeficientes de Fourier por ortogonalidad</h4>
+<p>Parte de $x(t)=\sum c_ke^{jk\omega_0t}$, multiplica por $e^{-jm\omega_0t}$ e integra en un período. Como $\int_{T_0}e^{j(k-m)\omega_0t}dt$ vale $T_0$ si $k=m$ y $0$ si no (en un período caben $k-m$ ciclos completos del seno y del coseno), solo sobrevive un término:</p>
+<p style="text-align:center">$c_m=\dfrac1{T_0}\displaystyle\int_{T_0}x(t)e^{-jm\omega_0t}dt$</p></div>
+<div class="box"><h4>El filtro de reconstrucción y sus ceros</h4>
+<p>El paso bajo ideal de ganancia $T$ y corte $B$ tiene respuesta impulsiva $f(t)=\frac1{2\pi}\int_{-B}^BTe^{j\omega t}d\omega=\frac{T}{\pi t}\sin Bt=\frac{BT}\pi\,\mathrm{sinc}\frac{Bt}\pi$. Vale $f(0)=\frac{BT}\pi$ (por L'Hôpital) y se anula en $t=\frac{k\pi}B$, $k\ne0$. Con $B=\frac{\omega_s}2=\frac\pi T$ los ceros caen justo en los instantes de muestreo $kT$ y $f(0)=1$: por eso en la serie cardinal $x_r(nT)=x(nT)$, cada sinc solo «pesa» en su muestra.</p></div>
+<!--/auv:t3-->
 </section>
 <section class="sec tema" style="--tc:var(--c3);--tcs:var(--c3s)">
 <div class="sh"><span class="badge" aria-hidden="true">4</span><div class="shx"><p class="kick">Parcial 1 · Tema 4</p><h2 id="t4">Transformada Z</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈4 puntos</span></div></div></div>
@@ -960,6 +999,18 @@ details.paso .inner{padding:8px 20px 14px}
 </div>
 
 <!-- ===================== T5 ===================== -->
+<!--auv:t4-->
+<h3>Más a fondo: la región de convergencia</h3>
+<div class="box"><h4>Propiedades de la ROC</h4>
+<ul><li><b>Es un anillo.</b> Si $z_0$ está en la ROC, cualquier $z$ con $|z|=|z_0|$ también, porque la convergencia solo depende de $\sum|x[n]||z|^{-n}$.</li>
+<li><b>No contiene polos</b>, porque en un polo $|X(z)|\to\infty$.</li>
+<li><b>Solo hay cuatro formas:</b> exterior de un disco $|z|&gt;r$ (secuencia derecha), disco $|z|&lt;r$ (izquierda), corona $r&lt;|z|&lt;R$ (bilateral) o todo $\mathbb C$ (duración finita, salvo quizá $0$ o $\infty$).</li>
+<li><b>La misma $X(z)$ puede venir de secuencias distintas:</b> $\frac1{1-az^{-1}}$ es $a^n1[n]$ con $|z|&gt;|a|$ y $-a^n1[-n-1]$ con $|z|&lt;|a|$. Sin la ROC no se sabe de qué secuencia vienes.</li></ul></div>
+<div class="box"><h4>Tres maneras de invertir</h4>
+<p>(1) <b>Integral de contorno</b>, $x[n]=\frac1{2\pi j}\oint_CX(z)z^{n-1}dz$ con $C$ dentro de la ROC, calculada por residuos. (2) <b>Serie de potencias</b>: dividir en potencias de $z^{-1}$ si la secuencia es derecha y de $z$ si es izquierda. (3) <b>Fracciones simples</b> de $X(z)/z$, y cada término según la ROC. En el examen casi siempre es la (3); la (1) sale en las demostraciones y la (2) cuando solo piden las primeras muestras.</p></div>
+<div class="box"><h4>Respuesta libre y forzada con condiciones iniciales</h4>
+<p>Para $\sum_{k=0}^Na_ky[n-k]=\sum_{k=0}^Mb_kx[n-k]$ con $M&lt;N$ (más integradores que derivadores, físicamente realizable), se desplaza $n\mapsto n+N$ para trabajar con adelantos y se aplica $\mathcal Z\{y[n+l]\}=z^lY-\sum_{k=0}^{l-1}y[k]z^{l-k}$. $Y(z)$ queda como suma de tres términos: el de $X(z)$ (forzada con condiciones nulas), el de los valores iniciales de $x$ y el de los de $y$. La <b>respuesta libre</b> es la que solo depende de los valores iniciales de la salida (con $x=0$). Si faltan valores iniciales de $x$, se sacan de la propia ecuación en $n=M,\dots,N-1$.</p></div>
+<!--/auv:t4-->
 </section>
 <section class="sec tema" style="--tc:var(--c4);--tcs:var(--c4s)">
 <div class="sh"><span class="badge" aria-hidden="true">5</span><div class="shx"><p class="kick">Parcial 2 · Tema 5</p><h2 id="t5">Sistemas de datos muestreados</h2><div class="tags"><span class="tag">Parcial 2</span><span class="tag">aparece en todos</span></div></div></div>
@@ -1086,6 +1137,13 @@ Comprobación: con $m=0$ sale $\frac{1-e^{-1}}{z(z-e^{-1})}=z^{-1}G(z)$, la mism
 <p>Polos: $0{,}505\pm0{,}611j$ (módulo $0{,}79$), $0{,}771$ y $0{,}109$ ⇒ <b>estable</b>. Escalón: $y=0;\ 0{,}48;\ 1{,}25;\ 1{,}66;\ 1{,}58;\ 1{,}22;\dots\to1$ (sobreimpulso del 66 %). Rampa: error final nulo, porque hay <b>dos</b> polos en $z=1$ (el del PID y el de la planta): tipo 2.</p>
 </div></details>
 <!-- ===================== T6 ===================== -->
+<!--auv:t5-->
+<h3>Más a fondo: Jury directamente en $z$</h3>
+<div class="box"><h4>La integral de Jury con el cambio $z=e^{sT}$</h4>
+<p>De $X^*(s)=\frac1{2\pi j}\oint_C\frac{X(p)}{1-e^{-(s-p)T}}dp$, sustituyendo $z=e^{sT}$ y renombrando la variable de integración:</p>
+<p style="text-align:center">$X(z)=\dfrac1{2\pi j}\displaystyle\oint_C\dfrac{X(s)}{1-z^{-1}e^{sT}}ds=\sum_{\text{polos }p\text{ de }X}\mathrm{Res}\left(\dfrac{X(s)}{1-z^{-1}e^{sT}},p\right)$</p>
+<p>Con polos simples cada residuo es $\frac{N(p)}{D'(p)}\frac1{1-z^{-1}e^{pT}}$. Con un polo de multiplicidad $m$ en $z_0$: $\mathrm{Res}=\frac1{(m-1)!}\lim\frac{d^{m-1}}{ds^{m-1}}(s-z_0)^mf(s)$.</p></div>
+<!--/auv:t5-->
 </section>
 <section class="sec tema" style="--tc:var(--c5);--tcs:var(--c5s)">
 <div class="sh"><span class="badge" aria-hidden="true">6</span><div class="shx"><p class="kick">Parcial 2 · Tema 6</p><h2 id="t6">Estabilidad, transitorio y estacionario</h2><div class="tags"><span class="tag">Parcial 2</span></div></div></div>
@@ -1202,6 +1260,27 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 </div>
 
 <!-- ===================== T7 ===================== -->
+<!--auv:t6-->
+<h3>Más a fondo: estabilidad sin calcular raíces</h3>
+<div class="box"><h4>La condición necesaria $|a_0/a_n|&lt;1$</h4>
+<p>Por Cardano-Vieta, el término independiente de un polinomio mónico es $(-1)^n\prod p_k$, así que $\left|\frac{a_0}{a_n}\right|=\prod|p_k|$. Si todas las raíces están dentro del disco, el producto es menor que 1. Por tanto:</p>
+<ul><li>$\left|\frac{a_0}{a_n}\right|\ge1\Rightarrow$ <b>inestable</b> seguro (condición suficiente de inestabilidad).</li>
+<li>$\left|\frac{a_0}{a_n}\right|&lt;1\Rightarrow$ solo <b>candidato</b> a estable: hay que seguir con Schur-Cohn o Jury.</li></ul>
+<p>Ejemplos: $3z^{30}+10z^7+5$ da $\frac53\ge1$, inestable. $5z^{30}+10z^7+3$ da $\frac35$, candidato. $-z^{100}+5z^{50}+3$ da $3$, inestable. Para grado 1 la condición necesaria también es suficiente.</p></div>
+<div class="box"><h4>Matriz de Schur e inercia de Sylvester</h4>
+<p>Con $U_n$ (triangular superior con $a_n,a_{n-1},\dots$) y $L_n$ (con $a_0,a_1,\dots$) se forma la matriz simétrica $S_n=U_n^TU_n-L_n^TL_n$. Si $i_-,i_0,i_+$ son sus autovalores negativos, nulos y positivos, $r=n-i_0$ el rango y $\sigma=i_+-i_-$ la signatura:</p>
+<ul><li>$p$ y $p^*$ tienen $n-r=i_0$ raíces comunes (las simétricas respecto de $|z|=1$).</li>
+<li>Raíces dentro del disco: $\frac{r+\sigma}2=i_+$. Raíces fuera: $\frac{r-\sigma}2=i_-$.</li>
+<li>Estable $\iff$ $S_n$ <b>definida positiva</b> $\iff$ todos los menores principales positivos (Sylvester).</li></ul>
+<p><b>Ejemplo:</b> $H=\frac1{1-\frac74z^{-1}-\frac12z^{-2}}$, $p=z^2-\frac74z-\frac12$. $S_2=\begin{pmatrix}\frac34&amp;-\frac{21}8\\-\frac{21}8&amp;\frac34\end{pmatrix}$, menores $\frac34&gt;0$ y $-\frac{405}{64}&lt;0$: inestable. Autovalores $\frac{27}8$ y $-\frac{15}8$, así que una raíz dentro y otra fuera (son $-0{,}25$ y $2$).</p></div>
+<div class="box"><h4>Schur-Cohn como algoritmo</h4>
+<p>Paso 0: $p_0=p$. Paso $k$: si $\left|a_0^{(k)}/a_{n-k}^{(k)}\right|\ge1$, inestable y se para. Si no, reduce: $p_{k+1}=\frac1z\left(p_k-\frac{a_0^{(k)}}{a_{n-k}^{(k)}}p_k^*\right)$, que tiene un grado menos y las mismas raíces dentro. Se repite hasta grado 1. Con $p=z^2-\frac74z-\frac12$: $\frac12&lt;1$, $p_1=\frac34z-\frac{21}8$ y $\frac{21/8}{3/4}=\frac72\ge1$: inestable. Con $p=z^2-\frac14$: $p_1=\frac{15}{16}z$, raíz en 0: estable.</p></div>
+<div class="box"><h4>Cómo se ven las especificaciones en el plano $z$</h4>
+<p>Con $z=e^{sT}$ y $s=-\sigma+j\omega_d$:</p>
+<ul><li><b>$\sigma$ constante</b> (mismo tiempo de establecimiento, $t_s\approx\frac4\sigma$ al 2 % o $\frac{4{,}6}\sigma$ al 1 %): rectas verticales que se convierten en <b>circunferencias</b> de radio $e^{-\sigma T}$.</li>
+<li><b>$\omega_d$ constante:</b> rectas horizontales que se convierten en <b>rectas radiales</b> de ángulo $\omega_dT=2\pi\frac{\omega_d}{\omega_s}$. Si $\omega_s=2\omega_d$ caen sobre el semieje real negativo, y si $\omega_s=\omega_d$ sobre el positivo; por Shannon basta con $\omega_s\ge2\omega_d$.</li>
+<li><b>$\xi$ constante:</b> rectas por el origen que se convierten en <b>espirales logarítmicas</b> $z=e^{-2\pi\xi\lambda/\sqrt{1-\xi^2}}e^{j2\pi\lambda}$ con $\lambda=\frac{\omega_d}{\omega_s}$. Cuanto mayor es $\xi$, antes entra la espiral hacia el origen.</li></ul></div>
+<!--/auv:t6-->
 </section>
 <section class="sec tema" style="--tc:var(--c6);--tcs:var(--c6s)">
 <div class="sh"><span class="badge" aria-hidden="true">7</span><div class="shx"><p class="kick">Parcial 2 · Tema 7</p><h2 id="t7">Diseño de controladores digitales</h2><div class="tags"><span class="tag">Parcial 2</span><span class="tag w">el problema de 4 puntos</span></div></div></div>
@@ -1321,6 +1400,13 @@ $$G_c(z)=\frac{1}{G(z)}\cdot\frac{H(z)}{1-H(z)}$$</p>
 </div>
 
 <!-- ===================== OCTAVE ===================== -->
+<!--auv:t7-->
+<h3>Más a fondo: Ragazzini con números y tiempo mínimo</h3>
+<div class="box"><h4>Ejemplo completo con $K_v$</h4>
+<p>$G_p(z)=0{,}0484\frac{z+0{,}9672}{(z-1)(z-0{,}9048)}$, $T=1$, polos deseados los de $s^2+s+1$ y $K_v=1$. Los polos $-\frac12\pm j\frac{\sqrt3}2$ pasan a $D(z)=z^2-0{,}7859z+0{,}3679$. Regla 1: $\mu(H)\ge1$, así que $N=b_1z+b_0$. Regla 2: nada (el polo en 1 es simple y el cero está dentro). Regla 3: $H(1)=1$ y la fórmula de Truxal $H'(1)=-\frac1{TK_v}=-1$. Sale $b_1=0{,}6321$, $b_0=-0{,}0501$. (Es el mismo sistema que el problema 2 del examen de febrero de 2016.)</p></div>
+<div class="box trap"><h4>Tiempo mínimo (deadbeat) con un cero inestable</h4>
+<p>Planta $G_p=4\frac{z-\frac32}{(z-\frac12)(z-2)}$. Regla 2: el cero $\frac32$ tiene que ser cero de $H$ y el polo $2$ cero de $1-H$. La versión más corta, $H=K\frac{z-3/2}{z^2}$ con $1-H(2)=0\Rightarrow K=8$, estabiliza en dos muestras pero da $H(1)=-4$: <b>la salida no sigue a la referencia</b> (ante un escalón acaba en $-4$). Si además quieres error nulo al escalón necesitas un grado de libertad más: $H=\frac{(z-\frac32)(b_1z+b_0)}{z^3}$ con $H(1)=1$ y $H(2)=1$ da $b_1=18$, $b_0=-20$; entonces $1-H=\frac{(z-1)(z-2)(z-15)}{z^3}$ y $G_c=\frac{(z-\frac12)(18z-20)}{4(z-1)(z-15)}$. Tarda tres muestras y el regulador tiene un polo inestable en 15, aunque el lazo cerrado es estable.</p></div>
+<!--/auv:t7-->
 </section>
 <section class="sec" style="--tc:var(--c7);--tcs:var(--c7s)">
 <div class="sh"><span class="badge" aria-hidden="true">Lab</span><div class="shx"><p class="kick">Prácticas · 30 %</p><h2 id="octave">Examen de prácticas (30 %)</h2></div></div>

@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -121,11 +121,19 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <h4>Pares de Fourier de referencia</h4>
 <p>Domina estos pares, salen en las demostraciones: pulso rectangular de anchura $2a$ → $\dfrac{2\sin(a\omega)}{\omega}$; $\;1\to2\pi\delta(\omega)$; $\;e^{j\omega_0t}\to2\pi\delta(\omega-\omega_0)$; $\;\cos\omega_0t\to\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]$; tren de impulsos de periodo $T_0$ → tren de impulsos $\frac{2\pi}{T_0}\sum\delta(\omega-k\frac{2\pi}{T_0})$. El producto en el tiempo es convolución en frecuencia (dividida por $2\pi$): es justo lo que explica por qué el muestreo replica el espectro cada $\Omega_s$.</p>
 <!-- ===================== T4 ===================== -->
+<!--auv:t3-->
+<h3 id="t3-mas-a-fondo-de-donde-salen-las-formulas">Más a fondo: de dónde salen las fórmulas</h3>
+<div class="box"><h4>Coeficientes de Fourier por ortogonalidad</h4>
+<p>Parte de $x(t)=\sum c_ke^{jk\omega_0t}$, multiplica por $e^{-jm\omega_0t}$ e integra en un período. Como $\int_{T_0}e^{j(k-m)\omega_0t}dt$ vale $T_0$ si $k=m$ y $0$ si no (en un período caben $k-m$ ciclos completos del seno y del coseno), solo sobrevive un término:</p>
+<p style="text-align:center">$c_m=\dfrac1{T_0}\displaystyle\int_{T_0}x(t)e^{-jm\omega_0t}dt$</p></div>
+<div class="box"><h4>El filtro de reconstrucción y sus ceros</h4>
+<p>El paso bajo ideal de ganancia $T$ y corte $B$ tiene respuesta impulsiva $f(t)=\frac1{2\pi}\int_{-B}^BTe^{j\omega t}d\omega=\frac{T}{\pi t}\sin Bt=\frac{BT}\pi\,\mathrm{sinc}\frac{Bt}\pi$. Vale $f(0)=\frac{BT}\pi$ (por L'Hôpital) y se anula en $t=\frac{k\pi}B$, $k\ne0$. Con $B=\frac{\omega_s}2=\frac\pi T$ los ceros caen justo en los instantes de muestreo $kT$ y $f(0)=1$: por eso en la serie cardinal $x_r(nT)=x(nT)$, cada sinc solo «pesa» en su muestra.</p></div>
+<!--/auv:t3-->
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-1-2.html"><small>← Anterior</small>T1–2 · Señales y sistemas</a><a class="nx" href="tema-4.html"><small>Siguiente →</small>T4 · Transformada Z</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -57,7 +57,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <main>
 <div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
 <section class="sec tema" style="--tc:var(--c1);--tcs:var(--c1s)">
-<div class="sh"><span aria-hidden="true" class="badge">1–2</span><div class="shx"><p class="kick">Parcial 1 · Tema 1–2</p><h2 id="t1">Señales, secuencias y sistemas</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈3 puntos</span></div></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#t1-cuantizacion-y-conversion-a-d-programa-1">Cuantización y conversión A/D</a><a href="#t1-periodicidad-de-secuencias">Periodicidad de secuencias</a><a href="#t1-propiedades-de-un-sistema">Propiedades de un sistema</a><a href="#t1-convolucion">Convolución</a></nav>
+<div class="sh"><span aria-hidden="true" class="badge">1–2</span><div class="shx"><p class="kick">Parcial 1 · Tema 1–2</p><h2 id="t1">Señales, secuencias y sistemas</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈3 puntos</span></div></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#t1-cuantizacion-y-conversion-a-d-programa-1">Cuantización y conversión A/D</a><a href="#t1-periodicidad-de-secuencias">Periodicidad de secuencias</a><a href="#t1-propiedades-de-un-sistema">Propiedades de un sistema</a><a href="#t1-convolucion">Convolución</a><a href="#t1-mas-a-fondo-el-lazo-la-conversion-y-la-p">Más a fondo: el lazo, la conversión y la potencia</a><a href="#t1-mas-a-fondo-secuencias">Más a fondo: secuencias</a></nav>
 <div class="zero">
 <p class="ft">Desde cero</p>
 <p><b>Señal continua</b> $x(t)$: existe en cada instante, como el sonido. <b>Secuencia</b> $x[n]$: una lista de números numerados por un entero $n$, como los fotogramas de un vídeo. Pasar de una a otra tiene dos pasos: <b>muestrear</b> (quedarte con el valor cada $T$ segundos, $x[n]=x(nT)$) y <b>cuantizar</b> (redondear ese valor a los niveles que el conversor A/D puede representar con sus bits).</p>
@@ -177,11 +177,42 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p class="muted" style="font-size:14px;margin:6px 0 0">Ejemplo clásico del Oppenheim (ej. 2.3): $x[k]$ es un pulso de 5 muestras y $h[k]=0{,}8^k\,1[k]$. Para cada $n$ se gira $h$ ($h[-k]$), se desplaza $n$ posiciones, se multiplica muestra a muestra por $x[k]$ y se suma: esa suma es $y[n]$.</p>
 </figure>
 <!-- ===================== T3 ===================== -->
+<!--auv:t1-->
+<h3 id="t1-mas-a-fondo-el-lazo-la-conversion-y-la-p">Más a fondo: el lazo, la conversión y la potencia</h3>
+<div class="box"><h4>Para qué sirve realimentar</h4>
+<p>El error se construye comparando la referencia con lo que mide el sensor: $e(t)=r(t)-b(t)$. Si el sensor tiene ganancia unitaria, $b=y$ y $e=r-y$. El objetivo es el <b>seguimiento</b>, y se entiende de dos maneras:</p>
+<ul><li><b>En tiempo finito:</b> para cualquier $\epsilon&gt;0$ existe un $T(\epsilon)$ a partir del cual $|y(t)-r(t)|&lt;\epsilon$.</li>
+<li><b>Asintótico:</b> $\lim_{t\to\infty}y(t)=\lim_{t\to\infty}r(t)$.</li></ul>
+<p>La realimentación se usa contra dos enemigos. La <b>incertidumbre</b> son los errores del modelo: una resistencia de $1\,$kΩ es en realidad $R_0\pm\Delta R$, y los modelos de fricción son leyes experimentales. Las <b>perturbaciones</b> son señales que se suman a la acción de control; por ejemplo, en una grúa el par neto en cada articulación es $\tau_i=\tau_{m_i}-\tau_{r_i}$, donde $\tau_{r_i}$ es el par que produce la carga. En el caso ideal (sin perturbación ni incertidumbre) y con control proporcional, $y=K_pK_c(r-y)\Rightarrow y=\dfrac{K_pK_c}{1+K_pK_c}r$.</p></div>
+<div class="box"><h4>Qué significa «discreto»</h4>
+<p>Un conjunto es discreto si cada punto está <b>aislado</b>: hay un entorno que no contiene ningún otro. En $\mathbb N$, $(9-\frac14,9+\frac14)\cap\mathbb N=\{9\}$. Así son $T\mathbb Z=\{nT\}$ (los instantes de muestreo, separados $T$) y $\Delta\mathbb Z=\{n\Delta\}$ (los niveles del cuantizador, separados $\Delta$). Muestrear discretiza el tiempo; cuantizar discretiza la amplitud.</p></div>
+<div class="box"><h4>El retenedor es un polinomio interpolador</h4>
+<p>En cada intervalo $[kT,(k+1)T)$ el retenedor de orden $n$ reconstruye con un polinomio $p_k(t)=\sum_{i=0}^na_i^{(k)}t^i$ que cumple $p_k(kT)=x(kT)$. Con $n=0$ el polinomio es constante (ZOH, $G_{ZOH}=\frac{1-e^{-sT}}s$). Con $n=1$ es una recta que extrapola con las dos últimas muestras, $y=x(t_n)+\frac{x(t_n)-x(t_{n-1})}T(t-t_n)$, y sale $G_{FOH}(s)=\dfrac{1+Ts}T\left(\dfrac{1-e^{-sT}}s\right)^2$. Retenedores de orden mayor que 1 casi no se usan.</p></div>
+<div class="box"><h4>Conversor A/D de doble rampa</h4>
+<p>Es un integrador inversor, $v_o(t)=-\frac1{RC}\int_{t_0}^tv_i\,d\tau$, que trabaja en dos fases. En la primera integra la entrada $V_a$ durante un tiempo fijo $T_1=n_1T$ ($n_1=2^N$ ciclos de reloj); en la segunda integra la referencia $V_R$, de signo contrario, hasta volver a cero, lo que tarda $T_2=n_2T$. Como la salida vuelve a cero, $V_aT_1=V_RT_2$, y por tanto</p>
+<p style="text-align:center">$V_a=V_R\,\dfrac{n_2}{n_1}$</p>
+<p>La cuenta $n_2$ es proporcional a la entrada y <b>no depende de $R$, $C$ ni del reloj</b>: por eso es muy preciso, aunque lento.</p></div>
+<div class="box"><h4>Potencia media de una senoide y bits</h4>
+<p>$P_x=\lim\frac1T\int_{-T/2}^{T/2}A^2\cos^2\omega_0t\,dt=\frac{A^2}2$, porque $\cos^2=\frac{1+\cos2\omega_0t}2$ y el coseno doble promedia cero. Es la potencia que va en el numerador del SQNR. Como $\mathrm{SQNR}\approx6b$ dB, cada bit suma unos 6 dB: 8 bits (256 niveles) dan unos 48 dB, 12 bits (4096) unos 72 dB y 16 bits (65 536), los de un CD, unos 96–98 dB.</p></div>
+<div class="box"><h4>Ruido de cuantización «blanco»: qué quiere decir</h4>
+<p>Una señal aleatoria es una colección de variables aleatorias indexadas por el tiempo (un <b>proceso aleatorio</b>). La relación entre dos muestras $x[n]$ y $x[m]$ se mide con la <b>autocorrelación</b> $r_{xx}[n,m]=E\{x[n]x[m]\}$; si el proceso es estacionario solo depende del retardo $l=m-n$. Decir que el error de cuantización es <b>blanco</b> es decir que $r_{ee}[l]=\sigma_e^2\delta[l]$: muestras distintas del error no están correladas. Junto con «uniforme e incorrelado con la señal» es la hipótesis que da $\sigma_e^2=\frac{\Delta^2}{12}$.</p></div>
+<h3 id="t1-mas-a-fondo-secuencias">Más a fondo: secuencias</h3>
+<div class="box"><h4>Parte par y parte impar</h4>
+<p>Toda secuencia se escribe como $x[n]=\mathrm{Ev}\{x\}+\mathrm{Od}\{x\}$ con</p>
+<p style="text-align:center">$\mathrm{Ev}\{x\}=\dfrac{x[n]+x[-n]}2,\qquad\mathrm{Od}\{x\}=\dfrac{x[n]-x[-n]}2$</p>
+<p>La primera cumple $w[-n]=w[n]$ y la segunda $w[-n]=-w[n]$ (basta sustituir $n\to-n$). Recuerda también que si $x$ tiene período fundamental $N_0$, cualquier $kN_0$ es también un período.</p></div>
+<div class="box"><h4>Exponenciales discretas: solo hay las de $[0,2\pi)$</h4>
+<p>$e^{j(\Omega_0+2\pi k)n}=e^{j\Omega_0n}e^{j2\pi kn}=e^{j\Omega_0n}$: la exponencial discreta es $2\pi$-periódica en la pulsación (1-periódica en $F$). Así, $\Omega=\pi$, $3\pi$ y $5\pi$ dan la misma secuencia, y todas las distintas están en $\Omega\in[0,2\pi)$ (o en $[-\pi,\pi)$). En continuo, en cambio, cada $\omega$ da una señal distinta.</p></div>
+<div class="box"><h4>Las exponenciales son autofunciones de los LTI</h4>
+<p>Con $x=e^{j\omega t}$: $y=\int h(\tau)e^{j\omega(t-\tau)}d\tau=H(j\omega)e^{j\omega t}$. En discreto, con $x=z^n$: $y=z^n\sum h[k]z^{-k}=H(z)z^n$. La salida es la misma exponencial multiplicada por un número (el «autovalor»), que es la función de transferencia. Es la razón de que existan la respuesta en frecuencia y la transformada Z.</p></div>
+<div class="box"><h4>Cómo se programa una ecuación en diferencias</h4>
+<p>Despejando $y[n]=\frac1{a_0}\big(-\sum_{k\ge1}a_ky[n-k]+\sum_kb_kx[n-k]\big)$ sale la <b>forma directa I</b>: primero los ceros y luego los polos, con $2N$ retardos. Si se cambia el orden (primero $z[n]=\frac1{a_0}(x[n]-\sum a_kz[n-k])$ y luego $y=\sum b_kz[n-k]$) sale la <b>forma directa II</b>, que solo necesita $N$ retardos. Invirtiendo el grafo de flujo se obtiene la <b>forma directa II traspuesta</b>, que es la que usa <code>filter</code> en MATLAB/Octave; por eso sus condiciones iniciales son los estados $z_i$ que calcula <code>filtic</code> y no los valores $y[-1],y[-2]$ directamente.</p></div>
+<!--/auv:t1-->
 </section>
 <nav class="pager" aria-label="Páginas"><a href="empezar.html"><small>← Anterior</small>El examen y cómo estudiar</a><a class="nx" href="tema-3.html"><small>Siguiente →</small>T3 · Muestreo y Fourier</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>

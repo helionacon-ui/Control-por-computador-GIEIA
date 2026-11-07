@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -57,7 +57,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <main>
 <div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
 <section class="sec tema" style="--tc:var(--c3);--tcs:var(--c3s)">
-<div class="sh"><span aria-hidden="true" class="badge">4</span><div class="shx"><p class="kick">Parcial 1 · Tema 4</p><h2 id="t4">Transformada Z</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈4 puntos</span></div></div></div>
+<div class="sh"><span aria-hidden="true" class="badge">4</span><div class="shx"><p class="kick">Parcial 1 · Tema 4</p><h2 id="t4">Transformada Z</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈4 puntos</span></div></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#t4-receta-de-la-z-inversa">Receta de la Z inversa</a><a href="#t4-otros-metodos-del-programa-programa-4-2-">Otros métodos del programa</a><a href="#t4-mas-a-fondo-la-region-de-convergencia">Más a fondo: la región de convergencia</a></nav>
 <div class="zero">
 <p class="ft">Desde cero</p>
 <p>Un sistema discreto se describe con una <b>ecuación en diferencias</b>, por ejemplo $y[n]=0{,}5\,y[n-1]+x[n]$: la salida de ahora depende de la de antes. Resolver eso a mano es pesado. La <b>transformada Z</b> lo convierte en álgebra, como hacía Laplace con las ecuaciones diferenciales.</p>
@@ -161,11 +161,23 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </ul>
 </div>
 <!-- ===================== T5 ===================== -->
+<!--auv:t4-->
+<h3 id="t4-mas-a-fondo-la-region-de-convergencia">Más a fondo: la región de convergencia</h3>
+<div class="box"><h4>Propiedades de la ROC</h4>
+<ul><li><b>Es un anillo.</b> Si $z_0$ está en la ROC, cualquier $z$ con $|z|=|z_0|$ también, porque la convergencia solo depende de $\sum|x[n]||z|^{-n}$.</li>
+<li><b>No contiene polos</b>, porque en un polo $|X(z)|\to\infty$.</li>
+<li><b>Solo hay cuatro formas:</b> exterior de un disco $|z|&gt;r$ (secuencia derecha), disco $|z|&lt;r$ (izquierda), corona $r&lt;|z|&lt;R$ (bilateral) o todo $\mathbb C$ (duración finita, salvo quizá $0$ o $\infty$).</li>
+<li><b>La misma $X(z)$ puede venir de secuencias distintas:</b> $\frac1{1-az^{-1}}$ es $a^n1[n]$ con $|z|&gt;|a|$ y $-a^n1[-n-1]$ con $|z|&lt;|a|$. Sin la ROC no se sabe de qué secuencia vienes.</li></ul></div>
+<div class="box"><h4>Tres maneras de invertir</h4>
+<p>(1) <b>Integral de contorno</b>, $x[n]=\frac1{2\pi j}\oint_CX(z)z^{n-1}dz$ con $C$ dentro de la ROC, calculada por residuos. (2) <b>Serie de potencias</b>: dividir en potencias de $z^{-1}$ si la secuencia es derecha y de $z$ si es izquierda. (3) <b>Fracciones simples</b> de $X(z)/z$, y cada término según la ROC. En el examen casi siempre es la (3); la (1) sale en las demostraciones y la (2) cuando solo piden las primeras muestras.</p></div>
+<div class="box"><h4>Respuesta libre y forzada con condiciones iniciales</h4>
+<p>Para $\sum_{k=0}^Na_ky[n-k]=\sum_{k=0}^Mb_kx[n-k]$ con $M&lt;N$ (más integradores que derivadores, físicamente realizable), se desplaza $n\mapsto n+N$ para trabajar con adelantos y se aplica $\mathcal Z\{y[n+l]\}=z^lY-\sum_{k=0}^{l-1}y[k]z^{l-k}$. $Y(z)$ queda como suma de tres términos: el de $X(z)$ (forzada con condiciones nulas), el de los valores iniciales de $x$ y el de los de $y$. La <b>respuesta libre</b> es la que solo depende de los valores iniciales de la salida (con $x=0$). Si faltan valores iniciales de $x$, se sacan de la propia ecuación en $n=M,\dots,N-1$.</p></div>
+<!--/auv:t4-->
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-3.html"><small>← Anterior</small>T3 · Muestreo y Fourier</a><a class="nx" href="tema-5.html"><small>Siguiente →</small>T5 · Datos muestreados</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>

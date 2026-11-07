@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -57,7 +57,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <main>
 <div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
 <section class="sec tema" style="--tc:var(--c5);--tcs:var(--c5s)">
-<div class="sh"><span aria-hidden="true" class="badge">6</span><div class="shx"><p class="kick">Parcial 2 · Tema 6</p><h2 id="t6">Estabilidad, transitorio y estacionario</h2><div class="tags"><span class="tag">Parcial 2</span></div></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#t6-estabilidad">Estabilidad</a><a href="#t6-jury-general-y-transformacion-bilineal-p">Jury general y transformación bilineal</a><a href="#t6-ejemplo-tabla-de-jury-de-grado-3-program">Ejemplo: tabla de Jury de grado 3</a><a href="#t6-transitorio-y-estacionario">Transitorio y estacionario</a></nav>
+<div class="sh"><span aria-hidden="true" class="badge">6</span><div class="shx"><p class="kick">Parcial 2 · Tema 6</p><h2 id="t6">Estabilidad, transitorio y estacionario</h2><div class="tags"><span class="tag">Parcial 2</span></div></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#t6-estabilidad">Estabilidad</a><a href="#t6-jury-general-y-transformacion-bilineal-p">Jury general y transformación bilineal</a><a href="#t6-ejemplo-tabla-de-jury-de-grado-3-program">Ejemplo: tabla de Jury de grado 3</a><a href="#t6-transitorio-y-estacionario">Transitorio y estacionario</a><a href="#t6-mas-a-fondo-estabilidad-sin-calcular-rai">Más a fondo: estabilidad sin calcular raíces</a></nav>
 <div class="zero">
 <p class="ft">Desde cero</p>
 <p>Una vez cerrado el lazo (el ordenador corrige con el error $e=r-y$), hay que contestar tres cosas:</p>
@@ -167,11 +167,32 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 </div>
 </div>
 <!-- ===================== T7 ===================== -->
+<!--auv:t6-->
+<h3 id="t6-mas-a-fondo-estabilidad-sin-calcular-rai">Más a fondo: estabilidad sin calcular raíces</h3>
+<div class="box"><h4>La condición necesaria $|a_0/a_n|&lt;1$</h4>
+<p>Por Cardano-Vieta, el término independiente de un polinomio mónico es $(-1)^n\prod p_k$, así que $\left|\frac{a_0}{a_n}\right|=\prod|p_k|$. Si todas las raíces están dentro del disco, el producto es menor que 1. Por tanto:</p>
+<ul><li>$\left|\frac{a_0}{a_n}\right|\ge1\Rightarrow$ <b>inestable</b> seguro (condición suficiente de inestabilidad).</li>
+<li>$\left|\frac{a_0}{a_n}\right|&lt;1\Rightarrow$ solo <b>candidato</b> a estable: hay que seguir con Schur-Cohn o Jury.</li></ul>
+<p>Ejemplos: $3z^{30}+10z^7+5$ da $\frac53\ge1$, inestable. $5z^{30}+10z^7+3$ da $\frac35$, candidato. $-z^{100}+5z^{50}+3$ da $3$, inestable. Para grado 1 la condición necesaria también es suficiente.</p></div>
+<div class="box"><h4>Matriz de Schur e inercia de Sylvester</h4>
+<p>Con $U_n$ (triangular superior con $a_n,a_{n-1},\dots$) y $L_n$ (con $a_0,a_1,\dots$) se forma la matriz simétrica $S_n=U_n^TU_n-L_n^TL_n$. Si $i_-,i_0,i_+$ son sus autovalores negativos, nulos y positivos, $r=n-i_0$ el rango y $\sigma=i_+-i_-$ la signatura:</p>
+<ul><li>$p$ y $p^*$ tienen $n-r=i_0$ raíces comunes (las simétricas respecto de $|z|=1$).</li>
+<li>Raíces dentro del disco: $\frac{r+\sigma}2=i_+$. Raíces fuera: $\frac{r-\sigma}2=i_-$.</li>
+<li>Estable $\iff$ $S_n$ <b>definida positiva</b> $\iff$ todos los menores principales positivos (Sylvester).</li></ul>
+<p><b>Ejemplo:</b> $H=\frac1{1-\frac74z^{-1}-\frac12z^{-2}}$, $p=z^2-\frac74z-\frac12$. $S_2=\begin{pmatrix}\frac34&amp;-\frac{21}8\\-\frac{21}8&amp;\frac34\end{pmatrix}$, menores $\frac34&gt;0$ y $-\frac{405}{64}&lt;0$: inestable. Autovalores $\frac{27}8$ y $-\frac{15}8$, así que una raíz dentro y otra fuera (son $-0{,}25$ y $2$).</p></div>
+<div class="box"><h4>Schur-Cohn como algoritmo</h4>
+<p>Paso 0: $p_0=p$. Paso $k$: si $\left|a_0^{(k)}/a_{n-k}^{(k)}\right|\ge1$, inestable y se para. Si no, reduce: $p_{k+1}=\frac1z\left(p_k-\frac{a_0^{(k)}}{a_{n-k}^{(k)}}p_k^*\right)$, que tiene un grado menos y las mismas raíces dentro. Se repite hasta grado 1. Con $p=z^2-\frac74z-\frac12$: $\frac12&lt;1$, $p_1=\frac34z-\frac{21}8$ y $\frac{21/8}{3/4}=\frac72\ge1$: inestable. Con $p=z^2-\frac14$: $p_1=\frac{15}{16}z$, raíz en 0: estable.</p></div>
+<div class="box"><h4>Cómo se ven las especificaciones en el plano $z$</h4>
+<p>Con $z=e^{sT}$ y $s=-\sigma+j\omega_d$:</p>
+<ul><li><b>$\sigma$ constante</b> (mismo tiempo de establecimiento, $t_s\approx\frac4\sigma$ al 2 % o $\frac{4{,}6}\sigma$ al 1 %): rectas verticales que se convierten en <b>circunferencias</b> de radio $e^{-\sigma T}$.</li>
+<li><b>$\omega_d$ constante:</b> rectas horizontales que se convierten en <b>rectas radiales</b> de ángulo $\omega_dT=2\pi\frac{\omega_d}{\omega_s}$. Si $\omega_s=2\omega_d$ caen sobre el semieje real negativo, y si $\omega_s=\omega_d$ sobre el positivo; por Shannon basta con $\omega_s\ge2\omega_d$.</li>
+<li><b>$\xi$ constante:</b> rectas por el origen que se convierten en <b>espirales logarítmicas</b> $z=e^{-2\pi\xi\lambda/\sqrt{1-\xi^2}}e^{j2\pi\lambda}$ con $\lambda=\frac{\omega_d}{\omega_s}$. Cuanto mayor es $\xi$, antes entra la espiral hacia el origen.</li></ul></div>
+<!--/auv:t6-->
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-5.html"><small>← Anterior</small>T5 · Datos muestreados</a><a class="nx" href="tema-7.html"><small>Siguiente →</small>T7 · Diseño de controladores</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>
