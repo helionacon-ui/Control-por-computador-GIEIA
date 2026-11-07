@@ -418,6 +418,13 @@ details.exd>summary{flex-wrap:wrap;align-items:center;row-gap:6px}
 @media (max-width:720px){.exnav{grid-template-columns:1fr}.exlist{columns:1}.exrec a{flex-direction:column;gap:2px}.exrec a::before{align-self:flex-start}}
 .xn{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
 .xn .src{margin:0;font-size:12px}
+.idea{border:1px solid var(--line);border-left:4px solid var(--c1);background:var(--c1s);border-radius:10px;padding:10px 16px;margin:8px 0 12px}
+.idea .et,.resul .et{margin:0 0 4px;font:700 12px/1.4 var(--mono,monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--c1)}
+.idea p,.resul p{margin:5px 0}
+details.resul{border:1px solid var(--c6);background:var(--c6s);margin:12px 0 4px}
+details.resul>summary{color:var(--c6);font-size:14px}
+details.resul .inner{padding:0 16px 10px}
+details.paso .inner p{margin:6px 0}
 /*/exnav*/
 .crumb{max-width:1180px;margin:0 auto;padding:12px 16px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--muted)}
 .crumb a{color:var(--accent);text-decoration:none;font-weight:600}
