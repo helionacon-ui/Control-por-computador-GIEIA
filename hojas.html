@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=18">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -72,7 +72,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </table></div>
 <h3 id="hojas-hojas">Hojas</h3>
 <details id="h1"><summary>Hoja 1 · Conversión A/D y D/A, muestreo/retención y cuantización <span class="src">13 problemas · tema 1</span></summary><div class="inner">
-<div class="prob">
+<div class="prob" id="h1-p1">
 <p class="ph"><b>1: respuesta dinámica del amplificador operacional</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>El A.O. tiene tres etapas: diferencial (entrada $R_i$, tensión $v_d$), de ganancia (fuente $A_dv_d$ con $R$ y $C$, tensión $v_x$) y de salida (fuente $1\cdot v_x$ con $R_o$). (i) Comprueba que es un sistema de primer orden (paso bajo) con $\omega_H=\frac1{RC}$ y ganancia $A_d$; representa $|A(\omega)|$ en dB y comprueba la caída de 3 dB en $\omega_H$. (ii) Si $|A(\omega_\tau)|=1$, deduce $\omega_\tau=A_d\omega_H$. (iii) Ecuaciones de carga y descarga del condensador interno con $v_d=V$. (iv) En seguidor, demuestra que $\frac{dv_o}{dt}\le V\omega_\tau$ ante un escalón $V$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -83,7 +83,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(iv) Escribe la ecuación del seguidor</span></summary><div class="inner"><p>$v_o(1+A_d)+RC\dot v_o=A_dv_i$, con $1+A_d\approx A_d$: $v_o=V(1-e^{-\omega_\tau t})$.</p></div></details>
 <details class="paso"><summary><span class="pn">6</span><span class="pw">Deriva y acota</span></summary><div class="inner"><p>$\dot v_o=V\omega_\tau e^{-\omega_\tau t}$, máximo en $t=0^+$: $\dot v_o\le V\omega_\tau$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p2">
 <p class="ph"><b>2: retenedor de orden cero con un 741</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>El 741 tiene slew-rate $sr=0{,}5$ V/µs, corriente de cortocircuito máxima $25$ mA e $I_B=0{,}2$ µA. Se excita con un tren de pulsos de amplitud $V=10$ V y período $T=t_{on}+t_{off}$. (i) $t_{on}$ mínimo para evitar el slew-rate. (ii) Capacidad para que la corriente de carga sea menor que $\frac34$ de la de cortocircuito. (iii) $t_{off}$ para que la tensión no caiga más de $10$ mV; calcula $T$. (iv) Con un NMOS en serie y corrientes de fuga menores de $1$ nA, prueba que con $C=0{,}5$ µF la deriva es menor de $2$ mV/s. (v) Si el NMOS conmuta en menos de $20$ ns, ¿tiempo de apertura? (vi) ¿Cómo aumentar la corriente de carga? (vii) Efecto del condensador en seguimiento y retención.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -93,7 +93,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) Deriva en retención</span></summary><div class="inner"><p>$\frac{dv}{dt}=\frac IC=\frac{10^{-9}}{0{,}5\cdot10^{-6}}=2$ mV/s.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(v) a (vii) Conceptos</span></summary><div class="inner"><p>Apertura: el tiempo de abrir el NMOS, menos de $20$ ns. Para más corriente: seguidor complementario (BJT npn carga y pnp descarga). $C$ grande: menos deriva pero adquisición más lenta; $C$ pequeña: al revés.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p3">
 <p class="ph"><b>3 (*): diseño de un muestreo/retención para un A/D de 12 bits</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>A/D de 12 bits y $10$ V de rango; $R_{on}=30\,\Omega$; señal estable $25$ ms; error menor de $\frac12$ bit. (i) Con $I_B=0{,}2$ nA e $I=0{,}5$ nA, tamaño del condensador. (ii) Si se multiplica $C$ por 1000, ¿tiempo de seguimiento (10 constantes de tiempo)? (iii) Con error de $1$ mV, ¿cómo limita el slew-rate? (iv) Frecuencia máxima de una senoide de $5$ V con slew-rate $2$ V/ms.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -102,7 +102,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Corriente por el FET</span></summary><div class="inner"><p>$I=\frac{1\,\text{mV}}{30\,\Omega}\approx30$ µA $\Rightarrow\frac{dv}{dt}=\frac IC=2$ V/s: muy lento.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) Derivada máxima de la senoide</span></summary><div class="inner"><p>$A\omega\le2$ V/ms $\Rightarrow f_{\max}=\frac{2000}{5\cdot2\pi}=63{,}7$ Hz.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p4">
 <p class="ph"><b>4: D/A en escalera R/2R</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$V_{ref}=-5$ V, $n=12$, $R_F=R$. (i) Tensión mínima. (ii) Tensión máxima. (iii) Con un contador a $50$ kHz, cota del slew-rate. (iv) Precisión. (v) Sensibilidad respecto a $R_F$. (vi) Efecto del offset $v_{IO}$. (vii) ¿Vale el 741?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -112,13 +112,13 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) y (v) Precisión y sensibilidad</span></summary><div class="inner"><p>$\frac1{2^n-1}\approx0{,}02\,\%$; $S^{v_o}_{R_F}=1$: un 5 % de error en $R_F$ da un 5 % en la salida.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(vi) y (vii) Offset y 741</span></summary><div class="inner"><p>El offset desplaza la salida $\pm v_{IO}$; el del 741 ($5$ mV) supera el LSB y su slew-rate ($0{,}5$ V/µs) no llega a $2{,}5$: no es adecuado.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p5">
 <p class="ph"><b>5: bits de un D/A</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para un D/A R/2R con $V_{ref}=-15$ V y $R_F=R$, calcula los bits para una resolución de $4$ mV.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Iguala el LSB a la resolución</span></summary><div class="inner"><p>$\frac{15}{2^n}\le4$ mV $\Rightarrow n\ge\log_2\frac{15000}4=11{,}87$: $12$ bits.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p6">
 <p class="ph"><b>6: cuantización por redondeo, enfoque determinista</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x_a(t)=A\cos\omega_0t$ cuantizada por redondeo con paso $\Delta$ (muchos niveles, $\Delta$ pequeño). (i) $P_q$. (ii) $P_q$ con $b$ bits cubriendo $2A$. (iii) $P_a$. (iv) SQNR en dB. (v) SQNR de un CD ($16$ bits).</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -128,7 +128,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) Divide</span></summary><div class="inner"><p>$\mathrm{SQNR}=\frac32\,4^b$: $\mathrm{SQNR(dB)}=1{,}76+6{,}02b$; cada bit añade unos 6 dB.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(v) CD</span></summary><div class="inner"><p>$1{,}76+6{,}02\cdot16=98{,}1$ dB.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p7">
 <p class="ph"><b>7: cuantización, enfoque estadístico</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>El error $e_q$ es uniforme en $(-\frac\Delta2,\frac\Delta2)$, blanco, incorrelado con la señal y de media cero. (i) $P_e=\sigma_e^2$. (ii) SQNR en dB con rango $R$ y $b+1$ bits. (iii) Gaussiana con rango $(-3\sigma_x,3\sigma_x)$. (iv) Aplícalo a una senoide.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -137,26 +137,26 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Con $R=6\sigma_x$</span></summary><div class="inner"><p>$\mathrm{SQNR(dB)}=6{,}02b+1{,}25$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) Senoide</span></summary><div class="inner"><p>$\sigma_x^2=\frac{A^2}2$, $\Delta=\frac A{2^b}$: $6{,}02b+7{,}78$ con $b+1$ bits, que es $1{,}76+6{,}02(b+1)$, igual que el enfoque determinista.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p8">
 <p class="ph"><b>8: bits para 90 dB</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>¿Cuántos bits necesita un A/D para un SQNR de al menos $90$ dB si la señal es gaussiana y el rango es $(-3\sigma_x,3\sigma_x)$?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Usa el resultado anterior</span></summary><div class="inner"><p>$6{,}02b+1{,}25&gt;90\Rightarrow b&gt;14{,}74$: $b+1=16$ bits.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p9">
 <p class="ph"><b>9: señal de vídeo en $[0,1]$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Una señal de vídeo (muestras no negativas en $[0,1]$) debe muestrearse con SQNR de al menos $80$ dB. ¿Cuántos bits?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Pasa a señal bipolar</span></summary><div class="inner"><p>$\mathrm{SQNR(dB)}=20\log\frac{\sigma_x}R+6{,}02b+10{,}79$ con $R=1$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Supón intensidad uniforme</span></summary><div class="inner"><p>$\sigma_x^2=\frac1{12}$: $\mathrm{SQNR}=6{,}02b$; $b\ge\frac{80}{6{,}02}=13{,}3$, es decir $b+1\ge15$ bits.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p10">
 <p class="ph"><b>10: SQNR de 12 bits con señal gaussiana</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Señal gaussiana, cuantizador de $12$ bits y rango $[-3\sigma_x,3\sigma_x]$. ¿SQNR?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Aplica la fórmula</span></summary><div class="inner"><p>$6{,}02\cdot12+1{,}25=73{,}5$ dB.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p11">
 <p class="ph"><b>11 (*): redondeo frente a truncamiento</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$\Delta=\frac{x_{\max}-x_{\min}}{2^b}$. Con redondeo $e$ es uniforme en $[-\frac\Delta2,\frac\Delta2]$; con truncamiento, en $[0,\Delta]$. (i) Prueba que la media es $0$ con redondeo y $\frac\Delta2$ con truncamiento. (ii) Varianza con truncamiento. (iii) SQNR con truncamiento. (iv) Compáralo en una senoide.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -164,7 +164,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Varianza</span></summary><div class="inner"><p>$E[e^2]=\frac{\Delta^2}3$ y $\sigma_e^2=\frac{\Delta^2}3-\frac{\Delta^2}4=\frac{\Delta^2}{12}$: la misma que con redondeo.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) y (iv) Ojo con la media</span></summary><div class="inner"><p>Si se mide la potencia total del error ($\frac{\Delta^2}3$), el truncamiento pierde $10\log4=6{,}02$ dB: equivale a redondear con un bit menos.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p12">
 <p class="ph"><b>12: SQNR de una senoide cuantizada (numérico)</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x[n]=\sin2\pi f_0n$ con $f_0=\frac1{50}$ y $N=200$. Cuantiza con $64$, $128$, $256$ y $512$ niveles por truncamiento y por redondeo, calcula $\mathrm{SQNR}=10\log\frac{P_x}{P_q}$ y compáralo con el teórico.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -173,7 +173,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Resultados con redondeo</span></summary><div class="inner"><p>$39{,}2$; $46{,}5$; $51{,}4$; $54{,}5$ dB. Teórico ($1{,}76+6{,}02b$): $37{,}9$; $43{,}9$; $49{,}9$; $55{,}9$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Comenta</span></summary><div class="inner"><p>El truncamiento da unos 6 dB menos (un bit menos). Con $N=200$ y una senoide de período 50 el error no es del todo «blanco», por eso el redondeo se separa hasta unos 2,5 dB del teórico.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h1-p13">
 <p class="ph"><b>13: truncamiento de una senoide</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x_a(t)=A\sin\omega_0t$ cuantizada por truncamiento con paso $\Delta$. (i) $P_q$. (ii) $P_q$ con $b$ bits cubriendo $2A$. (iii) $P_a$. (iv) SQNR en dB.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -184,7 +184,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </div>
 </div></details>
 <details id="h2"><summary>Hoja 2 · Señales y sistemas discretos <span class="src">18 problemas · tema 2</span></summary><div class="inner">
-<div class="prob">
+<div class="prob" id="h2-p1">
 <p class="ph"><b>1: período de exponenciales complejas</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para $x[n]=e^{j\frac{2\pi}Nmn}$: (i) demuestra que $N_0=\frac N{\mathrm{mcd}(N,m)}$; ¿cuándo $N_0=N$? (ii) Para $\phi_k[n]=e^{jk\frac{2\pi}7n}$, período y pulsación fundamentales para todo $k$. (iii) Repite con $\phi_k[n]=e^{jk\frac{2\pi}8n}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -192,7 +192,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) $N=7$ es primo</span></summary><div class="inner"><p>$N_0=1$ si $k\in7\mathbb Z$ y $7$ en otro caso; $\Omega_0=\frac{2\pi}{N_0}$: $2\pi$ o $\frac{2\pi}7$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) $N=8$</span></summary><div class="inner"><p>$N_0=1$ si $k\in8\mathbb Z$; $2$ si $k\in4\mathbb Z\setminus8\mathbb Z$; $4$ si $k\in2\mathbb Z\setminus4\mathbb Z$; $8$ si $k$ es impar.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p2">
 <p class="ph"><b>2 (*): muestreo de una exponencial compleja</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x(t)=e^{j\omega_0t}$ con $T_0=\frac{2\pi}{\omega_0}$ se muestrea: $x[n]=e^{j\omega_0nT}$. (i) Demuestra que $x[n]$ es periódica si y solo si $\frac T{T_0}\in\mathbb Q$. (ii) Período y pulsación fundamentales; escribe $\Omega_0$ en función de $\omega_0T$. (iii) Si es periódica, ¿cuántos períodos de $x(t)$ caben en uno de $x[n]$?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -200,7 +200,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Escribe $\frac T{T_0}=\frac pq$</span></summary><div class="inner"><p>$x[n]=e^{j2\pi\frac pqn}$: $N_0=\frac q{\mathrm{mcd}(p,q)}$ y $\Omega_0=\frac{2\pi}{N_0}=\frac{\omega_0T}p\,\mathrm{mcd}(p,q)$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Iguala tiempos</span></summary><div class="inner"><p>$mT_0=N_0T\Rightarrow m=\frac p{\mathrm{mcd}(p,q)}$ períodos de $x(t)$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p3">
 <p class="ph"><b>3: oscilación armónica continua</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para $x_a(t)=A\cos(\omega t+\theta)$ con $\omega=2\pi f$, prueba: (i) es periódica para todo $f$; (ii) senoides de frecuencias distintas son distintas; (iii) aumentar $f$ aumenta la velocidad de oscilación.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -208,7 +208,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Mide la distancia en $L^2$</span></summary><div class="inner"><p>Si $\omega_1\ne\omega_2$ el término cruzado se anula y $d(x_1,x_2)=\infty$; si $\omega_1=\omega_2$, $d=0$. Son iguales solo con la misma frecuencia.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Compara períodos</span></summary><div class="inner"><p>$f_2&gt;f_1\Rightarrow T_2&lt;T_1$: más períodos por unidad de tiempo, sin límite (al contrario que en discreto).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p4">
 <p class="ph"><b>4: muestreo de una senoide</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Se muestrea $x_a(t)=A\cos(\omega t+\theta)$ con período $T_s$. (i) Señal de datos muestreados. (ii) Secuencia discreta. (iii) Condición para que sea periódica. (iv) Rango de frecuencias para que $x_a\mapsto x_a[n]$ sea biyectiva. (v) Prueba que $A\cos(2\pi ft+\theta)$ y $A\cos(2\pi(f+kf_s)t+\theta)$ dan la misma secuencia. (vi) Aplícalo a $\cos(2\pi10t)$ y $A\cos(2\pi(10+40k)t)$ con $f_s=40$ Hz.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -218,7 +218,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(v) Suma $2\pi kn$</span></summary><div class="inner"><p>$\cos\big(2\pi(\frac f{f_s}+k)n+\theta\big)=\cos\big(2\pi\frac f{f_s}n+\theta\big)$: las $f+kf_s$ son alias.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(vi) Aplica</span></summary><div class="inner"><p>Las dos dan $\cos\frac{\pi n}2$: desde la secuencia no se sabe si venía de $10$ Hz o de $50$, $90$, … Hz.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p5">
 <p class="ph"><b>5: senoide a distintas frecuencias de muestreo</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x_a(t)=3\cos100\pi t$. (i) Velocidad mínima de muestreo sin aliasing. (ii) Secuencia con $f_s=200$ Hz. (iii) Secuencia con $f_s=75$ Hz. (iv) ¿Qué senoide (con $|f|\le f_s/2$) da la misma secuencia que en (iii)?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -227,7 +227,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Normaliza y reduce</span></summary><div class="inner"><p>$x[n]=3\cos\frac{4\pi}3n=3\cos\frac{2\pi}3n$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) Busca la frecuencia en $[-\frac12,\frac12]$</span></summary><div class="inner"><p>$F=\frac13\Rightarrow f=25$ Hz: $3\cos50\pi t$; $50$ Hz es alias de $25$ Hz a $75$ Hz.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p6">
 <p class="ph"><b>6: periodicidad en función de $F$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para $x[n]=A\cos(2\pi Fn+\theta)$: (i) prueba que es periódica si y solo si $F\in\mathbb Q$; (ii) ¿cómo se calcula el período fundamental?; (iii) busca ejemplos en que un cambio pequeño de $F$ dé un gran cambio de período.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -235,21 +235,21 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Fracción irreducible</span></summary><div class="inner"><p>$F_0=\frac{k'}{N'}$ con $\mathrm{mcd}(k',N')=1$: el período es $N'$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Ejemplo</span></summary><div class="inner"><p>$F_1=\frac{31}{60}\Rightarrow N_1=60$ y $F_2=\frac{30}{60}=\frac12\Rightarrow N_2=2$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p7">
 <p class="ph"><b>7: frecuencias separadas $2\pi$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra que las senoides discretas separadas $2\pi k$ son idénticas: $x_k[n]=A\cos(\Omega_kn+\theta)$ con $\Omega_k=\Omega_0+2\pi k$, $-\pi\le\Omega_0\le\pi$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Suma la vuelta completa</span></summary><div class="inner"><p>$\cos(\Omega_0n+2\pi kn+\theta)=\cos(\Omega_0n+\theta)$ porque $kn\in\mathbb Z$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Concluye</span></summary><div class="inner"><p>Solo hay senoides distintas en $\Omega\in[-\pi,\pi]$, es decir $F\in[-\frac12,\frac12]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p8">
 <p class="ph"><b>8: tabla de una senoide</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Se guarda en memoria un ciclo de $x[n]=\sin\left(\frac{2\pi n}N+\theta\right)$ con $\theta=\frac{2\pi}Nq$. (i) ¿Cómo obtener senoides armónicas con la misma fase? (ii) ¿Y la misma frecuencia con otras fases?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Lee con salto $k$</span></summary><div class="inner"><p>$x_k[n]=\sin\left(\frac{2\pi}Nkn+\theta\right)=x[kn]$: recorre la tabla con índice $kn\bmod N$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Desplaza el índice</span></summary><div class="inner"><p>Para $\theta'=\theta+\frac{2\pi}Nm$: $x[n+m]$, empezando en la posición $m=\frac{\theta'-\theta}{2\pi}N$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p9">
 <p class="ph"><b>9: aliasing y reconstrucción con sinc</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Sea $x_a(t)=\sum_{i=1}^NA_i\cos(2\pi f_it+\theta_i)$ con $f_i\le f_{\max}$. (i) Prueba que hay que elegir $\frac{f_s}2&gt;f_{\max}$. (ii) Con $f_s=2B$, $x_a(t)=\sum x_a(\frac n{f_s})\phi_n(t)$ con $\phi(t)=\frac{\sin2\pi Bt}{2\pi Bt}$, $\phi_n=\phi(t-\frac n{f_s})$; comprueba que $\{\phi_n\}$ es una base ortogonal.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -257,7 +257,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Transforma $\phi$</span></summary><div class="inner"><p>$\mathcal F\phi=\frac1{2B}\chi_{[-B,B]}$ y $\mathcal F\phi_n=\frac1{2B}\chi_{[-B,B]}e^{-j2\pi fn/f_s}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Usa que $\mathcal F$ conserva el producto interior</span></summary><div class="inner"><p>$\langle\phi_n,\phi_m\rangle=\frac1{4B^2}\int_{-B}^Be^{j2\pi f(m-n)/f_s}df=\frac1{2B}\phi\big((m-n)/f_s\big)$, que vale $0$ si $n\ne m$ y $\frac1{2B}$ si $n=m$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p10">
 <p class="ph"><b>10: sistema sin memoria</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra que un sistema LTI es sin memoria si y solo si $h[n]=K\delta[n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -265,20 +265,20 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Necesidad</span></summary><div class="inner"><p>Si algún $h[i]\ne0$ con $i\ne0$, $y[n]$ depende de $x[n-i]$: contradicción. Así $h[n]=h[0]\delta[n]$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Suficiencia</span></summary><div class="inner"><p>$y=K\delta*x=Kx[n]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p11">
 <p class="ph"><b>11: causalidad</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra que un sistema LTI es causal si y solo si $h[n]=0$ para $n&lt;0$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Separa los índices negativos</span></summary><div class="inner"><p>$y[n]=\sum_{k\ge0}h[k]x[n-k]+\sum_{k&lt;0}h[k]x[n-k]$; la segunda suma usa entradas futuras.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Concluye</span></summary><div class="inner"><p>Causal $\iff$ la segunda suma desaparece para toda entrada $\iff h[k]=0$ para $k&lt;0$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p12">
 <p class="ph"><b>12: estabilidad, condición suficiente</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra que $\sum|h[n]|&lt;\infty$ basta para la estabilidad BIBO.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Acota la convolución</span></summary><div class="inner"><p>Con $|x|&lt;M$: $|y[n]|\le\sum|h[k]||x[n-k]|&lt;M\sum|h[k]|&lt;\infty$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p13">
 <p class="ph"><b>13: estabilidad, condición necesaria</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Supón $\sum|h[k]|=\infty$ y la entrada $x[n]=\frac{h^*[-n]}{|h[-n]|}$ (y $0$ si $h[-n]=0$). (i) ¿Está acotada? ¿Menor cota? (ii) Calcula $y[0]$. ¿Prueba esto la necesidad?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -286,7 +286,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Evalúa en $n=0$</span></summary><div class="inner"><p>$y[0]=\sum h[k]x[-k]=\sum\frac{|h[k]|^2}{|h[k]|}=\sum|h[k]|=\infty$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Concluye</span></summary><div class="inner"><p>Entrada acotada y salida no acotada: la sumabilidad absoluta también es necesaria.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p14">
 <p class="ph"><b>14 (*): convoluciones</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula $y=x*h$: (i) $x=\alpha^nu[n]$, $h=\beta^nu[n]$ con $\alpha\ne\beta$; (ii) $x=h=\alpha^nu[n]$; (iii) $x=2^nu[-n]$, $h=u[n]$; (iv) $x=(-1)^n\big(u[-n]-u[-n-8]\big)$, $h=u[n]-u[n-8]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -295,7 +295,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Separa $n\le0$ y $n&gt;0$</span></summary><div class="inner"><p>$y[n]=\sum_{k\le\min(n,0)}2^k$: $2^{n+1}$ si $n\le0$ y $2$ si $n&gt;0$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) Desliza el pulso alternado</span></summary><div class="inner"><p>$x$ vale $(-1)^n$ en $[-7,0]$ y $h$ es un pulso de 8 en $[0,7]$: $y[n]=-1$ para $n$ impar en $[-7,-1]$, $y[n]=1$ para $n$ impar en $[1,7]$ y $0$ en el resto (comprobado numéricamente).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p15">
 <p class="ph"><b>15: convolución de dos pulsos</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x[n]=1$ para $0\le n\le4$ y $h[n]=\alpha^n$ para $0\le n\le6$ (cero en otro caso). Calcula la salida.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -304,13 +304,13 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Segundo tramo, $4\le n\le6$</span></summary><div class="inner"><p>$y=\dfrac{\alpha^{n-4}-\alpha^{n+1}}{1-\alpha}$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Tercer tramo, $6\le n\le10$</span></summary><div class="inner"><p>$y=\dfrac{\alpha^{n-4}-\alpha^5}{1-\alpha}$; y $y=0$ para $n&lt;0$ o $n&gt;10$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p16">
 <p class="ph"><b>16 (*): salida periódica</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra que si la entrada de un sistema LTI discreto es periódica de período $N$, la salida también.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Desplaza la convolución</span></summary><div class="inner"><p>$y[n+N]=\sum_kh[k]x[n+N-k]=\sum_kh[k]x[n-k]=y[n]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p17">
 <p class="ph"><b>17 (*): causalidad y la proposición (P)</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(i) Prueba que en un sistema lineal la causalidad equivale a (P): «para todo $n_0$ y toda entrada con $x[n]=0$ para $n\le n_0$, la salida es $y[n]=0$ para $n\le n_0$». (ii) Sistema no lineal causal que no cumple (P). (iii) Sistema no lineal que cumple (P) y no es causal.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -318,7 +318,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Ejemplo</span></summary><div class="inner"><p>$y[n]=x[n]+1$: es causal pero ante entrada nula da $1\ne0$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Ejemplo</span></summary><div class="inner"><p>$y[n]=x[n]\,x[n+1]$: si $x=0$ hasta $n_0$, $y=0$ hasta $n_0$, pero usa la muestra futura.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2-p18">
 <p class="ph"><b>18 (*): ¿periódicas?</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Decide si son periódicas y su período: (i) $e^{j(\frac n4-\pi)}$; (ii) $\cos\frac{\pi n^2}8$; (iii) $\cos\frac n2\cos\frac{4\pi}n$; (iv) $\cos\frac\pi4n+\sin\frac\pi8n-2\cos\frac{\pi n}2$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -329,7 +329,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </div>
 </div></details>
 <details id="h2b"><summary>Hoja del tema 2 · Secuencias y sistemas (versión corta) <span class="src">9 problemas · tema 2</span></summary><div class="inner">
-<div class="prob">
+<div class="prob" id="h2b-p1">
 <p class="ph"><b>1: de la respuesta al escalón a la impulsiva</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Si la respuesta al escalón de un sistema LTI es $y[n]=\frac n{2^n}1[n]$, encuentra la respuesta impulsiva $h[n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -337,13 +337,13 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Usa linealidad e invarianza</span></summary><div class="inner"><p>$h[n]=y[n]-y[n-1]=\frac n{2^n}1[n]-\frac{n-1}{2^{n-1}}1[n-1]$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Simplifica</span></summary><div class="inner"><p>$h[0]=0$ y, para $n\ge1$, $h[n]=\frac{n-2(n-1)}{2^n}=\frac{2-n}{2^n}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p2">
 <p class="ph"><b>2: conmutatividad de la convolución</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Prueba que $h*x=x*h$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Cambia de variable</span></summary><div class="inner"><p>Con $m=n-k$: $\sum_kh[n-k]x[k]=\sum_mh[m]x[n-m]=(x*h)[n]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p3">
 <p class="ph"><b>3: convolución cerrada</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula $x*h$ con $x[n]=\left(\frac16\right)^{n-6}1[n]$ y $h[n]=\frac1{3^n}1[n-3]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -351,14 +351,14 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Saca factores</span></summary><div class="inner"><p>$y[n]=\frac{6^6}{3^n}\sum_{k=0}^{n-3}\left(\frac12\right)^k$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Suma la geométrica</span></summary><div class="inner"><p>$y[n]=\frac{2\cdot6^6}{3^n}\left(1-\frac1{2^{n-2}}\right)$ para $n\ge3$ y $0$ antes (comprobado numéricamente).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p4">
 <p class="ph"><b>4: exponencial por exponencial</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Respuesta de un LTI con $x[n]=a^n1[n]$ y $h[n]=b^n1[n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Limita la suma con los escalones</span></summary><div class="inner"><p>$y[n]=b^n\sum_{k=0}^n\left(\frac ab\right)^k$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Suma la geométrica</span></summary><div class="inner"><p>$y[n]=\dfrac{b^{n+1}-a^{n+1}}{b-a}1[n]$ si $a\ne b$ (y $(n+1)a^n$ si $a=b$).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p5">
 <p class="ph"><b>5: estabilidad de sistemas no lineales (I)</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Estudia la estabilidad BIBO de: (a) $y=x[n]^2$; (b) $y=\frac{e^{x[n]}}{x[n-1]}$; (c) $y=\cos x[n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -366,7 +366,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b) Busca una entrada acotada que lo rompa</span></summary><div class="inner"><p>Con $x[n-1]\to0$ (por ejemplo $x[n]=\frac1{n+1}$) la salida crece sin límite, y con $x=0$ no está definida: no es estable.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(c) Acota</span></summary><div class="inner"><p>$|\cos|\le1$: estable.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p6">
 <p class="ph"><b>6: estabilidad de sistemas no lineales (II)</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Estudia la estabilidad de: (a) $y=x[n]^21[n]$; (b) $y=x[|n|]$; (c) $y=x[n]-x[n^2-n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -374,7 +374,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b)</span></summary><div class="inner"><p>$|y|\le M$: estable (aunque no es causal).</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(c)</span></summary><div class="inner"><p>$|y|\le2M$: estable.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p7">
 <p class="ph"><b>7: período de una suma</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Si $x_1$ y $x_2$ tienen períodos $N_1$ y $N_2$, el de $x_1+x_2$ es $\mathrm{mcm}(N_1,N_2)$. Aplícalo a $e^{j\frac{2\pi}3n}$ y $e^{j\frac{3\pi}4n}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -382,13 +382,13 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Segundo período</span></summary><div class="inner"><p>$\frac{3\pi}4N_2=2\pi m\Rightarrow N_2=\frac{8m}3$: el menor entero es $N_2=8$ ($m=3$).</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Combina</span></summary><div class="inner"><p>$N=\mathrm{mcm}(3,8)=24$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p8">
 <p class="ph"><b>8: no linealidad</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Prueba que $y[n]=x[n]^2$ no es lineal.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Escala la entrada</span></summary><div class="inner"><p>$2x\mapsto4x^2\ne2x^2$: falla la homogeneidad.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h2b-p9">
 <p class="ph"><b>9: propiedades de un retardo</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para $y[n]=x[n-1]$ decide si es (a) sin memoria, (b) causal, (c) lineal, (d) invariante, (e) estable.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -396,7 +396,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </div>
 </div></details>
 <details id="h3"><summary>Hoja del tema 3 · Fourier y teorema del muestreo <span class="src">9 problemas · tema 3</span></summary><div class="inner">
-<div class="prob">
+<div class="prob" id="h3-p1">
 <p class="ph"><b>1: respuesta en frecuencia</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>La respuesta en frecuencia se define como la respuesta estacionaria a $x(t)=A\sin\omega t$. Calcula la salida de un sistema LTI.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -404,7 +404,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Usa que las exponenciales son autofunciones</span></summary><div class="inner"><p>$e^{j\omega t}\mapsto H(j\omega)e^{j\omega t}$ y $H(-j\omega)=\overline{H(j\omega)}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Junta</span></summary><div class="inner"><p>$y(t)=A|H(j\omega)|\sin\big(\omega t+\arg H(j\omega)\big)$: misma frecuencia, amplitud por $|H|$ y fase desplazada.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p2">
 <p class="ph"><b>2: series de Fourier exponenciales</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Obtén la serie de Fourier exponencial de: (a) $\cos\omega_0t$; (b) $\sin\omega_0t$; (c) $\cos(2t+\frac\pi4)$; (d) $\cos4t+\sin6t$; (e) $\sin^2t$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -413,28 +413,28 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(d) Busca la fundamental común</span></summary><div class="inner"><p>$\omega_0=\mathrm{mcd}(4,6)=2$: $c_{\pm2}=\frac12$, $c_3=\frac1{2j}$, $c_{-3}=-\frac1{2j}$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(e) Baja el cuadrado</span></summary><div class="inner"><p>$\sin^2t=\frac12-\frac14e^{j2t}-\frac14e^{-j2t}$: $T_0=\pi$, $\omega_0=2$, $c_0=\frac12$, $c_{\pm1}=-\frac14$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p3">
 <p class="ph"><b>3: onda cuadrada</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Determina la serie de Fourier con exponenciales complejas de la onda cuadrada de amplitud $A$, período $T_0$ y pulsos de anchura $\frac{T_0}2$ centrados en $0$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Calcula $c_k$ sobre un período</span></summary><div class="inner"><p>$c_k=\frac1{T_0}\int_{-T_0/4}^{T_0/4}Ae^{-jk\omega_0t}dt=\frac{A}{k\pi}\sin\frac{k\pi}2$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Lee los coeficientes</span></summary><div class="inner"><p>$c_0=\frac A2$; $c_k=0$ para $k$ par; $c_k=\pm\frac A{k\pi}$ para $k$ impar (signo alterno).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p4">
 <p class="ph"><b>4: tren de impulsos</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula la serie de Fourier de $\delta_{T_0}(t)=\sum_k\delta(t-kT_0)$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Integra sobre un período</span></summary><div class="inner"><p>Solo cae $\delta(t)$: $c_k=\frac1{T_0}\int_{-T_0/2}^{T_0/2}\delta(t)e^{-jk\omega_0t}dt=\frac1{T_0}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Escribe la serie</span></summary><div class="inner"><p>$\delta_{T_0}(t)=\frac1{T_0}\sum_ke^{jk\frac{2\pi}{T_0}t}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p5">
 <p class="ph"><b>5: pulso rectangular</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Transformada de Fourier de $x(t)=1$ para $|t|&lt;a$ y $0$ fuera.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Integra</span></summary><div class="inner"><p>$X(\omega)=\int_{-a}^ae^{-j\omega t}dt=\frac2\omega\sin\omega a$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Escríbelo con la sinc</span></summary><div class="inner"><p>$X(\omega)=2a\,\mathrm{sinc}\frac{\omega a}\pi$; con $a=2$ el lóbulo principal vale $4$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p6">
 <p class="ph"><b>6: transformadas de exponenciales y senoides</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Transformada de Fourier de: (a) $1$; (b) $e^{-j\omega_0t}$; (c) $e^{j\omega_0t}$; (d) $\cos\omega_0t$; (e) $\sin\omega_0t$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -442,19 +442,19 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b) y (c) Desplaza</span></summary><div class="inner"><p>$\mathcal F\{e^{\mp j\omega_0t}\}=2\pi\delta(\omega\pm\omega_0)$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(d) y (e) Euler y linealidad</span></summary><div class="inner"><p>$\cos\omega_0t\leftrightarrow\pi\delta(\omega-\omega_0)+\pi\delta(\omega+\omega_0)$ (par); $\sin\omega_0t\leftrightarrow-j\pi\delta(\omega-\omega_0)+j\pi\delta(\omega+\omega_0)$ (impar).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p7">
 <p class="ph"><b>7: transformada de una señal periódica</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Encuentra la transformada de Fourier de una señal periódica de período $T_0$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Desarrolla en serie y transforma término a término</span></summary><div class="inner"><p>$x=\sum c_ke^{jk\omega_0t}\Rightarrow X(\omega)=2\pi\sum_kc_k\delta(\omega-k\omega_0)$: un tren de impulsos pesado por los coeficientes.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p8">
 <p class="ph"><b>8: transformada del tren de impulsos</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Transformada de Fourier de $p(t)=\sum_k\delta(t-kT_0)$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Usa $c_k=\frac1{T_0}$</span></summary><div class="inner"><p>$P(\omega)=\frac{2\pi}{T_0}\sum_k\delta(\omega-k\omega_0)$: otro tren de impulsos, separados $\omega_0=\frac{2\pi}{T_0}$. Es la base de $X^*(\omega)=\frac1T\sum X(\omega-k\omega_s)$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h3-p9">
 <p class="ph"><b>9: producto de señales</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula la transformada de Fourier de $x(t)\,y(t)$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -462,41 +462,41 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </div>
 </div></details>
 <details id="h4"><summary>Hoja 4 · Transformada Z, ROC y estabilidad <span class="src">23 problemas · tema 4</span></summary><div class="inner">
-<div class="prob">
+<div class="prob" id="h4-p1">
 <p class="ph"><b>1: estabilidad y circunferencia unidad</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Un LTI es estable cuando $h[n]$ es absolutamente sumable. Demuestra que la estabilidad implica que la ROC incluye $|z|=1$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Evalúa en la circunferencia</span></summary><div class="inner"><p>$|H(e^{j\Omega})|=\left|\sum h[n]e^{-j\Omega n}\right|\le\sum|h[n]|&lt;\infty$: la serie converge en $|z|=1$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p2">
 <p class="ph"><b>2: inversa por división</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Por expansión en serie de potencias, invierte $X(z)=\frac1{1-az^{-1}}$ con (i) $|z|&gt;|a|$; (ii) $|z|&lt;|a|$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Secuencia derecha: divide en potencias de $z^{-1}$</span></summary><div class="inner"><p>$\frac1{1-az^{-1}}=1+az^{-1}+a^2z^{-2}+\dots\Rightarrow x[n]=a^nu[n]$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Secuencia izquierda: divide en potencias de $z$</span></summary><div class="inner"><p>$X=-\frac z{a-z}=-a^{-1}z-a^{-2}z^2-\dots\Rightarrow x[n]=-a^nu[-n-1]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p3">
 <p class="ph"><b>3: polos múltiples</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula $\mathcal Z^{-1}\left\{\frac1{(1-\rho^{-1}z^{-1})^{k+1}}\right\}$ con $k\ge0$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Parte de la geométrica y deriva $k$ veces</span></summary><div class="inner"><p>$\frac{d^k}{dv^k}\frac1{1-\rho^{-1}v}=\frac{k!\rho^{-k}}{(1-\rho^{-1}v)^{k+1}}$ y $\frac1{(1-\rho^{-1}v)^{k+1}}=\sum_n\binom{n+k}k(\rho^{-1}v)^n$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Sustituye $v=z^{-1}$</span></summary><div class="inner"><p>$x[n]=\binom{n+k}k\rho^{-n}u[n]$ si $|z|&gt;\rho^{-1}$, y $-\binom{n+k}k\rho^{-n}u[-n-(k+1)]$ si $|z|&lt;\rho^{-1}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p4">
 <p class="ph"><b>4: estabilidad de sistemas causales</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra que un LTI causal es estable si y solo si todos los polos de $H(z)$ están en $D(0,1)$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Necesidad</span></summary><div class="inner"><p>Causal: ROC $|z|&gt;r$. Estable: contiene $|z|=1$, así $r&lt;1$ y, como la ROC no tiene polos, todos están dentro.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Suficiencia</span></summary><div class="inner"><p>$h[n]=\sum C_{ij}\binom{n+j-1}{j-1}p_i^n u[n]$; por el criterio del cociente cada serie $\sum\binom{n+j-1}{j-1}|p_i|^n$ converge si $|p_i|&lt;1$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p5">
 <p class="ph"><b>5: secuencia izquierda por fracciones simples</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$x[n]$ es izquierda con $X(z)=\frac1{(1-\frac12z^{-1})(1-z^{-1})}$. Calcula $x[n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Fracciones simples en $z^{-1}$</span></summary><div class="inner"><p>$X=\frac{-1}{1-\frac12z^{-1}}+\frac2{1-z^{-1}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Invierte como izquierdas</span></summary><div class="inner"><p>$x[n]=\left(\frac1{2^n}-2\right)u[-n-1]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p6">
 <p class="ph"><b>6: respuesta a una exponencial</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(i) Función de transferencia del sistema causal $y[n]-\frac12y[n-1]+\frac14y[n-2]=x[n]$. (ii) $y[n]$ para $x[n]=(\frac12)^nu[n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -505,7 +505,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Junta los términos</span></summary><div class="inner"><p>$y[n]=\left(\frac12\right)^n\left(1+\frac2{\sqrt3}\sin\frac{\pi n}3\right)u[n]$ (comprobado numéricamente): estable.</p></div></details>
 <p class="muted ojo"><b>Ojo:</b> La solución de referencia toma como polos las raíces del polinomio en $z^{-1}$ ($1\pm j\sqrt3$, de módulo 2) y llega a un término $2^{n+1}$ «inestable». Los polos en $z$ son los inversos, de módulo $\frac12$: el sistema es estable.</p>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p7">
 <p class="ph"><b>7: transformadas derivadas</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Con $X(z)=\mathcal Z\{x\}$, calcula: (i) $\Delta x[n]=x[n]-x[n-1]$; (ii) $x_1[n]=x[n/2]$ si $n$ es par y $0$ si es impar; (iii) $x_1[n]=x[2n]$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -513,7 +513,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Expansión</span></summary><div class="inner"><p>$X_1(z)=\sum x[k]z^{-2k}=X(z^2)$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Diezmado</span></summary><div class="inner"><p>Solo para señales con muestras impares nulas sale $X(\sqrt z)$; en general $X_1(z)=\frac12\big[X(z^{1/2})+X(-z^{1/2})\big]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p8">
 <p class="ph"><b>8: respuesta al escalón según la ROC</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$y[n-1]-\frac52y[n]+y[n+1]=x[n]$. Con los polos, determina las posibles respuestas al escalón e indica si el sistema es causal o estable.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -523,7 +523,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Caso causal ($|z|&gt;2$)</span></summary><div class="inner"><p>$y=\left(-2+\frac23(\frac12)^n+\frac43\,2^n\right)u[n]$: inestable.</p></div></details>
 <p class="muted ojo"><b>Ojo:</b> La solución de referencia incluye un caso con ROC $\frac12&lt;|z|&lt;1$ en el que el escalón sale como secuencia izquierda; el escalón $u[n]$ es derecho, así que su ROC es $|z|&gt;1$ y ese caso no existe.</p>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p9">
 <p class="ph"><b>9: respuesta al escalón de un sistema estable</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$y[n-1]-\frac{10}3y[n]+y[n+1]=x[n]$. Si el sistema es estable, determina la respuesta al escalón.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -532,7 +532,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Invierte</span></summary><div class="inner"><p>$y[n]=\left(-\frac34+\frac3{16}(\frac13)^n\right)u[n]-\frac9{16}3^nu[-n-1]$ (comprobado sustituyendo en la ecuación).</p></div></details>
 <p class="muted ojo"><b>Ojo:</b> La solución de referencia da $A=-\frac38$ para el polo en $z=1$; el residuo correcto es $-\frac34$.</p>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p10">
 <p class="ph"><b>10: ¿qué transformadas son causales?</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Decide cuáles corresponden a sistemas causales: (i) $\frac{(1-z^{-1})^2}{1-\frac12z^{-1}}$; (ii) $\frac{(z-1)^2}{z-\frac12}$; (iii) $\frac{(z-\frac14)^5}{(z-\frac12)^6}$; (iv) $\frac{(z-\frac14)^6}{(z-\frac12)^5}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -541,21 +541,21 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(ii)</span></summary><div class="inner"><p>$h=\delta[n+1]-2\delta[n]+\frac12(\frac12)^nu[n]$: $h[-1]=1\ne0$, no causal.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iii) y (iv)</span></summary><div class="inner"><p>(iii) grados $5\le6$: causal. (iv) $6&gt;5$: aparece $\delta[n+1]$, no causal.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p11">
 <p class="ph"><b>11: desplazamiento con transformada unilateral</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para $x$ causal calcula $\mathcal Z\{x[n+m]u[n]\}$ con (i) $m&gt;0$; (ii) $m&lt;0$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Adelanto</span></summary><div class="inner"><p>$z^mX(z)-\sum_{k=0}^{m-1}x[k]z^{m-k}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Retardo</span></summary><div class="inner"><p>$z^{-|m|}\Big(X(z)+\sum_{k=-|m|}^{-1}x[k]z^{-k}\Big)=z^mX(z)$ porque $x$ es causal.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p12">
 <p class="ph"><b>12: transformada con $z^k$ y polinomios de Hermite</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(i) Prueba $F(z^k)=\mathcal Z\{\nabla f_1(nT)\}$ con $f_1(nT)=\sum_{m=0}^{[n/k]}f(mT)$ y $\nabla$ la diferencia regresiva. (ii) Si $F(z)=e^{-\frac xz-\frac1{2z^2}}$, prueba que $f(nT)=\frac{H_n(x)}{n!}$ (polinomios de Hermite).</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(i) Intercambia los sumatorios</span></summary><div class="inner"><p>$\mathcal Z\{f_1\}=\sum_mf(mT)\sum_{n\ge mk}z^{-n}=\frac z{z-1}F(z^k)$, y $\mathcal Z\{\nabla f_1\}=\frac{z-1}zF_1(z)$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) Factoriza y convoluciona</span></summary><div class="inner"><p>$e^{-x/z}\leftrightarrow\frac{(-x)^n}{n!}$ y $e^{-1/(2z^2)}$ es una serie solo en potencias pares; su convolución da $\sum_k\frac{(-1)^kx^{n-2k}}{k!(n-2k)!2^k}=\frac{H_n(x)}{n!}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p13">
 <p class="ph"><b>13: sistema por su patrón de polos y ceros</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Sistema causal con ceros en $\frac32e^{\pm j\pi/6}$ y un polo en $-\frac45$. (i) $H(z)$ y $h[n]$ si $H(1)=1$. (ii) ¿Es estable?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -565,7 +565,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Calcula $h[n]$</span></summary><div class="inner"><p>$h[n]=-18{,}67\,\delta[n]+21{,}43(-0{,}8)^nu[n]+7{,}77\,\delta[n-1]$; primeras muestras $2{,}761;\ -9{,}382;\ 13{,}72$.</p></div></details>
 <details class="paso"><summary><span class="pn">5</span><span class="pw">(ii)</span></summary><div class="inner"><p>Polos $0$ y $-0{,}8$ dentro del disco: estable.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p14">
 <p class="ph"><b>14 (*): sistemas asociados a un patrón</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Polos $\{-3,-\frac12,2\}$ y cero $\{1\}$. (i) ROC si el sistema es estable. (ii) ¿Puede ser causal y estable? (iii) ¿Cuántos sistemas hay con este patrón?</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -575,7 +575,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Cuatro ROC, cuatro sistemas</span></summary><div class="inner"><p>$|z|&lt;\frac12$, $\frac12&lt;|z|&lt;2$, $2&lt;|z|&lt;3$ y $|z|&gt;3$. Causal: $h=\frac13\delta[n]+\left(\frac8{75}(-3)^n-\frac{12}{25}(-\frac12)^n+\frac1{25}2^n\right)u[n]$ (cumple $h[0]=h[1]=0$).</p></div></details>
 <p class="muted ojo"><b>Ojo:</b> En la solución de referencia los residuos en $-\frac12$ y en $2$ salen $-\frac6{75}$ y $-\frac2{75}$; los correctos son $-\frac{12}{25}$ y $\frac1{25}$ (con ellos $h[0]=0$, como debe ser al ser $H$ de grado relativo 2).</p>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p15">
 <p class="ph"><b>15: derivación en $z$</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Prueba $\mathcal Z\{nx[n]\}=-z\frac{dX}{dz}$ y aplícalo a $X(z)=\log(1+az^{-1})$ con $|z|&gt;|a|$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -583,21 +583,21 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Aplica</span></summary><div class="inner"><p>$-z\frac{dX}{dz}=\frac{az^{-1}}{1+az^{-1}}\Rightarrow nx[n]=a(-a)^{n-1}u[n-1]$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Despeja</span></summary><div class="inner"><p>$x[n]=-\frac{(-a)^n}nu[n-1]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p16">
 <p class="ph"><b>16: problema de Cauchy</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Para $\sum_{k=0}^Na_ky[n-k]=\sum_{k=0}^Mb_kx[n-k]$ con valores iniciales de $x$ e $y$, determina la respuesta libre y la forzada.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Transforma con el desplazamiento unilateral</span></summary><div class="inner"><p>$\sum a_kz^{-k}\Big(Y+\sum_{i&lt;0}\dots\Big)$; despeja $Y=\frac{B}{A}X+\frac{\text{términos iniciales}}{A}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Separa</span></summary><div class="inner"><p>$Y_{libre}=\dfrac{\sum_ka_k\sum_iy[i]z^{k-i}}{\sum a_kz^k}$ (depende solo de $y$ inicial) y $Y_{forzada}=\frac{\sum b_kz^k}{\sum a_kz^k}X-\frac{\sum_kb_k\sum_ix[i]z^{k-i}}{\sum a_kz^k}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p17">
 <p class="ph"><b>17: ¿estable implica causal?</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Un sistema BIBO estable con todos sus polos dentro del círculo unidad, ¿es siempre causal? Usa $h_1=a^nu[n]$ y $h_2=a^nu[n+3]$ con $|a|&lt;1$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Contraejemplo</span></summary><div class="inner"><p>$H_2(z)=a^{-3}z^3+a^{-2}z^2+a^{-1}z+\frac1{1-az^{-1}}$ converge en $|z|&gt;|a|$, es estable y tiene $h_2[-1]\ne0$: no es causal.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Concluye</span></summary><div class="inner"><p>La posición de los polos no basta: la causalidad depende de la ROC y de que $H$ sea propia.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p18">
 <p class="ph"><b>18: secuencia causal</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Determina $x[n]$ causal con $X(z)=\dfrac{1+z^{-1}}{1-z^{-1}+\frac12z^{-2}}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -605,7 +605,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Residuo de $X/z$</span></summary><div class="inner"><p>$C=\frac{p+1}{p-\bar p}=\frac12-\frac32j=\frac{\sqrt{10}}2e^{-j\arctan3}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Invierte el par conjugado</span></summary><div class="inner"><p>$x[n]=\sqrt{10}\left(\frac1{\sqrt2}\right)^n\cos\left(\frac\pi4n-\arctan3\right)u[n]$ (comprobado numéricamente).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p19">
 <p class="ph"><b>19 (*): inversa por integral de contorno</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Con la integral de contorno determina $x[n]$ si $X(z)=\dfrac{1-a^2}{(1-az)(1-az^{-1})}$, ROC $a&lt;|z|&lt;\frac1a$, $0&lt;a&lt;1$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -615,7 +615,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Resultado</span></summary><div class="inner"><p>$x[n]=a^{|n|}$. Comprobación: $\mathcal Z\{a^{|n|}\}=\frac1{1-az^{-1}}+\frac{az}{1-az}=\frac{1-a^2}{(1-az)(1-az^{-1})}$.</p></div></details>
 <p class="muted ojo"><b>Ojo:</b> La solución de referencia obtiene $x[n]=a^nu[n]-a^{-n}u[-n-1]$; el signo del término izquierdo está cambiado (sale de un error de signo al descomponer $X/z$). Con $a^{|n|}$ la transformada cuadra.</p>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p20">
 <p class="ph"><b>20: ROC según estabilidad o causalidad</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$H(z)=\dfrac{3-4z^{-1}}{1-3{,}5z^{-1}+1{,}5z^{-2}}$. Especifica la ROC y $h[n]$ si el sistema es (i) estable; (ii) causal; (iii) anticausal.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -623,7 +623,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(i) Estable: $\frac12&lt;|z|&lt;3$</span></summary><div class="inner"><p>$h=-2\cdot3^nu[-n-1]+(\frac12)^nu[n]$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(ii) y (iii)</span></summary><div class="inner"><p>Causal ($|z|&gt;3$): $h=\big(2\cdot3^n+(\frac12)^n\big)u[n]$. Anticausal ($|z|&lt;\frac12$): $h=-\big(2\cdot3^n+(\frac12)^n\big)u[-n-1]$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p21">
 <p class="ph"><b>21 (*): área del copo de nieve de Koch</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Partiendo de un triángulo equilátero se divide cada lado en tres y sobre el tercio central se construye otro triángulo equilátero. Determina el área tras infinitos pasos.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -632,14 +632,14 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Descompón e invierte</span></summary><div class="inner"><p>$A[n]=\left(1+\frac35-\frac35\left(\frac49\right)^n\right)A_0$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">Toma el límite</span></summary><div class="inner"><p>$A[\infty]=\frac85A_0$ (comprobado sumando 40 pasos).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p22">
 <p class="ph"><b>22: transformada de una secuencia periódica</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Si $f$ es periódica de período $N$, demuestra que $F(z)=\dfrac{P(z^{-1})}{1-z^{-N}}$ con $P$ polinomio.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Agrupa por períodos</span></summary><div class="inner"><p>$F=\sum_{k=0}^{N-1}f[k]z^{-k}\sum_{m\ge0}z^{-mN}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Suma la geométrica</span></summary><div class="inner"><p>Para $|z|&gt;1$: $\sum z^{-mN}=\frac1{1-z^{-N}}$ y $P(z^{-1})=\sum_{k=0}^{N-1}f[k]z^{-k}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h4-p23">
 <p class="ph"><b>23: dos series geométricas con la misma suma</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Demuestra que existen dos series geométricas distintas con suma $\frac1{1-x}$ y deduce las posibles secuencias con transformada $\frac1{1-az^{-1}}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -649,7 +649,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </div>
 </div></details>
 <details id="h5"><summary>Hoja del tema 5 · Datos muestreados, retenedor e integral de Jury <span class="src">10 problemas · tema 5</span></summary><div class="inner">
-<div class="prob">
+<div class="prob" id="h5-p1">
 <p class="ph"><b>1: escalón por datos muestreados</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Sea $X(s)=\frac1s$. Calcula $X^*(s)$ y $X(z)$ por el método de señales de datos muestreados.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -657,14 +657,14 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Paso 2: muestrea</span></summary><div class="inner"><p>$x^*(t)=\sum_{n\ge0}\delta(t-nT)$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Pasos 3 y 4: transforma y cambia $z=e^{sT}$</span></summary><div class="inner"><p>$X^*(s)=\sum e^{-snT}$, $X(z)=\sum z^{-n}=\frac1{1-z^{-1}}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p2">
 <p class="ph"><b>2: rampa por datos muestreados</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Sea $X(s)=\frac1{s^2}$. Calcula $X^*(s)$ y $X(z)$ por datos muestreados.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Muestrea la rampa</span></summary><div class="inner"><p>$x(t)=t\,1(t)$, $X^*(s)=\sum nTe^{-snT}$, $X(z)=T\sum nz^{-n}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Suma derivando la geométrica</span></summary><div class="inner"><p>$\sum n\alpha^n=\frac\alpha{(1-\alpha)^2}$ con $\alpha=z^{-1}$: $X(z)=\dfrac{Tz^{-1}}{(1-z^{-1})^2}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p3">
 <p class="ph"><b>3: función de transferencia del ZOH</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Prueba que $G_{ZOH}(s)=\dfrac{1-e^{-sT}}s$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -672,21 +672,21 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Transforma un pulso</span></summary><div class="inner"><p>$\mathcal L\{\delta_T\}=\frac{1-e^{-sT}}s$ y el desplazamiento añade $e^{-snT}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Compara con $Y=G_{ZOH}X^*$</span></summary><div class="inner"><p>$Y(s)=\frac{1-e^{-sT}}s\sum x(nT)e^{-snT}=\frac{1-e^{-sT}}sX^*(s)$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p4">
 <p class="ph"><b>4: integral de Jury</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Prueba que $X^*(s)=\dfrac1{2\pi j}\oint_C\dfrac{X(p)}{1-e^{-(s-p)T}}dp$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe el muestreo como producto</span></summary><div class="inner"><p>$x^*(t)=x(t)\sum\delta(t-nT)$; el tren tiene transformada $\frac1{1-e^{-sT}}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Usa la convolución compleja</span></summary><div class="inner"><p>$\mathcal L\{x\,p\}=\frac1{2\pi j}\oint X(p)P(s-p)dp$, y el contorno encierra los polos de $X$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p5">
 <p class="ph"><b>5: Jury con un polo doble</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Aplica la integral de Jury a $X(s)=\frac1{s^2}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Un solo residuo, doble en el origen</span></summary><div class="inner"><p>$\mathrm{Res}=\lim_{p\to0}\frac d{dp}\frac1{1-e^{-(s-p)T}}=\frac{Te^{-sT}}{(1-e^{-sT})^2}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Cambia a $z$</span></summary><div class="inner"><p>$X(z)=\dfrac{Tz^{-1}}{(1-z^{-1})^2}$, igual que en el problema 2.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p6">
 <p class="ph"><b>6: ZOH con un doble integrador</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Calcula $(G_{ZOH}G)(z)$ con $G(s)=\frac1{s^2}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -694,21 +694,21 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Residuo triple</span></summary><div class="inner"><p>$\left(\frac1{s^3}\right)^*=\frac{T^2}2\frac{e^{-sT}(1+e^{-sT})}{(1-e^{-sT})^3}$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Multiplica y cambia a $z$</span></summary><div class="inner"><p>$(G_{ZOH}G)(z)=\dfrac{T^2}2\dfrac{z^{-1}(1+z^{-1})}{(1-z^{-1})^2}=\dfrac{T^2(z+1)}{2(z-1)^2}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p7">
 <p class="ph"><b>7: dos polos reales</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Usa la integral de Jury con $X(s)=\frac1{(s+a)(s+b)}$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">(i) $a=b$: polo doble</span></summary><div class="inner"><p>$X(z)=\dfrac{Te^{-aT}z^{-1}}{(1-e^{-aT}z^{-1})^2}$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(ii) $a\ne b$: dos residuos</span></summary><div class="inner"><p>$X(z)=\dfrac1{(b-a)(1-e^{-aT}z^{-1})}+\dfrac1{(a-b)(1-e^{-bT}z^{-1})}$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p8">
 <p class="ph"><b>8: existencia de la función de transferencia pulso</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Prueba que si hay un muestreador a la entrada de un bloque $G(s)$, existe la función de transferencia pulso.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
 <details class="paso"><summary><span class="pn">1</span><span class="pw">Escribe la salida</span></summary><div class="inner"><p>$y(t)=\sum_kx(kT)g(t-kT)$.</p></div></details>
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Muestrea y separa la doble suma</span></summary><div class="inner"><p>Con $l=m-k$: $Y^*(s)=\Big(\sum_lg(lT)e^{-slT}\Big)\Big(\sum_kx(kT)e^{-skT}\Big)=G^*(s)X^*(s)$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p9">
 <p class="ph"><b>9: dos cascadas distintas</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Comprueba que la función de transferencia pulso de la cascada $\frac1{s+a}$ y $\frac1{s+b}$ es distinta con muestreador entre los bloques (a) que sin él (b).</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -716,7 +716,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">(b) Sin muestreador</span></summary><div class="inner"><p>$(GH)(z)=\dfrac{(e^{-aT}-e^{-bT})z^{-1}}{(b-a)(1-e^{-aT}z^{-1})(1-e^{-bT}z^{-1})}$ (problema 7).</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Compara</span></summary><div class="inner"><p>Los denominadores coinciden pero los numeradores no: $G(z)H(z)\ne(GH)(z)$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5-p10">
 <p class="ph"><b>10: esquemas de realimentación</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Resuelve los cuatro esquemas: (1) muestreador en el error, $G$ directa, $H$ en la realimentación y salida muestreada; (2) igual con muestreador también a la salida de $G$, antes de $H$; (3) muestreadores antes de $G_1$ y entre $G_1$ y $G_2$; (4) $G_1$ antes del primer muestreador y $G_2$ después.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -727,7 +727,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 </div>
 </div></details>
 <details id="h5b"><summary>Hoja 5 · Sistemas muestreados, interpolación y PID digital <span class="src">5 problemas · temas 5–6</span></summary><div class="inner">
-<div class="prob">
+<div class="prob" id="h5b-p1">
 <p class="ph"><b>1: salida de un sistema con entrada muestreada</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(i) Si la entrada se muestrea con período $T$, demuestra $y(t)=\sum x(kT)g(t-kT)$. (ii) Si el sistema es causal, $y(t)=\sum_{k=0}^lx(kT)g(t-kT)$ para $t\le lT$. (iii) Muestrea $y$ y prueba que $y^*$ es un tren con amplitudes $g(0)x(0)$, $g(0)x(1)+g(1)x(0)$, … (iv) Determina $G^*(s)$ y $G(z)$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -736,7 +736,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(iii) Muestrea</span></summary><div class="inner"><p>$y(lT)=\sum_{k=0}^lx(kT)g((l-k)T)$: es la convolución discreta.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(iv) Transforma</span></summary><div class="inner"><p>$Y^*=X^*G^*$ y $G(z)=\sum g(mT)z^{-m}$: la transformada Z de la respuesta impulsiva (entrada $\delta_0$).</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5b-p2">
 <p class="ph"><b>2: retenedor de primer orden</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Deduce la función de transferencia de un interpolador de primer orden.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -744,7 +744,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Transforma cada tramo</span></summary><div class="inner"><p>$\mathcal L\{t\,\delta_T(t)\}=\left(\frac1s+T\right)G_{ZOH}-\frac Ts$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Agrupa</span></summary><div class="inner"><p>$Y(s)=\frac{1+Ts}TG_{ZOH}^2(s)X^*(s)$, así $G_{FOH}(s)=\dfrac{1+Ts}T\left(\dfrac{1-e^{-sT}}s\right)^2$.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5b-p3">
 <p class="ph"><b>3: muestras por ciclo</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>$F(z)$ en lazo directo; el lazo cerrado unitario tiene polos dominantes $p,\bar p$. Si $\theta$ es la fase de $p$, demuestra que el número de muestras por ciclo es $\frac{2\pi}\theta$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -752,7 +752,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">2</span><span class="pw">Invierte</span></summary><div class="inner"><p>$y[n]=A+2|B|M^n\cos(n\theta+\phi)$.</p></div></details>
 <details class="paso"><summary><span class="pn">3</span><span class="pw">Lee el período</span></summary><div class="inner"><p>$n\theta=2\pi\frac n{2\pi/\theta}$: un ciclo cada $\frac{2\pi}\theta$ muestras.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5b-p4">
 <p class="ph"><b>4 (*): salida muestreada y retenedor</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>(i) Calcula la salida muestreada de los esquemas: (a) $G$ directa y $H$ con muestreador en la realimentación; (b) $R\to D\to$ muestreador $\to\Sigma\to G$, con lazo interno por $G$ y externo por $H$. (ii) Con muestreador y ZOH delante, calcula las funciones discretas de (a) $G_1=\frac{e^{-1{,}5s}}{s(s+1)}$ y (b) $G_2=\frac1{s^2-1}$, con $T=1$ s.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -761,7 +761,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <details class="paso"><summary><span class="pn">3</span><span class="pw">(ii)(a) Retardo de 1,5 periodos</span></summary><div class="inner"><p>Con $T=1$ se simula el pulso retrasado: $G_1(z)=\dfrac{0{,}1065z^2+0{,}4709z+0{,}0547}{z^2(z-1)(z-0{,}3679)}$.</p></div></details>
 <details class="paso"><summary><span class="pn">4</span><span class="pw">(ii)(b) Residuos en $-1$, $1$ y $0$</span></summary><div class="inner"><p>$\frac12$, $\frac12$ y $-1$: $G_2(z)=(1-z^{-1})\Big[\frac{1/2}{1-e^{-T}z^{-1}}+\frac{1/2}{1-e^{T}z^{-1}}-\frac1{1-z^{-1}}\Big]$; con $T=1$, $G_2(z)=\dfrac{0{,}5431(z+1)}{(z-2{,}718)(z-0{,}3679)}$: inestable.</p></div></details>
 </div>
-<div class="prob">
+<div class="prob" id="h5b-p5">
 <p class="ph"><b>5 (*): PID digital</b></p>
 <div class="enun"><p class="et">Enunciado</p><p>Planta $G_p=\frac1{s(s+1)}$, $T=1$ s. Obtén la función de transferencia en lazo cerrado con $K_p=1$, $K_d=K_i=0{,}2$.</p></div>
 <p class="pasos-t">Resolución paso a paso <span>· abre cada paso cuando lo hayas intentado</span></p>
@@ -776,6 +776,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=16"></script>
+<script src="app.js?v=18"></script>
 </body>
 </html>
