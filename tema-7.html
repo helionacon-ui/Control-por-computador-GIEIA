@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=32">
+<link rel="stylesheet" href="style.css?v=34">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -99,6 +99,7 @@ $\;C(z)=0{,}7\,\dfrac{z-0{,}9048}{z-0{,}3333}$.</p>
 <p><b>Polos y ceros:</b> $z=e^{-0{,}1}=0{,}9048$ y $e^{-1}=0{,}3679$, con la ganancia ajustada para que $C(1)=C(s{=}0)=0{,}1$.</p>
 <p>Los tres coinciden en $C(1)=0{,}1$, pero el polo cae en sitios distintos: con $T$ grande, los métodos difieren mucho. Comprobado con <code>c2d(tf([1 1],[1 10]),0.1,'tustin')</code>.</p>
 </div></details>
+<!--vid--><div class="vids"><p class="vids-h">▶ Vídeos para entenderlo</p><div class="vgrid"><div class="vcard" data-v="rL_1oWrOplk"><button aria-label="Reproducir: Control discreto n.º 2: ¡discretización!" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/rL_1oWrOplk/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">24:35</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=rL_1oWrOplk" rel="noopener" target="_blank">Control discreto n.º 2: ¡discretización!</a><p class="vm">Brian Douglas · 24:35 · en inglés, con subtítulos</p><p class="vn">Euler, Tustin y ZOH comparados: qué método conserva qué.</p></div></div><div class="vcard" data-v="88tWmyBaKIQ"><button aria-label="Reproducir: Control discreto n.º 5: la transformada bilineal" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/88tWmyBaKIQ/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">15:02</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=88tWmyBaKIQ" rel="noopener" target="_blank">Control discreto n.º 5: la transformada bilineal</a><p class="vm">Brian Douglas · 15:02 · en inglés, con subtítulos</p><p class="vn">De dónde sale s = (2/T)(z − 1)/(z + 1) y por qué conserva la estabilidad.</p></div></div><div class="vcard" data-v="NRbGPgcLhU0"><button aria-label="Reproducir: Control discreto n.º 6: deformación del plano z y la bilineal" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/NRbGPgcLhU0/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">25:04</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=NRbGPgcLhU0" rel="noopener" target="_blank">Control discreto n.º 6: deformación del plano z y la bilineal</a><p class="vm">Brian Douglas · 25:04 · en inglés, con subtítulos</p><p class="vn">El warping de frecuencias y cómo se corrige con la prewarp.</p></div></div><div class="vcard" data-v="Iq2VD9qxuMk"><button aria-label="Reproducir: Discretización bilineal (método de Tustin)" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/Iq2VD9qxuMk/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">8:27</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=Iq2VD9qxuMk" rel="noopener" target="_blank">Discretización bilineal (método de Tustin)</a><p class="vm">Alexis Hernández · 8:27</p><p class="vn">Un ejemplo hecho a mano, corto y directo.</p></div></div></div></div><!--/vid-->
 <h3 id="t7-lugar-de-las-raices-en-el-plano-z-progra">Lugar de las raíces en el plano z <span class="tag">programa 7.2</span><span class="tag w">prioridad baja</span></h3>
 <div class="box">
 <p>Mismas reglas que en continuo, aplicadas a $1+KG(z)=0$: empieza en los polos de $G$, acaba en sus ceros (o en el infinito), y el eje real pertenece al lugar a la izquierda de un número impar de polos y ceros. La diferencia está en la frontera: lo que importa es <b>cuándo cruza la circunferencia unidad</b>, no el eje imaginario.</p>
@@ -114,6 +115,7 @@ $\;C(z)=0{,}7\,\dfrac{z-0{,}9048}{z-0{,}3333}$.</p>
 <li><b>Cruce de la circunferencia unidad:</b> en $K=2{,}39$, en $z=0{,}244\pm0{,}970j$ (76°). Es la misma $K$ crítica que con Jury y con la bilineal.</li></ol>
 <p>Lo ves dibujado (puntos grises) en la figura del triángulo de Jury del tema 6.</p>
 </div></details>
+<!--vid--><div class="vids"><p class="vids-h">▶ Vídeos para entenderlo</p><div class="vgrid"><div class="vcard" data-v="_xurrjUlEy8"><button aria-label="Reproducir: Lugar de las raíces en sistemas discretos: ejemplo paso a paso" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/_xurrjUlEy8/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">15:15</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=_xurrjUlEy8" rel="noopener" target="_blank">Lugar de las raíces en sistemas discretos: ejemplo paso a paso</a><p class="vm">Proyectos JC · 15:15</p><p class="vn">Las mismas reglas que en continua, mirando ahora el círculo unidad.</p></div></div></div></div><!--/vid-->
 <h3 id="t7-sintesis-directa-ragazzini-y-deadbeat-pr">Síntesis directa: Ragazzini y deadbeat <span class="tag">programa 7.3–7.4</span></h3>
 <div class="box key">
 <p>Eliges la FT de lazo cerrado deseada $H(z)$ y despejas:
@@ -173,6 +175,7 @@ $$G_c(z)=\frac{1}{G(z)}\cdot\frac{H(z)}{1-H(z)}$$</p>
 </div>
 <!-- ===================== OCTAVE ===================== -->
 <!--auv:t7-->
+<!--vid--><div class="vids"><p class="vids-h">▶ Vídeos para entenderlo</p><div class="vgrid"><div class="vcard" data-v="q7Q6lMmrnmQ"><button aria-label="Reproducir: Controlador deadbeat" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/q7Q6lMmrnmQ/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">14:18</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=q7Q6lMmrnmQ" rel="noopener" target="_blank">Controlador deadbeat</a><p class="vm">Marcela Jamett · 14:18</p><p class="vn">Ragazzini con respuesta en tiempo mínimo, explicado con un ejemplo.</p></div></div><div class="vcard" data-v="wJ4zhnfJAjU"><button aria-label="Reproducir: Control dead-beat: teoría, diseño e implementación en MATLAB" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/wJ4zhnfJAjU/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">38:06</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=wJ4zhnfJAjU" rel="noopener" target="_blank">Control dead-beat: teoría, diseño e implementación en MATLAB</a><p class="vm">Sergio A. Castaño Giraldo · 38:06</p><p class="vn">Más largo; incluye las restricciones de causalidad y de ceros fuera del disco.</p></div></div></div></div><!--/vid-->
 <h3 id="t7-mas-a-fondo-ragazzini-con-numeros-y-tiem">Más a fondo: Ragazzini con números y tiempo mínimo</h3>
 <div class="box"><h4>Ejemplo completo con $K_v$</h4>
 <p>$G_p(z)=0{,}0484\frac{z+0{,}9672}{(z-1)(z-0{,}9048)}$, $T=1$, polos deseados los de $s^2+s+1$ y $K_v=1$. Los polos $-\frac12\pm j\frac{\sqrt3}2$ pasan a $D(z)=z^2-0{,}7859z+0{,}3679$. Regla 1: $\mu(H)\ge1$, así que $N=b_1z+b_0$. Regla 2: nada (el polo en 1 es simple y el cero está dentro). Regla 3: $H(1)=1$ y la fórmula de Truxal $H'(1)=-\frac1{TK_v}=-1$. Sale $b_1=0{,}6321$, $b_0=-0{,}0501$. (Es el mismo sistema que el problema 2 del examen de febrero de 2016.)</p></div>
@@ -184,6 +187,6 @@ $$G_c(z)=\frac{1}{G(z)}\cdot\frac{H(z)}{1-H(z)}$$</p>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=32"></script>
+<script src="app.js?v=34"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
 window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<link rel="stylesheet" href="style.css?v=32">
+<link rel="stylesheet" href="style.css?v=34">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -94,6 +94,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p>$X(z)=\sum x[n]z^{-n}$. <b>Secuencia derecha (causal)</b> → ROC exterior a un círculo $|z|&gt;r$. <b>Causal y estable</b> ⇔ todos los polos dentro del disco unidad $D(0,1)$.</p>
 <p><b>Desplazamiento:</b> $x[n-k]\leftrightarrow z^{-k}X(z)$. <b>Valor final:</b> $x[\infty]=\lim_{z\to1}(1-z^{-1})X(z)$, solo si $(1-z^{-1})X(z)$ es estable. <b>Valor inicial:</b> $x[0]=\lim_{z\to\infty}X(z)$.</p>
 </div>
+<!--vid--><div class="vids"><p class="vids-h">▶ Vídeos para entenderlo</p><div class="vgrid"><div class="vcard" data-v="XJRW6jamUHk"><button aria-label="Reproducir: Comprender la transformada Z" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/XJRW6jamUHk/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">19:56</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=XJRW6jamUHk" rel="noopener" target="_blank">Comprender la transformada Z</a><p class="vm">MATLAB (Brian Douglas) · 19:56 · en inglés, con subtítulos</p><p class="vn">De dónde sale z, cómo se relaciona con Laplace y qué significan los polos.</p></div></div><div class="vcard" data-v="7Gl4kJUjp4c"><button aria-label="Reproducir: Entendiendo el plano Z" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/7Gl4kJUjp4c/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">16:25</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=7Gl4kJUjp4c" rel="noopener" target="_blank">Entendiendo el plano Z</a><p class="vm">MATLAB (Brian Douglas) · 16:25 · en inglés, con subtítulos</p><p class="vn">Dónde colocar polos en el plano z y qué respuesta temporal da cada zona.</p></div></div><div class="vcard" data-v="qbMnrDsWofw"><button aria-label="Reproducir: Transformada Z: ejemplos, inversas, propiedades y ecuaciones en diferencias" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/qbMnrDsWofw/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">39:58</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=qbMnrDsWofw" rel="noopener" target="_blank">Transformada Z: ejemplos, inversas, propiedades y ecuaciones en diferencias</a><p class="vm">MateFacil · 39:58</p><p class="vn">Curso completo en un vídeo; mira la parte de propiedades y tablas.</p></div></div></div></div><!--/vid-->
 <h3 id="t4-receta-de-la-z-inversa">Receta de la Z inversa</h3>
 <ol class="steps">
 <li>Pasa a potencias positivas de $z$ (multiplica arriba y abajo por $z^{k}$).</li>
@@ -123,6 +124,7 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p>(b) Producto en cruz: $12y[n]-7y[n-1]+y[n-2]=12x[n]-6x[n-1]$.</p>
 <p>(c) Polos $\tfrac14,\tfrac13\in D(0,1)$ → estable.</p>
 </div></details>
+<!--vid--><div class="vids"><p class="vids-h">▶ Vídeos para entenderlo</p><div class="vgrid"><div class="vcard" data-v="oarj0_UugPY"><button aria-label="Reproducir: Transformada Z inversa por fracciones parciales" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/oarj0_UugPY/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">11:18</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=oarj0_UugPY" rel="noopener" target="_blank">Transformada Z inversa por fracciones parciales</a><p class="vm">Proyectos JC · 11:18</p><p class="vn">La receta de dividir X(z) entre z, descomponer y volver a multiplicar.</p></div></div><div class="vcard" data-v="JaFjj66w0kA"><button aria-label="Reproducir: Resolver ecuaciones en diferencias con la transformada Z" class="vthumb" type="button"><img alt="" loading="lazy" src="https://i.ytimg.com/vi/JaFjj66w0kA/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">24:07</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=JaFjj66w0kA" rel="noopener" target="_blank">Resolver ecuaciones en diferencias con la transformada Z</a><p class="vm">Ing. Bryan Tejada · 24:07</p><p class="vn">Con condiciones iniciales: el mismo tipo de ejercicio que la práctica de filtic.</p></div></div></div></div><!--/vid-->
 <h3 id="t4-otros-metodos-del-programa-programa-4-2-">Otros métodos del programa <span class="tag">programa 4.2, 4.5–4.7</span></h3>
 <div class="grid2">
 <div class="box">
@@ -179,6 +181,6 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
-<script src="app.js?v=32"></script>
+<script src="app.js?v=34"></script>
 </body>
 </html>
