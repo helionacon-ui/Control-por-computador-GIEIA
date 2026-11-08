@@ -913,11 +913,198 @@ try{
 })();
 
 }catch(e){console.warn("cxc-block:",e);}
+try{
+/*lab-js*/(function(){
+/* ===== Laboratorio Octave: simuladores de las prácticas ===== */
+const $=id=>__gid(id);
+if(!__gid('lab-root')) return;
+/* ---------- números ---------- */
+function tok(s){s=s.trim();if(!s)return NaN;let m=s.match(/^(-?[\d.]+)\/([\d.]+)$/);if(m)return parseFloat(m[1])/parseFloat(m[2]);
+  m=s.match(/^(-?[\d.]*)e\^?\(?(-?[\d.]+)\)?$/i);return parseFloat(s.replace(',','.'));}
+function vec(s){s=String(s).replace(/[\[\]]/g,' ').replace(/;/g,' ');const parts=s.split(/[\s,]+/).filter(x=>x.length);return parts.map(p=>{const v=p.includes('/')?(()=>{const [a,b]=p.split('/');return parseFloat(a)/parseFloat(b);})():parseFloat(p);return v;});}
+function okv(v){return v.length&&v.every(x=>isFinite(x));}
+function fnum(v){if(Math.abs(v)<5e-13)v=0;if(Number.isInteger(v)&&Math.abs(v)<1e6)return String(v);const a=Math.abs(v);if(a>=1e5||a<1e-4)return v.toExponential(4).replace('e','e');return (a<1?+v.toPrecision(5):+v.toFixed(4)).toString();}
+function fc(re,im){if(Math.abs(im)<1e-9)return fnum(re);return fnum(re)+(im<0?' - ':' + ')+fnum(Math.abs(im))+'i';}
+function octVec(name,v){return name+' =\n\n'+'   '+v.map(fnum).join('   ')+'\n';}
+function octCol(name,arr){return name+' =\n\n'+arr.map(x=>'   '+x).join('\n')+'\n';}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+/* ---------- polinomios / señales ---------- */
+function conv(a,b){const r=new Array(a.length+b.length-1).fill(0);a.forEach((x,i)=>b.forEach((y,j)=>{r[i+j]+=x*y;}));return r;}
+function filter(b,a,x,zi){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);const n=Math.max(a.length,b.length);while(b.length<n)b.push(0);while(a.length<n)a.push(0);
+  const z=new Array(n).fill(0);if(zi)zi.forEach((v,i)=>{if(i<n-1)z[i]=v;});const y=[];
+  for(const xn of x){const yn=b[0]*xn+z[0];for(let i=1;i<n;i++){z[i-1]=b[i]*xn+z[i]-a[i]*yn;}z[n-1]=0;y.push(yn);}return y;}
+function filtic(b,a,yp,xp){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);const n=Math.max(a.length,b.length)-1;if(n<1)return[];
+  const B=b.concat(new Array(n+1-b.length).fill(0)),A=a.concat(new Array(n+1-a.length).fill(0));
+  const y=k=>(k>=1&&k<=yp.length)?yp[k-1]:0, x=k=>(xp&&k>=1&&k<=xp.length)?xp[k-1]:0;
+  const z=[];for(let i=1;i<=n;i++){let s=0;for(let k=i;k<=n;k++){s+=B[k]*x(k-i+1)-A[k]*y(k-i+1);}z.push(s);}return z;}
+function cmul(a,b){return [a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0]];}
+function cdiv(a,b){const d=b[0]*b[0]+b[1]*b[1];return [(a[0]*b[0]+a[1]*b[1])/d,(a[1]*b[0]-a[0]*b[1])/d];}
+function roots(c){c=c.slice();while(c.length&&Math.abs(c[0])<1e-14)c.shift();let zeros=[];while(c.length>1&&Math.abs(c[c.length-1])<1e-14){c.pop();zeros.push([0,0]);}
+  const n=c.length-1;if(n<1)return zeros;const a=c.map(v=>v/c[0]);let z=[];for(let i=0;i<n;i++){const ang=2*Math.PI*i/n+0.4;z.push([0.9*Math.cos(ang),0.9*Math.sin(ang)]);}
+  const ev=x=>{let r=[1,0];for(let i=1;i<=n;i++){r=cmul(r,x);r=[r[0]+a[i],r[1]];}return r;};
+  for(let it=0;it<800;it++){z=z.map((zi,i)=>{let den=[1,0];z.forEach((zj,j)=>{if(i!==j)den=cmul(den,[zi[0]-zj[0],zi[1]-zj[1]]);});const q=cdiv(ev(zi),den);return [zi[0]-q[0],zi[1]-q[1]];});}
+  z=z.map(([r,i])=>[Math.abs(r)<1e-10?0:r,Math.abs(i)<1e-8?0:i]);return z.concat(zeros);}
+function pval(c,z){let r=[0,0];for(const v of c){r=cmul(r,z);r=[r[0]+v,r[1]];}return r;}
+function deconv(b,a){b=b.slice();const q=[];for(let i=0;i<=b.length-a.length;i++){const f=b[i]/a[0];q.push(f);for(let j=0;j<a.length;j++)b[i+j]-=f*a[j];}return [q,b.slice(b.length-a.length+1)];}
+function residuez(b,a){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);let k=[];
+  if(b.length>=a.length){const [q,r]=deconv(b.slice().reverse(),a.slice().reverse());k=q.reverse();b=r.reverse();}
+  const N=a.length-1;const p=roots(a);
+  let mult=false;for(let i=0;i<p.length;i++)for(let j=i+1;j<p.length;j++)if(Math.hypot(p[i][0]-p[j][0],p[i][1]-p[j][1])<1e-4)mult=true;
+  const r=p.map((pi,i)=>{const zinv=cdiv([1,0],pi);let num=[0,0];let zp=[1,0];for(let m=0;m<b.length;m++){num=[num[0]+b[m]*zp[0],num[1]+b[m]*zp[1]];zp=cmul(zp,zinv);}
+    let den=[1,0];p.forEach((pj,j)=>{if(j!==i)den=cmul(den,[1-cmul(pj,zinv)[0],-cmul(pj,zinv)[1]]);});return cdiv(num,den);});
+  return {r,p,k,mult};}
+function polyAdd(a,b){const L=Math.max(a.length,b.length);const A=new Array(L-a.length).fill(0).concat(a),B=new Array(L-b.length).fill(0).concat(b);return A.map((v,i)=>v+B[i]);}
+function polyPow(p,n){let r=[1];for(let i=0;i<n;i++)r=conv(r,p);return r;}
+/* c2d tustin */
+function tustin(num,den,T){const n=Math.max(num.length,den.length)-1;const K=2/T;
+  const tr=c=>{const m=c.length-1;let out=[0];c.forEach((ci,i)=>{const kk=m-i;out=polyAdd(out,conv([ci*Math.pow(K,kk)],conv(polyPow([1,-1],kk),polyPow([1,1],n-kk))));});return out;};
+  let B=tr(num),A=tr(den);const a0=A[0];return [B.map(v=>v/a0),A.map(v=>v/a0)];}
+/* c2d zoh vía espacio de estados */
+function matMul(A,B){return A.map(r=>B[0].map((_,j)=>r.reduce((s,v,k)=>s+v*B[k][j],0)));}
+function expm(M){const n=M.length;let nrm=0;M.forEach(r=>r.forEach(v=>nrm=Math.max(nrm,Math.abs(v))));let s=Math.max(0,Math.ceil(Math.log2(nrm*n+1))+2);const A=M.map(r=>r.map(v=>v/Math.pow(2,s)));
+  let E=A.map((r,i)=>r.map((_,j)=>i===j?1:0)),term=E.map(r=>r.slice());for(let k=1;k<20;k++){term=matMul(term,A).map(r=>r.map(v=>v/k));E=E.map((r,i)=>r.map((v,j)=>v+term[i][j]));}
+  for(let i=0;i<s;i++)E=matMul(E,E);return E;}
+function zoh(num,den,T){const a0=den[0];den=den.map(v=>v/a0);num=num.map(v=>v/a0);const n=den.length-1;if(n<1)return [num,[1]];
+  while(num.length<den.length)num.unshift(0);const D=num[0];const nb=num.map((v,i)=>v-D*den[i]).slice(1);
+  const A=[];for(let i=0;i<n;i++){A.push(new Array(n).fill(0));}for(let j=0;j<n;j++)A[0][j]=-den[j+1];for(let i=1;i<n;i++)A[i][i-1]=1;
+  const M=[];for(let i=0;i<=n;i++){M.push(new Array(n+1).fill(0));}for(let i=0;i<n;i++)for(let j=0;j<n;j++)M[i][j]=A[i][j]*T;M[0][n]=T;
+  const E=expm(M);const Ad=E.slice(0,n).map(r=>r.slice(0,n)),Bd=E.slice(0,n).map(r=>[r[n]]);const C=[nb];
+  // polinomio característico de Ad (Faddeev-LeVerrier)
+  let Mk=Ad.map((r,i)=>r.map((_,j)=>0)),cp=[1];let I=Ad.map((r,i)=>r.map((_,j)=>i===j?1:0));let Mprev=null;let c=1;
+  let Mm=I.map(r=>r.slice());cp=[1];let ck=1;for(let k=1;k<=n;k++){const AM=matMul(Ad,Mm);let tr=0;for(let i=0;i<n;i++)tr+=AM[i][i];ck=-tr/k;cp.push(ck);Mm=AM.map((r,i)=>r.map((v,j)=>v+(i===j?ck:0)));}
+  // parámetros de Markov
+  const h=[D];let x=Bd;for(let k=1;k<=n;k++){h.push(matMul(C,x)[0][0]);x=matMul(Ad,x);}
+  const B=[];for(let k=0;k<=n;k++){let s=0;for(let i=0;i<=k;i++)s+=cp[i]*h[k-i];B.push(s);}
+  return [B,cp];}
+function polyStrZ(c,v){v=v||'z';const n=c.length-1;let s='';c.forEach((x,i)=>{if(Math.abs(x)<1e-12)return;const e=n-i;const sg=x<0?' − ':(s?' + ':'');const m=Math.abs(x);const num=(Math.abs(m-1)<1e-12&&e>0)?'':fnum(m);s+=sg+num+(e>1?v+'^'+e:(e===1?v:''));});return s||'0';}
+function polyStrInv(c){let s='';c.forEach((x,i)=>{if(Math.abs(x)<1e-12)return;const sg=x<0?' − ':(s?' + ':'');const m=Math.abs(x);const num=(Math.abs(m-1)<1e-12&&i>0)?'':fnum(m);s+=sg+num+(i>1?'z⁻'+['','','²','³','⁴','⁵','⁶'][i]:(i===1?'z⁻¹':''));});return s||'0';}
+const sup=['⁰','¹','²','³','⁴','⁵','⁶','⁷','⁸','⁹'];
+function diffEq(b,a){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);let s='y[n] = ';const t=[];
+  b.forEach((v,i)=>{if(Math.abs(v)>1e-12)t.push((v<0?'− ':'+ ')+fnum(Math.abs(v))+'·x[n'+(i?'−'+i:'')+']');});
+  a.forEach((v,i)=>{if(i&&Math.abs(v)>1e-12)t.push((-v<0?'− ':'+ ')+fnum(Math.abs(v))+'·y[n−'+i+']');});
+  return s+t.join(' ').replace(/^\+ /,'');}
+/* ---------- gráficas ---------- */
+function plot(el,o,items){const P=window.CXC&&window.CXC.plotSVG;if(!P){el.textContent='(gráfica no disponible)';return;}el.innerHTML=P(o,items);}
+function nice(lo,hi){if(!isFinite(lo)||!isFinite(hi))return [-1,1];if(Math.abs(hi-lo)<1e-9){lo-=1;hi+=1;}const pad=(hi-lo)*0.12;return [Math.min(0,lo-pad),Math.max(0,hi+pad)];}
+function ticks(lo,hi){const st=Math.pow(10,Math.floor(Math.log10((hi-lo)/2||1)));let s=st;for(const m of [1,2,5,10]){if((hi-lo)/(st*m)<=5){s=st*m;break;}}const r=[];for(let v=Math.ceil(lo/s)*s;v<=hi+1e-9;v+=s)r.push(+v.toFixed(6));return r;}
+function stemPlot(el,n,ys,o){o=o||{};let lo=Math.min(...ys.flat()),hi=Math.max(...ys.flat());[lo,hi]=nice(lo,hi);
+  const items=ys.map((y,i)=>({t:o.stairs&&i>0?'step':'stem',n,x:n,y,c:['s1','s2','s3'][i]}));
+  plot(el,{x0:n[0]-0.6,x1:n[n.length-1]+0.6,y0:lo,y1:hi,yt:ticks(lo,hi),xt:ticks(n[0],n[n.length-1]).filter(v=>Number.isInteger(v)),xl:'n',yl:o.yl||'',h:o.h||220,label:o.label||'secuencia'},items);}
+/* ---------- consola ---------- */
+function out(id,code,res){$(id+'-code').textContent=code;$(id+'-out').textContent=res;}
+function err(id,msg){$(id+'-out').textContent='error: '+msg;}
+/* A. convolución con índices */
+function runConv(){const x=vec($('lc-x').value),h=vec($('lc-h').value),nx0=parseInt($('lc-nx').value)||0,nh0=parseInt($('lc-nh').value)||0;
+  if(!okv(x)||!okv(h))return err('lc','escribe x y h como vectores, por ejemplo [-1 3 -1 -2]');
+  const y=conv(x,h),ny0=nx0+nh0,ny=y.map((_,i)=>ny0+i);
+  const code=`x  = [${x.map(fnum).join(' ')}];  nx = ${nx0}:${nx0+x.length-1};\nh  = [${h.map(fnum).join(' ')}];  nh = ${nh0}:${nh0+h.length-1};\ny  = conv(x, h);\nny = (nx(1)+nh(1)) : (nx(end)+nh(end));\nstem(ny, y); grid on; xlabel('n')`;
+  out('lc',code,'>> y = conv(x, h)\n'+octVec('y',y)+'\n>> ny\n'+octVec('ny',ny)+`\nLongitud: N + M − 1 = ${x.length} + ${h.length} − 1 = ${y.length}; empieza en n = ${nx0} + ${nh0} = ${ny0}.`);
+  stemPlot($('lc-plot'),ny,[y],{yl:'y[n]',label:'convolución'});}
+/* B. filter + filtic */
+function runFilt(){const b=vec($('lf-b').value),a=vec($('lf-a').value);const yp=$('lf-yi').value.trim()?vec($('lf-yi').value):[];const xp=$('lf-xi').value.trim()?vec($('lf-xi').value):[];
+  const N=Math.max(5,Math.min(80,parseInt($('lf-n').value)||20));const tipo=$('lf-in').value;
+  if(!okv(b)||!okv(a)||a[0]===0)return err('lf','num y den deben ser vectores y den(1) no puede ser 0');
+  let x,xs;const n=[...Array(N).keys()];
+  if(tipo==='imp'){x=n.map(k=>k===0?1:0);xs='[1 zeros(1,'+(N-1)+')]';}
+  else if(tipo==='esc'){x=n.map(()=>1);xs='ones(1,'+N+')';}
+  else if(tipo==='ramp'){x=n.slice();xs='0:'+(N-1);}
+  else {const al=parseFloat($('lf-al').value)||0.5;x=n.map(k=>Math.pow(al,k));xs='('+fnum(al)+').^(0:'+(N-1)+')';}
+  const zi=(yp.length||xp.length)?filtic(b,a,yp,xp):null;const y=filter(b,a,x,zi);
+  let code=`num = [${b.map(fnum).join(' ')}];\nden = [${a.map(fnum).join(' ')}];\nx   = ${xs};\n`;
+  let res='';
+  if(zi){code+=`zi  = filtic(num, den, [${yp.map(fnum).join(' ')}]${xp.length?`, [${xp.map(fnum).join(' ')}]`:''});   % [y(-1) y(-2) ...]\ny   = filter(num, den, x, zi);\n`;res+='>> zi = filtic(num, den, ...)\n'+octVec('zi',zi)+'\n';}
+  else code+='y   = filter(num, den, x);\n';
+  code+=`stem(0:${N-1}, y); grid on`;
+  res+='>> y = filter(...)   % primeras muestras\n'+octVec('y',y.slice(0,Math.min(N,12)))+'\n'+diffEq(b,a);
+  const pp=roots(a);const st=pp.every(p=>Math.hypot(...p)<1-1e-9);res+='\nPolos: '+pp.map(p=>fc(...p)).join(', ')+'  → '+(st?'estable (todos dentro del disco)':'NO estable');
+  if(st&&tipo==='esc'){const g=b.reduce((s,v)=>s+v,0)/a.reduce((s,v)=>s+v,0);res+=`\nValor final con escalón: H(1) = ${fnum(g)}`;}
+  out('lf',code,res);stemPlot($('lf-plot'),n,[y],{yl:'y[n]',label:'salida de filter'});}
+/* C. residuez */
+function runRes(){const b=vec($('lr-b').value),a=vec($('lr-a').value);const N=20;
+  if(!okv(b)||!okv(a)||a[0]===0)return err('lr','num y den deben ser vectores (potencias de z⁻¹) y den(1) ≠ 0');
+  const R=residuez(b,a);const n=[...Array(N).keys()];const h=filter(b,a,n.map(k=>k===0?1:0));
+  let res='>> [r, p, k] = residuez(num, den)\n';
+  if(R.mult)res+='(hay polos múltiples: los residuos de abajo no valen; usa términos 1/(1−p z⁻¹)ᵐ)\n';
+  res+=octCol('r',R.r.map(c=>fc(...c)))+'\n'+octCol('p',R.p.map(c=>fc(...c)))+'\n'+(R.k.length?octVec('k',R.k):'k = [](0x0)\n');
+  // forma cerrada
+  const terms=[];const used=new Set();
+  R.p.forEach((p,i)=>{if(used.has(i))return;const r=R.r[i];if(Math.abs(p[1])<1e-9){terms.push(`${fnum(r[0])}·(${fnum(p[0])})ⁿ`);}else{let j=R.p.findIndex((q,jj)=>jj!==i&&Math.abs(q[0]-p[0])<1e-6&&Math.abs(q[1]+p[1])<1e-6);if(j>=0)used.add(j);
+    const m=Math.hypot(...p),th=Math.atan2(p[1],p[0]),cm=Math.hypot(...r),ca=Math.atan2(r[1],r[0]);terms.push(`${fnum(2*cm)}·(${fnum(m)})ⁿ·cos(${fnum(Math.abs(th))}n ${(th>0?ca:-ca)<0?'−':'+'} ${fnum(Math.abs(th>0?ca:-ca))})`);}used.add(i);});
+  let kk=R.k.map((v,i)=>Math.abs(v)>1e-12?`${fnum(v)}·δ[n${i?'−'+i:''}]`:'').filter(Boolean);
+  res+='\nSi la ROC es |z| > máx|p| (sistema causal):\nh[n] = '+kk.concat(terms.map(t=>t+'·u[n]')).join(' + ').replace(/\+ −/g,'− ')+'\n\n>> h = impz(num, den, '+N+')   % o filter con un impulso\n'+octVec('h',h.slice(0,10));
+  const code=`pkg load signal                 % solo en Octave\nnum = [${b.map(fnum).join(' ')}];     % potencias de z^-1\nden = [${a.map(fnum).join(' ')}];\n[r, p, k] = residuez(num, den)\nabs(p), angle(p)                 % forma polar si son complejos\nh = filter(num, den, [1 zeros(1,${N-1})]);\nstem(0:${N-1}, h); grid on`;
+  out('lr',code,res);stemPlot($('lr-plot'),n,[h],{yl:'h[n]',label:'respuesta impulsiva'});
+  const zp=window.CXC&&window.CXC.zplaneSVG;if(zp){const zz=roots(b.slice().concat(new Array(Math.max(0,a.length-b.length)).fill(0)));$('lr-zp').innerHTML=zp(R.p,zz.filter(z=>Math.hypot(...z)<50),Math.max(1.4,...R.p.map(p=>Math.hypot(...p)+0.2)));}}
+/* D. discretización */
+function runC2d(){let num,den;const modo=$('ld-tipo').value;
+  if(modo==='2o'){const K=parseFloat($('ld-k').value),wn=parseFloat($('ld-wn').value),xi=parseFloat($('ld-xi').value);num=[K*wn*wn];den=[1,2*xi*wn,wn*wn];$('ld-num').value='['+fnum(num[0])+']';$('ld-den').value='['+den.map(fnum).join(' ')+']';}
+  else{num=vec($('ld-num').value);den=vec($('ld-den').value);}
+  const T=parseFloat($('ld-T').value),met=$('ld-met').value;
+  if(!okv(num)||!okv(den)||!(T>0))return err('ld','revisa num, den (en potencias de s) y T > 0');
+  if(num.length>den.length)return err('ld','la función continua debe ser propia (grado del numerador ≤ grado del denominador)');
+  const [B,A]=met==='tustin'?tustin(num,den,T):zoh(num,den,T);
+  const tf=Math.max(T*30,Math.min(60,10/(Math.abs(den[den.length-2]/den[den.length-1])||1)*2));const N=Math.min(120,Math.ceil(tf/T));const n=[...Array(N+1).keys()];
+  const yd=filter(B,A,n.map(()=>1));const Tf=T/25;const [Bf,Af]=zoh(num,den,Tf);const Nf=N*25;const yc=filter(Bf,Af,new Array(Nf+1).fill(1));
+  const code=`pkg load control                 % solo en Octave\nGs = tf([${num.map(fnum).join(' ')}], [${den.map(fnum).join(' ')}]);\nGz = c2d(Gs, ${fnum(T)}, '${met}')\n[numz, denz] = tfdata(Gz, 'v');\nstep(Gs); hold on; step(Gz)        % continua frente a discreta`;
+  let res=`>> Gz = c2d(Gs, ${fnum(T)}, '${met}')\n\nTransfer function:\n  ${polyStrZ(B)}\n  ${'-'.repeat(30)}\n  ${polyStrZ(A)}\n\nSampling time: ${fnum(T)} s\n\nEn potencias de z⁻¹:  H(z) = (${polyStrInv(B)}) / (${polyStrInv(A)})\nEcuación en diferencias:  ${diffEq(B,A)}\n`;
+  const pz=roots(A);res+='Polos en z: '+pz.map(p=>fc(...p)).join(', ')+(met==='zoh'?'   (= e^{p·T} de los polos continuos)':'');
+  res+=`\nGanancia en continua: G(s=0) = ${fnum(num[num.length-1]/den[den.length-1])}, H(z=1) = ${fnum(B.reduce((s,v)=>s+v,0)/A.reduce((s,v)=>s+v,0))}`;
+  res+=`\n\nForma directa II (N = ${A.length-1} retardos):\n  w[n] = x[n]${A.slice(1).map((v,i)=>Math.abs(v)>1e-12?` ${-v<0?'−':'+'} ${fnum(Math.abs(v))}·w[n−${i+1}]`:'').join('')}\n  y[n] = ${B.map((v,i)=>Math.abs(v)>1e-12?`${v<0?'− ':'+ '}${fnum(Math.abs(v))}·w[n${i?'−'+i:''}]`:'').join(' ').replace(/^\+ /,'')}`;
+  out('ld',code,res);
+  const lo=Math.min(...yd,...yc),hi=Math.max(...yd,...yc);const [y0,y1]=nice(lo,hi);const tc=[...Array(Nf+1).keys()].map(k=>k*Tf);
+  plot($('ld-plot'),{x0:0,x1:N*T,y0,y1,yt:ticks(y0,y1),xt:ticks(0,N*T),xl:'t (s)',yl:'escalón',h:230,label:'respuesta al escalón continua y discreta'},[{t:'line',x:tc,y:yc,c:'s2'},N>50?{t:'step',x:n.map(k=>k*T),y:yd,c:'s1'}:{t:'stem',n:n.map(k=>k*T),y:yd,c:'s1',r:2.6}]);}
+/* E. freqz */
+function runFz(){const b=vec($('lz-b').value),a=vec($('lz-a').value);if(!okv(b)||!okv(a)||a[0]===0)return err('lz','num y den en potencias de z⁻¹');
+  const N=256;const W=[...Array(N+1).keys()].map(k=>Math.PI*k/N);const ev=(c,w)=>{let re=0,im=0;c.forEach((v,k)=>{re+=v*Math.cos(w*k);im-=v*Math.sin(w*k);});return [re,im];};
+  const H=W.map(w=>cdiv(ev(b,w),ev(a,w)));const mag=H.map(h=>20*Math.log10(Math.max(1e-6,Math.hypot(...h))));const ph=H.map(h=>Math.atan2(h[1],h[0])*180/Math.PI);
+  const code=`pkg load signal\nnum = [${b.map(fnum).join(' ')}];  den = [${a.map(fnum).join(' ')}];\n[H, w] = freqz(num, den, 512);\nsubplot(2,1,1); plot(w/pi, 20*log10(abs(H))); ylabel('|H| (dB)')\nsubplot(2,1,2); plot(w/pi, angle(H)*180/pi);   xlabel('\\Omega/\\pi')`;
+  const at=f=>{const i=Math.round(f*N);return `${fnum(Math.hypot(...H[i]))} (${fnum(mag[i])} dB, ${fnum(ph[i])}°)`;};
+  out('lz',code,`|H| en Ω = 0: ${at(0)}\n|H| en Ω = π/4: ${at(0.25)}\n|H| en Ω = π/2: ${at(0.5)}\n|H| en Ω = π: ${at(1)}\nMáximo: ${fnum(Math.max(...mag))} dB en Ω = ${fnum(W[mag.indexOf(Math.max(...mag))]/Math.PI)}π`);
+  let [l0,l1]=[Math.min(...mag),Math.max(...mag)];l0=Math.max(l0,l1-80);[l0,l1]=nice(l0,l1);
+  plot($('lz-plot'),{x0:0,x1:Math.PI,y0:l0,y1:l1,yt:ticks(l0,l1),xt:[0,Math.PI/4,Math.PI/2,3*Math.PI/4,Math.PI],xtf:v=>['0','π/4','π/2','3π/4','π'][Math.round(v/(Math.PI/4))],xl:'Ω',yl:'|H| dB',h:200,label:'módulo'},[{t:'line',x:W,y:mag,c:'s1'}]);
+  plot($('lz-plot2'),{x0:0,x1:Math.PI,y0:-180,y1:180,yt:[-180,-90,0,90,180],xt:[0,Math.PI/2,Math.PI],xtf:v=>['0','π/2','π'][Math.round(v/(Math.PI/2))],xl:'Ω',yl:'fase °',h:170,label:'fase'},[{t:'line',x:W,y:ph,c:'s2'}]);}
+/* F. lazo cerrado */
+function runLazo(){const num=vec($('ll-num').value),den=vec($('ll-den').value),T=parseFloat($('ll-T').value),ctl=$('ll-c').value,K=parseFloat($('ll-K').value)||1;
+  if(!okv(num)||!okv(den)||!(T>0))return err('ll','revisa la planta y T');
+  const [B,A]=zoh(num,den,T);let Gn,Gd,code,info='',clDB=null;
+  const Bt=B.slice();while(Bt.length&&Math.abs(Bt[0])<1e-12)Bt.shift();
+  if(ctl==='P'){Gn=conv([K],Bt);Gd=A;code=`Gc = ${fnum(K)};`;}
+  else if(ctl==='PI'){const Ki=parseFloat($('ll-Ki').value)||0.1;// Gc = K + Ki T z/(z-1)
+    const cn=[K+Ki*T,-K],cd=[1,-1];Gn=conv(cn,Bt);Gd=conv(cd,A);code=`Gc = ${fnum(K)} + ${fnum(Ki)}*${fnum(T)}*tf([1 0],[1 -1],${fnum(T)});   % PI: Kp + Ki·T·z/(z−1)`;info=`Controlador PI: Gc(z) = (${polyStrZ(cn)}) / (${polyStrZ(cd)})\n`;}
+  else {// deadbeat: Gc = Kd*Dp/(z^m - Kd*Np)
+    const m=A.length-1;const Np=Bt,Kd=1/Np.reduce((s,v)=>s+v,0);const zN=roots(Np),zP=roots(A);
+    const bad=zN.concat(zP).filter(p=>Math.hypot(...p)>1+1e-6);if(bad.length)info+='¡Ojo! La planta tiene polos o ceros fuera del disco: este deadbeat los cancela y el lazo real sería inestable.\n';
+    const zm=new Array(m+1).fill(0);zm[0]=1;const cd=polyAdd(zm,Np.map(v=>-Kd*v));const cn=A.map(v=>Kd*v);Gn=conv(cn,Bt);Gd=conv(cd,A);
+    info+=`Deadbeat: H(z) = ${fnum(Kd)}·N(z)/z^${m}, Gc(z) = (${polyStrZ(cn)}) / (${polyStrZ(cd)})\n`;info+='(el cero del controlador cancela el denominador de la planta; queda H(z) = '+fnum(Kd)+'·('+polyStrZ(Np)+')/z^'+m+')\n';Gn=Np.map(v=>Kd*v);clDB=zm.slice();code=`Kd = 1/sum(numz);  m = length(denz)-1;\nGc = tf(Kd*denz, [1 zeros(1,m)] - Kd*[zeros(1,m+1-length(numz)) numz], ${fnum(T)});`;}
+  const cl=clDB||polyAdd(Gd,Gn);const Gnp=new Array(Math.max(0,cl.length-Gn.length)).fill(0).concat(Gn);const N=40;const n=[...Array(N+1).keys()];const y=filter(Gnp,cl,n.map(()=>1));const pc=roots(cl);const st=pc.every(p=>Math.hypot(...p)<1-1e-9);
+  const yinf=st?Gn.reduce((s,v)=>s+v,0)/cl.reduce((s,v)=>s+v,0):NaN;
+  const fullcode=`pkg load control\nT  = ${fnum(T)};\nGs = tf([${num.map(fnum).join(' ')}], [${den.map(fnum).join(' ')}]);\nGz = c2d(Gs, T, 'zoh');  [numz, denz] = tfdata(Gz, 'v');\n${code}\nH  = feedback(Gc*Gz, 1);          % realimentación unitaria\n[y, k] = step(H, ${N}*T);  stairs(k, y); grid on\npole(H), dcgain(H)`;
+  let res=`G(z) = (${polyStrZ(Bt)}) / (${polyStrZ(A)})\n`+info+`Lazo cerrado: ecuación característica ${polyStrZ(cl)} = 0\nPolos: ${pc.map(p=>fc(...p)+' (|z| = '+fnum(Math.hypot(...p))+')').join(', ')}\n→ ${st?'ESTABLE':'INESTABLE'}`;
+  if(st){res+=`\ny(∞) = H(1) = ${fnum(yinf)}   error al escalón = ${fnum(1-yinf)}`;let k10=y.findIndex(v=>Math.abs(v-yinf)<=0.02*Math.abs(yinf||1)&&y.slice(y.indexOf(v)).every(w=>Math.abs(w-yinf)<=0.02*Math.abs(yinf||1)));res+=`\nSobreimpulso: ${fnum(Math.max(0,(Math.max(...y)-yinf)/Math.abs(yinf||1)*100))} %   establecimiento (2 %): ${k10>=0?k10+' muestras = '+fnum(k10*T)+' s':'> 40 muestras'}`;}
+  res+='\n\nPrimeras muestras de y:\n'+octVec('y',y.slice(0,10));
+  out('ll',fullcode,res);const yy=y.map(v=>Math.max(-1e3,Math.min(1e3,v)));stemPlot($('ll-plot'),n,[yy],{yl:'y[n]',label:'respuesta al escalón en lazo cerrado'});}
+/* ---------- conexiones ---------- */
+const RUN={lc:runConv,lf:runFilt,lr:runRes,ld:runC2d,lz:runFz,ll:runLazo};
+document.querySelectorAll('#lab-root .lab-tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#lab-root .lab-tab').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b);});
+  document.querySelectorAll('#lab-root .lab-pane').forEach(p=>{p.hidden=p.id!==b.dataset.pane;});RUN[b.dataset.pane.replace('-pane','')]();}));
+Object.keys(RUN).forEach(k=>{const bt=$(k+'-run');if(bt)bt.addEventListener('click',RUN[k]);document.querySelectorAll('#'+k+'-pane input,#'+k+'-pane select').forEach(i=>i.addEventListener('change',RUN[k]));});
+const ldt=$('ld-tipo');if(ldt){const sync=()=>{const p=ldt.value==='2o';document.querySelectorAll('#ld-pane .only2').forEach(e=>e.hidden=!p);document.querySelectorAll('#ld-pane .onlyg').forEach(e=>e.hidden=p);};ldt.addEventListener('change',sync);sync();}
+const llc=$('ll-c');if(llc){const sync=()=>{document.querySelectorAll('#ll-pane .onlypi').forEach(e=>e.hidden=llc.value!=='PI');document.querySelectorAll('#ll-pane .onlyk').forEach(e=>e.hidden=llc.value==='DB');};llc.addEventListener('change',sync);sync();}
+const lfi=$('lf-in');if(lfi){const sync=()=>{document.querySelectorAll('#lf-pane .onlyexp').forEach(e=>e.hidden=lfi.value!=='exp');};lfi.addEventListener('change',sync);sync();}
+/* botones «Abrir en el simulador» */
+document.addEventListener('click',e=>{const b=e.target.closest('.lab-load');if(!b)return;const d=JSON.parse(b.dataset.set);const pane=b.dataset.pane;
+  Object.entries(d).forEach(([k,v])=>{const el=$(k);if(el){el.value=v;el.dispatchEvent(new Event('change'));}});
+  const tab=document.querySelector(`#lab-root .lab-tab[data-pane="${pane}-pane"]`);if(tab)tab.click();RUN[pane]();
+  const root=$('lab-root');if(root)root.scrollIntoView({behavior:'smooth',block:'start'});});
+function first(){if(window.CXC){runConv();}else setTimeout(first,200);}first();
+})();
+
+}catch(e){console.warn("cxc-block:",e);}
 (function(){
   const q=document.getElementById('gsrch'),out=document.getElementById('gsrch-out');if(!q)return;
   const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
   let loaded=false;
-  function load(cb){if(loaded||window.CXC_INDEX){loaded=true;cb();return;}const s=document.createElement('script');s.src='search-index.js?v=30';s.onload=()=>{loaded=true;cb();};document.head.appendChild(s);}
+  function load(cb){if(loaded||window.CXC_INDEX){loaded=true;cb();return;}const s=document.createElement('script');s.src='search-index.js?v=32';s.onload=()=>{loaded=true;cb();};document.head.appendChild(s);}
   function run(){const t=norm(q.value.trim());out.textContent='';if(t.length<2){out.hidden=true;return;}
     const words=t.split(/\s+/);let n=0;
     for(const [txt,url,sec] of window.CXC_INDEX){const k=norm(txt+' '+sec);if(words.every(w=>k.includes(w))){

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratorio Octave y simulador · Control por Computador</title>
+<meta name="description" content="Guía para aprobar Control por Computador (UPCT, GIEyA): Laboratorio Octave y simulador">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d6e5a">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CxC">
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css?v=32">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#d3dcdf);background:var(--surface,var(--card,#fff));color:var(--fg,#18232b);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted,#5b6660)">Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time> · Última actualización: <time datetime="2026-11-07">7 de noviembre de 2026</time></p></div><div class="crumb"><a href="index.html">Control por Computador</a><span class="sep">›</span><span>Parcial 2</span><span class="sep">›</span><span>Laboratorio Octave y simulador</span></div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc">
+<a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div>
+<a href="index.html" style="--tc:var(--c0)">Empieza aquí desde cero</a>
+<a href="empezar.html" style="--tc:var(--c0)">Cómo es el examen</a>
+<a href="empezar.html#clase" style="--tc:var(--c0)">Prioridades y ejercicios extra</a>
+<a href="empezar.html#oppenheim" style="--tc:var(--c0)">Qué leer del Oppenheim</a>
+<a href="empezar.html#progreso" style="--tc:var(--c0)">Tu progreso</a>
+<div class="grp">Parcial 1</div>
+<a href="tema-1-2.html" style="--tc:var(--c1)">T1–2 Señales y sistemas</a>
+<a href="tema-3.html" style="--tc:var(--c2)">T3 Muestreo y Fourier</a>
+<a href="tema-4.html" style="--tc:var(--c3)">T4 Transformada Z</a>
+<div class="grp">Parcial 2</div>
+<a href="tema-5.html" style="--tc:var(--c4)">T5 Datos muestreados</a>
+<a href="tema-6.html" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
+<a href="tema-7.html" style="--tc:var(--c6)">T7 Diseño de controladores</a>
+<a href="practicas.html" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+<a aria-current="page" class="cur" href="laboratorio.html" style="--tc:var(--c7)">Laboratorio Octave + simulador</a>
+<div class="grp">Practicar</div>
+<a href="ep1-2026.html" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
+<a href="examen-2025-26.html" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
+<a href="examenes.html" style="--tc:var(--c8)">Exámenes resueltos paso a paso</a>
+<a href="hojas.html" style="--tc:var(--c8)">Hojas de problemas resueltas</a>
+<a href="simulacro-ep2.html" style="--tc:var(--c8)">Simulacro del EP2</a>
+<a href="demostraciones.html" style="--tc:var(--c8)">Demostraciones</a>
+<a href="autoevaluacion.html" style="--tc:var(--c8)">Autoevaluación</a>
+<a href="complementarios.html" style="--tc:var(--c8)">Ejercicios complementarios</a>
+<a href="simulacro.html" style="--tc:var(--c8)">Simulacro con soluciones</a>
+<a href="formulario.html" style="--tc:var(--c0)">Formulario por tema</a>
+<a href="glosario.html" style="--tc:var(--c0)">Glosario</a>
+<a href="plan.html" style="--tc:var(--c0)">Plan de estudio</a>
+</nav>
+<main>
+<div class="srch-card gs"><label class="srch-lab" for="gsrch">Buscar en toda la guía</label><input type="search" id="gsrch" placeholder="Por ejemplo: ROC, Schur, deadbeat, aliasing…" autocomplete="off" spellcheck="false"><div id="gsrch-out" class="gs-out" hidden></div></div>
+<section class="sec" id="lab-sec" style="--tc:var(--c7);--tcs:var(--c7s)">
+<div class="sh"><span aria-hidden="true" class="badge">Oct</span><div class="shx"><p class="kick">Prácticas · laboratorio</p><h2 id="lab">Laboratorio: las prácticas en Octave, paso a paso y con simulador</h2></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#lab-practica-discretizacion-bilineal-y-forma">Práctica · Discretización bilineal y formas directas</a><a href="#lab-practica-ecuaciones-en-diferencias-con-c">Práctica · Ecuaciones en diferencias con condiciones iniciales ( filter + filtic )</a><a href="#lab-practica-transformada-z-inversa-y-respue">Práctica · Transformada Z inversa y respuesta en frecuencia</a><a href="#lab-practica-sistema-de-datos-muestreados-en">Práctica · Sistema de datos muestreados en lazo cerrado</a></nav>
+<p>Esta sección desarrolla las prácticas completas en Octave (todo funciona igual en MATLAB quitando las líneas <code>pkg load</code>). Cada práctica tiene el código entero, la salida que debes ver en la consola y la interpretación que se pide escribir. Debajo tienes un <b>simulador</b> que hace en el navegador lo mismo que <code>conv</code>, <code>filter</code>, <code>filtic</code>, <code>residuez</code>, <code>c2d</code>, <code>freqz</code> y <code>feedback</code>. Te enseña el código Octave equivalente y la salida, para que compruebes tus resultados aunque no tengas Octave a mano.</p>
+<div class="box key"><h4>Antes de la primera práctica</h4><ul>
+<li>Octave: instala los paquetes una vez con <code>pkg install -forge control signal</code>. Al principio de cada script escribe <code>pkg load control</code> y <code>pkg load signal</code>.</li>
+<li><b>Dos convenios de coeficientes</b>, el origen de casi todos los errores:
+<ul><li><code>tf</code>, <code>roots</code> y <code>residue</code> usan potencias <b>positivas</b> ($s$ o $z$).</li>
+<li><code>filter</code>, <code>filtic</code>, <code>residuez</code>, <code>impz</code> y <code>freqz</code> usan potencias de $z^{-1}$.</li></ul>
+Si $H(z)=\frac{z}{z^2-3z+2}$, divide arriba y abajo por $z^2$: <code>num = [0 1 0]</code>, <code>den = [1 -3 2]</code>.</li>
+<li>Guarda cada práctica en un script <code>.m</code> y ejecútalo entero. En el examen se puntúa que el código funcione <b>y</b> la interpretación escrita.</li></ul></div>
+<h3 id="lab-practica-discretizacion-bilineal-y-forma">Práctica · Discretización bilineal y formas directas</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Ejercicio 1: discretiza $H(s)=\frac{5}{(s+2)^2+1}$ con Tustin a mano</span></summary><div class="inner">
+<p>Desarrolla el denominador: $(s+2)^2+1=s^2+4s+5$. Los polos están en $s=-2\pm j$ y la ganancia en continua es $H(0)=\frac55=1$.</p>
+<p>Tustin sustituye $s=\frac2T\frac{z-1}{z+1}$. Multiplica numerador y denominador por $T^2(z+1)^2$:
+$$H(z)=\frac{5T^2(z+1)^2}{4(z-1)^2+8T(z-1)(z+1)+5T^2(z+1)^2}=\frac{5T^2(z^2+2z+1)}{(5T^2+8T+4)z^2+(10T^2-8)z+(5T^2-8T+4)}.$$</p>
+<p>Con $T=0{,}1$: $5T^2+8T+4=4{,}85$, $\;10T^2-8=-7{,}9$, $\;5T^2-8T+4=3{,}25$ y $5T^2=0{,}05$. Divide todo por $4{,}85$:
+$$H(z)=\frac{0{,}010309\,(1+2z^{-1}+z^{-2})}{1-1{,}628866\,z^{-1}+0{,}670103\,z^{-2}}.$$</p>
+<p>Comprueba la ganancia en continua: $H(1)=\frac{0{,}010309\cdot4}{1-1{,}628866+0{,}670103}=\frac{0{,}041237}{0{,}041237}=1$. Tustin conserva la ganancia en continua porque $s=0$ va a $z=1$.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Compruébalo en Octave y compara las respuestas al escalón</span></summary><div class="inner">
+<pre>pkg load control
+T  = 0.1;
+Hs = tf(5, [1 4 5]);
+Hz = c2d(Hs, T, 'tustin')
+[b, a] = tfdata(Hz, 'v')
+% b =  0.0103   0.0206   0.0103
+% a =  1.0000  -1.6289   0.6701
+step(Hs, 'b', Hz, 'r--', 5); grid on
+legend('continua', 'Tustin T = 0.1')</pre>
+<p>Valores de la respuesta al escalón (discreta / continua en el mismo instante):</p>
+<div class="tw"><table><tr><th>$n$</th><th>1</th><th>5</th><th>10</th><th>20</th><th>50</th></tr>
+<tr><td>Tustin $y[n]$</td><td>0,048</td><td>0,366</td><td>0,726</td><td>0,979</td><td>1,000</td></tr>
+<tr><td>continua $y(nT)$</td><td>0,022</td><td>0,324</td><td>0,699</td><td>0,974</td><td>1,000</td></tr></table></div>
+<p><b>Interpretación.</b> Las dos curvas casi coinciden y llegan al mismo valor final, 1. La discreta va algo adelantada al principio: Tustin coloca un cero en $z=-1$ que la continua no tiene. Si subes $T$, la diferencia crece porque Tustin deforma la escala de frecuencias (<i>warping</i>).</p>
+<button class="lab-load" data-pane="ld" data-set='{"ld-tipo":"g","ld-num":"[5]","ld-den":"[1 4 5]","ld-T":"0.1","ld-met":"tustin"}' type="button">Abrir en el simulador</button>
+</div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Ejercicio 2: programa la forma directa I y la forma directa II</span></summary><div class="inner">
+<p>La ecuación en diferencias sale de $H(z)$ en potencias de $z^{-1}$:
+$$y[n]=b_0x[n]+b_1x[n-1]+b_2x[n-2]-a_1y[n-1]-a_2y[n-2].$$</p>
+<ul><li><b>Forma directa I</b>: guarda dos retardos de $x$ y dos de $y$, cuatro en total.</li>
+<li><b>Forma directa II</b>: pasa primero por los polos con $w[n]=x[n]-a_1w[n-1]-a_2w[n-2]$ y luego por los ceros con $y[n]=b_0w[n]+b_1w[n-1]+b_2w[n-2]$. Usa solo dos retardos, el mínimo posible (es <b>canónica</b>).</li></ul>
+<pre>N = 60;  x = ones(1, N);              % escalón
+% --- Forma directa I
+y1 = zeros(1, N);  xm1 = 0; xm2 = 0; ym1 = 0; ym2 = 0;
+for n = 1:N
+  y1(n) = b(1)*x(n) + b(2)*xm1 + b(3)*xm2 - a(2)*ym1 - a(3)*ym2;
+  xm2 = xm1; xm1 = x(n);  ym2 = ym1; ym1 = y1(n);
+end
+% --- Forma directa II
+y2 = zeros(1, N);  w1 = 0; w2 = 0;
+for n = 1:N
+  w = x(n) - a(2)*w1 - a(3)*w2;
+  y2(n) = b(1)*w + b(2)*w1 + b(3)*w2;
+  w2 = w1; w1 = w;
+end
+y3 = filter(b, a, x);                  % referencia
+max(abs(y1 - y3)), max(abs(y2 - y3))   % del orden de 1e-16
+stem(0:N-1, y2); grid on</pre>
+<p><b>Interpretación.</b> Las tres salidas son iguales salvo el redondeo: las formas directas son el mismo sistema montado de otra forma. Se diferencian en el número de retardos (4 frente a 2) y en la sensibilidad numérica. <code>filter</code> usa internamente la forma directa II traspuesta.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Ejercicio 3: segundo orden con $\xi=\frac12$, $\omega_n=1$ y dos periodos de muestreo</span></summary><div class="inner">
+<p>$H(s)=\frac{\omega_n^2}{s^2+2\xi\omega_ns+\omega_n^2}=\frac1{s^2+s+1}$. Polos $-\frac12\pm j\frac{\sqrt3}2$. Sobreimpulso teórico $e^{-\pi\xi/\sqrt{1-\xi^2}}=16{,}3\,\%$.</p>
+<pre>Hs = tf(1, [1 1 1]);
+for T = [0.1 1]
+  Hz = c2d(Hs, T, 'tustin');  [b, a] = tfdata(Hz, 'v')
+  figure; step(Hs, Hz, 15); title(['T = ' num2str(T)])
+end</pre>
+<div class="tw"><table><tr><th>$T$</th><th>numerador $b$</th><th>denominador $a$</th></tr>
+<tr><td>0,1</td><td>0,0023753 · [1 2 1]</td><td>[1 −1,895487 0,904988]</td></tr>
+<tr><td>1</td><td>$\frac17$ · [1 2 1]</td><td>[1 −0,857143 0,428571]</td></tr></table></div>
+<p>Con $T=1$ a mano: $s=2\frac{z-1}{z+1}$ da $4(z-1)^2+2(z-1)(z+1)+(z+1)^2=7z^2-6z+3$. Dividido por 7 sale $1-\frac67z^{-1}+\frac37z^{-2}$, igual que la tabla.</p>
+<p><b>Interpretación.</b> Con $T=0{,}1$ hay unas 72 muestras por periodo de oscilación ($\frac{2\pi}{0{,}866\cdot0{,}1}$): la discreta es indistinguible de la continua. Con $T=1$ solo hay unas 7. La forma general se mantiene y el valor final sigue siendo 1, pero el pico y el instante del pico se desplazan. Regla práctica: toma de 10 a 20 muestras por tiempo de subida.</p>
+<button class="lab-load" data-pane="ld" data-set='{"ld-tipo":"2o","ld-k":"1","ld-wn":"1","ld-xi":"0.5","ld-T":"1","ld-met":"tustin"}' type="button">Abrir en el simulador con T = 1</button>
+</div></details>
+<h3 id="lab-practica-ecuaciones-en-diferencias-con-c">Práctica · Ecuaciones en diferencias con condiciones iniciales (<code>filter</code> + <code>filtic</code>)</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Qué hace <code>filtic</code> y por qué hace falta</span></summary><div class="inner">
+<p><code>filter(b,a,x)</code> supone que el sistema parte del reposo: $y[-1]=y[-2]=\dots=0$. Si el enunciado da condiciones iniciales, tienes que pasarlas a los <b>estados internos</b> de la forma directa II traspuesta. Esa conversión es <code>zi = filtic(b, a, [y(-1) y(-2) ...], [x(-1) x(-2) ...])</code>. Después se llama a <code>y = filter(b, a, x, zi)</code>.</p>
+<p>Fórmula, con $N$ el orden: $\;z_i=\sum_{k=i}^{N}\big(b_k\,x[i-1-k]-a_k\,y[i-1-k]\big)$, para $i=1,\dots,N$.</p>
+<p><b>Cuidado con el orden del vector</b>: es $[y(-1)\; y(-2)\; y(-3)]$, del más reciente al más antiguo.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Ejemplo A: $y[n]-0{,}5y[n-1]-0{,}1y[n-2]+0{,}2y[n-3]=x[n]$ con $y[-1]=1$, $y[-2]=2$, $y[-3]=3$</span></summary><div class="inner">
+<pre>pkg load signal
+b = 1;  a = [1 -0.5 -0.1 0.2];
+zi = filtic(b, a, [1 2 3])
+% zi =  0.1000  -0.3000  -0.2000
+n = 0:30;  x = zeros(size(n));        % respuesta libre (entrada nula)
+y = filter(b, a, x, zi);  stem(n, y); grid on</pre>
+<p>Comprobación a mano con $a_1=-0{,}5$, $a_2=-0{,}1$, $a_3=0{,}2$:</p>
+<ul><li>$z_1=-a_1y[-1]-a_2y[-2]-a_3y[-3]=0{,}5+0{,}2-0{,}6=0{,}1$</li>
+<li>$z_2=-a_2y[-1]-a_3y[-2]=0{,}1-0{,}4=-0{,}3$</li>
+<li>$z_3=-a_3y[-1]=-0{,}2$</li></ul>
+<p>La primera salida es $y[0]=z_1=0{,}1$. Coincide con la recurrencia directa: $y[0]=0{,}5\cdot1+0{,}1\cdot2-0{,}2\cdot3=0{,}1$.</p>
+<p><b>Interpretación.</b> Sin entrada, la salida es la <b>respuesta libre</b>, que decae a 0 porque los tres polos de $z^3-0{,}5z^2-0{,}1z+0{,}2$ están dentro del disco unidad.</p>
+<button class="lab-load" data-pane="lf" data-set='{"lf-b":"[1]","lf-a":"[1 -0.5 -0.1 0.2]","lf-yi":"[1 2 3]","lf-xi":"","lf-in":"imp","lf-n":"30"}' type="button">Abrir en el simulador</button>
+<p class="muted" style="font-size:14px">En el simulador la entrada elegida es un impulso, así que verás libre + forzada. Para ver solo la libre, compara con la salida sin condiciones iniciales.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Ejemplo B: $y[n]-0{,}6y[n-1]+0{,}08y[n-2]=x[n-1]$ con $y[-1]=2$, $y[-2]=1$ y entrada escalón</span></summary><div class="inner">
+<p>El retardo de la entrada se pone con un cero delante: <code>b = [0 1]</code>.</p>
+<pre>b = [0 1];  a = [1 -0.6 0.08];
+zi = filtic(b, a, [2 1])
+% zi =  1.1200  -0.1600
+n = 0:25;  x = ones(size(n));
+y = filter(b, a, x, zi)
+% y = 1.1200  1.5120  1.8176  1.9696  2.0364 ...  -&gt; 2.0833
+yzs = filter(b, a, x);                 % solo forzada (estado cero)
+yzi = filter(b, a, zeros(size(n)), zi); % solo libre (entrada cero)
+max(abs(y - (yzs + yzi)))              % 0: superposición
+stem(n, y); hold on; stem(n, yzs, 'r'); stem(n, yzi, 'g')</pre>
+<ul><li>A mano: $z_1=0{,}6\cdot2-0{,}08\cdot1=1{,}12$ y $z_2=-0{,}08\cdot2=-0{,}16$.</li>
+<li>$y[0]=0{,}6\cdot2-0{,}08\cdot1+x[-1]=1{,}12$, con $x[-1]=0$.</li>
+<li>$y[1]=0{,}6\cdot1{,}12-0{,}08\cdot2+1=1{,}512$.</li></ul>
+<p><b>Interpretación.</b> Los polos son $0{,}4$ y $0{,}2$. Valor final $H(1)=\frac{1}{1-0{,}6+0{,}08}=\frac1{0{,}48}=2{,}0833$: <b>las condiciones iniciales no cambian el valor final</b>, solo el transitorio. La respuesta total es la suma de la libre y la forzada.</p>
+<button class="lab-load" data-pane="lf" data-set='{"lf-b":"[0 1]","lf-a":"[1 -0.6 0.08]","lf-yi":"[2 1]","lf-xi":"","lf-in":"esc","lf-n":"25"}' type="button">Abrir en el simulador</button>
+</div></details>
+<h3 id="lab-practica-transformada-z-inversa-y-respue">Práctica · Transformada Z inversa y respuesta en frecuencia</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw"><code>residuez</code> paso a paso con el ejemplo $H=\frac{4z^{-2}}{4-z^{-2}}$</span></summary><div class="inner">
+<pre>[r, p, k] = residuez([0 0 4], [4 0 -1])
+% r = -2  2   p = -0.5  0.5   k = -4  (el orden de r y p puede variar)
+h = impz([0 0 4], [4 0 -1], 10)'       % 0 0 1 0 0.25 0 0.0625 ...</pre>
+<p>Se lee así: $H=k+\sum\frac{r_i}{1-p_iz^{-1}}=-4+\frac{2}{1-0{,}5z^{-1}}+\frac{2}{1+0{,}5z^{-1}}$. Con ROC $|z|&gt;0{,}5$ (sistema causal), $h[n]=-4\delta[n]+2(0{,}5)^n+2(-0{,}5)^n$. En $n=0$ da $-4+2+2=0$ y en $n=2$ da $2\cdot0{,}25\cdot2=1$, igual que <code>impz</code>.</p>
+<p>Si salen polos complejos, <code>abs(p)</code> y <code>angle(p)</code> dan la forma $r^n\cos(\theta n+\varphi)$. Los residuos conjugados $c$, $c^*$ aportan $2|c|\,r^n\cos(\theta n+\arg c)$.</p>
+<button class="lab-load" data-pane="lr" data-set='{"lr-b":"[0 0 4]","lr-a":"[4 0 -1]"}' type="button">Abrir en el simulador</button>
+<button class="lab-load" data-pane="lr" data-set='{"lr-b":"[0 0 1]","lr-a":"[1 -0.9 0.7]"}' type="button">Polos complejos: $\frac1{z^2-0{,}9z+0{,}7}$</button>
+</div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw"><code>freqz</code>: qué filtro es</span></summary><div class="inner">
+<pre>[H, w] = freqz(b, a, 512);
+plot(w/pi, 20*log10(abs(H))); grid on; xlabel('\Omega/\pi'); ylabel('dB')</pre>
+<p>$\Omega=0$ es la continua y $\Omega=\pi$ es la frecuencia de Nyquist ($f_s/2$).</p>
+<ul><li>Con el filtro Tustin del ejercicio 1, $|H(e^{j0})|=1$ (0 dB) y en $\Omega=\pi$ hay un cero exacto (el cero en $z=-1$): es un <b>paso bajo</b>.</li>
+<li>Para pasar a hercios: $f=\frac{\Omega}{2\pi T}$.</li></ul>
+<button class="lab-load" data-pane="lz" data-set='{"lz-b":"[0.010309 0.020619 0.010309]","lz-a":"[1 -1.628866 0.670103]"}' type="button">Abrir en el simulador</button>
+</div></details>
+<h3 id="lab-practica-sistema-de-datos-muestreados-en">Práctica · Sistema de datos muestreados en lazo cerrado</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Planta con ZOH, controlador y realimentación unitaria</span></summary><div class="inner">
+<pre>pkg load control
+T  = 1;
+Gs = tf(1, [1 1 0]);                 % 1/(s(s+1))
+Gz = c2d(Gs, T, 'zoh')               % (0.3679 z + 0.2642)/(z^2 - 1.368 z + 0.3679)
+H  = feedback(Gz, 1)                 % Gc = 1
+pole(H)                              % 0.5 ± 0.618i, |z| = 0.795
+[y, k] = step(H, 20);  stairs(k, y); grid on
+% y = 0  0.368  1  1.400  1.400  1.147  0.894  0.802 ...</pre>
+<p><b>Interpretación.</b> Los polos tienen módulo $0{,}795&lt;1$: estable. La planta tiene un integrador (tipo 1), así que el error al escalón es 0 y el valor final es 1. El sobreimpulso es del 40 %, bastante más que en continua: el retenedor añade un retardo efectivo de $T/2$ que resta margen de fase.</p>
+<button class="lab-load" data-pane="ll" data-set='{"ll-num":"[1]","ll-den":"[1 1 0]","ll-T":"1","ll-c":"P","ll-K":"1"}' type="button">Abrir en el simulador</button>
+<button class="lab-load" data-pane="ll" data-set='{"ll-num":"[1]","ll-den":"[1 1 0]","ll-T":"1","ll-c":"DB"}' type="button">Mismo caso con deadbeat</button>
+</div></details>
+<figure class="fig" id="lab-root">
+<p class="ft">Simulador · laboratorio Octave en el navegador</p>
+<div class="lab-tabs" role="tablist">
+<button aria-selected="true" class="lab-tab on" data-pane="lc-pane" role="tab" type="button">conv</button>
+<button aria-selected="false" class="lab-tab" data-pane="lf-pane" role="tab" type="button">filter + filtic</button>
+<button aria-selected="false" class="lab-tab" data-pane="lr-pane" role="tab" type="button">residuez</button>
+<button aria-selected="false" class="lab-tab" data-pane="ld-pane" role="tab" type="button">c2d</button>
+<button aria-selected="false" class="lab-tab" data-pane="lz-pane" role="tab" type="button">freqz</button>
+<button aria-selected="false" class="lab-tab" data-pane="ll-pane" role="tab" type="button">lazo cerrado</button>
+</div>
+<div class="lab-pane" id="lc-pane">
+<div class="ctrl"><label>x <input id="lc-x" type="text" value="[-1 3 -1 -2]"/></label><label>empieza en n = <input class="lab-num" id="lc-nx" type="number" value="-1"/></label></div>
+<div class="ctrl"><label>h <input id="lc-h" type="text" value="[-2 2 0 -1 1]"/></label><label>empieza en n = <input class="lab-num" id="lc-nh" type="number" value="-1"/></label><button id="lc-run" type="button">Ejecutar</button></div>
+<div id="lc-plot"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lc-code"></pre></div><div><p class="lab-h">Salida</p><pre class="lab-out" id="lc-out"></pre></div></div>
+</div>
+<div class="lab-pane" hidden="" id="lf-pane">
+<div class="ctrl"><label>num (z⁻¹) <input id="lf-b" type="text" value="[0 1]"/></label><label>den (z⁻¹) <input id="lf-a" type="text" value="[1 -0.6 0.08]"/></label></div>
+<div class="ctrl"><label>[y(−1) y(−2) …] <input id="lf-yi" type="text" value="[2 1]"/></label><label>[x(−1) …] <input id="lf-xi" placeholder="vacío = 0" type="text" value=""/></label></div>
+<div class="ctrl"><label>entrada <select id="lf-in"><option value="imp">impulso δ[n]</option><option selected="" value="esc">escalón u[n]</option><option value="ramp">rampa n·u[n]</option><option value="exp">exponencial αⁿu[n]</option></select></label><label class="onlyexp">α <input class="lab-num" id="lf-al" step="0.1" type="number" value="0.5"/></label><label>muestras <input class="lab-num" id="lf-n" max="80" min="5" type="number" value="25"/></label><button id="lf-run" type="button">Ejecutar</button></div>
+<div id="lf-plot"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lf-code"></pre></div><div><p class="lab-h">Salida</p><pre class="lab-out" id="lf-out"></pre></div></div>
+</div>
+<div class="lab-pane" hidden="" id="lr-pane">
+<div class="ctrl"><label>num (z⁻¹) <input id="lr-b" type="text" value="[0 0 4]"/></label><label>den (z⁻¹) <input id="lr-a" type="text" value="[4 0 -1]"/></label><button id="lr-run" type="button">Ejecutar</button></div>
+<div class="figrow lab-row"><div id="lr-zp"></div><div id="lr-plot"></div></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lr-code"></pre></div><div><p class="lab-h">Salida</p><pre class="lab-out" id="lr-out"></pre></div></div>
+</div>
+<div class="lab-pane" hidden="" id="ld-pane">
+<div class="ctrl"><label>planta <select id="ld-tipo"><option value="2o">2.º orden K·ωn²/(s²+2ξωn s+ωn²)</option><option value="g">G(s) cualquiera</option></select></label></div>
+<div class="ctrl only2"><label>K <input class="lab-num" id="ld-k" step="0.1" type="number" value="1"/></label><label>ωn <input class="lab-num" id="ld-wn" step="0.1" type="number" value="1"/></label><label>ξ <input class="lab-num" id="ld-xi" step="0.05" type="number" value="0.5"/></label></div>
+<div class="ctrl onlyg"><label>num (s) <input id="ld-num" type="text" value="[5]"/></label><label>den (s) <input id="ld-den" type="text" value="[1 4 5]"/></label></div>
+<div class="ctrl"><label>T <input class="lab-num" id="ld-T" min="0.001" step="0.05" type="number" value="0.1"/></label><label>método <select id="ld-met"><option value="tustin">'tustin' (bilineal)</option><option value="zoh">'zoh' (retenedor)</option></select></label><button id="ld-run" type="button">Ejecutar</button></div>
+<div id="ld-plot"></div>
+<p class="lab-leg"><span class="lg s2"></span> continua   <span class="lg s1"></span> discreta (muestras o escalera)</p>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="ld-code"></pre></div><div><p class="lab-h">Salida</p><pre class="lab-out" id="ld-out"></pre></div></div>
+</div>
+<div class="lab-pane" hidden="" id="lz-pane">
+<div class="ctrl"><label>num (z⁻¹) <input id="lz-b" type="text" value="[0.010309 0.020619 0.010309]"/></label><label>den (z⁻¹) <input id="lz-a" type="text" value="[1 -1.628866 0.670103]"/></label><button id="lz-run" type="button">Ejecutar</button></div>
+<div id="lz-plot"></div><div id="lz-plot2"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lz-code"></pre></div><div><p class="lab-h">Salida</p><pre class="lab-out" id="lz-out"></pre></div></div>
+</div>
+<div class="lab-pane" hidden="" id="ll-pane">
+<div class="ctrl"><label>G(s) num <input id="ll-num" type="text" value="[1]"/></label><label>den <input id="ll-den" type="text" value="[1 1 0]"/></label><label>T <input class="lab-num" id="ll-T" min="0.01" step="0.1" type="number" value="1"/></label></div>
+<div class="ctrl"><label>controlador <select id="ll-c"><option value="P">proporcional Kp</option><option value="PI">PI (integral rectangular)</option><option value="DB">deadbeat (Ragazzini, H = N(z)/zᵐ)</option></select></label><label class="onlyk">Kp <input class="lab-num" id="ll-K" step="0.1" type="number" value="1"/></label><label class="onlypi">Ki <input class="lab-num" id="ll-Ki" step="0.05" type="number" value="0.1"/></label><button id="ll-run" type="button">Ejecutar</button></div>
+<div id="ll-plot"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="ll-code"></pre></div><div><p class="lab-h">Salida</p><pre class="lab-out" id="ll-out"></pre></div></div>
+</div>
+<figcaption>Escribe los vectores como en Octave (<code>[1 -0.5 0.06]</code>; valen fracciones como <code>1/7</code>) y pulsa Ejecutar o sal del campo. Los cálculos se hacen en el navegador con los mismos algoritmos que Octave: convolución directa, forma directa II traspuesta, raíces por iteración de Durand–Kerner y ZOH por exponencial de matriz. Los resultados coinciden con Octave hasta la 4.ª cifra. Con polos múltiples, <code>residuez</code> necesita términos de orden superior y aquí solo se avisa.</figcaption>
+</figure>
+<div class="box trap"><h4>Qué se suele pedir en la parte de laboratorio</h4><ul>
+<li>Pasar de $H(s)$ a $H(z)$ con <code>c2d</code> y escribir la <b>ecuación en diferencias</b>.</li>
+<li>Programar esa ecuación con un bucle (forma directa I o II) y comprobarla con <code>filter</code>.</li>
+<li>Incluir <b>condiciones iniciales</b> con <code>filtic</code>. El vector va en orden $y(-1), y(-2), \dots$</li>
+<li>Dar $h[n]$ en forma cerrada a partir de <code>residuez</code> y comprobar las primeras muestras con <code>impz</code>.</li>
+<li>Interpretar: estabilidad por los polos, valor final con $H(1)$ y efecto de $T$ sobre la respuesta.</li></ul></div>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="practicas.html"><small>← Anterior</small>Examen de prácticas</a><a class="nx" href="ep1-2026.html"><small>Siguiente →</small>EP1 3-11-2026 resuelto</a></nav>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
+</main>
+</div>
+<script src="app.js?v=32"></script>
+</body>
+</html>

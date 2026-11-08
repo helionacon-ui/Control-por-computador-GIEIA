@@ -438,7 +438,24 @@ details.resul{border:1px solid var(--c6);background:var(--c6s);margin:12px 0 4px
 details.resul>summary{color:var(--c6);font-size:14px}
 details.resul .inner{padding:0 16px 10px}
 details.paso .inner p{margin:6px 0}
-/*/exnav*/</style>
+/*/exnav*//*lab*/.lab-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.lab-tab{font:inherit;font-family:var(--mono);font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);cursor:pointer}
+.lab-tab.on{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.lab-pane[hidden],#lab-root [hidden]{display:none!important}
+.lab-num{width:80px;font:inherit;font-family:var(--mono);font-size:14px;padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg)}
+.lab-io{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:10px}
+@media (max-width:760px){.lab-io{grid-template-columns:minmax(0,1fr)}}
+.lab-io pre{margin:0;font-size:12.5px;white-space:pre;max-height:340px;overflow:auto}
+.lab-out{background:#10201b!important;color:#d6efe6;border-color:#10201b!important}
+.lab-h{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.lab-row{grid-template-columns:minmax(0,230px) minmax(0,1fr)!important}
+@media (max-width:620px){.lab-row{grid-template-columns:minmax(0,1fr)!important}}
+.lab-leg{font-size:13px;color:var(--muted);margin:2px 0}
+.lab-leg .lg{display:inline-block;width:14px;height:3px;vertical-align:middle;background:currentColor}
+.lab-leg .lg.s1{color:var(--accent)}.lab-leg .lg.s2{color:var(--warn)}
+.lab-load{font:inherit;font-size:14px;padding:5px 12px;margin:4px 6px 4px 0;border:1px solid var(--accent);border-radius:6px;background:var(--surface);color:var(--accent);cursor:pointer}
+.lab-load:hover{background:var(--accent);color:var(--surface)}
+/*/lab*/</style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -496,6 +513,7 @@ details.paso .inner p{margin:6px 0}
   <a href="#t6" style="--tc:var(--c5)">T6 Estabilidad y análisis</a>
   <a href="#t7" style="--tc:var(--c6)">T7 Diseño de controladores</a>
   <a href="#octave" style="--tc:var(--c7)">Examen de prácticas (resueltas)</a>
+  <a href="#lab" style="--tc:var(--c7)">Laboratorio Octave + simulador</a>
   <div class="grp">Practicar</div>
   <a href="#ep1-2026" style="--tc:var(--c8)">EP1 3-11-2026 resuelto</a>
   <a href="#ex2526" style="--tc:var(--c8)">Examen 2025-26 resuelto</a>
@@ -1594,6 +1612,223 @@ H = feedback(Gpid*Gz,1); step(H,30); pole(H)</pre>
 <li>No escribir la interpretación. El guion pide «Interpretación del alumno» en cada ejercicio y se puntúa.</li></ul></div>
 
 </section>
+<!--lab-->
+<section class="sec" id="lab-sec" style="--tc:var(--c7);--tcs:var(--c7s)">
+<div class="sh"><span class="badge" aria-hidden="true">Oct</span><div class="shx"><p class="kick">Prácticas · laboratorio</p><h2 id="lab">Laboratorio: las prácticas en Octave, paso a paso y con simulador</h2></div></div>
+<p>Esta sección desarrolla las prácticas completas en Octave (todo funciona igual en MATLAB quitando las líneas <code>pkg load</code>). Cada práctica tiene el código entero, la salida que debes ver en la consola y la interpretación que se pide escribir. Debajo tienes un <b>simulador</b> que hace en el navegador lo mismo que <code>conv</code>, <code>filter</code>, <code>filtic</code>, <code>residuez</code>, <code>c2d</code>, <code>freqz</code> y <code>feedback</code>. Te enseña el código Octave equivalente y la salida, para que compruebes tus resultados aunque no tengas Octave a mano.</p>
+<div class="box key"><h4>Antes de la primera práctica</h4><ul>
+<li>Octave: instala los paquetes una vez con <code>pkg install -forge control signal</code>. Al principio de cada script escribe <code>pkg load control</code> y <code>pkg load signal</code>.</li>
+<li><b>Dos convenios de coeficientes</b>, el origen de casi todos los errores:
+<ul><li><code>tf</code>, <code>roots</code> y <code>residue</code> usan potencias <b>positivas</b> ($s$ o $z$).</li>
+<li><code>filter</code>, <code>filtic</code>, <code>residuez</code>, <code>impz</code> y <code>freqz</code> usan potencias de $z^{-1}$.</li></ul>
+Si $H(z)=\frac{z}{z^2-3z+2}$, divide arriba y abajo por $z^2$: <code>num = [0 1 0]</code>, <code>den = [1 -3 2]</code>.</li>
+<li>Guarda cada práctica en un script <code>.m</code> y ejecútalo entero. En el examen se puntúa que el código funcione <b>y</b> la interpretación escrita.</li></ul></div>
+
+<h3>Práctica · Discretización bilineal y formas directas</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Ejercicio 1: discretiza $H(s)=\frac{5}{(s+2)^2+1}$ con Tustin a mano</span></summary><div class="inner">
+<p>Desarrolla el denominador: $(s+2)^2+1=s^2+4s+5$. Los polos están en $s=-2\pm j$ y la ganancia en continua es $H(0)=\frac55=1$.</p>
+<p>Tustin sustituye $s=\frac2T\frac{z-1}{z+1}$. Multiplica numerador y denominador por $T^2(z+1)^2$:
+$$H(z)=\frac{5T^2(z+1)^2}{4(z-1)^2+8T(z-1)(z+1)+5T^2(z+1)^2}=\frac{5T^2(z^2+2z+1)}{(5T^2+8T+4)z^2+(10T^2-8)z+(5T^2-8T+4)}.$$</p>
+<p>Con $T=0{,}1$: $5T^2+8T+4=4{,}85$, $\;10T^2-8=-7{,}9$, $\;5T^2-8T+4=3{,}25$ y $5T^2=0{,}05$. Divide todo por $4{,}85$:
+$$H(z)=\frac{0{,}010309\,(1+2z^{-1}+z^{-2})}{1-1{,}628866\,z^{-1}+0{,}670103\,z^{-2}}.$$</p>
+<p>Comprueba la ganancia en continua: $H(1)=\frac{0{,}010309\cdot4}{1-1{,}628866+0{,}670103}=\frac{0{,}041237}{0{,}041237}=1$. Tustin conserva la ganancia en continua porque $s=0$ va a $z=1$.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Compruébalo en Octave y compara las respuestas al escalón</span></summary><div class="inner">
+<pre>pkg load control
+T  = 0.1;
+Hs = tf(5, [1 4 5]);
+Hz = c2d(Hs, T, 'tustin')
+[b, a] = tfdata(Hz, 'v')
+% b =  0.0103   0.0206   0.0103
+% a =  1.0000  -1.6289   0.6701
+step(Hs, 'b', Hz, 'r--', 5); grid on
+legend('continua', 'Tustin T = 0.1')</pre>
+<p>Valores de la respuesta al escalón (discreta / continua en el mismo instante):</p>
+<div class="tw"><table><tr><th>$n$</th><th>1</th><th>5</th><th>10</th><th>20</th><th>50</th></tr>
+<tr><td>Tustin $y[n]$</td><td>0,048</td><td>0,366</td><td>0,726</td><td>0,979</td><td>1,000</td></tr>
+<tr><td>continua $y(nT)$</td><td>0,022</td><td>0,324</td><td>0,699</td><td>0,974</td><td>1,000</td></tr></table></div>
+<p><b>Interpretación.</b> Las dos curvas casi coinciden y llegan al mismo valor final, 1. La discreta va algo adelantada al principio: Tustin coloca un cero en $z=-1$ que la continua no tiene. Si subes $T$, la diferencia crece porque Tustin deforma la escala de frecuencias (<i>warping</i>).</p>
+<button type="button" class="lab-load" data-pane="ld" data-set='{"ld-tipo":"g","ld-num":"[5]","ld-den":"[1 4 5]","ld-T":"0.1","ld-met":"tustin"}'>Abrir en el simulador</button>
+</div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Ejercicio 2: programa la forma directa I y la forma directa II</span></summary><div class="inner">
+<p>La ecuación en diferencias sale de $H(z)$ en potencias de $z^{-1}$:
+$$y[n]=b_0x[n]+b_1x[n-1]+b_2x[n-2]-a_1y[n-1]-a_2y[n-2].$$</p>
+<ul><li><b>Forma directa I</b>: guarda dos retardos de $x$ y dos de $y$, cuatro en total.</li>
+<li><b>Forma directa II</b>: pasa primero por los polos con $w[n]=x[n]-a_1w[n-1]-a_2w[n-2]$ y luego por los ceros con $y[n]=b_0w[n]+b_1w[n-1]+b_2w[n-2]$. Usa solo dos retardos, el mínimo posible (es <b>canónica</b>).</li></ul>
+<pre>N = 60;  x = ones(1, N);              % escalón
+% --- Forma directa I
+y1 = zeros(1, N);  xm1 = 0; xm2 = 0; ym1 = 0; ym2 = 0;
+for n = 1:N
+  y1(n) = b(1)*x(n) + b(2)*xm1 + b(3)*xm2 - a(2)*ym1 - a(3)*ym2;
+  xm2 = xm1; xm1 = x(n);  ym2 = ym1; ym1 = y1(n);
+end
+% --- Forma directa II
+y2 = zeros(1, N);  w1 = 0; w2 = 0;
+for n = 1:N
+  w = x(n) - a(2)*w1 - a(3)*w2;
+  y2(n) = b(1)*w + b(2)*w1 + b(3)*w2;
+  w2 = w1; w1 = w;
+end
+y3 = filter(b, a, x);                  % referencia
+max(abs(y1 - y3)), max(abs(y2 - y3))   % del orden de 1e-16
+stem(0:N-1, y2); grid on</pre>
+<p><b>Interpretación.</b> Las tres salidas son iguales salvo el redondeo: las formas directas son el mismo sistema montado de otra forma. Se diferencian en el número de retardos (4 frente a 2) y en la sensibilidad numérica. <code>filter</code> usa internamente la forma directa II traspuesta.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">4</span><span class="pw">Ejercicio 3: segundo orden con $\xi=\frac12$, $\omega_n=1$ y dos periodos de muestreo</span></summary><div class="inner">
+<p>$H(s)=\frac{\omega_n^2}{s^2+2\xi\omega_ns+\omega_n^2}=\frac1{s^2+s+1}$. Polos $-\frac12\pm j\frac{\sqrt3}2$. Sobreimpulso teórico $e^{-\pi\xi/\sqrt{1-\xi^2}}=16{,}3\,\%$.</p>
+<pre>Hs = tf(1, [1 1 1]);
+for T = [0.1 1]
+  Hz = c2d(Hs, T, 'tustin');  [b, a] = tfdata(Hz, 'v')
+  figure; step(Hs, Hz, 15); title(['T = ' num2str(T)])
+end</pre>
+<div class="tw"><table><tr><th>$T$</th><th>numerador $b$</th><th>denominador $a$</th></tr>
+<tr><td>0,1</td><td>0,0023753 · [1 2 1]</td><td>[1 −1,895487 0,904988]</td></tr>
+<tr><td>1</td><td>$\frac17$ · [1 2 1]</td><td>[1 −0,857143 0,428571]</td></tr></table></div>
+<p>Con $T=1$ a mano: $s=2\frac{z-1}{z+1}$ da $4(z-1)^2+2(z-1)(z+1)+(z+1)^2=7z^2-6z+3$. Dividido por 7 sale $1-\frac67z^{-1}+\frac37z^{-2}$, igual que la tabla.</p>
+<p><b>Interpretación.</b> Con $T=0{,}1$ hay unas 72 muestras por periodo de oscilación ($\frac{2\pi}{0{,}866\cdot0{,}1}$): la discreta es indistinguible de la continua. Con $T=1$ solo hay unas 7. La forma general se mantiene y el valor final sigue siendo 1, pero el pico y el instante del pico se desplazan. Regla práctica: toma de 10 a 20 muestras por tiempo de subida.</p>
+<button type="button" class="lab-load" data-pane="ld" data-set='{"ld-tipo":"2o","ld-k":"1","ld-wn":"1","ld-xi":"0.5","ld-T":"1","ld-met":"tustin"}'>Abrir en el simulador con T = 1</button>
+</div></details>
+
+<h3>Práctica · Ecuaciones en diferencias con condiciones iniciales (<code>filter</code> + <code>filtic</code>)</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Qué hace <code>filtic</code> y por qué hace falta</span></summary><div class="inner">
+<p><code>filter(b,a,x)</code> supone que el sistema parte del reposo: $y[-1]=y[-2]=\dots=0$. Si el enunciado da condiciones iniciales, tienes que pasarlas a los <b>estados internos</b> de la forma directa II traspuesta. Esa conversión es <code>zi = filtic(b, a, [y(-1) y(-2) ...], [x(-1) x(-2) ...])</code>. Después se llama a <code>y = filter(b, a, x, zi)</code>.</p>
+<p>Fórmula, con $N$ el orden: $\;z_i=\sum_{k=i}^{N}\big(b_k\,x[i-1-k]-a_k\,y[i-1-k]\big)$, para $i=1,\dots,N$.</p>
+<p><b>Cuidado con el orden del vector</b>: es $[y(-1)\; y(-2)\; y(-3)]$, del más reciente al más antiguo.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw">Ejemplo A: $y[n]-0{,}5y[n-1]-0{,}1y[n-2]+0{,}2y[n-3]=x[n]$ con $y[-1]=1$, $y[-2]=2$, $y[-3]=3$</span></summary><div class="inner">
+<pre>pkg load signal
+b = 1;  a = [1 -0.5 -0.1 0.2];
+zi = filtic(b, a, [1 2 3])
+% zi =  0.1000  -0.3000  -0.2000
+n = 0:30;  x = zeros(size(n));        % respuesta libre (entrada nula)
+y = filter(b, a, x, zi);  stem(n, y); grid on</pre>
+<p>Comprobación a mano con $a_1=-0{,}5$, $a_2=-0{,}1$, $a_3=0{,}2$:</p>
+<ul><li>$z_1=-a_1y[-1]-a_2y[-2]-a_3y[-3]=0{,}5+0{,}2-0{,}6=0{,}1$</li>
+<li>$z_2=-a_2y[-1]-a_3y[-2]=0{,}1-0{,}4=-0{,}3$</li>
+<li>$z_3=-a_3y[-1]=-0{,}2$</li></ul>
+<p>La primera salida es $y[0]=z_1=0{,}1$. Coincide con la recurrencia directa: $y[0]=0{,}5\cdot1+0{,}1\cdot2-0{,}2\cdot3=0{,}1$.</p>
+<p><b>Interpretación.</b> Sin entrada, la salida es la <b>respuesta libre</b>, que decae a 0 porque los tres polos de $z^3-0{,}5z^2-0{,}1z+0{,}2$ están dentro del disco unidad.</p>
+<button type="button" class="lab-load" data-pane="lf" data-set='{"lf-b":"[1]","lf-a":"[1 -0.5 -0.1 0.2]","lf-yi":"[1 2 3]","lf-xi":"","lf-in":"imp","lf-n":"30"}'>Abrir en el simulador</button>
+<p class="muted" style="font-size:14px">En el simulador la entrada elegida es un impulso, así que verás libre + forzada. Para ver solo la libre, compara con la salida sin condiciones iniciales.</p>
+</div></details>
+<details class="paso"><summary><span class="pn">3</span><span class="pw">Ejemplo B: $y[n]-0{,}6y[n-1]+0{,}08y[n-2]=x[n-1]$ con $y[-1]=2$, $y[-2]=1$ y entrada escalón</span></summary><div class="inner">
+<p>El retardo de la entrada se pone con un cero delante: <code>b = [0 1]</code>.</p>
+<pre>b = [0 1];  a = [1 -0.6 0.08];
+zi = filtic(b, a, [2 1])
+% zi =  1.1200  -0.1600
+n = 0:25;  x = ones(size(n));
+y = filter(b, a, x, zi)
+% y = 1.1200  1.5120  1.8176  1.9696  2.0364 ...  -> 2.0833
+yzs = filter(b, a, x);                 % solo forzada (estado cero)
+yzi = filter(b, a, zeros(size(n)), zi); % solo libre (entrada cero)
+max(abs(y - (yzs + yzi)))              % 0: superposición
+stem(n, y); hold on; stem(n, yzs, 'r'); stem(n, yzi, 'g')</pre>
+<ul><li>A mano: $z_1=0{,}6\cdot2-0{,}08\cdot1=1{,}12$ y $z_2=-0{,}08\cdot2=-0{,}16$.</li>
+<li>$y[0]=0{,}6\cdot2-0{,}08\cdot1+x[-1]=1{,}12$, con $x[-1]=0$.</li>
+<li>$y[1]=0{,}6\cdot1{,}12-0{,}08\cdot2+1=1{,}512$.</li></ul>
+<p><b>Interpretación.</b> Los polos son $0{,}4$ y $0{,}2$. Valor final $H(1)=\frac{1}{1-0{,}6+0{,}08}=\frac1{0{,}48}=2{,}0833$: <b>las condiciones iniciales no cambian el valor final</b>, solo el transitorio. La respuesta total es la suma de la libre y la forzada.</p>
+<button type="button" class="lab-load" data-pane="lf" data-set='{"lf-b":"[0 1]","lf-a":"[1 -0.6 0.08]","lf-yi":"[2 1]","lf-xi":"","lf-in":"esc","lf-n":"25"}'>Abrir en el simulador</button>
+</div></details>
+
+<h3>Práctica · Transformada Z inversa y respuesta en frecuencia</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw"><code>residuez</code> paso a paso con el ejemplo $H=\frac{4z^{-2}}{4-z^{-2}}$</span></summary><div class="inner">
+<pre>[r, p, k] = residuez([0 0 4], [4 0 -1])
+% r = -2  2   p = -0.5  0.5   k = -4  (el orden de r y p puede variar)
+h = impz([0 0 4], [4 0 -1], 10)'       % 0 0 1 0 0.25 0 0.0625 ...</pre>
+<p>Se lee así: $H=k+\sum\frac{r_i}{1-p_iz^{-1}}=-4+\frac{2}{1-0{,}5z^{-1}}+\frac{2}{1+0{,}5z^{-1}}$. Con ROC $|z|&gt;0{,}5$ (sistema causal), $h[n]=-4\delta[n]+2(0{,}5)^n+2(-0{,}5)^n$. En $n=0$ da $-4+2+2=0$ y en $n=2$ da $2\cdot0{,}25\cdot2=1$, igual que <code>impz</code>.</p>
+<p>Si salen polos complejos, <code>abs(p)</code> y <code>angle(p)</code> dan la forma $r^n\cos(\theta n+\varphi)$. Los residuos conjugados $c$, $c^*$ aportan $2|c|\,r^n\cos(\theta n+\arg c)$.</p>
+<button type="button" class="lab-load" data-pane="lr" data-set='{"lr-b":"[0 0 4]","lr-a":"[4 0 -1]"}'>Abrir en el simulador</button>
+<button type="button" class="lab-load" data-pane="lr" data-set='{"lr-b":"[0 0 1]","lr-a":"[1 -0.9 0.7]"}'>Polos complejos: $\frac1{z^2-0{,}9z+0{,}7}$</button>
+</div></details>
+<details class="paso"><summary><span class="pn">2</span><span class="pw"><code>freqz</code>: qué filtro es</span></summary><div class="inner">
+<pre>[H, w] = freqz(b, a, 512);
+plot(w/pi, 20*log10(abs(H))); grid on; xlabel('\Omega/\pi'); ylabel('dB')</pre>
+<p>$\Omega=0$ es la continua y $\Omega=\pi$ es la frecuencia de Nyquist ($f_s/2$).</p>
+<ul><li>Con el filtro Tustin del ejercicio 1, $|H(e^{j0})|=1$ (0 dB) y en $\Omega=\pi$ hay un cero exacto (el cero en $z=-1$): es un <b>paso bajo</b>.</li>
+<li>Para pasar a hercios: $f=\frac{\Omega}{2\pi T}$.</li></ul>
+<button type="button" class="lab-load" data-pane="lz" data-set='{"lz-b":"[0.010309 0.020619 0.010309]","lz-a":"[1 -1.628866 0.670103]"}'>Abrir en el simulador</button>
+</div></details>
+
+<h3>Práctica · Sistema de datos muestreados en lazo cerrado</h3>
+<details class="paso"><summary><span class="pn">1</span><span class="pw">Planta con ZOH, controlador y realimentación unitaria</span></summary><div class="inner">
+<pre>pkg load control
+T  = 1;
+Gs = tf(1, [1 1 0]);                 % 1/(s(s+1))
+Gz = c2d(Gs, T, 'zoh')               % (0.3679 z + 0.2642)/(z^2 - 1.368 z + 0.3679)
+H  = feedback(Gz, 1)                 % Gc = 1
+pole(H)                              % 0.5 ± 0.618i, |z| = 0.795
+[y, k] = step(H, 20);  stairs(k, y); grid on
+% y = 0  0.368  1  1.400  1.400  1.147  0.894  0.802 ...</pre>
+<p><b>Interpretación.</b> Los polos tienen módulo $0{,}795&lt;1$: estable. La planta tiene un integrador (tipo 1), así que el error al escalón es 0 y el valor final es 1. El sobreimpulso es del 40 %, bastante más que en continua: el retenedor añade un retardo efectivo de $T/2$ que resta margen de fase.</p>
+<button type="button" class="lab-load" data-pane="ll" data-set='{"ll-num":"[1]","ll-den":"[1 1 0]","ll-T":"1","ll-c":"P","ll-K":"1"}'>Abrir en el simulador</button>
+<button type="button" class="lab-load" data-pane="ll" data-set='{"ll-num":"[1]","ll-den":"[1 1 0]","ll-T":"1","ll-c":"DB"}'>Mismo caso con deadbeat</button>
+</div></details>
+
+<figure class="fig" id="lab-root">
+<p class="ft">Simulador · laboratorio Octave en el navegador</p>
+<div class="lab-tabs" role="tablist">
+<button type="button" class="lab-tab on" role="tab" aria-selected="true" data-pane="lc-pane">conv</button>
+<button type="button" class="lab-tab" role="tab" aria-selected="false" data-pane="lf-pane">filter + filtic</button>
+<button type="button" class="lab-tab" role="tab" aria-selected="false" data-pane="lr-pane">residuez</button>
+<button type="button" class="lab-tab" role="tab" aria-selected="false" data-pane="ld-pane">c2d</button>
+<button type="button" class="lab-tab" role="tab" aria-selected="false" data-pane="lz-pane">freqz</button>
+<button type="button" class="lab-tab" role="tab" aria-selected="false" data-pane="ll-pane">lazo cerrado</button>
+</div>
+
+<div class="lab-pane" id="lc-pane">
+<div class="ctrl"><label>x <input type="text" id="lc-x" value="[-1 3 -1 -2]"></label><label>empieza en n = <input type="number" id="lc-nx" value="-1" class="lab-num"></label></div>
+<div class="ctrl"><label>h <input type="text" id="lc-h" value="[-2 2 0 -1 1]"></label><label>empieza en n = <input type="number" id="lc-nh" value="-1" class="lab-num"></label><button type="button" id="lc-run">Ejecutar</button></div>
+<div id="lc-plot"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lc-code"></pre></div><div><p class="lab-h">Salida</p><pre id="lc-out" class="lab-out"></pre></div></div>
+</div>
+
+<div class="lab-pane" id="lf-pane" hidden>
+<div class="ctrl"><label>num (z⁻¹) <input type="text" id="lf-b" value="[0 1]"></label><label>den (z⁻¹) <input type="text" id="lf-a" value="[1 -0.6 0.08]"></label></div>
+<div class="ctrl"><label>[y(−1) y(−2) …] <input type="text" id="lf-yi" value="[2 1]"></label><label>[x(−1) …] <input type="text" id="lf-xi" value="" placeholder="vacío = 0"></label></div>
+<div class="ctrl"><label>entrada <select id="lf-in"><option value="imp">impulso δ[n]</option><option value="esc" selected>escalón u[n]</option><option value="ramp">rampa n·u[n]</option><option value="exp">exponencial αⁿu[n]</option></select></label><label class="onlyexp">α <input type="number" id="lf-al" value="0.5" step="0.1" class="lab-num"></label><label>muestras <input type="number" id="lf-n" value="25" min="5" max="80" class="lab-num"></label><button type="button" id="lf-run">Ejecutar</button></div>
+<div id="lf-plot"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lf-code"></pre></div><div><p class="lab-h">Salida</p><pre id="lf-out" class="lab-out"></pre></div></div>
+</div>
+
+<div class="lab-pane" id="lr-pane" hidden>
+<div class="ctrl"><label>num (z⁻¹) <input type="text" id="lr-b" value="[0 0 4]"></label><label>den (z⁻¹) <input type="text" id="lr-a" value="[4 0 -1]"></label><button type="button" id="lr-run">Ejecutar</button></div>
+<div class="figrow lab-row"><div id="lr-zp"></div><div id="lr-plot"></div></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lr-code"></pre></div><div><p class="lab-h">Salida</p><pre id="lr-out" class="lab-out"></pre></div></div>
+</div>
+
+<div class="lab-pane" id="ld-pane" hidden>
+<div class="ctrl"><label>planta <select id="ld-tipo"><option value="2o">2.º orden K·ωn²/(s²+2ξωn s+ωn²)</option><option value="g">G(s) cualquiera</option></select></label></div>
+<div class="ctrl only2"><label>K <input type="number" id="ld-k" value="1" step="0.1" class="lab-num"></label><label>ωn <input type="number" id="ld-wn" value="1" step="0.1" class="lab-num"></label><label>ξ <input type="number" id="ld-xi" value="0.5" step="0.05" class="lab-num"></label></div>
+<div class="ctrl onlyg"><label>num (s) <input type="text" id="ld-num" value="[5]"></label><label>den (s) <input type="text" id="ld-den" value="[1 4 5]"></label></div>
+<div class="ctrl"><label>T <input type="number" id="ld-T" value="0.1" step="0.05" min="0.001" class="lab-num"></label><label>método <select id="ld-met"><option value="tustin">'tustin' (bilineal)</option><option value="zoh">'zoh' (retenedor)</option></select></label><button type="button" id="ld-run">Ejecutar</button></div>
+<div id="ld-plot"></div>
+<p class="lab-leg"><span class="lg s2"></span> continua &nbsp; <span class="lg s1"></span> discreta (muestras o escalera)</p>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="ld-code"></pre></div><div><p class="lab-h">Salida</p><pre id="ld-out" class="lab-out"></pre></div></div>
+</div>
+
+<div class="lab-pane" id="lz-pane" hidden>
+<div class="ctrl"><label>num (z⁻¹) <input type="text" id="lz-b" value="[0.010309 0.020619 0.010309]"></label><label>den (z⁻¹) <input type="text" id="lz-a" value="[1 -1.628866 0.670103]"></label><button type="button" id="lz-run">Ejecutar</button></div>
+<div id="lz-plot"></div><div id="lz-plot2"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="lz-code"></pre></div><div><p class="lab-h">Salida</p><pre id="lz-out" class="lab-out"></pre></div></div>
+</div>
+
+<div class="lab-pane" id="ll-pane" hidden>
+<div class="ctrl"><label>G(s) num <input type="text" id="ll-num" value="[1]"></label><label>den <input type="text" id="ll-den" value="[1 1 0]"></label><label>T <input type="number" id="ll-T" value="1" step="0.1" min="0.01" class="lab-num"></label></div>
+<div class="ctrl"><label>controlador <select id="ll-c"><option value="P">proporcional Kp</option><option value="PI">PI (integral rectangular)</option><option value="DB">deadbeat (Ragazzini, H = N(z)/zᵐ)</option></select></label><label class="onlyk">Kp <input type="number" id="ll-K" value="1" step="0.1" class="lab-num"></label><label class="onlypi">Ki <input type="number" id="ll-Ki" value="0.1" step="0.05" class="lab-num"></label><button type="button" id="ll-run">Ejecutar</button></div>
+<div id="ll-plot"></div>
+<div class="lab-io"><div><p class="lab-h">Código Octave</p><pre id="ll-code"></pre></div><div><p class="lab-h">Salida</p><pre id="ll-out" class="lab-out"></pre></div></div>
+</div>
+<figcaption>Escribe los vectores como en Octave (<code>[1 -0.5 0.06]</code>; valen fracciones como <code>1/7</code>) y pulsa Ejecutar o sal del campo. Los cálculos se hacen en el navegador con los mismos algoritmos que Octave: convolución directa, forma directa II traspuesta, raíces por iteración de Durand–Kerner y ZOH por exponencial de matriz. Los resultados coinciden con Octave hasta la 4.ª cifra. Con polos múltiples, <code>residuez</code> necesita términos de orden superior y aquí solo se avisa.</figcaption>
+</figure>
+
+<div class="box trap"><h4>Qué se suele pedir en la parte de laboratorio</h4><ul>
+<li>Pasar de $H(s)$ a $H(z)$ con <code>c2d</code> y escribir la <b>ecuación en diferencias</b>.</li>
+<li>Programar esa ecuación con un bucle (forma directa I o II) y comprobarla con <code>filter</code>.</li>
+<li>Incluir <b>condiciones iniciales</b> con <code>filtic</code>. El vector va en orden $y(-1), y(-2), \dots$</li>
+<li>Dar $h[n]$ en forma cerrada a partir de <code>residuez</code> y comprobar las primeras muestras con <code>impz</code>.</li>
+<li>Interpretar: estabilidad por los polos, valor final con $H(1)$ y efecto de $T$ sobre la respuesta.</li></ul></div>
+</section>
+<!--/lab-->
 <section class="sec" style="--tc:var(--c8);--tcs:var(--c8s)">
 <div class="sh"><span class="badge" aria-hidden="true">EP1</span><div class="shx"><p class="kick">Practicar</p><h2 id="ep1-2026">EP1 del 3-11-2026, resuelto</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag w">el examen de este curso</span></div></div></div>
 <div class="box key">
@@ -6034,6 +6269,8 @@ const parse=v=>{const t=String(v).trim().replace(',','.');return t===''?NaN:Numb
 })();
 })();
 </script>
+
+
 <script>/*exnav-js*/(function(){
   function abrir(){
     var id=decodeURIComponent((location.hash||'').slice(1));if(!id)return;
@@ -6069,6 +6306,191 @@ const parse=v=>{const t=String(v).trim().replace(',','.');return t===''?NaN:Numb
     [].forEach.call(fil.querySelectorAll('.exf'),function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
     b.classList.add('on');b.setAttribute('aria-pressed','true');f=b.dataset.f;aplica();});});
   q.addEventListener('input',aplica);
+})();
+</script>
+<script>/*lab-js*/(function(){
+/* ===== Laboratorio Octave: simuladores de las prácticas ===== */
+const $=id=>document.getElementById(id);
+if(!document.getElementById('lab-root')) return;
+/* ---------- números ---------- */
+function tok(s){s=s.trim();if(!s)return NaN;let m=s.match(/^(-?[\d.]+)\/([\d.]+)$/);if(m)return parseFloat(m[1])/parseFloat(m[2]);
+  m=s.match(/^(-?[\d.]*)e\^?\(?(-?[\d.]+)\)?$/i);return parseFloat(s.replace(',','.'));}
+function vec(s){s=String(s).replace(/[\[\]]/g,' ').replace(/;/g,' ');const parts=s.split(/[\s,]+/).filter(x=>x.length);return parts.map(p=>{const v=p.includes('/')?(()=>{const [a,b]=p.split('/');return parseFloat(a)/parseFloat(b);})():parseFloat(p);return v;});}
+function okv(v){return v.length&&v.every(x=>isFinite(x));}
+function fnum(v){if(Math.abs(v)<5e-13)v=0;if(Number.isInteger(v)&&Math.abs(v)<1e6)return String(v);const a=Math.abs(v);if(a>=1e5||a<1e-4)return v.toExponential(4).replace('e','e');return (a<1?+v.toPrecision(5):+v.toFixed(4)).toString();}
+function fc(re,im){if(Math.abs(im)<1e-9)return fnum(re);return fnum(re)+(im<0?' - ':' + ')+fnum(Math.abs(im))+'i';}
+function octVec(name,v){return name+' =\n\n'+'   '+v.map(fnum).join('   ')+'\n';}
+function octCol(name,arr){return name+' =\n\n'+arr.map(x=>'   '+x).join('\n')+'\n';}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+/* ---------- polinomios / señales ---------- */
+function conv(a,b){const r=new Array(a.length+b.length-1).fill(0);a.forEach((x,i)=>b.forEach((y,j)=>{r[i+j]+=x*y;}));return r;}
+function filter(b,a,x,zi){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);const n=Math.max(a.length,b.length);while(b.length<n)b.push(0);while(a.length<n)a.push(0);
+  const z=new Array(n).fill(0);if(zi)zi.forEach((v,i)=>{if(i<n-1)z[i]=v;});const y=[];
+  for(const xn of x){const yn=b[0]*xn+z[0];for(let i=1;i<n;i++){z[i-1]=b[i]*xn+z[i]-a[i]*yn;}z[n-1]=0;y.push(yn);}return y;}
+function filtic(b,a,yp,xp){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);const n=Math.max(a.length,b.length)-1;if(n<1)return[];
+  const B=b.concat(new Array(n+1-b.length).fill(0)),A=a.concat(new Array(n+1-a.length).fill(0));
+  const y=k=>(k>=1&&k<=yp.length)?yp[k-1]:0, x=k=>(xp&&k>=1&&k<=xp.length)?xp[k-1]:0;
+  const z=[];for(let i=1;i<=n;i++){let s=0;for(let k=i;k<=n;k++){s+=B[k]*x(k-i+1)-A[k]*y(k-i+1);}z.push(s);}return z;}
+function cmul(a,b){return [a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0]];}
+function cdiv(a,b){const d=b[0]*b[0]+b[1]*b[1];return [(a[0]*b[0]+a[1]*b[1])/d,(a[1]*b[0]-a[0]*b[1])/d];}
+function roots(c){c=c.slice();while(c.length&&Math.abs(c[0])<1e-14)c.shift();let zeros=[];while(c.length>1&&Math.abs(c[c.length-1])<1e-14){c.pop();zeros.push([0,0]);}
+  const n=c.length-1;if(n<1)return zeros;const a=c.map(v=>v/c[0]);let z=[];for(let i=0;i<n;i++){const ang=2*Math.PI*i/n+0.4;z.push([0.9*Math.cos(ang),0.9*Math.sin(ang)]);}
+  const ev=x=>{let r=[1,0];for(let i=1;i<=n;i++){r=cmul(r,x);r=[r[0]+a[i],r[1]];}return r;};
+  for(let it=0;it<800;it++){z=z.map((zi,i)=>{let den=[1,0];z.forEach((zj,j)=>{if(i!==j)den=cmul(den,[zi[0]-zj[0],zi[1]-zj[1]]);});const q=cdiv(ev(zi),den);return [zi[0]-q[0],zi[1]-q[1]];});}
+  z=z.map(([r,i])=>[Math.abs(r)<1e-10?0:r,Math.abs(i)<1e-8?0:i]);return z.concat(zeros);}
+function pval(c,z){let r=[0,0];for(const v of c){r=cmul(r,z);r=[r[0]+v,r[1]];}return r;}
+function deconv(b,a){b=b.slice();const q=[];for(let i=0;i<=b.length-a.length;i++){const f=b[i]/a[0];q.push(f);for(let j=0;j<a.length;j++)b[i+j]-=f*a[j];}return [q,b.slice(b.length-a.length+1)];}
+function residuez(b,a){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);let k=[];
+  if(b.length>=a.length){const [q,r]=deconv(b.slice().reverse(),a.slice().reverse());k=q.reverse();b=r.reverse();}
+  const N=a.length-1;const p=roots(a);
+  let mult=false;for(let i=0;i<p.length;i++)for(let j=i+1;j<p.length;j++)if(Math.hypot(p[i][0]-p[j][0],p[i][1]-p[j][1])<1e-4)mult=true;
+  const r=p.map((pi,i)=>{const zinv=cdiv([1,0],pi);let num=[0,0];let zp=[1,0];for(let m=0;m<b.length;m++){num=[num[0]+b[m]*zp[0],num[1]+b[m]*zp[1]];zp=cmul(zp,zinv);}
+    let den=[1,0];p.forEach((pj,j)=>{if(j!==i)den=cmul(den,[1-cmul(pj,zinv)[0],-cmul(pj,zinv)[1]]);});return cdiv(num,den);});
+  return {r,p,k,mult};}
+function polyAdd(a,b){const L=Math.max(a.length,b.length);const A=new Array(L-a.length).fill(0).concat(a),B=new Array(L-b.length).fill(0).concat(b);return A.map((v,i)=>v+B[i]);}
+function polyPow(p,n){let r=[1];for(let i=0;i<n;i++)r=conv(r,p);return r;}
+/* c2d tustin */
+function tustin(num,den,T){const n=Math.max(num.length,den.length)-1;const K=2/T;
+  const tr=c=>{const m=c.length-1;let out=[0];c.forEach((ci,i)=>{const kk=m-i;out=polyAdd(out,conv([ci*Math.pow(K,kk)],conv(polyPow([1,-1],kk),polyPow([1,1],n-kk))));});return out;};
+  let B=tr(num),A=tr(den);const a0=A[0];return [B.map(v=>v/a0),A.map(v=>v/a0)];}
+/* c2d zoh vía espacio de estados */
+function matMul(A,B){return A.map(r=>B[0].map((_,j)=>r.reduce((s,v,k)=>s+v*B[k][j],0)));}
+function expm(M){const n=M.length;let nrm=0;M.forEach(r=>r.forEach(v=>nrm=Math.max(nrm,Math.abs(v))));let s=Math.max(0,Math.ceil(Math.log2(nrm*n+1))+2);const A=M.map(r=>r.map(v=>v/Math.pow(2,s)));
+  let E=A.map((r,i)=>r.map((_,j)=>i===j?1:0)),term=E.map(r=>r.slice());for(let k=1;k<20;k++){term=matMul(term,A).map(r=>r.map(v=>v/k));E=E.map((r,i)=>r.map((v,j)=>v+term[i][j]));}
+  for(let i=0;i<s;i++)E=matMul(E,E);return E;}
+function zoh(num,den,T){const a0=den[0];den=den.map(v=>v/a0);num=num.map(v=>v/a0);const n=den.length-1;if(n<1)return [num,[1]];
+  while(num.length<den.length)num.unshift(0);const D=num[0];const nb=num.map((v,i)=>v-D*den[i]).slice(1);
+  const A=[];for(let i=0;i<n;i++){A.push(new Array(n).fill(0));}for(let j=0;j<n;j++)A[0][j]=-den[j+1];for(let i=1;i<n;i++)A[i][i-1]=1;
+  const M=[];for(let i=0;i<=n;i++){M.push(new Array(n+1).fill(0));}for(let i=0;i<n;i++)for(let j=0;j<n;j++)M[i][j]=A[i][j]*T;M[0][n]=T;
+  const E=expm(M);const Ad=E.slice(0,n).map(r=>r.slice(0,n)),Bd=E.slice(0,n).map(r=>[r[n]]);const C=[nb];
+  // polinomio característico de Ad (Faddeev-LeVerrier)
+  let Mk=Ad.map((r,i)=>r.map((_,j)=>0)),cp=[1];let I=Ad.map((r,i)=>r.map((_,j)=>i===j?1:0));let Mprev=null;let c=1;
+  let Mm=I.map(r=>r.slice());cp=[1];let ck=1;for(let k=1;k<=n;k++){const AM=matMul(Ad,Mm);let tr=0;for(let i=0;i<n;i++)tr+=AM[i][i];ck=-tr/k;cp.push(ck);Mm=AM.map((r,i)=>r.map((v,j)=>v+(i===j?ck:0)));}
+  // parámetros de Markov
+  const h=[D];let x=Bd;for(let k=1;k<=n;k++){h.push(matMul(C,x)[0][0]);x=matMul(Ad,x);}
+  const B=[];for(let k=0;k<=n;k++){let s=0;for(let i=0;i<=k;i++)s+=cp[i]*h[k-i];B.push(s);}
+  return [B,cp];}
+function polyStrZ(c,v){v=v||'z';const n=c.length-1;let s='';c.forEach((x,i)=>{if(Math.abs(x)<1e-12)return;const e=n-i;const sg=x<0?' − ':(s?' + ':'');const m=Math.abs(x);const num=(Math.abs(m-1)<1e-12&&e>0)?'':fnum(m);s+=sg+num+(e>1?v+'^'+e:(e===1?v:''));});return s||'0';}
+function polyStrInv(c){let s='';c.forEach((x,i)=>{if(Math.abs(x)<1e-12)return;const sg=x<0?' − ':(s?' + ':'');const m=Math.abs(x);const num=(Math.abs(m-1)<1e-12&&i>0)?'':fnum(m);s+=sg+num+(i>1?'z⁻'+['','','²','³','⁴','⁵','⁶'][i]:(i===1?'z⁻¹':''));});return s||'0';}
+const sup=['⁰','¹','²','³','⁴','⁵','⁶','⁷','⁸','⁹'];
+function diffEq(b,a){const a0=a[0];b=b.map(v=>v/a0);a=a.map(v=>v/a0);let s='y[n] = ';const t=[];
+  b.forEach((v,i)=>{if(Math.abs(v)>1e-12)t.push((v<0?'− ':'+ ')+fnum(Math.abs(v))+'·x[n'+(i?'−'+i:'')+']');});
+  a.forEach((v,i)=>{if(i&&Math.abs(v)>1e-12)t.push((-v<0?'− ':'+ ')+fnum(Math.abs(v))+'·y[n−'+i+']');});
+  return s+t.join(' ').replace(/^\+ /,'');}
+/* ---------- gráficas ---------- */
+function plot(el,o,items){const P=window.CXC&&window.CXC.plotSVG;if(!P){el.textContent='(gráfica no disponible)';return;}el.innerHTML=P(o,items);}
+function nice(lo,hi){if(!isFinite(lo)||!isFinite(hi))return [-1,1];if(Math.abs(hi-lo)<1e-9){lo-=1;hi+=1;}const pad=(hi-lo)*0.12;return [Math.min(0,lo-pad),Math.max(0,hi+pad)];}
+function ticks(lo,hi){const st=Math.pow(10,Math.floor(Math.log10((hi-lo)/2||1)));let s=st;for(const m of [1,2,5,10]){if((hi-lo)/(st*m)<=5){s=st*m;break;}}const r=[];for(let v=Math.ceil(lo/s)*s;v<=hi+1e-9;v+=s)r.push(+v.toFixed(6));return r;}
+function stemPlot(el,n,ys,o){o=o||{};let lo=Math.min(...ys.flat()),hi=Math.max(...ys.flat());[lo,hi]=nice(lo,hi);
+  const items=ys.map((y,i)=>({t:o.stairs&&i>0?'step':'stem',n,x:n,y,c:['s1','s2','s3'][i]}));
+  plot(el,{x0:n[0]-0.6,x1:n[n.length-1]+0.6,y0:lo,y1:hi,yt:ticks(lo,hi),xt:ticks(n[0],n[n.length-1]).filter(v=>Number.isInteger(v)),xl:'n',yl:o.yl||'',h:o.h||220,label:o.label||'secuencia'},items);}
+/* ---------- consola ---------- */
+function out(id,code,res){$(id+'-code').textContent=code;$(id+'-out').textContent=res;}
+function err(id,msg){$(id+'-out').textContent='error: '+msg;}
+/* A. convolución con índices */
+function runConv(){const x=vec($('lc-x').value),h=vec($('lc-h').value),nx0=parseInt($('lc-nx').value)||0,nh0=parseInt($('lc-nh').value)||0;
+  if(!okv(x)||!okv(h))return err('lc','escribe x y h como vectores, por ejemplo [-1 3 -1 -2]');
+  const y=conv(x,h),ny0=nx0+nh0,ny=y.map((_,i)=>ny0+i);
+  const code=`x  = [${x.map(fnum).join(' ')}];  nx = ${nx0}:${nx0+x.length-1};\nh  = [${h.map(fnum).join(' ')}];  nh = ${nh0}:${nh0+h.length-1};\ny  = conv(x, h);\nny = (nx(1)+nh(1)) : (nx(end)+nh(end));\nstem(ny, y); grid on; xlabel('n')`;
+  out('lc',code,'>> y = conv(x, h)\n'+octVec('y',y)+'\n>> ny\n'+octVec('ny',ny)+`\nLongitud: N + M − 1 = ${x.length} + ${h.length} − 1 = ${y.length}; empieza en n = ${nx0} + ${nh0} = ${ny0}.`);
+  stemPlot($('lc-plot'),ny,[y],{yl:'y[n]',label:'convolución'});}
+/* B. filter + filtic */
+function runFilt(){const b=vec($('lf-b').value),a=vec($('lf-a').value);const yp=$('lf-yi').value.trim()?vec($('lf-yi').value):[];const xp=$('lf-xi').value.trim()?vec($('lf-xi').value):[];
+  const N=Math.max(5,Math.min(80,parseInt($('lf-n').value)||20));const tipo=$('lf-in').value;
+  if(!okv(b)||!okv(a)||a[0]===0)return err('lf','num y den deben ser vectores y den(1) no puede ser 0');
+  let x,xs;const n=[...Array(N).keys()];
+  if(tipo==='imp'){x=n.map(k=>k===0?1:0);xs='[1 zeros(1,'+(N-1)+')]';}
+  else if(tipo==='esc'){x=n.map(()=>1);xs='ones(1,'+N+')';}
+  else if(tipo==='ramp'){x=n.slice();xs='0:'+(N-1);}
+  else {const al=parseFloat($('lf-al').value)||0.5;x=n.map(k=>Math.pow(al,k));xs='('+fnum(al)+').^(0:'+(N-1)+')';}
+  const zi=(yp.length||xp.length)?filtic(b,a,yp,xp):null;const y=filter(b,a,x,zi);
+  let code=`num = [${b.map(fnum).join(' ')}];\nden = [${a.map(fnum).join(' ')}];\nx   = ${xs};\n`;
+  let res='';
+  if(zi){code+=`zi  = filtic(num, den, [${yp.map(fnum).join(' ')}]${xp.length?`, [${xp.map(fnum).join(' ')}]`:''});   % [y(-1) y(-2) ...]\ny   = filter(num, den, x, zi);\n`;res+='>> zi = filtic(num, den, ...)\n'+octVec('zi',zi)+'\n';}
+  else code+='y   = filter(num, den, x);\n';
+  code+=`stem(0:${N-1}, y); grid on`;
+  res+='>> y = filter(...)   % primeras muestras\n'+octVec('y',y.slice(0,Math.min(N,12)))+'\n'+diffEq(b,a);
+  const pp=roots(a);const st=pp.every(p=>Math.hypot(...p)<1-1e-9);res+='\nPolos: '+pp.map(p=>fc(...p)).join(', ')+'  → '+(st?'estable (todos dentro del disco)':'NO estable');
+  if(st&&tipo==='esc'){const g=b.reduce((s,v)=>s+v,0)/a.reduce((s,v)=>s+v,0);res+=`\nValor final con escalón: H(1) = ${fnum(g)}`;}
+  out('lf',code,res);stemPlot($('lf-plot'),n,[y],{yl:'y[n]',label:'salida de filter'});}
+/* C. residuez */
+function runRes(){const b=vec($('lr-b').value),a=vec($('lr-a').value);const N=20;
+  if(!okv(b)||!okv(a)||a[0]===0)return err('lr','num y den deben ser vectores (potencias de z⁻¹) y den(1) ≠ 0');
+  const R=residuez(b,a);const n=[...Array(N).keys()];const h=filter(b,a,n.map(k=>k===0?1:0));
+  let res='>> [r, p, k] = residuez(num, den)\n';
+  if(R.mult)res+='(hay polos múltiples: los residuos de abajo no valen; usa términos 1/(1−p z⁻¹)ᵐ)\n';
+  res+=octCol('r',R.r.map(c=>fc(...c)))+'\n'+octCol('p',R.p.map(c=>fc(...c)))+'\n'+(R.k.length?octVec('k',R.k):'k = [](0x0)\n');
+  // forma cerrada
+  const terms=[];const used=new Set();
+  R.p.forEach((p,i)=>{if(used.has(i))return;const r=R.r[i];if(Math.abs(p[1])<1e-9){terms.push(`${fnum(r[0])}·(${fnum(p[0])})ⁿ`);}else{let j=R.p.findIndex((q,jj)=>jj!==i&&Math.abs(q[0]-p[0])<1e-6&&Math.abs(q[1]+p[1])<1e-6);if(j>=0)used.add(j);
+    const m=Math.hypot(...p),th=Math.atan2(p[1],p[0]),cm=Math.hypot(...r),ca=Math.atan2(r[1],r[0]);terms.push(`${fnum(2*cm)}·(${fnum(m)})ⁿ·cos(${fnum(Math.abs(th))}n ${(th>0?ca:-ca)<0?'−':'+'} ${fnum(Math.abs(th>0?ca:-ca))})`);}used.add(i);});
+  let kk=R.k.map((v,i)=>Math.abs(v)>1e-12?`${fnum(v)}·δ[n${i?'−'+i:''}]`:'').filter(Boolean);
+  res+='\nSi la ROC es |z| > máx|p| (sistema causal):\nh[n] = '+kk.concat(terms.map(t=>t+'·u[n]')).join(' + ').replace(/\+ −/g,'− ')+'\n\n>> h = impz(num, den, '+N+')   % o filter con un impulso\n'+octVec('h',h.slice(0,10));
+  const code=`pkg load signal                 % solo en Octave\nnum = [${b.map(fnum).join(' ')}];     % potencias de z^-1\nden = [${a.map(fnum).join(' ')}];\n[r, p, k] = residuez(num, den)\nabs(p), angle(p)                 % forma polar si son complejos\nh = filter(num, den, [1 zeros(1,${N-1})]);\nstem(0:${N-1}, h); grid on`;
+  out('lr',code,res);stemPlot($('lr-plot'),n,[h],{yl:'h[n]',label:'respuesta impulsiva'});
+  const zp=window.CXC&&window.CXC.zplaneSVG;if(zp){const zz=roots(b.slice().concat(new Array(Math.max(0,a.length-b.length)).fill(0)));$('lr-zp').innerHTML=zp(R.p,zz.filter(z=>Math.hypot(...z)<50),Math.max(1.4,...R.p.map(p=>Math.hypot(...p)+0.2)));}}
+/* D. discretización */
+function runC2d(){let num,den;const modo=$('ld-tipo').value;
+  if(modo==='2o'){const K=parseFloat($('ld-k').value),wn=parseFloat($('ld-wn').value),xi=parseFloat($('ld-xi').value);num=[K*wn*wn];den=[1,2*xi*wn,wn*wn];$('ld-num').value='['+fnum(num[0])+']';$('ld-den').value='['+den.map(fnum).join(' ')+']';}
+  else{num=vec($('ld-num').value);den=vec($('ld-den').value);}
+  const T=parseFloat($('ld-T').value),met=$('ld-met').value;
+  if(!okv(num)||!okv(den)||!(T>0))return err('ld','revisa num, den (en potencias de s) y T > 0');
+  if(num.length>den.length)return err('ld','la función continua debe ser propia (grado del numerador ≤ grado del denominador)');
+  const [B,A]=met==='tustin'?tustin(num,den,T):zoh(num,den,T);
+  const tf=Math.max(T*30,Math.min(60,10/(Math.abs(den[den.length-2]/den[den.length-1])||1)*2));const N=Math.min(120,Math.ceil(tf/T));const n=[...Array(N+1).keys()];
+  const yd=filter(B,A,n.map(()=>1));const Tf=T/25;const [Bf,Af]=zoh(num,den,Tf);const Nf=N*25;const yc=filter(Bf,Af,new Array(Nf+1).fill(1));
+  const code=`pkg load control                 % solo en Octave\nGs = tf([${num.map(fnum).join(' ')}], [${den.map(fnum).join(' ')}]);\nGz = c2d(Gs, ${fnum(T)}, '${met}')\n[numz, denz] = tfdata(Gz, 'v');\nstep(Gs); hold on; step(Gz)        % continua frente a discreta`;
+  let res=`>> Gz = c2d(Gs, ${fnum(T)}, '${met}')\n\nTransfer function:\n  ${polyStrZ(B)}\n  ${'-'.repeat(30)}\n  ${polyStrZ(A)}\n\nSampling time: ${fnum(T)} s\n\nEn potencias de z⁻¹:  H(z) = (${polyStrInv(B)}) / (${polyStrInv(A)})\nEcuación en diferencias:  ${diffEq(B,A)}\n`;
+  const pz=roots(A);res+='Polos en z: '+pz.map(p=>fc(...p)).join(', ')+(met==='zoh'?'   (= e^{p·T} de los polos continuos)':'');
+  res+=`\nGanancia en continua: G(s=0) = ${fnum(num[num.length-1]/den[den.length-1])}, H(z=1) = ${fnum(B.reduce((s,v)=>s+v,0)/A.reduce((s,v)=>s+v,0))}`;
+  res+=`\n\nForma directa II (N = ${A.length-1} retardos):\n  w[n] = x[n]${A.slice(1).map((v,i)=>Math.abs(v)>1e-12?` ${-v<0?'−':'+'} ${fnum(Math.abs(v))}·w[n−${i+1}]`:'').join('')}\n  y[n] = ${B.map((v,i)=>Math.abs(v)>1e-12?`${v<0?'− ':'+ '}${fnum(Math.abs(v))}·w[n${i?'−'+i:''}]`:'').join(' ').replace(/^\+ /,'')}`;
+  out('ld',code,res);
+  const lo=Math.min(...yd,...yc),hi=Math.max(...yd,...yc);const [y0,y1]=nice(lo,hi);const tc=[...Array(Nf+1).keys()].map(k=>k*Tf);
+  plot($('ld-plot'),{x0:0,x1:N*T,y0,y1,yt:ticks(y0,y1),xt:ticks(0,N*T),xl:'t (s)',yl:'escalón',h:230,label:'respuesta al escalón continua y discreta'},[{t:'line',x:tc,y:yc,c:'s2'},N>50?{t:'step',x:n.map(k=>k*T),y:yd,c:'s1'}:{t:'stem',n:n.map(k=>k*T),y:yd,c:'s1',r:2.6}]);}
+/* E. freqz */
+function runFz(){const b=vec($('lz-b').value),a=vec($('lz-a').value);if(!okv(b)||!okv(a)||a[0]===0)return err('lz','num y den en potencias de z⁻¹');
+  const N=256;const W=[...Array(N+1).keys()].map(k=>Math.PI*k/N);const ev=(c,w)=>{let re=0,im=0;c.forEach((v,k)=>{re+=v*Math.cos(w*k);im-=v*Math.sin(w*k);});return [re,im];};
+  const H=W.map(w=>cdiv(ev(b,w),ev(a,w)));const mag=H.map(h=>20*Math.log10(Math.max(1e-6,Math.hypot(...h))));const ph=H.map(h=>Math.atan2(h[1],h[0])*180/Math.PI);
+  const code=`pkg load signal\nnum = [${b.map(fnum).join(' ')}];  den = [${a.map(fnum).join(' ')}];\n[H, w] = freqz(num, den, 512);\nsubplot(2,1,1); plot(w/pi, 20*log10(abs(H))); ylabel('|H| (dB)')\nsubplot(2,1,2); plot(w/pi, angle(H)*180/pi);   xlabel('\\Omega/\\pi')`;
+  const at=f=>{const i=Math.round(f*N);return `${fnum(Math.hypot(...H[i]))} (${fnum(mag[i])} dB, ${fnum(ph[i])}°)`;};
+  out('lz',code,`|H| en Ω = 0: ${at(0)}\n|H| en Ω = π/4: ${at(0.25)}\n|H| en Ω = π/2: ${at(0.5)}\n|H| en Ω = π: ${at(1)}\nMáximo: ${fnum(Math.max(...mag))} dB en Ω = ${fnum(W[mag.indexOf(Math.max(...mag))]/Math.PI)}π`);
+  let [l0,l1]=[Math.min(...mag),Math.max(...mag)];l0=Math.max(l0,l1-80);[l0,l1]=nice(l0,l1);
+  plot($('lz-plot'),{x0:0,x1:Math.PI,y0:l0,y1:l1,yt:ticks(l0,l1),xt:[0,Math.PI/4,Math.PI/2,3*Math.PI/4,Math.PI],xtf:v=>['0','π/4','π/2','3π/4','π'][Math.round(v/(Math.PI/4))],xl:'Ω',yl:'|H| dB',h:200,label:'módulo'},[{t:'line',x:W,y:mag,c:'s1'}]);
+  plot($('lz-plot2'),{x0:0,x1:Math.PI,y0:-180,y1:180,yt:[-180,-90,0,90,180],xt:[0,Math.PI/2,Math.PI],xtf:v=>['0','π/2','π'][Math.round(v/(Math.PI/2))],xl:'Ω',yl:'fase °',h:170,label:'fase'},[{t:'line',x:W,y:ph,c:'s2'}]);}
+/* F. lazo cerrado */
+function runLazo(){const num=vec($('ll-num').value),den=vec($('ll-den').value),T=parseFloat($('ll-T').value),ctl=$('ll-c').value,K=parseFloat($('ll-K').value)||1;
+  if(!okv(num)||!okv(den)||!(T>0))return err('ll','revisa la planta y T');
+  const [B,A]=zoh(num,den,T);let Gn,Gd,code,info='',clDB=null;
+  const Bt=B.slice();while(Bt.length&&Math.abs(Bt[0])<1e-12)Bt.shift();
+  if(ctl==='P'){Gn=conv([K],Bt);Gd=A;code=`Gc = ${fnum(K)};`;}
+  else if(ctl==='PI'){const Ki=parseFloat($('ll-Ki').value)||0.1;// Gc = K + Ki T z/(z-1)
+    const cn=[K+Ki*T,-K],cd=[1,-1];Gn=conv(cn,Bt);Gd=conv(cd,A);code=`Gc = ${fnum(K)} + ${fnum(Ki)}*${fnum(T)}*tf([1 0],[1 -1],${fnum(T)});   % PI: Kp + Ki·T·z/(z−1)`;info=`Controlador PI: Gc(z) = (${polyStrZ(cn)}) / (${polyStrZ(cd)})\n`;}
+  else {// deadbeat: Gc = Kd*Dp/(z^m - Kd*Np)
+    const m=A.length-1;const Np=Bt,Kd=1/Np.reduce((s,v)=>s+v,0);const zN=roots(Np),zP=roots(A);
+    const bad=zN.concat(zP).filter(p=>Math.hypot(...p)>1+1e-6);if(bad.length)info+='¡Ojo! La planta tiene polos o ceros fuera del disco: este deadbeat los cancela y el lazo real sería inestable.\n';
+    const zm=new Array(m+1).fill(0);zm[0]=1;const cd=polyAdd(zm,Np.map(v=>-Kd*v));const cn=A.map(v=>Kd*v);Gn=conv(cn,Bt);Gd=conv(cd,A);
+    info+=`Deadbeat: H(z) = ${fnum(Kd)}·N(z)/z^${m}, Gc(z) = (${polyStrZ(cn)}) / (${polyStrZ(cd)})\n`;info+='(el cero del controlador cancela el denominador de la planta; queda H(z) = '+fnum(Kd)+'·('+polyStrZ(Np)+')/z^'+m+')\n';Gn=Np.map(v=>Kd*v);clDB=zm.slice();code=`Kd = 1/sum(numz);  m = length(denz)-1;\nGc = tf(Kd*denz, [1 zeros(1,m)] - Kd*[zeros(1,m+1-length(numz)) numz], ${fnum(T)});`;}
+  const cl=clDB||polyAdd(Gd,Gn);const Gnp=new Array(Math.max(0,cl.length-Gn.length)).fill(0).concat(Gn);const N=40;const n=[...Array(N+1).keys()];const y=filter(Gnp,cl,n.map(()=>1));const pc=roots(cl);const st=pc.every(p=>Math.hypot(...p)<1-1e-9);
+  const yinf=st?Gn.reduce((s,v)=>s+v,0)/cl.reduce((s,v)=>s+v,0):NaN;
+  const fullcode=`pkg load control\nT  = ${fnum(T)};\nGs = tf([${num.map(fnum).join(' ')}], [${den.map(fnum).join(' ')}]);\nGz = c2d(Gs, T, 'zoh');  [numz, denz] = tfdata(Gz, 'v');\n${code}\nH  = feedback(Gc*Gz, 1);          % realimentación unitaria\n[y, k] = step(H, ${N}*T);  stairs(k, y); grid on\npole(H), dcgain(H)`;
+  let res=`G(z) = (${polyStrZ(Bt)}) / (${polyStrZ(A)})\n`+info+`Lazo cerrado: ecuación característica ${polyStrZ(cl)} = 0\nPolos: ${pc.map(p=>fc(...p)+' (|z| = '+fnum(Math.hypot(...p))+')').join(', ')}\n→ ${st?'ESTABLE':'INESTABLE'}`;
+  if(st){res+=`\ny(∞) = H(1) = ${fnum(yinf)}   error al escalón = ${fnum(1-yinf)}`;let k10=y.findIndex(v=>Math.abs(v-yinf)<=0.02*Math.abs(yinf||1)&&y.slice(y.indexOf(v)).every(w=>Math.abs(w-yinf)<=0.02*Math.abs(yinf||1)));res+=`\nSobreimpulso: ${fnum(Math.max(0,(Math.max(...y)-yinf)/Math.abs(yinf||1)*100))} %   establecimiento (2 %): ${k10>=0?k10+' muestras = '+fnum(k10*T)+' s':'> 40 muestras'}`;}
+  res+='\n\nPrimeras muestras de y:\n'+octVec('y',y.slice(0,10));
+  out('ll',fullcode,res);const yy=y.map(v=>Math.max(-1e3,Math.min(1e3,v)));stemPlot($('ll-plot'),n,[yy],{yl:'y[n]',label:'respuesta al escalón en lazo cerrado'});}
+/* ---------- conexiones ---------- */
+const RUN={lc:runConv,lf:runFilt,lr:runRes,ld:runC2d,lz:runFz,ll:runLazo};
+document.querySelectorAll('#lab-root .lab-tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#lab-root .lab-tab').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b);});
+  document.querySelectorAll('#lab-root .lab-pane').forEach(p=>{p.hidden=p.id!==b.dataset.pane;});RUN[b.dataset.pane.replace('-pane','')]();}));
+Object.keys(RUN).forEach(k=>{const bt=$(k+'-run');if(bt)bt.addEventListener('click',RUN[k]);document.querySelectorAll('#'+k+'-pane input,#'+k+'-pane select').forEach(i=>i.addEventListener('change',RUN[k]));});
+const ldt=$('ld-tipo');if(ldt){const sync=()=>{const p=ldt.value==='2o';document.querySelectorAll('#ld-pane .only2').forEach(e=>e.hidden=!p);document.querySelectorAll('#ld-pane .onlyg').forEach(e=>e.hidden=p);};ldt.addEventListener('change',sync);sync();}
+const llc=$('ll-c');if(llc){const sync=()=>{document.querySelectorAll('#ll-pane .onlypi').forEach(e=>e.hidden=llc.value!=='PI');document.querySelectorAll('#ll-pane .onlyk').forEach(e=>e.hidden=llc.value==='DB');};llc.addEventListener('change',sync);sync();}
+const lfi=$('lf-in');if(lfi){const sync=()=>{document.querySelectorAll('#lf-pane .onlyexp').forEach(e=>e.hidden=lfi.value!=='exp');};lfi.addEventListener('change',sync);sync();}
+/* botones «Abrir en el simulador» */
+document.addEventListener('click',e=>{const b=e.target.closest('.lab-load');if(!b)return;const d=JSON.parse(b.dataset.set);const pane=b.dataset.pane;
+  Object.entries(d).forEach(([k,v])=>{const el=$(k);if(el){el.value=v;el.dispatchEvent(new Event('change'));}});
+  const tab=document.querySelector(`#lab-root .lab-tab[data-pane="${pane}-pane"]`);if(tab)tab.click();RUN[pane]();
+  const root=$('lab-root');if(root)root.scrollIntoView({behavior:'smooth',block:'start'});});
+function first(){if(window.CXC){runConv();}else setTimeout(first,200);}first();
 })();
 </script>
 
