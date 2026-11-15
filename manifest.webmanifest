@@ -1,7 +1,7 @@
 {
   "name": "Control por Computador · Guía para aprobar",
   "short_name": "CxC",
-  "description": "Guía de estudio de Control por Computador (UPCT): teoría, simuladores, exámenes y ejercicios resueltos.",
+  "description": "Guía de estudio de Control por Computador: teoría, simuladores, exámenes y ejercicios resueltos.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",

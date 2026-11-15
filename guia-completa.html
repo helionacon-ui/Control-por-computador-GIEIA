@@ -124,9 +124,7 @@ dl.gl div{padding:10px 0;border-bottom:1px solid var(--line)}
 dl.gl dt{font-weight:600}
 dl.gl div{border-left:3px solid color-mix(in srgb,var(--tc,var(--accent)) 35%,transparent);padding-left:12px}
 dl.gl dd{margin:2px 0 0 0;max-width:72ch}
-dl.gl .tt{font-family:var(--mono);font-size:12px;color:var(--accent);margin-left:6px;font-weight:400}
-
-.ctrl[hidden]{display:none!important}
+dl.gl .tt{font-family:var(--mono);font-size:12px;color:var(--accent);margin-left:6px;font-weight:400}.ctrl[hidden]{display:none!important}
 .zero{background:var(--accent-soft);border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin:16px 0}
 .zero > :first-child{margin-top:0}.zero > :last-child{margin-bottom:0}
 .zero .ft{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
@@ -265,13 +263,8 @@ details>summary:hover{background:var(--tcs,var(--accent-soft))}
 .toc a{border-left:3px solid color-mix(in srgb,var(--tc,var(--line)) 30%,transparent);border-radius:0 6px 6px 0;padding:5px 10px;margin:1px 0;transition:background .15s}
 .toc a:hover{background:var(--surface)}
 .toc a.on{border-left-color:var(--tc);color:var(--fg);background:var(--surface);font-weight:600}
-@media (max-width:860px){
-  .toc{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;overflow-x:auto;gap:6px;max-height:none;padding:10px 0;margin:0 0 6px;
-    background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);scrollbar-width:none}
-  .toc::-webkit-scrollbar{display:none}
-  .toc .grp{display:none}
-  .toc a{flex:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--surface);font-size:13px;white-space:nowrap}
-  .toc a.on{border-color:var(--tc);color:var(--tc)}
+@media (max-width:860px){.toc{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;overflow-x:auto;gap:6px;max-height:none;padding:10px 0;margin:0 0 6px;
+    background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);scrollbar-width:none}.toc::-webkit-scrollbar{display:none}.toc .grp{display:none}.toc a{flex:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--surface);font-size:13px;white-space:nowrap}.toc a.on{border-color:var(--tc);color:var(--tc)}
   body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--bg)}
 }
 @media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr);gap:0}}
@@ -324,9 +317,7 @@ details.nom .inner{padding-top:14px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
 .card{font:inherit;min-height:96px;padding:14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;text-align:left;display:flex;align-items:center;box-shadow:var(--shadow)}
 .card .cf{font-weight:600}
-.card.flip{background:var(--tcs,var(--accent-soft));border-color:var(--tc,var(--accent))}
-
-.prob{margin:22px 0 26px}
+.card.flip{background:var(--tcs,var(--accent-soft));border-color:var(--tc,var(--accent))}.prob{margin:22px 0 26px}
 .prob .ph{margin:18px 0 6px;font-size:17px}
 .enun{background:var(--tcs,var(--accent-soft));border-left:4px solid var(--tc,var(--accent));border-radius:10px;padding:10px 16px;margin:8px 0 12px}
 .enun .et{margin:0 0 2px;font:700 12px/1.4 var(--mono,monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--tc,var(--accent))}
@@ -384,12 +375,8 @@ details.paso .inner{padding:8px 20px 14px}
 .pasos-t{margin:18px 0 8px}
 @media (max-width:860px){
   body{font-size:16px}
-  main{gap:28px}
-  .sec{padding:8px 18px 26px}
-  h3{font-size:20px;margin:40px 0 12px}
-  .box,.zero{padding:18px 18px}
-  .box.key{padding-top:38px}
-  .box.key::before{left:18px}
+  main{gap:28px}.sec{padding:8px 18px 26px}
+  h3{font-size:20px;margin:40px 0 12px}.box,.zero{padding:18px 18px}.box.key{padding-top:38px}.box.key::before{left:18px}
   details .inner{padding:4px 16px 16px}
 }
 /*exnav*/.lede-ex{font-size:17px;margin:6px 0 14px}
@@ -507,7 +494,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <header class="hero">
   <div class="hero-in">
     <div class="hero-txt">
-      <div class="eyebrow">UPCT · GIEyA · 3.º curso</div>
+      <div class="eyebrow">GIEyA · 3.º curso</div>
 <p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted,#5b6660)">Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time> · Última actualización: <time datetime="2026-11-07">7 de noviembre de 2026</time></p>
       <h1>Control por <span>Computador</span></h1>
       <p class="sub">Guía para aprobar</p>
@@ -5542,7 +5529,7 @@ $$\boxed{G_c(z)=13{,}06\,\frac{(z-0{,}9048)(z-0{,}0793)}{(z+0{,}9672)(z-0{,}418)
 <tr><td>11</td><td>Repaso diario de 15 minutos: test del tema, generador y fichas</td><td>Sección «Autoevaluación»</td></tr>
 </table></div>
 </section>
-<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador (UPCT) · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
 </div>
 
