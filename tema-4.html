@@ -96,6 +96,53 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <p><b>Desplazamiento:</b> $x[n-k]\leftrightarrow z^{-k}X(z)$. <b>Valor final:</b> $x[\infty]=\lim_{z\to1}(1-z^{-1})X(z)$, solo si $(1-z^{-1})X(z)$ es estable. <b>Valor inicial:</b> $x[0]=\lim_{z\to\infty}X(z)$.</p>
 </div>
 <!--vid--><div class="vids"><p class="vids-h">▶ Vídeos para entenderlo</p><div class="vgrid"><div class="vcard" data-v="XJRW6jamUHk"><button aria-label="Reproducir: Comprender la transformada Z" class="vthumb" type="button"><img alt="" decoding="async" onerror="this.closest('.vcard').classList.add('noemb');this.remove()" src="https://i.ytimg.com/vi/XJRW6jamUHk/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">19:56</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=XJRW6jamUHk" rel="noopener" target="_blank">Comprender la transformada Z</a><p class="vm">MATLAB (Brian Douglas) · 19:56 · en inglés, con subtítulos</p><p class="vn">De dónde sale z, cómo se relaciona con Laplace y qué significan los polos.</p></div></div><div class="vcard" data-v="7Gl4kJUjp4c"><button aria-label="Reproducir: Entendiendo el plano Z" class="vthumb" type="button"><img alt="" decoding="async" onerror="this.closest('.vcard').classList.add('noemb');this.remove()" src="https://i.ytimg.com/vi/7Gl4kJUjp4c/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">16:25</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=7Gl4kJUjp4c" rel="noopener" target="_blank">Entendiendo el plano Z</a><p class="vm">MATLAB (Brian Douglas) · 16:25 · en inglés, con subtítulos</p><p class="vn">Dónde colocar polos en el plano z y qué respuesta temporal da cada zona.</p></div></div><div class="vcard" data-v="qbMnrDsWofw"><button aria-label="Reproducir: Transformada Z: ejemplos, inversas, propiedades y ecuaciones en diferencias" class="vthumb" type="button"><img alt="" decoding="async" onerror="this.closest('.vcard').classList.add('noemb');this.remove()" src="https://i.ytimg.com/vi/qbMnrDsWofw/mqdefault.jpg"/><span aria-hidden="true" class="vplay"></span><span class="vdur">39:58</span></button><div class="vtx"><a class="vt" href="https://www.youtube.com/watch?v=qbMnrDsWofw" rel="noopener" target="_blank">Transformada Z: ejemplos, inversas, propiedades y ecuaciones en diferencias</a><p class="vm">MateFacil · 39:58</p><p class="vn">Curso completo en un vídeo; mira la parte de propiedades y tablas.</p></div></div></div></div><!--/vid-->
+<h3 id="t4-z-directa-paso">La transformada Z de una secuencia, paso a paso</h3>
+<p>La transformada Z directa es una serie de potencias. Cuando la serie es geométrica, se suma en forma cerrada, y la región donde converge define la transformada completa.</p>
+<figure class="fig"><p class="ft">Figura interactiva · x[n] = (0,5)ⁿ u[n]</p>
+<div id="z-paso" style="font-family:system-ui,sans-serif"><input id="z-paso-s" type="range" min="0" max="6" step="1" value="0" style="width:100%"><div id="z-paso-l" style="font-size:13px;color:#56635e;margin:4px 0">paso de la resolución (0 = problema): 0</div><canvas id="z-paso-c" width="640" height="260" style="width:100%;max-width:640px;height:auto;display:block"></canvas><div id="z-paso-t" style="font-size:15px;line-height:1.5;margin-top:8px;min-height:90px"></div></div>
+<figcaption>Sube el paso: se escribe la serie, se reconoce la geométrica, se halla la región de convergencia y se comprueba la transformada.</figcaption></figure>
+<div class="box trap"><h4>Trampas típicas</h4><ul><li>Dar la transformada sin indicar la región de convergencia.</li><li>Olvidar que la serie geométrica converge solo si |0,5 z⁻¹| &lt; 1.</li><li>Confundir el polo z = 0,5 con el cero z = 0.</li></ul></div>
+<script>
+(function(){
+  var T=[
+   'Secuencia x[n] = (0,5)ⁿ u[n], que vale 1, 0,5, 0,25, … para n ≥ 0 y 0 para n < 0. Se pide X(z) y su región de convergencia.',
+   'Por definición, X(z) = Σ x[n] z⁻ⁿ = Σ (0,5)ⁿ z⁻ⁿ = Σ (0,5 z⁻¹)ⁿ, con n desde 0 hasta infinito. Es una serie geométrica de razón r = 0,5 z⁻¹.',
+   'Una serie geométrica converge si |r| < 1, es decir, |0,5 z⁻¹| < 1 ⇔ |z| > 0,5. Esa es la región de convergencia (ROC): el exterior de la circunferencia de radio 0,5.',
+   'Suma: X(z) = 1 / (1 − 0,5 z⁻¹) = z / (z − 0,5), válida en |z| > 0,5. El polo está en z = 0,5 y el cero en z = 0.',
+   'Comprobación con z = 1 (dentro de la ROC): la suma parcial es 1, 1,5, 1,75, 1,875, … y tiende a 1/(1 − 0,5) = 2, que coincide con X(1) = 1/(1 − 0,5).',
+   'Lectura del resultado: el polo está dentro del círculo unidad, así que la secuencia decae. Si el polo estuviera fuera, la ROC no incluiría la circunferencia unidad y la secuencia no sería estable.',
+   'Comprobación en el origen: X(z) → 1 cuando z → ∞, y ese es el valor inicial x[0] = 1. La transformada es coherente con la secuencia.'
+  ];
+  var cv=document.getElementById('z-paso-c'), g=cv.getContext('2d'), sl=document.getElementById('z-paso-s'),
+      lb=document.getElementById('z-paso-l'), tx=document.getElementById('z-paso-t');
+  function txt(s,x,y,col,sz,al){g.fillStyle=col;g.font=(sz||12)+'px system-ui,sans-serif';g.textAlign=al||'left';g.fillText(s,x,y);}
+  function line(x1,y1,x2,y2,col,w,dash){g.strokeStyle=col;g.lineWidth=w||1;g.setLineDash(dash||[]);g.beginPath();g.moveTo(x1,y1);g.lineTo(x2,y2);g.stroke();g.setLineDash([]);}
+  function draw(p){
+    g.clearRect(0,0,cv.width,cv.height);
+    // panel izquierdo: x[n]
+    var B=230, H=170;
+    line(40,B,300,B,'#8a958f',1); txt('n',300,B+16,'#56635e',11,'right');
+    txt('x[n]',40,B-H-12,'#56635e',11,'left');
+    for(var n=0;n<=6;n++){ var v=Math.pow(0.5,n), x=60+n*38;
+      g.fillStyle='rgba(58,99,196,0.7)'; g.fillRect(x,B-H*v,22,H*v);
+      txt(String(n),x+11,B+16,'#56635e',11,'center'); txt(v===1?'1':(v===0.5?'0,5':(v===0.25?'0,25':(v===0.125?'0,125':(v===0.0625?'0,0625':'0,031')))),x+11,B-H*v-6,'#3a63c4',10,'center'); }
+    // panel derecho: plano z
+    var cx=470, cy=150, R=80;
+    line(cx-R-20,cy,cx+R+20,cy,'#8a958f',1); line(cx,cy-R-20,cx,cy+R+20,'#8a958f',1);
+    g.strokeStyle='#56635e';g.lineWidth=1;g.setLineDash([4,3]);g.beginPath();g.arc(cx,cy,R,0,6.283);g.stroke();g.setLineDash([]);
+    txt('círculo unidad',cx+R-4,cy-R+2,'#56635e',10,'right');
+    if(p>=2){ g.fillStyle='rgba(180,35,47,0.10)'; g.beginPath(); g.arc(cx,cy,R*0.5,0,6.283); g.fill(); g.strokeStyle='#b4232f'; g.lineWidth=1.5; g.setLineDash([]); g.beginPath(); g.arc(cx,cy,R*0.5,0,6.283); g.stroke();
+      txt('ROC: |z| > 0,5',cx-R*0.5-6,cy+R*0.5+16,'#b4232f',11,'left'); }
+    g.fillStyle='#b4232f'; g.beginPath(); g.arc(cx+R*0.5,cy,4,0,6.283); g.fill(); txt('polo 0,5',cx+R*0.5+6,cy-8,'#b4232f',11,'left');
+    g.fillStyle='#56635e'; g.beginPath(); g.arc(cx,cy,3,0,6.283); g.fill(); txt('cero 0',cx+4,cy+14,'#56635e',11,'left');
+    if(p>=4){ txt('Σ en z = 1: 1 + 0,5 + 0,25 + … → 2',40,40,'#2c8a52',12,'left'); }
+    lb.textContent='paso de la resolución (0 = problema): '+p;
+    tx.innerHTML='<div>'+T[p]+'</div>';
+  }
+  sl.addEventListener('input',function(){draw(+sl.value);});
+  draw(0);
+})();
+</script>
 <h3 id="t4-receta-de-la-z-inversa">Receta de la Z inversa</h3>
 <ol class="steps">
 <li>Pasa a potencias positivas de $z$ (multiplica arriba y abajo por $z^{k}$).</li>
