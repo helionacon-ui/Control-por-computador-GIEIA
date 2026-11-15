@@ -209,7 +209,16 @@ Comprobación: con $m=0$ sale $\frac{1-e^{-1}}{z(z-e^{-1})}=z^{-1}G(z)$, la mism
 <p style="text-align:center">$X(z)=\dfrac1{2\pi j}\displaystyle\oint_C\dfrac{X(s)}{1-z^{-1}e^{sT}}ds=\sum_{\text{polos }p\text{ de }X}\mathrm{Res}\left(\dfrac{X(s)}{1-z^{-1}e^{sT}},p\right)$</p>
 <p>Con polos simples cada residuo es $\frac{N(p)}{D'(p)}\frac1{1-z^{-1}e^{pT}}$. Con un polo de multiplicidad $m$ en $z_0$: $\mathrm{Res}=\frac1{(m-1)!}\lim\frac{d^{m-1}}{ds^{m-1}}(s-z_0)^mf(s)$.</p></div>
 <!--/auv:t5-->
-</section>
+<!--deep--><h3 id="t5-profundiza">Desarrollo teórico a fondo · Tema 5</h3><div class="deep">
+<h4>1. Datos muestreados en el lazo</h4>
+<div class="box key deepnote"><b>Idea clave.</b> en un lazo digital, la planta continua se combina con el ZOH y el muestreo. El resultado es una planta discreta equivalente, que es la que se usa para diseñar el controlador.</div>
+<div class="eqd">\[G(z)=\mathcal Z\left\{\frac{1-e^{-sT}}{s}\,G_p(s)\right\}\]</div>
+<details class="dem"><summary><span class="pn">∴</span>Ecuación en diferencias del controlador</summary><div class="inner"><p>Un PID discreto se implementa como ecuación en diferencias con los errores de las muestras anteriores. Los términos integral y derivativo se aproximan con sumas y diferencias.</p>
+<div class="eqd">\[u[k]=K_p e[k]+K_i\,T\sum_{j=0}^{k}e[j]+K_d\,\frac{e[k]-e[k-1]}{T}\]</div>
+<div class="box trap deepnote"><b>Cuidado.</b> Con un periodo de muestreo grande, la aproximación integral y derivativa empeora y el control puede oscilar.</div></div></details>
+<h4>2. Elección del periodo</h4>
+<p>El periodo debe ser pequeño frente a la dinámica de la planta (regla práctica: entre un décimo y un tercio de la constante de tiempo dominante), pero no tanto que el cálculo sature el procesador.</p>
+</div><!--/deep--></section>
 <nav class="pager" aria-label="Páginas"><a href="tema-4.html"><small>← Anterior</small>T4 · Transformada Z</a><a class="nx" href="tema-6.html"><small>Siguiente →</small>T6 · Estabilidad y análisis</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>

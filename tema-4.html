@@ -248,7 +248,15 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="box"><h4>Respuesta libre y forzada con condiciones iniciales</h4>
 <p>Para $\sum_{k=0}^Na_ky[n-k]=\sum_{k=0}^Mb_kx[n-k]$ con $M&lt;N$ (más integradores que derivadores, físicamente realizable), se desplaza $n\mapsto n+N$ para trabajar con adelantos y se aplica $\mathcal Z\{y[n+l]\}=z^lY-\sum_{k=0}^{l-1}y[k]z^{l-k}$. $Y(z)$ queda como suma de tres términos: el de $X(z)$ (forzada con condiciones nulas), el de los valores iniciales de $x$ y el de los de $y$. La <b>respuesta libre</b> es la que solo depende de los valores iniciales de la salida (con $x=0$). Si faltan valores iniciales de $x$, se sacan de la propia ecuación en $n=M,\dots,N-1$.</p></div>
 <!--/auv:t4-->
-</section>
+<!--deep--><h3 id="t4-profundiza">Desarrollo teórico a fondo · Tema 4</h3><div class="deep">
+<h4>1. Transformada Z</h4>
+<div class="box key deepnote"><b>Idea clave.</b> la transformada Z es el equivalente discreto de Laplace. Convierte una secuencia en una función racional de \(z\) y transforma los retardos en factores \(z^{-1}\).</div>
+<div class="eqd">\[X(z)=\sum_{k=-\infty}^{\infty}x[k]\,z^{-k}\qquad\mathcal Z\{x[k-1]\}=z^{-1}X(z)\]</div>
+<ul><li>Región de convergencia: el conjunto de valores de \(z\) donde la suma converge. Determina si la secuencia es causal y estable.</li><li>Los polos de \(X(z)\) dentro del círculo unidad indican modos decrecientes.</li></ul>
+<details class="dem"><summary><span class="pn">∴</span>Función de transferencia discreta</summary><div class="inner"><div class="eqd">\[G(z)=\frac{Y(z)}{U(z)}\]</div>
+<p>Con condiciones iniciales nulas, \(G(z)\) describe completamente el sistema discreto. Se obtiene a partir de la ecuación en diferencias.</p>
+<div class="box trap deepnote"><b>Cuidado.</b> Un polo fuera del círculo unidad da inestabilidad. Un polo dentro, estabilidad. Sobre la circunferencia, estabilidad marginal.</div></div></details>
+</div><!--/deep--></section>
 <nav class="pager" aria-label="Páginas"><a href="tema-3.html"><small>← Anterior</small>T3 · Muestreo y Fourier</a><a class="nx" href="tema-5.html"><small>Siguiente →</small>T5 · Datos muestreados</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>

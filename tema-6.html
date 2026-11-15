@@ -216,7 +216,16 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 <li><b>$\omega_d$ constante:</b> rectas horizontales que se convierten en <b>rectas radiales</b> de ángulo $\omega_dT=2\pi\frac{\omega_d}{\omega_s}$. Si $\omega_s=2\omega_d$ caen sobre el semieje real negativo, y si $\omega_s=\omega_d$ sobre el positivo; por Shannon basta con $\omega_s\ge2\omega_d$.</li>
 <li><b>$\xi$ constante:</b> rectas por el origen que se convierten en <b>espirales logarítmicas</b> $z=e^{-2\pi\xi\lambda/\sqrt{1-\xi^2}}e^{j2\pi\lambda}$ con $\lambda=\frac{\omega_d}{\omega_s}$. Cuanto mayor es $\xi$, antes entra la espiral hacia el origen.</li></ul></div>
 <!--/auv:t6-->
-</section>
+<!--deep--><h3 id="t6-profundiza">Desarrollo teórico a fondo · Tema 6</h3><div class="deep">
+<h4>1. Estabilidad discreta</h4>
+<div class="box key deepnote"><b>Idea clave.</b> un sistema discreto es estable si todos sus polos de lazo cerrado están dentro del círculo unidad \(|z|<1\). Es el criterio análogo al semiplano izquierdo en continuo.</div>
+<div class="eqd">\[|z_i|<1\quad\forall i\]</div>
+<details class="dem"><summary><span class="pn">∴</span>Criterio de Jury</summary><div class="inner"><p>Permite comprobar si un polinomio tiene todas sus raíces dentro del círculo unidad, sin calcularlas, con una tabla similar a la de Routh.</p>
+<div class="box trap deepnote"><b>Cuidado.</b> El criterio de Routh-Hurwitz de continuo no vale directamente para discreto. Hay que transformar con \(w=\frac{z-1}{z+1}\) o usar Jury.</div></div></details>
+<h4>2. Transformación bilineal</h4>
+<div class="eqd">\[s=\frac{2}{T}\,\frac{z-1}{z+1}\]</div>
+<p>Lleva el semiplano izquierdo de \(s\) al interior del círculo unidad de \(z\). Permite diseñar en continuo y convertir al discreto con cuidado en la frecuencia (distorsión de frecuencias).</p>
+</div><!--/deep--></section>
 <nav class="pager" aria-label="Páginas"><a href="tema-5.html"><small>← Anterior</small>T5 · Datos muestreados</a><a class="nx" href="tema-7.html"><small>Siguiente →</small>T7 · Diseño de controladores</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>

@@ -235,7 +235,25 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="box"><h4>Cómo se programa una ecuación en diferencias</h4>
 <p>Despejando $y[n]=\frac1{a_0}\big(-\sum_{k\ge1}a_ky[n-k]+\sum_kb_kx[n-k]\big)$ sale la <b>forma directa I</b>: primero los ceros y luego los polos, con $2N$ retardos. Si se cambia el orden (primero $z[n]=\frac1{a_0}(x[n]-\sum a_kz[n-k])$ y luego $y=\sum b_kz[n-k]$) sale la <b>forma directa II</b>, que solo necesita $N$ retardos. Invirtiendo el grafo de flujo se obtiene la <b>forma directa II traspuesta</b>, que es la que usa <code>filter</code> en MATLAB/Octave; por eso sus condiciones iniciales son los estados $z_i$ que calcula <code>filtic</code> y no los valores $y[-1],y[-2]$ directamente.</p></div>
 <!--/auv:t1-->
-</section>
+<!--deep--><h3 id="t1-profundiza">Desarrollo teórico a fondo · Tema 1</h3><div class="deep">
+<h4>1. Señales continuas y discretas</h4>
+<div class="box key deepnote"><b>Idea clave.</b> una señal continua existe para todo instante de tiempo. Una señal discreta solo tiene valores en instantes \(kT\), con \(T\) el periodo de muestreo. Un controlador por computador trabaja con señales discretas.</div>
+<div class="eqd">\[x[k]=x(kT)\qquad k=0,1,2,\dots\]</div>
+<details class="dem"><summary><span class="pn">∴</span>Sistemas lineales e invariantes</summary><div class="inner"><p>Un sistema discreto lineal e invariante responde a una secuencia de impulsos con su respuesta impulsional \(h[k]\). La salida es la convolución de la entrada con \(h\):</p>
+<div class="eqd">\[y[k]=\sum_{m=0}^{\infty}h[m]\,u[k-m]\]</div>
+<div class="box trap deepnote"><b>Cuidado.</b> La convolución tiene un límite superior de sumatorio cuando el sistema es causal. Sin causalidad, la suma va de −∞ a +∞.</div></div></details>
+<h4>2. Retenedor de orden cero</h4>
+<p>Un convertidor D/A mantiene el último valor durante todo el periodo: es el ZOH (retenedor de orden cero). Con él se modela el paso del controlador a la planta continua.</p>
+</div><!--/deep--><!--deep--><h3 id="t2-profundiza">Desarrollo teórico a fondo · Tema 2</h3><div class="deep">
+<h4>1. Muestreo ideal</h4>
+<div class="box key deepnote"><b>Idea clave.</b> muestrear es tomar valores de una señal continua a intervalos regulares. El resultado es un tren de impulsos modulado por la señal.</div>
+<div class="eqd">\[x^*(t)=\sum_{k}x(kT)\,\delta(t-kT)\]</div>
+<details class="dem"><summary><span class="pn">∴</span>Teorema de Nyquist-Shannon</summary><div class="inner"><div class="eqd">\[f_s>2\,f_{max}\qquad f_N=\frac{f_s}{2}\]</div>
+<p>Si la frecuencia de muestreo es mayor que el doble de la máxima frecuencia de la señal, la señal se puede reconstruir sin pérdida. Por debajo, aparece aliasing: frecuencias altas se disfrazan de bajas.</p>
+<div class="box trap deepnote"><b>Cuidado.</b> El aliasing ocurre aunque el filtrado sea perfecto después. Para evitarlo, se filtra la señal analógica antes de muestrear (filtro antialiasing).</div></div></details>
+<h4>2. Espectro del muestreo</h4>
+<p>El espectro de la señal muestreada se repite cada \(\omega_s=2\pi/T\). Si las réplicas se solapan, se pierde información.</p>
+</div><!--/deep--></section>
 <nav class="pager" aria-label="Páginas"><a href="empezar.html"><small>← Anterior</small>El examen y cómo estudiar</a><a class="nx" href="tema-3.html"><small>Siguiente →</small>T3 · Muestreo y Fourier</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>

@@ -156,7 +156,13 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="box"><h4>El filtro de reconstrucción y sus ceros</h4>
 <p>El paso bajo ideal de ganancia $T$ y corte $B$ tiene respuesta impulsiva $f(t)=\frac1{2\pi}\int_{-B}^BTe^{j\omega t}d\omega=\frac{T}{\pi t}\sin Bt=\frac{BT}\pi\,\mathrm{sinc}\frac{Bt}\pi$. Vale $f(0)=\frac{BT}\pi$ (por L'Hôpital) y se anula en $t=\frac{k\pi}B$, $k\ne0$. Con $B=\frac{\omega_s}2=\frac\pi T$ los ceros caen justo en los instantes de muestreo $kT$ y $f(0)=1$: por eso en la serie cardinal $x_r(nT)=x(nT)$, cada sinc solo «pesa» en su muestra.</p></div>
 <!--/auv:t3-->
-</section>
+<!--deep--><h3 id="t3-profundiza">Desarrollo teórico a fondo · Tema 3</h3><div class="deep">
+<h4>1. Transformada de Fourier de tiempo discreto</h4>
+<div class="eqd">\[X(e^{j\omega})=\sum_{k=-\infty}^{\infty}x[k]\,e^{-j\omega k}\]</div>
+<p>Describe el espectro de una secuencia. Es periódica en \(\omega\) con periodo \(2\pi\), y la frecuencia de Nyquist corresponde a \(\omega=\pi\).</p>
+<details class="dem"><summary><span class="pn">∴</span>Relación con la frecuencia analógica</summary><div class="inner"><div class="eqd">\[\omega=\Omega\,T\]</div>
+<div class="box trap deepnote"><b>Cuidado.</b> La frecuencia digital \(\omega\) se mide en radianes por muestra. Para pasar a la analógica hay que dividir por \(T\). No confundas las dos escalas.</div></div></details>
+</div><!--/deep--></section>
 <nav class="pager" aria-label="Páginas"><a href="tema-1-2.html"><small>← Anterior</small>T1–2 · Señales y sistemas</a><a class="nx" href="tema-4.html"><small>Siguiente →</small>T4 · Transformada Z</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>

@@ -207,7 +207,15 @@ $$G_c(z)=\frac{1}{G(z)}\cdot\frac{H(z)}{1-H(z)}$$</p>
 <div class="box trap"><h4>Tiempo mínimo (deadbeat) con un cero inestable</h4>
 <p>Planta $G_p=4\frac{z-\frac32}{(z-\frac12)(z-2)}$. Regla 2: el cero $\frac32$ tiene que ser cero de $H$ y el polo $2$ cero de $1-H$. La versión más corta, $H=K\frac{z-3/2}{z^2}$ con $1-H(2)=0\Rightarrow K=8$, estabiliza en dos muestras pero da $H(1)=-4$: <b>la salida no sigue a la referencia</b> (ante un escalón acaba en $-4$). Si además quieres error nulo al escalón necesitas un grado de libertad más: $H=\frac{(z-\frac32)(b_1z+b_0)}{z^3}$ con $H(1)=1$ y $H(2)=1$ da $b_1=18$, $b_0=-20$; entonces $1-H=\frac{(z-1)(z-2)(z-15)}{z^3}$ y $G_c=\frac{(z-\frac12)(18z-20)}{4(z-1)(z-15)}$. Tarda tres muestras y el regulador tiene un polo inestable en 15, aunque el lazo cerrado es estable.</p></div>
 <!--/auv:t7-->
-</section>
+<!--deep--><h3 id="t7-profundiza">Desarrollo teórico a fondo · Tema 7</h3><div class="deep">
+<h4>1. Diseño por emulación</h4>
+<div class="box key deepnote"><b>Idea clave.</b> la emulación diseña el controlador en continuo y luego lo discretiza. Es sencillo si el periodo es pequeño frente a la dinámica del sistema.</div>
+<ol class="pasos"><li>Diseña \(C(s)\) con las técnicas de continuo.</li><li>Discretiza \(C(s)\) con Tustin o Euler.</li><li>Verifica estabilidad y márgenes en el lazo discreto.</li></ol>
+<details class="dem"><summary><span class="pn">∴</span>Diseño directo en z</summary><div class="inner"><p>El diseño se hace directamente sobre \(G(z)\), por asignación de polos o con lugar de raíces en \(z\). Tiene en cuenta el retardo y el muestreo de forma exacta.</p>
+<div class="box trap deepnote"><b>Cuidado.</b> Un diseño de emulación en un periodo grande puede ser inestable en la práctica aunque en continuo funcione. Verifica con el modelo discreto.</div></div></details>
+<h4>2. Retardo de cálculo</h4>
+<p>El controlador tarda un tiempo en calcular la acción. Ese retardo se suma a la planta y reduce el margen de fase. Un periodo de muestreo grande lo agrava.</p>
+</div><!--/deep--></section>
 <nav class="pager" aria-label="Páginas"><a href="tema-6.html"><small>← Anterior</small>T6 · Estabilidad y análisis</a><a class="nx" href="practicas.html"><small>Siguiente →</small>Examen de prácticas</a></nav>
 <p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Control por Computador · Proyecto iniciado el <time datetime="2026-11-04">4 de noviembre de 2026</time></p>
 </main>
