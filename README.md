@@ -1,4 +1,4 @@
-# Control por Computador · Guía para aprobar
+# Control por Computador · Apuntes
 
 **Proyecto iniciado el 4 de noviembre de 2026.**
 
