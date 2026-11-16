@@ -24,24 +24,64 @@ window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -86,7 +126,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="sh"><span aria-hidden="true" class="badge">7</span><div class="shx"><p class="kick">Parcial 2 · Tema 7</p><h2 id="t7">Diseño de controladores digitales</h2><div class="tags"><span class="tag">Parcial 2</span><span class="tag w">el problema de 4 puntos</span></div></div></div><nav aria-label="En esta página" class="onthispage"><span>En esta página</span><a href="#t7-diseno-por-emulacion-programa-7-1-priori">Diseño por emulación</a><a href="#t7-lugar-de-las-raices-en-el-plano-z-progra">Lugar de las raíces en el plano z</a><a href="#t7-ejemplo-lugar-de-las-raices-dibujado-a-m">Ejemplo: lugar de las raíces dibujado a mano</a><a href="#t7-sintesis-directa-ragazzini-y-deadbeat-pr">Síntesis directa: Ragazzini y deadbeat</a><a href="#t7-receta">Receta</a><a href="#t7-mas-a-fondo-ragazzini-con-numeros-y-tiem">Más a fondo: Ragazzini con números y tiempo mínimo</a></nav>
 <div class="zero">
 <p class="ft">Desde cero</p>
-<p>Diseñar es <b>elegir el controlador</b> $G_c$ que hace que el lazo responda como tú quieres. Hay dos filosofías:</p>
+<p class="lede">Diseñar es <b>elegir el controlador</b> $G_c$ que hace que el lazo responda como tú quieres. Hay dos filosofías:</p>
 <ul>
 <li><b>Emulación:</b> diseñas en continuo, como ya sabes, y «traduces» el controlador a $z$ con una fórmula (Tustin, Euler). Es fácil, pero aproximado: funciona si $T$ es pequeño.</li>
 <li><b>Diseño directo</b> (Ragazzini, deadbeat): decides primero <b>cómo quieres que sea el lazo cerrado</b> $H(z)$ y despejas el controlador: $G_c=\frac{1}{G}\frac{H}{1-H}$. Pero no puedes pedir cualquier $H$: tiene que ser posible (causal), no puede esconder inestabilidades (estable por dentro) y tiene que llegar al valor pedido ($H(1)=1$). Esas son las tres reglas.</li>
@@ -208,12 +248,12 @@ $$G_c(z)=\frac{1}{G(z)}\cdot\frac{H(z)}{1-H(z)}$$</p>
 <p>Planta $G_p=4\frac{z-\frac32}{(z-\frac12)(z-2)}$. Regla 2: el cero $\frac32$ tiene que ser cero de $H$ y el polo $2$ cero de $1-H$. La versión más corta, $H=K\frac{z-3/2}{z^2}$ con $1-H(2)=0\Rightarrow K=8$, estabiliza en dos muestras pero da $H(1)=-4$: <b>la salida no sigue a la referencia</b> (ante un escalón acaba en $-4$). Si además quieres error nulo al escalón necesitas un grado de libertad más: $H=\frac{(z-\frac32)(b_1z+b_0)}{z^3}$ con $H(1)=1$ y $H(2)=1$ da $b_1=18$, $b_0=-20$; entonces $1-H=\frac{(z-1)(z-2)(z-15)}{z^3}$ y $G_c=\frac{(z-\frac12)(18z-20)}{4(z-1)(z-15)}$. Tarda tres muestras y el regulador tiene un polo inestable en 15, aunque el lazo cerrado es estable.</p></div>
 <!--/auv:t7-->
 <!--deep--><h3 id="t7-profundiza">Desarrollo teórico a fondo · Tema 7</h3><div class="deep">
-<h4>1. Diseño por emulación</h4>
+<h4><span class="hn">1</span>Diseño por emulación</h4>
 <div class="box key deepnote"><b>Idea clave.</b> la emulación diseña el controlador en continuo y luego lo discretiza. Es sencillo si el periodo es pequeño frente a la dinámica del sistema.</div>
 <ol class="pasos"><li>Diseña \(C(s)\) con las técnicas de continuo.</li><li>Discretiza \(C(s)\) con Tustin o Euler.</li><li>Verifica estabilidad y márgenes en el lazo discreto.</li></ol>
 <details class="dem"><summary><span class="pn">∴</span>Diseño directo en z</summary><div class="inner"><p>El diseño se hace directamente sobre \(G(z)\), por asignación de polos o con lugar de raíces en \(z\). Tiene en cuenta el retardo y el muestreo de forma exacta.</p>
 <div class="box trap deepnote"><b>Cuidado.</b> Un diseño de emulación en un periodo grande puede ser inestable en la práctica aunque en continuo funcione. Verifica con el modelo discreto.</div></div></details>
-<h4>2. Retardo de cálculo</h4>
+<h4><span class="hn">2</span>Retardo de cálculo</h4>
 <p>El controlador tarda un tiempo en calcular la acción. Ese retardo se suma a la planta y reduce el margen de fase. Un periodo de muestreo grande lo agrava.</p>
 </div><!--/deep--></section>
 <nav class="pager" aria-label="Páginas"><a href="tema-6.html"><small>← Anterior</small>T6 · Estabilidad y análisis</a><a class="nx" href="practicas.html"><small>Siguiente →</small>Examen de prácticas</a></nav>

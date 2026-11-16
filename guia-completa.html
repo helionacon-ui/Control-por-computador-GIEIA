@@ -466,24 +466,64 @@ details.paso .inner p{margin:6px 0}
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -569,7 +609,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="sh"><span class="badge" aria-hidden="true">0</span><div class="shx"><p class="kick">Empezar</p><h2 id="cero">Empieza aquí si partes de cero</h2></div></div>
 <div class="zero">
 <p class="ft">La asignatura en un párrafo</p>
-<p>Un <b>sistema de control</b> mide algo (la temperatura de un horno, la velocidad de un motor) y actúa para que llegue al valor que quieres. En <b>Control por Computador</b> quien decide es un <b>ordenador o microcontrolador</b>, y un ordenador no ve señales continuas: solo ve <b>números cada cierto tiempo</b> $T$ (muestras). Toda la asignatura responde a tres preguntas: qué se pierde al convertir el mundo continuo en números (temas 1 a 3), cómo se calcula con secuencias de números (temas 2 y 4) y cómo se diseña un controlador digital que funcione bien (temas 5 a 7).</p>
+<p class="lede">Un <b>sistema de control</b> mide algo (la temperatura de un horno, la velocidad de un motor) y actúa para que llegue al valor que quieres. En <b>Control por Computador</b> quien decide es un <b>ordenador o microcontrolador</b>, y un ordenador no ve señales continuas: solo ve <b>números cada cierto tiempo</b> $T$ (muestras). Toda la asignatura responde a tres preguntas: qué se pierde al convertir el mundo continuo en números (temas 1 a 3), cómo se calcula con secuencias de números (temas 2 y 4) y cómo se diseña un controlador digital que funcione bien (temas 5 a 7).</p>
 </div>
 <p>El camino, en orden. Cada tema usa lo del anterior:</p>
 <div class="map">
@@ -755,8 +795,8 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="sh"><span class="badge" aria-hidden="true">1–2</span><div class="shx"><p class="kick">Parcial 1 · Tema 1–2</p><h2 id="t1">Señales, secuencias y sistemas</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈3 puntos</span></div></div></div>
 <div class="zero">
 <p class="ft">Desde cero</p>
-<p><b>Señal continua</b> $x(t)$: existe en cada instante, como el sonido. <b>Secuencia</b> $x[n]$: una lista de números numerados por un entero $n$, como los fotogramas de un vídeo. Pasar de una a otra tiene dos pasos: <b>muestrear</b> (quedarte con el valor cada $T$ segundos, $x[n]=x(nT)$) y <b>cuantizar</b> (redondear ese valor a los niveles que el conversor A/D puede representar con sus bits).</p>
-<p>Un <b>sistema</b> es una máquina que recibe una secuencia y devuelve otra. Las «propiedades» (lineal, causal, estable…) son preguntas de sí o no sobre cómo se comporta esa máquina. Los sistemas que importan son los <b>LTI</b> (lineales e invariantes), porque quedan determinados por completo por <b>cómo responden a un golpe</b>, $\delta[n]$: su respuesta impulsiva $h[n]$.</p>
+<p class="run"><b>Señal continua:</b> $x(t)$: existe en cada instante, como el sonido. <b>Secuencia</b> $x[n]$: una lista de números numerados por un entero $n$, como los fotogramas de un vídeo. Pasar de una a otra tiene dos pasos: <b>muestrear</b> (quedarte con el valor cada $T$ segundos, $x[n]=x(nT)$) y <b>cuantizar</b> (redondear ese valor a los niveles que el conversor A/D puede representar con sus bits).</p>
+<p class="lede">Un <b>sistema</b> es una máquina que recibe una secuencia y devuelve otra. Las «propiedades» (lineal, causal, estable…) son preguntas de sí o no sobre cómo se comporta esa máquina. Los sistemas que importan son los <b>LTI</b> (lineales e invariantes), porque quedan determinados por completo por <b>cómo responden a un golpe</b>, $\delta[n]$: su respuesta impulsiva $h[n]$.</p>
 </div>
 <details class="nom"><summary><span class="nom-ic" aria-hidden="true">Aa</span>Nomenclatura de los temas 1 y 2 <span class="src">13 símbolos</span></summary><div class="inner">
 <div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr>
@@ -914,8 +954,8 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="sh"><span class="badge" aria-hidden="true">3</span><div class="shx"><p class="kick">Parcial 1 · Tema 3</p><h2 id="t3">Muestreo, Shannon y Fourier</h2><div class="tags"><span class="tag">Parcial 1</span></div></div></div>
 <div class="zero">
 <p class="ft">Desde cero</p>
-<p><b>Fourier</b> dice que casi cualquier señal es una <b>suma de senos y cosenos</b> de distintas frecuencias, como un acorde está hecho de notas. El <b>espectro</b> es la «receta»: cuánta cantidad hay de cada frecuencia. Una señal está <b>limitada en banda</b> si no contiene frecuencias por encima de $\Omega_H$.</p>
-<p><b>Muestrear</b> es hacer fotos a la señal cada $T$ segundos. Si haces pocas fotos de algo que gira deprisa, te engaña: parece que va más lento o incluso hacia atrás. Eso es el <b>aliasing</b>. <b>Shannon</b> dice cuántas fotos bastan: más de dos por cada oscilación de la frecuencia más alta, $f_s&gt;2f_H$. Con eso no pierdes nada y puedes reconstruir la señal exacta.</p>
+<p class="run"><b>Fourier:</b> dice que casi cualquier señal es una <b>suma de senos y cosenos</b> de distintas frecuencias, como un acorde está hecho de notas. El <b>espectro</b> es la «receta»: cuánta cantidad hay de cada frecuencia. Una señal está <b>limitada en banda</b> si no contiene frecuencias por encima de $\Omega_H$.</p>
+<p class="run"><b>Muestrear:</b> es hacer fotos a la señal cada $T$ segundos. Si haces pocas fotos de algo que gira deprisa, te engaña: parece que va más lento o incluso hacia atrás. Eso es el <b>aliasing</b>. <b>Shannon</b> dice cuántas fotos bastan: más de dos por cada oscilación de la frecuencia más alta, $f_s&gt;2f_H$. Con eso no pierdes nada y puedes reconstruir la señal exacta.</p>
 </div>
 <details class="nom"><summary><span class="nom-ic" aria-hidden="true">Aa</span>Nomenclatura del tema 3 <span class="src">12 símbolos</span></summary><div class="inner">
 <div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr>
@@ -991,7 +1031,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="sh"><span class="badge" aria-hidden="true">4</span><div class="shx"><p class="kick">Parcial 1 · Tema 4</p><h2 id="t4">Transformada Z</h2><div class="tags"><span class="tag">Parcial 1</span><span class="tag">≈4 puntos</span></div></div></div>
 <div class="zero">
 <p class="ft">Desde cero</p>
-<p>Un sistema discreto se describe con una <b>ecuación en diferencias</b>, por ejemplo $y[n]=0{,}5\,y[n-1]+x[n]$: la salida de ahora depende de la de antes. Resolver eso a mano es pesado. La <b>transformada Z</b> lo convierte en álgebra, como hacía Laplace con las ecuaciones diferenciales.</p>
+<p class="lede">Un sistema discreto se describe con una <b>ecuación en diferencias</b>, por ejemplo $y[n]=0{,}5\,y[n-1]+x[n]$: la salida de ahora depende de la de antes. Resolver eso a mano es pesado. La <b>transformada Z</b> lo convierte en álgebra, como hacía Laplace con las ecuaciones diferenciales.</p>
 <p>La idea clave es que <b>$z^{-1}$ significa «retrasar una muestra»</b>. Así, $y[n]-0{,}5y[n-1]=x[n]$ pasa a $Y(z)(1-0{,}5z^{-1})=X(z)$, y despejas $H(z)=\frac{Y}{X}=\frac{1}{1-0{,}5z^{-1}}$.</p>
 <p>Los <b>polos</b> de $H(z)$ (donde se anula el denominador) son los «modos» del sistema. Cada polo $p$ aporta a la respuesta un término $p^n$: si $|p|&lt;1$ se apaga, y si $|p|&gt;1$ crece sin parar. Por eso <b>estable ⇔ polos dentro del círculo de radio 1</b>. La <b>ROC</b> (región de convergencia) es el conjunto de $z$ donde la suma converge; en un sistema causal es todo lo que queda fuera del polo más grande.</p>
 </div>
@@ -1113,7 +1153,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="sh"><span class="badge" aria-hidden="true">5</span><div class="shx"><p class="kick">Parcial 2 · Tema 5</p><h2 id="t5">Sistemas de datos muestreados</h2><div class="tags"><span class="tag">Parcial 2</span><span class="tag">aparece en todos</span></div></div></div>
 <div class="zero">
 <p class="ft">Desde cero</p>
-<p>Ahora juntamos las dos partes del mundo: el <b>ordenador</b> trabaja con números cada $T$ segundos y la <b>planta</b> (motor, horno, depósito) es continua y se describe con $G_p(s)$, como en Ingeniería de Control. Entre ellos hay dos traductores:</p>
+<p class="lede">Ahora juntamos las dos partes del mundo: el <b>ordenador</b> trabaja con números cada $T$ segundos y la <b>planta</b> (motor, horno, depósito) es continua y se describe con $G_p(s)$, como en Ingeniería de Control. Entre ellos hay dos traductores:</p>
 <ul>
 <li><b>Muestreador:</b> convierte la señal de la planta en números, $y(t)\to y[k]=y(kT)$.</li>
 <li><b>Retenedor de orden cero (ZOH):</b> convierte los números del ordenador en una señal para la planta, manteniendo cada valor durante $T$ (una escalera).</li>
@@ -1247,7 +1287,7 @@ Comprobación: con $m=0$ sale $\frac{1-e^{-1}}{z(z-e^{-1})}=z^{-1}G(z)$, la mism
 <div class="sh"><span class="badge" aria-hidden="true">6</span><div class="shx"><p class="kick">Parcial 2 · Tema 6</p><h2 id="t6">Estabilidad, transitorio y estacionario</h2><div class="tags"><span class="tag">Parcial 2</span></div></div></div>
 <div class="zero">
 <p class="ft">Desde cero</p>
-<p>Una vez cerrado el lazo (el ordenador corrige con el error $e=r-y$), hay que contestar tres cosas:</p>
+<p class="lede">Una vez cerrado el lazo (el ordenador corrige con el error $e=r-y$), hay que contestar tres cosas:</p>
 <ol>
 <li><b>¿Es estable?</b> Si le pides 1, ¿se acaba quedando quieta o se dispara? Depende solo de los polos del lazo cerrado: <b>todos dentro del círculo unidad</b>. Como no siempre se pueden calcular las raíces, hay tests que lo deciden mirando los coeficientes: Jury, Schur-Cohn y la bilineal con Routh.</li>
 <li><b>¿Cómo llega?</b> (transitorio) Cuánto se pasa (sobreimpulso) y cuánto tarda (tiempo de establecimiento). Depende de dónde estén los polos dentro del círculo.</li>
@@ -1386,7 +1426,7 @@ $\;p_1(z)=\tfrac1z\left[p+\tfrac12p^*\right]=\tfrac34z-\tfrac{21}8$.</p>
 <div class="sh"><span class="badge" aria-hidden="true">7</span><div class="shx"><p class="kick">Parcial 2 · Tema 7</p><h2 id="t7">Diseño de controladores digitales</h2><div class="tags"><span class="tag">Parcial 2</span><span class="tag w">el problema de 4 puntos</span></div></div></div>
 <div class="zero">
 <p class="ft">Desde cero</p>
-<p>Diseñar es <b>elegir el controlador</b> $G_c$ que hace que el lazo responda como tú quieres. Hay dos filosofías:</p>
+<p class="lede">Diseñar es <b>elegir el controlador</b> $G_c$ que hace que el lazo responda como tú quieres. Hay dos filosofías:</p>
 <ul>
 <li><b>Emulación:</b> diseñas en continuo, como ya sabes, y «traduces» el controlador a $z$ con una fórmula (Tustin, Euler). Es fácil, pero aproximado: funciona si $T$ es pequeño.</li>
 <li><b>Diseño directo</b> (Ragazzini, deadbeat): decides primero <b>cómo quieres que sea el lazo cerrado</b> $H(z)$ y despejas el controlador: $G_c=\frac{1}{G}\frac{H}{1-H}$. Pero no puedes pedir cualquier $H$: tiene que ser posible (causal), no puede esconder inestabilidades (estable por dentro) y tiene que llegar al valor pedido ($H(1)=1$). Esas son las tres reglas.</li>
@@ -3854,7 +3894,7 @@ pole(H)                              % 0.5 ± 0.618i, |z| = 0.795
 <section class="sec" style="--tc:var(--c3);--tcs:var(--c3s)">
 <div class="sh"><span class="badge" aria-hidden="true">Hj</span><div class="shx"><p class="kick">Practicar</p><h2 id="hojas">Hojas de problemas resueltas</h2><div class="tags"><span class="tag">7 hojas</span><span class="tag">87 problemas</span><span class="tag w">246 pasos desplegables</span></div></div></div>
 <div class="box key"><p><b>Qué son:</b> las hojas de problemas de cada tema, con el enunciado completo y la resolución en pasos desplegables, igual que los exámenes. Los problemas marcados con (*) eran los de entrega. Cubren lo que más pesa en el examen de teoría: conversión y cuantización (tema 1), secuencias y sistemas (tema 2), Fourier y muestreo (tema 3), transformada Z (tema 4) y datos muestreados (tema 5). Los resultados numéricos están comprobados con código y, donde la solución de referencia tiene una errata, se avisa con un «Ojo».</p></div>
-<div class="zero"><p class="ft">Cómo usarlas</p><p>Haz primero la hoja del tema que estés estudiando, después pasa a los exámenes. Si un paso no te sale, ábrelo, cierra la solución y rehaz el problema entero sin mirar.</p></div>
+<div class="zero"><p class="ft">Cómo usarlas</p><p class="lede">Haz primero la hoja del tema que estés estudiando, después pasa a los exámenes. Si un paso no te sale, ábrelo, cierra la solución y rehaz el problema entero sin mirar.</p></div>
 <h3>Índice de hojas</h3>
 <div class="tw"><table><tr><th>Hoja</th><th>Contenido</th></tr>
 <tr><td><a href="#h1">Hoja 1</a></td><td>Conversión A/D y D/A, muestreo/retención y cuantización · 13 problemas · tema 1</td></tr>
@@ -4767,7 +4807,7 @@ El factor $\frac1{z-1}$ es un <b>integrador</b>. Es necesario porque $H(1)=1$ ob
 <div class="sh"><span class="badge" aria-hidden="true">97</span><div class="shx"><p class="kick">Practicar</p><h2 id="academia">Ejercicios complementarios, resueltos</h2></div></div>
 <p>Esta colección reúne <b>97 ejercicios</b>: 61 de los temas 1 a 4 y 36 de los temas 5 a 7. Están <b>resueltos los 97</b>: primero los más representativos de cada tipo y después <a href="#academia-resto">el resto</a>, ordenados por tema. Los resultados numéricos están <b>comprobados con código</b>, y al final tienes el mapa de todos por tipo.</p>
 <div class="zero"><p class="ft">Cómo trabajarlos</p>
-<p>Lee el enunciado y la pista «Cómo pensarlo», cierra la solución e inténtalo en papel. Muchos se pueden comprobar con los simuladores de la guía: la <b>calculadora de convolución</b> y el <b>explorador de ROC</b> de esta sección, y la calculadora de Schur-Cohn del tema 6.</p></div>
+<p class="lede">Lee el enunciado y la pista «Cómo pensarlo», cierra la solución e inténtalo en papel. Muchos se pueden comprobar con los simuladores de la guía: la <b>calculadora de convolución</b> y el <b>explorador de ROC</b> de esta sección, y la calculadora de Schur-Cohn del tema 6.</p></div>
 
 <h3>Temas 1–2 · Señales, sistemas y convolución</h3>
 <details><summary>T1-E10 · De la respuesta al escalón a la impulsiva <span class="src">Ejercicio complementario</span></summary><div class="inner">
