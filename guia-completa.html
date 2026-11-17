@@ -1003,6 +1003,7 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <div id="w4-plot"></div><div id="w4-bars"></div>
 <figcaption>La serie de Fourier de una onda cuadrada solo tiene armónicos <b>impares</b>, de amplitud $\frac{4}{\pi k}$ (barras de abajo): $x(t)=\frac4\pi\left(\sin t+\frac{\sin3t}3+\frac{\sin5t}5+\dots\right)$. Con pocos términos ya tiene la forma; con muchos se pega a la cuadrada, salvo un pico de cerca del 9 % en cada salto (fenómeno de Gibbs), que no desaparece nunca.</figcaption>
 </figure>
+<!--manim:fourier--><figure class="fig manim-fig" id="anim-fourier"><p class="ft">Animación · Serie de Fourier de la onda cuadrada con círculos que giran</p><div class="manim" data-anim="fourier"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Cada fila suma más armónicos impares: 1, 3, 10 y 40. Se reproduce sola al llegar a ella; puedes pausarla, arrastrar la barra y cambiar la velocidad.</figcaption></figure><!--/manim-->
 <figure class="fig">
 <p class="ft">Simulador · muestrea una senoide y mira qué ve el ordenador</p>
 <div class="ctrl"><label for="w5-f">Frecuencia de la señal $f$ <input type="range" id="w5-f" min="0.5" max="9.5" step="0.5" value="3"></label><output id="w5-f-o"></output>
@@ -6616,6 +6617,6 @@ function first(){if(window.CXC){runConv();}else setTimeout(first,200);}first();
 var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&hl=es&cc_lang_pref=es';f.title=b.getAttribute('aria-label')||'vídeo';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';b.replaceWith(f);});})();
 </script>
 
-<script src="anim-cxc.js?v=3" defer></script>
+<script src="anim-cxc.js?v=4" defer></script>
 </body>
 </html>

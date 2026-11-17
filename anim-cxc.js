@@ -338,7 +338,45 @@ var tust={title:'Tustin y el warping',H:620,dur:18,poster:7,alt:'Un punto sube p
   return 'Tustin no tiene aliasing y conserva la estabilidad, pero <b>deforma</b> las frecuencias altas (warping). Si importa una frecuencia concreta ω₁, se corrige con prewarping: <i>s = (ω₁/tan(ω₁T/2))·(z − 1)/(z + 1)</i>.';
  }};
 
-var SPECS={conv:conv,alias:alia,smap:smap,zoh:zoh,rloc:rloc,tustin:tust};
+
+/* =====================================================================
+   7. SERIE DE FOURIER DE LA ONDA CUADRADA CON EPICICLOS
+   ===================================================================== */
+var FN=[1,3,10,40];
+function fN(N,th){var v=0;for(var k=0;k<N;k++)v+=Math.sin((2*k+1)*th)/(2*k+1);return 4/Math.PI*v;}
+var four={title:'Serie de Fourier: la onda cuadrada',H:640,dur:26,poster:6,alt:'Cuatro filas de círculos que giran (epiciclos) con 1, 3, 10 y 40 armónicos impares; la punta dibuja una onda cada vez más cuadrada.',
+ draw:function(D,t){
+  var th=t*1.7,cols=[C.hl,C.f,C.g,C.ok],ctx=D.ctx,S=34,x0=150,span=470,rowH=128;
+  var nShow=t<2?1:(t<6?2:(t<10?3:4));
+  FN.forEach(function(N,i){
+    var cy=120+i*rowH,cx=62,col=cols[i],al=i<nShow?1:0.18;
+    ctx.save();ctx.globalAlpha=al;
+    /* epiciclos */
+    var x=cx,y=cy;
+    for(var k=0;k<N;k++){var n=2*k+1,r=S*4/(Math.PI*n),a=n*th;
+      if(r>1.2){ctx.strokeStyle=col;ctx.lineWidth=k===0?1.8:1.1;ctx.globalAlpha=al*(k===0?0.9:0.55);ctx.beginPath();ctx.arc(x,y,r,0,6.2832);ctx.stroke();}
+      var nx=x+r*Math.cos(a),ny=y-r*Math.sin(a);ctx.globalAlpha=al*0.8;D.line(x,y,nx,ny,col,1.2);x=nx;y=ny;}
+    ctx.globalAlpha=al;D.dot(x,y,3.6,col);
+    /* eje y unión con la onda */
+    D.line(x0,cy,x0+span,cy,C.grid,1.2,[4,4]);
+    D.line(x,y,x0,y,col,1,[3,3]);
+    /* onda: lo más reciente a la izquierda */
+    var pts=[];for(var u=0;u<=span;u+=2){var tt=th-u/52;pts.push([x0+u,cy-S*fN(N,tt)]);}
+    D.path(pts,col,2.2);
+    ctx.restore();
+    D.text('N = '+N,x0+span-4,cy-S*1.32,{it:true,s:19,c:col,a:'right',al:i<nShow?1:0.35});
+  });
+  D.text('f_{N}(t) = (4/π) Σ_{k=0}^{N−1} sin((2k+1)t) / (2k+1)',W/2,606,{it:true,s:22,a:'center',c:C.w});
+ },
+ cap:function(t){
+  if(t<2)return 'Con un solo círculo que gira, la punta sube y baja como un seno: <i>(4/π)·sin t</i>, el primer armónico de la onda cuadrada.';
+  if(t<6)return 'Encima de cada círculo se monta otro más pequeño que gira más rápido: armónicos <b>impares</b> 3, 5, 7… con amplitud <i>4/(πk)</i>. La suma ya se parece a un escalón.';
+  if(t<10)return 'Con 10 términos los tramos son casi planos. Cada armónico nuevo corrige un poco la forma: eso es una serie de Fourier.';
+  if(t<17)return 'Con 40 términos la onda es casi cuadrada, pero junto a cada salto queda un <b>pico de ≈ 9 %</b> que no desaparece por muchos términos que sumes: el <b>fenómeno de Gibbs</b>.';
+  return 'Idea para el tema: una señal con saltos necesita <b>infinitos armónicos</b> (espectro no limitado). Al muestrearla siempre habrá algo de aliasing; por eso hace falta el filtro antialiasing.';
+ }};
+
+var SPECS={fourier:four,conv:conv,alias:alia,smap:smap,zoh:zoh,rloc:rloc,tustin:tust};
 function init(){document.querySelectorAll('.manim[data-anim]').forEach(function(el){if(el.__p)return;var s=SPECS[el.getAttribute('data-anim')];if(s){el.__p=true;Player(el,s);}});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
